@@ -22,6 +22,7 @@ namespace Archive.DAL
     
         public int ContentTypeId { get; set; }
         public string ContentTypeTitle { get; set; }
+        public string ContentTypeTitlePersian { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Content> Contents { get; set; }

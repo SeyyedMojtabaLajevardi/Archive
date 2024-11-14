@@ -22,6 +22,7 @@ namespace Archive.DAL
     
         public int PermissionTypeId { get; set; }
         public string PermissionTypeTitle { get; set; }
+        public string SamplePermissionTypeTitle { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserInfo> UserInfoes { get; set; }

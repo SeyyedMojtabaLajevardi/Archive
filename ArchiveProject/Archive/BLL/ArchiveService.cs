@@ -23,9 +23,15 @@ namespace Archive.BLL
             return repository.GetAll();
         }
 
-        public List<PermissionLevel> FillPermissionLevel()
+        public List<PadidAvar> FillPadidAvar()
         {
-            var repository = new Repository<PermissionLevel>(_context);
+            var padidAvar = new Repository<PadidAvar>(_context);
+            return padidAvar.GetAll();
+        }
+
+        public List<PermissionState> FillPermissionLevel()
+        {
+            var repository = new Repository<PermissionState>(_context);
             return repository.GetAll();
         }
 

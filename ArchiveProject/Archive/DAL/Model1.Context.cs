@@ -37,14 +37,14 @@ namespace Archive.DAL
         public virtual DbSet<PermissionType> PermissionTypes { get; set; }
         public virtual DbSet<PublishState> PublishStates { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
-        public virtual DbSet<UserInfo> UserInfoes { get; set; }
         public virtual DbSet<View> Views { get; set; }
         public virtual DbSet<WorkFlowState> WorkFlowStates { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
-        public virtual DbSet<Document> Documents { get; set; }
         public virtual DbSet<DocumentResourceRelation> DocumentResourceRelations { get; set; }
         public virtual DbSet<DocumentSubjectRelation> DocumentSubjectRelations { get; set; }
-        public virtual DbSet<PermissionLevel> PermissionLevels { get; set; }
         public virtual DbSet<Resource> Resources { get; set; }
+        public virtual DbSet<PermissionState> PermissionStates { get; set; }
+        public virtual DbSet<Document> Documents { get; set; }
+        public virtual DbSet<UserInfo> UserInfoes { get; set; }
     }
 }

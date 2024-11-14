@@ -24,6 +24,7 @@ namespace Archive.DAL
         public string PadidAvarTitle { get; set; }
         public string BirthDate { get; set; }
         public string DeathDate { get; set; }
+        public string SamplePadidAvarTitle { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Document> Documents { get; set; }

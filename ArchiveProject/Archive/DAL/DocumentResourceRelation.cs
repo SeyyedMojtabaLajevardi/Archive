@@ -18,7 +18,7 @@ namespace Archive.DAL
         public Nullable<int> DocumentId { get; set; }
         public Nullable<int> ResourceId { get; set; }
     
-        public virtual Document Document { get; set; }
         public virtual Resource Resource { get; set; }
+        public virtual Document Document { get; set; }
     }
 }

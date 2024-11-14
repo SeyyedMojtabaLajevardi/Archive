@@ -22,6 +22,7 @@ namespace Archive.DAL
     
         public int EditorId { get; set; }
         public string EditorName { get; set; }
+        public string SampleEditorName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Content> Contents { get; set; }

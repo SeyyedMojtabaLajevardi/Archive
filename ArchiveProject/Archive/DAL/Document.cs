@@ -30,7 +30,7 @@ namespace Archive.DAL
         public string NewTitle { get; set; }
         public string SubTitle { get; set; }
         public Nullable<int> PublishStateId { get; set; }
-        public Nullable<int> PermissionLevelId { get; set; }
+        public Nullable<int> PermissionStateId { get; set; }
         public Nullable<int> CreatorUserId { get; set; }
         public Nullable<int> PadidAvarId { get; set; }
         public Nullable<int> LanguageId { get; set; }
@@ -59,14 +59,14 @@ namespace Archive.DAL
         public virtual Collection Collection { get; set; }
         public virtual Language Language { get; set; }
         public virtual PadidAvar PadidAvar { get; set; }
+        public virtual PermissionState PermissionState { get; set; }
         public virtual PublishState PublishState { get; set; }
-        public virtual UserInfo UserInfo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Content> Contents { get; set; }
-        public virtual PermissionLevel PermissionLevel { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DocumentResourceRelation> DocumentResourceRelations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DocumentSubjectRelation> DocumentSubjectRelations { get; set; }
+        public virtual UserInfo UserInfo { get; set; }
     }
 }

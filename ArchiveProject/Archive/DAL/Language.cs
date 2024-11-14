@@ -23,6 +23,7 @@ namespace Archive.DAL
         public int LanguageId { get; set; }
         public string LanguageTitle { get; set; }
         public string BriefLangyageTitle { get; set; }
+        public string LanguageTitlePersian { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Document> Documents { get; set; }
