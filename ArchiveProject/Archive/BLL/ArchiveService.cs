@@ -29,7 +29,7 @@ namespace Archive.BLL
             return padidAvar.GetAll();
         }
 
-        public List<PermissionState> FillPermissionLevel()
+        public List<PermissionState> FillPermissionState()
         {
             var repository = new Repository<PermissionState>(_context);
             return repository.GetAll();
@@ -47,7 +47,7 @@ namespace Archive.BLL
             return repository.GetAll();
         }
 
-        public List<Category> FillCategory(int parentId, int levelNo)
+        public List<Category> FillCategory(int? parentId, int levelNo)
         {
             var repository = new Repository<Category>(_context);
             return repository.GetByCondition(x => x.ParentId == parentId && x.LevelNo == levelNo);
@@ -59,9 +59,21 @@ namespace Archive.BLL
             return repository.GetAll();
         }
 
+        public List<FileType> FillFileType()
+        {
+            var repository = new Repository<FileType>(_context);
+            return repository.GetAll();
+        }
+
         public List<UserDto> FillUser()
         {
             return _userDtoRepository.GetUserDtos();
+        }
+
+        public List<Editor> FillEditor()
+        {
+            var repository = new Repository<Editor>(_context);
+            return repository.GetAll();
         }
 
     }
