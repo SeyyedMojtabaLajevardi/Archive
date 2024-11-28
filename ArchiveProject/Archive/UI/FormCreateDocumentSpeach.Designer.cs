@@ -30,6 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateDocumentSpeach));
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn12 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn13 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn14 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.ComboBoxPermissionState = new System.Windows.Forms.ComboBox();
             this.ComboBoxPadidAvar = new System.Windows.Forms.ComboBox();
             this.PanelHeader = new System.Windows.Forms.Panel();
@@ -84,26 +99,43 @@
             this.textBoxDeleteComment = new System.Windows.Forms.TextBox();
             this.TextBoxSoundComment = new System.Windows.Forms.TextBox();
             this.ToolStripContentType = new System.Windows.Forms.ToolStrip();
-            this.ToolStripButtonSound = new System.Windows.Forms.ToolStripButton();
-            this.ToolStripButtonText = new System.Windows.Forms.ToolStripButton();
-            this.ToolStripButtonImage = new System.Windows.Forms.ToolStripButton();
-            this.ToolStripButtonVideo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.LabelComment = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ButtonAddFile = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ButtonSaveTemorary = new System.Windows.Forms.Button();
             this.ButtonUploadLQ = new System.Windows.Forms.Button();
             this.ButtonDownloadLQ = new System.Windows.Forms.Button();
             this.ButtonUpload = new System.Windows.Forms.Button();
             this.ButtonDownload = new System.Windows.Forms.Button();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.ButtonAddFile = new System.Windows.Forms.Button();
+            this.ToolStripButtonSound = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButtonText = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButtonImage = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButtonVideo = new System.Windows.Forms.ToolStripButton();
+            this.ButtonAddMainCategory = new System.Windows.Forms.Button();
+            this.ButtonAddCategory1 = new System.Windows.Forms.Button();
+            this.ButtonAddCategory2 = new System.Windows.Forms.Button();
+            this.ButtonAddPadidAvar = new System.Windows.Forms.Button();
+            this.ButtonAddLanguage = new System.Windows.Forms.Button();
+            this.ButtonAddSubject = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.ButtonAddCollection = new System.Windows.Forms.Button();
+            this.ButtonAddFileType = new System.Windows.Forms.Button();
+            this.ButtonAddEditor = new System.Windows.Forms.Button();
+            this.ButtonAddResource = new System.Windows.Forms.Button();
+            this.radGridView1 = new Telerik.WinControls.UI.RadGridView();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radCalendar1)).BeginInit();
             this.ToolStripContentType.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView1.MasterTemplate)).BeginInit();
             this.SuspendLayout();
             // 
             // ComboBoxPermissionState
@@ -149,6 +181,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radGroupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.radGroupBox1.Controls.Add(this.ButtonAddCategory2);
+            this.radGroupBox1.Controls.Add(this.button2);
+            this.radGroupBox1.Controls.Add(this.ButtonAddLanguage);
+            this.radGroupBox1.Controls.Add(this.ButtonAddPadidAvar);
+            this.radGroupBox1.Controls.Add(this.ButtonAddCollection);
+            this.radGroupBox1.Controls.Add(this.ButtonAddSubject);
+            this.radGroupBox1.Controls.Add(this.ButtonAddCategory1);
+            this.radGroupBox1.Controls.Add(this.ButtonAddMainCategory);
             this.radGroupBox1.Controls.Add(this.radCalendar1);
             this.radGroupBox1.Controls.Add(this.LabelPadidAvar);
             this.radGroupBox1.Controls.Add(this.LabelSubTitle);
@@ -193,7 +233,7 @@
             this.radGroupBox1.Location = new System.Drawing.Point(0, 100);
             this.radGroupBox1.Name = "radGroupBox1";
             this.radGroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radGroupBox1.Size = new System.Drawing.Size(1226, 346);
+            this.radGroupBox1.Size = new System.Drawing.Size(1226, 389);
             this.radGroupBox1.TabIndex = 0;
             this.radGroupBox1.Text = "مشخصات سند";
             // 
@@ -332,7 +372,6 @@
             // TextBoxLink
             // 
             this.TextBoxLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxLink.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxLink.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxLink.Location = new System.Drawing.Point(701, 240);
             this.TextBoxLink.Name = "TextBoxLink";
@@ -588,10 +627,10 @@
             // 
             // LabelFileNo
             // 
-            this.LabelFileNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelFileNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelFileNo.AutoSize = true;
             this.LabelFileNo.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.LabelFileNo.Location = new System.Drawing.Point(958, 142);
+            this.LabelFileNo.Location = new System.Drawing.Point(932, 26);
             this.LabelFileNo.Name = "LabelFileNo";
             this.LabelFileNo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelFileNo.Size = new System.Drawing.Size(61, 13);
@@ -600,21 +639,21 @@
             // 
             // TextBoxFileNo
             // 
-            this.TextBoxFileNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxFileNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxFileNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxFileNo.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.TextBoxFileNo.Location = new System.Drawing.Point(897, 139);
+            this.TextBoxFileNo.Location = new System.Drawing.Point(884, 23);
             this.TextBoxFileNo.Name = "TextBoxFileNo";
             this.TextBoxFileNo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxFileNo.Size = new System.Drawing.Size(55, 22);
+            this.TextBoxFileNo.Size = new System.Drawing.Size(43, 22);
             this.TextBoxFileNo.TabIndex = 2;
             // 
             // LabelFileType
             // 
-            this.LabelFileType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelFileType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelFileType.AutoSize = true;
             this.LabelFileType.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.LabelFileType.Location = new System.Drawing.Point(1168, 142);
+            this.LabelFileType.Location = new System.Drawing.Point(1142, 26);
             this.LabelFileType.Name = "LabelFileType";
             this.LabelFileType.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelFileType.Size = new System.Drawing.Size(50, 13);
@@ -623,24 +662,25 @@
             // 
             // ComboBoxFileType
             // 
-            this.ComboBoxFileType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboBoxFileType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ComboBoxFileType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ComboBoxFileType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ComboBoxFileType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ComboBoxFileType.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ComboBoxFileType.FormattingEnabled = true;
-            this.ComboBoxFileType.Location = new System.Drawing.Point(1058, 139);
+            this.ComboBoxFileType.Location = new System.Drawing.Point(1032, 23);
             this.ComboBoxFileType.Name = "ComboBoxFileType";
             this.ComboBoxFileType.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ComboBoxFileType.Size = new System.Drawing.Size(100, 21);
             this.ComboBoxFileType.TabIndex = 4;
+            this.ComboBoxFileType.SelectedIndexChanged += new System.EventHandler(this.ComboBoxFileType_SelectedIndexChanged);
             // 
             // LabelEditor
             // 
-            this.LabelEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelEditor.AutoSize = true;
             this.LabelEditor.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.LabelEditor.Location = new System.Drawing.Point(793, 142);
+            this.LabelEditor.Location = new System.Drawing.Point(785, 26);
             this.LabelEditor.Name = "LabelEditor";
             this.LabelEditor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelEditor.Size = new System.Drawing.Size(52, 13);
@@ -649,13 +689,13 @@
             // 
             // ComboBoxEditor
             // 
-            this.ComboBoxEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboBoxEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ComboBoxEditor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ComboBoxEditor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ComboBoxEditor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ComboBoxEditor.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ComboBoxEditor.FormattingEnabled = true;
-            this.ComboBoxEditor.Location = new System.Drawing.Point(687, 139);
+            this.ComboBoxEditor.Location = new System.Drawing.Point(679, 23);
             this.ComboBoxEditor.Name = "ComboBoxEditor";
             this.ComboBoxEditor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ComboBoxEditor.Size = new System.Drawing.Size(100, 21);
@@ -663,10 +703,10 @@
             // 
             // LabelResource
             // 
-            this.LabelResource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelResource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelResource.AutoSize = true;
             this.LabelResource.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.LabelResource.Location = new System.Drawing.Point(597, 142);
+            this.LabelResource.Location = new System.Drawing.Point(589, 26);
             this.LabelResource.Name = "LabelResource";
             this.LabelResource.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelResource.Size = new System.Drawing.Size(30, 13);
@@ -675,13 +715,13 @@
             // 
             // ComboBoxResource
             // 
-            this.ComboBoxResource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboBoxResource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ComboBoxResource.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ComboBoxResource.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ComboBoxResource.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ComboBoxResource.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ComboBoxResource.FormattingEnabled = true;
-            this.ComboBoxResource.Location = new System.Drawing.Point(446, 139);
+            this.ComboBoxResource.Location = new System.Drawing.Point(438, 23);
             this.ComboBoxResource.Name = "ComboBoxResource";
             this.ComboBoxResource.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ComboBoxResource.Size = new System.Drawing.Size(145, 21);
@@ -689,10 +729,10 @@
             // 
             // LabelWorkflow
             // 
-            this.LabelWorkflow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelWorkflow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelWorkflow.AutoSize = true;
             this.LabelWorkflow.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.LabelWorkflow.Location = new System.Drawing.Point(293, 142);
+            this.LabelWorkflow.Location = new System.Drawing.Point(285, 26);
             this.LabelWorkflow.Name = "LabelWorkflow";
             this.LabelWorkflow.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelWorkflow.Size = new System.Drawing.Size(84, 13);
@@ -701,13 +741,13 @@
             // 
             // ComboBoxWorkflow
             // 
-            this.ComboBoxWorkflow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboBoxWorkflow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ComboBoxWorkflow.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ComboBoxWorkflow.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ComboBoxWorkflow.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ComboBoxWorkflow.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ComboBoxWorkflow.FormattingEnabled = true;
-            this.ComboBoxWorkflow.Location = new System.Drawing.Point(180, 142);
+            this.ComboBoxWorkflow.Location = new System.Drawing.Point(179, 26);
             this.ComboBoxWorkflow.Name = "ComboBoxWorkflow";
             this.ComboBoxWorkflow.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ComboBoxWorkflow.Size = new System.Drawing.Size(100, 21);
@@ -715,10 +755,10 @@
             // 
             // LabelDeleteComment
             // 
-            this.LabelDeleteComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelDeleteComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelDeleteComment.AutoSize = true;
             this.LabelDeleteComment.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.LabelDeleteComment.Location = new System.Drawing.Point(1122, 182);
+            this.LabelDeleteComment.Location = new System.Drawing.Point(1096, 66);
             this.LabelDeleteComment.Name = "LabelDeleteComment";
             this.LabelDeleteComment.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelDeleteComment.Size = new System.Drawing.Size(92, 13);
@@ -727,9 +767,9 @@
             // 
             // textBoxDeleteComment
             // 
-            this.textBoxDeleteComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxDeleteComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxDeleteComment.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.textBoxDeleteComment.Location = new System.Drawing.Point(688, 178);
+            this.textBoxDeleteComment.Location = new System.Drawing.Point(662, 62);
             this.textBoxDeleteComment.Name = "textBoxDeleteComment";
             this.textBoxDeleteComment.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBoxDeleteComment.Size = new System.Drawing.Size(430, 22);
@@ -737,10 +777,10 @@
             // 
             // TextBoxSoundComment
             // 
-            this.TextBoxSoundComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxSoundComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxSoundComment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxSoundComment.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.TextBoxSoundComment.Location = new System.Drawing.Point(688, 211);
+            this.TextBoxSoundComment.Location = new System.Drawing.Point(662, 95);
             this.TextBoxSoundComment.Name = "TextBoxSoundComment";
             this.TextBoxSoundComment.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TextBoxSoundComment.Size = new System.Drawing.Size(430, 22);
@@ -765,156 +805,6 @@
             this.ToolStripContentType.TabIndex = 15;
             this.ToolStripContentType.Text = "toolStrip1";
             // 
-            // ToolStripButtonSound
-            // 
-            this.ToolStripButtonSound.AutoSize = false;
-            this.ToolStripButtonSound.BackColor = System.Drawing.Color.SeaShell;
-            this.ToolStripButtonSound.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.ToolStripButtonSound.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonSound.Image")));
-            this.ToolStripButtonSound.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolStripButtonSound.Name = "ToolStripButtonSound";
-            this.ToolStripButtonSound.Size = new System.Drawing.Size(150, 22);
-            this.ToolStripButtonSound.Text = "صوت";
-            this.ToolStripButtonSound.Click += new System.EventHandler(this.ToolStripButtonSound_Click);
-            // 
-            // ToolStripButtonText
-            // 
-            this.ToolStripButtonText.AutoSize = false;
-            this.ToolStripButtonText.BackColor = System.Drawing.Color.SeaShell;
-            this.ToolStripButtonText.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.ToolStripButtonText.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonText.Image")));
-            this.ToolStripButtonText.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolStripButtonText.Name = "ToolStripButtonText";
-            this.ToolStripButtonText.Size = new System.Drawing.Size(150, 22);
-            this.ToolStripButtonText.Text = "متن";
-            this.ToolStripButtonText.Click += new System.EventHandler(this.ToolStripButtonText_Click);
-            // 
-            // ToolStripButtonImage
-            // 
-            this.ToolStripButtonImage.AutoSize = false;
-            this.ToolStripButtonImage.BackColor = System.Drawing.Color.SeaShell;
-            this.ToolStripButtonImage.CheckOnClick = true;
-            this.ToolStripButtonImage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.ToolStripButtonImage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.ToolStripButtonImage.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonImage.Image")));
-            this.ToolStripButtonImage.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolStripButtonImage.Name = "ToolStripButtonImage";
-            this.ToolStripButtonImage.Size = new System.Drawing.Size(150, 22);
-            this.ToolStripButtonImage.Text = "تصویر";
-            this.ToolStripButtonImage.Click += new System.EventHandler(this.ToolStripButtonImage_Click);
-            // 
-            // ToolStripButtonVideo
-            // 
-            this.ToolStripButtonVideo.AutoSize = false;
-            this.ToolStripButtonVideo.BackColor = System.Drawing.Color.SeaShell;
-            this.ToolStripButtonVideo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.ToolStripButtonVideo.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonVideo.Image")));
-            this.ToolStripButtonVideo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolStripButtonVideo.Name = "ToolStripButtonVideo";
-            this.ToolStripButtonVideo.Size = new System.Drawing.Size(150, 22);
-            this.ToolStripButtonVideo.Text = "ویدئو";
-            this.ToolStripButtonVideo.Click += new System.EventHandler(this.ToolStripButtonVideo_Click);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Tik_20.png");
-            this.imageList1.Images.SetKeyName(1, "Tik1_20.png");
-            // 
-            // LabelComment
-            // 
-            this.LabelComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelComment.AutoSize = true;
-            this.LabelComment.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.LabelComment.Location = new System.Drawing.Point(1175, 213);
-            this.LabelComment.Name = "LabelComment";
-            this.LabelComment.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelComment.Size = new System.Drawing.Size(39, 13);
-            this.LabelComment.TabIndex = 13;
-            this.LabelComment.Text = "کامنت:";
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.ButtonAddFile);
-            this.panel1.Controls.Add(this.ButtonUploadLQ);
-            this.panel1.Controls.Add(this.ButtonDownloadLQ);
-            this.panel1.Controls.Add(this.ButtonUpload);
-            this.panel1.Controls.Add(this.ButtonDownload);
-            this.panel1.Controls.Add(this.ToolStripContentType);
-            this.panel1.Controls.Add(this.LabelEditor);
-            this.panel1.Controls.Add(this.ComboBoxEditor);
-            this.panel1.Controls.Add(this.ComboBoxResource);
-            this.panel1.Controls.Add(this.LabelFileType);
-            this.panel1.Controls.Add(this.TextBoxSoundComment);
-            this.panel1.Controls.Add(this.LabelResource);
-            this.panel1.Controls.Add(this.LabelComment);
-            this.panel1.Controls.Add(this.ComboBoxFileType);
-            this.panel1.Controls.Add(this.LabelDeleteComment);
-            this.panel1.Controls.Add(this.ComboBoxWorkflow);
-            this.panel1.Controls.Add(this.TextBoxFileNo);
-            this.panel1.Controls.Add(this.textBoxDeleteComment);
-            this.panel1.Controls.Add(this.LabelWorkflow);
-            this.panel1.Controls.Add(this.LabelFileNo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 443);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1226, 269);
-            this.panel1.TabIndex = 16;
-            // 
-            // ButtonAddFile
-            // 
-            this.ButtonAddFile.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddFile.Location = new System.Drawing.Point(261, 98);
-            this.ButtonAddFile.Name = "ButtonAddFile";
-            this.ButtonAddFile.Size = new System.Drawing.Size(75, 23);
-            this.ButtonAddFile.TabIndex = 16;
-            this.ButtonAddFile.Text = "افزودن فایل";
-            this.ButtonAddFile.UseVisualStyleBackColor = true;
-            // 
-            // ButtonUploadLQ
-            // 
-            this.ButtonUploadLQ.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonUploadLQ.Location = new System.Drawing.Point(180, 186);
-            this.ButtonUploadLQ.Name = "ButtonUploadLQ";
-            this.ButtonUploadLQ.Size = new System.Drawing.Size(75, 23);
-            this.ButtonUploadLQ.TabIndex = 16;
-            this.ButtonUploadLQ.Text = "LQ آپلود";
-            this.ButtonUploadLQ.UseVisualStyleBackColor = true;
-            this.ButtonUploadLQ.Visible = false;
-            // 
-            // ButtonDownloadLQ
-            // 
-            this.ButtonDownloadLQ.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonDownloadLQ.Location = new System.Drawing.Point(180, 215);
-            this.ButtonDownloadLQ.Name = "ButtonDownloadLQ";
-            this.ButtonDownloadLQ.Size = new System.Drawing.Size(75, 23);
-            this.ButtonDownloadLQ.TabIndex = 16;
-            this.ButtonDownloadLQ.Text = "LQ دانلود";
-            this.ButtonDownloadLQ.UseVisualStyleBackColor = true;
-            this.ButtonDownloadLQ.Visible = false;
-            // 
-            // ButtonUpload
-            // 
-            this.ButtonUpload.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonUpload.Location = new System.Drawing.Point(261, 186);
-            this.ButtonUpload.Name = "ButtonUpload";
-            this.ButtonUpload.Size = new System.Drawing.Size(75, 23);
-            this.ButtonUpload.TabIndex = 16;
-            this.ButtonUpload.Text = "آپلود";
-            this.ButtonUpload.UseVisualStyleBackColor = true;
-            // 
-            // ButtonDownload
-            // 
-            this.ButtonDownload.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonDownload.Location = new System.Drawing.Point(261, 215);
-            this.ButtonDownload.Name = "ButtonDownload";
-            this.ButtonDownload.Size = new System.Drawing.Size(75, 23);
-            this.ButtonDownload.TabIndex = 16;
-            this.ButtonDownload.Text = "دانلود";
-            this.ButtonDownload.UseVisualStyleBackColor = true;
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -930,11 +820,414 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Tik_20.png");
+            this.imageList1.Images.SetKeyName(1, "Tik1_20.png");
+            // 
+            // LabelComment
+            // 
+            this.LabelComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelComment.AutoSize = true;
+            this.LabelComment.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.LabelComment.Location = new System.Drawing.Point(1149, 97);
+            this.LabelComment.Name = "LabelComment";
+            this.LabelComment.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LabelComment.Size = new System.Drawing.Size(39, 13);
+            this.LabelComment.TabIndex = 13;
+            this.LabelComment.Text = "کامنت:";
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.radGridView1);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.ToolStripContentType);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 490);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1226, 371);
+            this.panel1.TabIndex = 16;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.ButtonSaveTemorary);
+            this.groupBox1.Controls.Add(this.textBoxDeleteComment);
+            this.groupBox1.Controls.Add(this.ButtonAddFile);
+            this.groupBox1.Controls.Add(this.LabelFileNo);
+            this.groupBox1.Controls.Add(this.LabelWorkflow);
+            this.groupBox1.Controls.Add(this.ButtonAddResource);
+            this.groupBox1.Controls.Add(this.ButtonAddEditor);
+            this.groupBox1.Controls.Add(this.ButtonAddFileType);
+            this.groupBox1.Controls.Add(this.ButtonUploadLQ);
+            this.groupBox1.Controls.Add(this.TextBoxFileNo);
+            this.groupBox1.Controls.Add(this.ButtonDownloadLQ);
+            this.groupBox1.Controls.Add(this.ComboBoxWorkflow);
+            this.groupBox1.Controls.Add(this.ButtonUpload);
+            this.groupBox1.Controls.Add(this.LabelDeleteComment);
+            this.groupBox1.Controls.Add(this.ButtonDownload);
+            this.groupBox1.Controls.Add(this.ComboBoxFileType);
+            this.groupBox1.Controls.Add(this.LabelComment);
+            this.groupBox1.Controls.Add(this.LabelEditor);
+            this.groupBox1.Controls.Add(this.LabelResource);
+            this.groupBox1.Controls.Add(this.ComboBoxEditor);
+            this.groupBox1.Controls.Add(this.TextBoxSoundComment);
+            this.groupBox1.Controls.Add(this.ComboBoxResource);
+            this.groupBox1.Controls.Add(this.LabelFileType);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 25);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1222, 144);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            // 
+            // ButtonSaveTemorary
+            // 
+            this.ButtonSaveTemorary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSaveTemorary.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonSaveTemorary.Location = new System.Drawing.Point(10, 87);
+            this.ButtonSaveTemorary.Name = "ButtonSaveTemorary";
+            this.ButtonSaveTemorary.Size = new System.Drawing.Size(75, 23);
+            this.ButtonSaveTemorary.TabIndex = 17;
+            this.ButtonSaveTemorary.Text = "ثبت موقت";
+            this.ButtonSaveTemorary.UseVisualStyleBackColor = true;
+            this.ButtonSaveTemorary.Click += new System.EventHandler(this.ButtonSaveTemorary_Click);
+            // 
+            // ButtonUploadLQ
+            // 
+            this.ButtonUploadLQ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonUploadLQ.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonUploadLQ.Location = new System.Drawing.Point(166, 58);
+            this.ButtonUploadLQ.Name = "ButtonUploadLQ";
+            this.ButtonUploadLQ.Size = new System.Drawing.Size(75, 23);
+            this.ButtonUploadLQ.TabIndex = 16;
+            this.ButtonUploadLQ.Text = "LQ آپلود";
+            this.ButtonUploadLQ.UseVisualStyleBackColor = true;
+            this.ButtonUploadLQ.Visible = false;
+            // 
+            // ButtonDownloadLQ
+            // 
+            this.ButtonDownloadLQ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonDownloadLQ.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonDownloadLQ.Location = new System.Drawing.Point(166, 87);
+            this.ButtonDownloadLQ.Name = "ButtonDownloadLQ";
+            this.ButtonDownloadLQ.Size = new System.Drawing.Size(75, 23);
+            this.ButtonDownloadLQ.TabIndex = 16;
+            this.ButtonDownloadLQ.Text = "LQ دانلود";
+            this.ButtonDownloadLQ.UseVisualStyleBackColor = true;
+            this.ButtonDownloadLQ.Visible = false;
+            // 
+            // ButtonUpload
+            // 
+            this.ButtonUpload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonUpload.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonUpload.Location = new System.Drawing.Point(247, 58);
+            this.ButtonUpload.Name = "ButtonUpload";
+            this.ButtonUpload.Size = new System.Drawing.Size(75, 23);
+            this.ButtonUpload.TabIndex = 16;
+            this.ButtonUpload.Text = "آپلود";
+            this.ButtonUpload.UseVisualStyleBackColor = true;
+            // 
+            // ButtonDownload
+            // 
+            this.ButtonDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonDownload.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonDownload.Location = new System.Drawing.Point(247, 87);
+            this.ButtonDownload.Name = "ButtonDownload";
+            this.ButtonDownload.Size = new System.Drawing.Size(75, 23);
+            this.ButtonDownload.TabIndex = 16;
+            this.ButtonDownload.Text = "دانلود";
+            this.ButtonDownload.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddFile
+            // 
+            this.ButtonAddFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonAddFile.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddFile.Location = new System.Drawing.Point(10, 22);
+            this.ButtonAddFile.Name = "ButtonAddFile";
+            this.ButtonAddFile.Size = new System.Drawing.Size(75, 23);
+            this.ButtonAddFile.TabIndex = 16;
+            this.ButtonAddFile.Text = "افزودن فایل";
+            this.ButtonAddFile.UseVisualStyleBackColor = true;
+            // 
+            // ToolStripButtonSound
+            // 
+            this.ToolStripButtonSound.AutoSize = false;
+            this.ToolStripButtonSound.BackColor = System.Drawing.Color.SeaShell;
+            this.ToolStripButtonSound.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ToolStripButtonSound.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonSound.Image")));
+            this.ToolStripButtonSound.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButtonSound.Name = "ToolStripButtonSound";
+            this.ToolStripButtonSound.Size = new System.Drawing.Size(150, 22);
+            this.ToolStripButtonSound.Tag = "Sound";
+            this.ToolStripButtonSound.Text = "صوت";
+            this.ToolStripButtonSound.Click += new System.EventHandler(this.ToolStripButtonSound_Click);
+            // 
+            // ToolStripButtonText
+            // 
+            this.ToolStripButtonText.AutoSize = false;
+            this.ToolStripButtonText.BackColor = System.Drawing.Color.SeaShell;
+            this.ToolStripButtonText.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ToolStripButtonText.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonText.Image")));
+            this.ToolStripButtonText.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButtonText.Name = "ToolStripButtonText";
+            this.ToolStripButtonText.Size = new System.Drawing.Size(150, 22);
+            this.ToolStripButtonText.Tag = "Text";
+            this.ToolStripButtonText.Text = "متن";
+            this.ToolStripButtonText.Click += new System.EventHandler(this.ToolStripButtonText_Click);
+            // 
+            // ToolStripButtonImage
+            // 
+            this.ToolStripButtonImage.AutoSize = false;
+            this.ToolStripButtonImage.BackColor = System.Drawing.Color.SeaShell;
+            this.ToolStripButtonImage.CheckOnClick = true;
+            this.ToolStripButtonImage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ToolStripButtonImage.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ToolStripButtonImage.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonImage.Image")));
+            this.ToolStripButtonImage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButtonImage.Name = "ToolStripButtonImage";
+            this.ToolStripButtonImage.Size = new System.Drawing.Size(150, 22);
+            this.ToolStripButtonImage.Tag = "Image";
+            this.ToolStripButtonImage.Text = "تصویر";
+            this.ToolStripButtonImage.Click += new System.EventHandler(this.ToolStripButtonImage_Click);
+            // 
+            // ToolStripButtonVideo
+            // 
+            this.ToolStripButtonVideo.AutoSize = false;
+            this.ToolStripButtonVideo.BackColor = System.Drawing.Color.SeaShell;
+            this.ToolStripButtonVideo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ToolStripButtonVideo.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonVideo.Image")));
+            this.ToolStripButtonVideo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButtonVideo.Name = "ToolStripButtonVideo";
+            this.ToolStripButtonVideo.Size = new System.Drawing.Size(150, 22);
+            this.ToolStripButtonVideo.Tag = "Video";
+            this.ToolStripButtonVideo.Text = "ویدئو";
+            this.ToolStripButtonVideo.Click += new System.EventHandler(this.ToolStripButtonVideo_Click);
+            // 
+            // ButtonAddMainCategory
+            // 
+            this.ButtonAddMainCategory.AutoSize = true;
+            this.ButtonAddMainCategory.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddMainCategory.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddMainCategory.Location = new System.Drawing.Point(1027, 110);
+            this.ButtonAddMainCategory.Name = "ButtonAddMainCategory";
+            this.ButtonAddMainCategory.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddMainCategory.TabIndex = 17;
+            this.ButtonAddMainCategory.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddCategory1
+            // 
+            this.ButtonAddCategory1.AutoSize = true;
+            this.ButtonAddCategory1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddCategory1.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddCategory1.Location = new System.Drawing.Point(664, 109);
+            this.ButtonAddCategory1.Name = "ButtonAddCategory1";
+            this.ButtonAddCategory1.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddCategory1.TabIndex = 17;
+            this.ButtonAddCategory1.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddCategory2
+            // 
+            this.ButtonAddCategory2.AutoSize = true;
+            this.ButtonAddCategory2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddCategory2.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddCategory2.Location = new System.Drawing.Point(351, 106);
+            this.ButtonAddCategory2.Name = "ButtonAddCategory2";
+            this.ButtonAddCategory2.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddCategory2.TabIndex = 17;
+            this.ButtonAddCategory2.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddPadidAvar
+            // 
+            this.ButtonAddPadidAvar.AutoSize = true;
+            this.ButtonAddPadidAvar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddPadidAvar.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddPadidAvar.Location = new System.Drawing.Point(664, 69);
+            this.ButtonAddPadidAvar.Name = "ButtonAddPadidAvar";
+            this.ButtonAddPadidAvar.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddPadidAvar.TabIndex = 17;
+            this.ButtonAddPadidAvar.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddLanguage
+            // 
+            this.ButtonAddLanguage.AutoSize = true;
+            this.ButtonAddLanguage.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddLanguage.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddLanguage.Location = new System.Drawing.Point(351, 68);
+            this.ButtonAddLanguage.Name = "ButtonAddLanguage";
+            this.ButtonAddLanguage.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddLanguage.TabIndex = 17;
+            this.ButtonAddLanguage.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddSubject
+            // 
+            this.ButtonAddSubject.AutoSize = true;
+            this.ButtonAddSubject.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddSubject.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddSubject.Location = new System.Drawing.Point(1027, 149);
+            this.ButtonAddSubject.Name = "ButtonAddSubject";
+            this.ButtonAddSubject.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddSubject.TabIndex = 17;
+            this.ButtonAddSubject.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = global::Archive.Properties.Resources.Add2;
+            this.button2.Location = new System.Drawing.Point(351, 107);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(22, 22);
+            this.button2.TabIndex = 17;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddCollection
+            // 
+            this.ButtonAddCollection.AutoSize = true;
+            this.ButtonAddCollection.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddCollection.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddCollection.Location = new System.Drawing.Point(1027, 198);
+            this.ButtonAddCollection.Name = "ButtonAddCollection";
+            this.ButtonAddCollection.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddCollection.TabIndex = 17;
+            this.ButtonAddCollection.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddFileType
+            // 
+            this.ButtonAddFileType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonAddFileType.AutoSize = true;
+            this.ButtonAddFileType.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddFileType.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddFileType.Location = new System.Drawing.Point(1009, 23);
+            this.ButtonAddFileType.Name = "ButtonAddFileType";
+            this.ButtonAddFileType.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddFileType.TabIndex = 17;
+            this.ButtonAddFileType.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddEditor
+            // 
+            this.ButtonAddEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonAddEditor.AutoSize = true;
+            this.ButtonAddEditor.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddEditor.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddEditor.Location = new System.Drawing.Point(656, 22);
+            this.ButtonAddEditor.Name = "ButtonAddEditor";
+            this.ButtonAddEditor.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddEditor.TabIndex = 17;
+            this.ButtonAddEditor.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddResource
+            // 
+            this.ButtonAddResource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonAddResource.AutoSize = true;
+            this.ButtonAddResource.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddResource.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddResource.Location = new System.Drawing.Point(415, 21);
+            this.ButtonAddResource.Name = "ButtonAddResource";
+            this.ButtonAddResource.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddResource.TabIndex = 17;
+            this.ButtonAddResource.UseVisualStyleBackColor = true;
+            // 
+            // radGridView1
+            // 
+            this.radGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radGridView1.Location = new System.Drawing.Point(0, 169);
+            // 
+            // 
+            // 
+            this.radGridView1.MasterTemplate.AllowAddNewRow = false;
+            gridViewTextBoxColumn1.FieldName = "ocumentId";
+            gridViewTextBoxColumn1.HeaderText = "DocumentId";
+            gridViewTextBoxColumn1.IsVisible = false;
+            gridViewTextBoxColumn1.Name = "DocumentId";
+            gridViewTextBoxColumn2.FieldName = "ContentId";
+            gridViewTextBoxColumn2.HeaderText = "ContentId";
+            gridViewTextBoxColumn2.IsVisible = false;
+            gridViewTextBoxColumn2.Name = "ContentId";
+            gridViewTextBoxColumn3.FieldName = "FileTypeId";
+            gridViewTextBoxColumn3.HeaderText = "FileTypeId";
+            gridViewTextBoxColumn3.IsVisible = false;
+            gridViewTextBoxColumn3.Name = "column1";
+            gridViewTextBoxColumn4.FieldName = "ContentTypeId";
+            gridViewTextBoxColumn4.HeaderText = "ContentTypeId";
+            gridViewTextBoxColumn4.IsVisible = false;
+            gridViewTextBoxColumn4.Name = "ContentTypeId";
+            gridViewTextBoxColumn5.FieldName = "EditorId";
+            gridViewTextBoxColumn5.HeaderText = "EditorId";
+            gridViewTextBoxColumn5.IsVisible = false;
+            gridViewTextBoxColumn5.Name = "EditorId";
+            gridViewTextBoxColumn6.FieldName = "ResourceId";
+            gridViewTextBoxColumn6.HeaderText = "ResourceId";
+            gridViewTextBoxColumn6.IsVisible = false;
+            gridViewTextBoxColumn6.Name = "ResourceId";
+            gridViewTextBoxColumn7.FieldName = "ContentTypeTitle";
+            gridViewTextBoxColumn7.HeaderText = "نوع محتوا";
+            gridViewTextBoxColumn7.MaxWidth = 100;
+            gridViewTextBoxColumn7.Name = "ContentTypeTitle";
+            gridViewTextBoxColumn7.Width = 100;
+            gridViewTextBoxColumn8.FieldName = "FileType";
+            gridViewTextBoxColumn8.HeaderText = "نوع فایل";
+            gridViewTextBoxColumn8.MaxWidth = 100;
+            gridViewTextBoxColumn8.Name = "FileType";
+            gridViewTextBoxColumn8.Width = 100;
+            gridViewTextBoxColumn9.FieldName = "FileNumber";
+            gridViewTextBoxColumn9.HeaderText = "ش-فایل";
+            gridViewTextBoxColumn9.MaxWidth = 70;
+            gridViewTextBoxColumn9.Name = "FileNumber";
+            gridViewTextBoxColumn9.Width = 70;
+            gridViewTextBoxColumn10.FieldName = "EditorName";
+            gridViewTextBoxColumn10.HeaderText = "ویرایشگر";
+            gridViewTextBoxColumn10.MaxWidth = 150;
+            gridViewTextBoxColumn10.Name = "EditorName";
+            gridViewTextBoxColumn10.Width = 150;
+            gridViewTextBoxColumn11.FieldName = "SampleEditorName";
+            gridViewTextBoxColumn11.HeaderText = "SampleEditorName";
+            gridViewTextBoxColumn11.IsVisible = false;
+            gridViewTextBoxColumn11.Name = "SampleEditorName";
+            gridViewTextBoxColumn12.FieldName = "ResourceTitle";
+            gridViewTextBoxColumn12.HeaderText = "منبع";
+            gridViewTextBoxColumn12.MaxWidth = 150;
+            gridViewTextBoxColumn12.Name = "ResourceTitle";
+            gridViewTextBoxColumn12.Width = 150;
+            gridViewTextBoxColumn13.FieldName = "DeletionDescription";
+            gridViewTextBoxColumn13.HeaderText = "توضیح حذفیات";
+            gridViewTextBoxColumn13.MaxWidth = 300;
+            gridViewTextBoxColumn13.Name = "DeletionDescription";
+            gridViewTextBoxColumn13.Width = 300;
+            gridViewTextBoxColumn14.FieldName = "Comment";
+            gridViewTextBoxColumn14.HeaderText = "کامنت";
+            gridViewTextBoxColumn14.MaxWidth = 300;
+            gridViewTextBoxColumn14.Name = "Comment";
+            gridViewTextBoxColumn14.Width = 300;
+            this.radGridView1.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3,
+            gridViewTextBoxColumn4,
+            gridViewTextBoxColumn5,
+            gridViewTextBoxColumn6,
+            gridViewTextBoxColumn7,
+            gridViewTextBoxColumn8,
+            gridViewTextBoxColumn9,
+            gridViewTextBoxColumn10,
+            gridViewTextBoxColumn11,
+            gridViewTextBoxColumn12,
+            gridViewTextBoxColumn13,
+            gridViewTextBoxColumn14});
+            this.radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.radGridView1.Name = "radGridView1";
+            this.radGridView1.ReadOnly = true;
+            this.radGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radGridView1.Size = new System.Drawing.Size(1222, 198);
+            this.radGridView1.TabIndex = 19;
+            // 
             // FormCreateDocumentSpeach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 712);
+            this.ClientSize = new System.Drawing.Size(1226, 861);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.radGroupBox1);
             this.Controls.Add(this.PanelHeader);
@@ -949,6 +1242,10 @@
             this.ToolStripContentType.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView1.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1024,5 +1321,19 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button ButtonSaveTemorary;
+        private System.Windows.Forms.Button ButtonAddMainCategory;
+        private System.Windows.Forms.Button ButtonAddCategory2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ButtonAddLanguage;
+        private System.Windows.Forms.Button ButtonAddPadidAvar;
+        private System.Windows.Forms.Button ButtonAddCollection;
+        private System.Windows.Forms.Button ButtonAddSubject;
+        private System.Windows.Forms.Button ButtonAddCategory1;
+        private System.Windows.Forms.Button ButtonAddResource;
+        private System.Windows.Forms.Button ButtonAddEditor;
+        private System.Windows.Forms.Button ButtonAddFileType;
+        private Telerik.WinControls.UI.RadGridView radGridView1;
     }
 }

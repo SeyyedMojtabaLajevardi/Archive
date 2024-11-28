@@ -39,6 +39,15 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="PersianDate">
+      <HintPath>..\..\AbutorabAutomation-master\AbutorabAutomation-master\AbutorabAutomation\Dll\Dll\PersianDate.dll</HintPath>
+    </Reference>
+    <Reference Include="PersianDateLibrary">
+      <HintPath>..\..\AbutorabAutomation-master\AbutorabAutomation-master\AbutorabAutomation\Dll\Dll\PersianDateLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="ShDateTimePicker">
+      <HintPath>..\..\AbutorabAutomation-master\AbutorabAutomation-master\AbutorabAutomation\Dll\Dll\ShDateTimePicker.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -61,7 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\ArchiveService.cs" />
-    <Compile Include="BLL\Dto\UserDto.cs" />
+    <Compile Include="BLL\Enum\Enum.cs" />
+    <Compile Include="DAL\Dto\ContentDto.cs" />
+    <Compile Include="DAL\Dto\UserDto.cs" />
     <Compile Include="DAL\Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -216,6 +227,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Add2.png" />
     <None Include="Resources\Tik1_20.png" />
   </ItemGroup>
   <ItemGroup>

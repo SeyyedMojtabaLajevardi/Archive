@@ -1,4 +1,5 @@
 ﻿using Archive.BLL;
+using Archive.BLL.Enum;
 using Archive.DAL;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,8 @@ namespace Archive
         private List<FileType> _fileTypes = new List<FileType>();
         private List<Editor> _editors = new List<Editor>();
         private bool _isFirst = false;
+        private ContentType contentType = null;
+        Enums enums = new Enums();
 
         public FormCreateDocumentSpeach()
         {
@@ -185,6 +188,7 @@ namespace Archive
             ToolStripButtonText.Font = new Font("Segoe UI", 9, FontStyle.Regular);
             ToolStripButtonImage.Font = new Font("Segoe UI", 9, FontStyle.Regular);
             ToolStripButtonVideo.Font = new Font("Segoe UI", 9, FontStyle.Regular);
+            contentType = new ContentType({ ContentTypeTitle = activeButton.Tag.ToString(), ContentTypeId = Enum. });
 
             activeButton.BackColor = Color.GreenYellow;
             activeButton.Font = new Font("Segoe UI", 9, FontStyle.Bold);
@@ -204,5 +208,19 @@ namespace Archive
             }
         }
 
+        private void ComboBoxFileType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonSaveTemorary_Click(object sender, EventArgs e)
+        {
+            var content = GetCurrentContentInfo();
+        }
+
+        private object GetCurrentContentInfo()
+        {
+            return null;
+            //var filetype;
+        }
     }
 }

@@ -18,6 +18,7 @@ namespace Archive.DAL
         public Resource()
         {
             this.DocumentResourceRelations = new HashSet<DocumentResourceRelation>();
+            this.Contents = new HashSet<Content>();
         }
     
         public int ResourceId { get; set; }
@@ -25,5 +26,7 @@ namespace Archive.DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DocumentResourceRelation> DocumentResourceRelations { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Content> Contents { get; set; }
     }
 }

@@ -309,6 +309,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Content_Resource">
+          <End Role="Resource" Type="Self.Resource" Multiplicity="0..1" />
+          <End Role="Content" Type="Self.Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resource">
+              <PropertyRef Name="ResourceId" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="ResourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Document_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Document" Type="Self.Document" Multiplicity="*" />
@@ -525,6 +537,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Content_FileType" Association="Self.FK_Content_FileType">
             <End Role="FileType" EntitySet="FileType" />
+            <End Role="Content" EntitySet="Content" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_Resource" Association="Self.FK_Content_Resource">
+            <End Role="Resource" EntitySet="Resource" />
             <End Role="Content" EntitySet="Content" />
           </AssociationSet>
           <AssociationSet Name="FK_Document_Category" Association="Self.FK_Document_Category">
@@ -749,6 +765,7 @@
           <NavigationProperty Name="Editor" Relationship="Self.FK_Content_Editor" FromRole="Content" ToRole="Editor" />
           <NavigationProperty Name="FileType" Relationship="Self.FK_Content_FileType" FromRole="Content" ToRole="FileType" />
           <NavigationProperty Name="Document" Relationship="ArchiveModel.FK_Content_Document" FromRole="Content" ToRole="Document" />
+          <NavigationProperty Name="Resource" Relationship="ArchiveModel.FK_Content_Resource" FromRole="Content" ToRole="Resource" />
         </EntityType>
         <EntityType Name="DocumentResourceRelation">
           <Key>
@@ -777,6 +794,7 @@
           <Property Name="ResourceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ResourceTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DocumentResourceRelations" Relationship="Self.FK_DocumentResourceRelation_Resource" FromRole="Resource" ToRole="DocumentResourceRelation" />
+          <NavigationProperty Name="Contents" Relationship="ArchiveModel.FK_Content_Resource" FromRole="Resource" ToRole="Content" />
         </EntityType>
         <Association Name="FK_CodeRange_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
@@ -955,6 +973,10 @@
           <AssociationSet Name="FK_View_User1" Association="ArchiveModel.FK_View_User1">
             <End Role="UserInfo" EntitySet="UserInfoes" />
             <End Role="View" EntitySet="Views" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_Resource" Association="ArchiveModel.FK_Content_Resource">
+            <End Role="Resource" EntitySet="Resources" />
+            <End Role="Content" EntitySet="Contents" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="PermissionState">
@@ -1206,6 +1228,18 @@
             </Principal>
             <Dependent Role="View">
               <PropertyRef Name="ReceiverUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Content_Resource">
+          <End Type="ArchiveModel.Resource" Role="Resource" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Content" Role="Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resource">
+              <PropertyRef Name="ResourceId" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="ResourceId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

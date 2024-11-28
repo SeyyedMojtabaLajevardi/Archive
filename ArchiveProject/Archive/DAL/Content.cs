@@ -32,5 +32,6 @@ namespace Archive.DAL
         public virtual Editor Editor { get; set; }
         public virtual FileType FileType { get; set; }
         public virtual Document Document { get; set; }
+        public virtual Resource Resource { get; set; }
     }
 }

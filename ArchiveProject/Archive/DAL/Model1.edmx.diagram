@@ -47,6 +47,7 @@
         <AssociationConnector Association="ArchiveModel.FK_Document_User" />
         <AssociationConnector Association="ArchiveModel.FK_View_User" />
         <AssociationConnector Association="ArchiveModel.FK_View_User1" />
+        <AssociationConnector Association="ArchiveModel.FK_Content_Resource" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
