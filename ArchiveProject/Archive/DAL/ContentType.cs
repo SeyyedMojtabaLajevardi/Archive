@@ -11,7 +11,8 @@ namespace Archive.DAL
 {
     using System;
     using System.Collections.Generic;
-    
+    using Archive.BLL.Enumerations;
+
     public partial class ContentType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

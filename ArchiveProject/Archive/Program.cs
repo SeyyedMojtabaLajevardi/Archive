@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Archive.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace Archive
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormCreateDocumentSpeach());
+            //Application.Run(new FormCreateDocumentSpeach());
+            Application.Run(new FormDocumentList());
         }
     }
 }

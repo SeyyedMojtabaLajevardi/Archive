@@ -1,5 +1,5 @@
 ﻿using Archive.BLL;
-using Archive.BLL.Enum;
+using Archive.BLL.Enumerations;
 using Archive.DAL;
 using System;
 using System.Collections.Generic;
@@ -30,8 +30,10 @@ namespace Archive
         private List<FileType> _fileTypes = new List<FileType>();
         private List<Editor> _editors = new List<Editor>();
         private bool _isFirst = false;
-        private ContentType contentType = null;
-        Enums enums = new Enums();
+        private ContentType _contentType = null;
+        private FileType _fileType = null;
+
+        //Enums enums = new Enums();
 
         public FormCreateDocumentSpeach()
         {
@@ -96,7 +98,7 @@ namespace Archive
 
         private void ToolStripButtonSound_Click(object sender, EventArgs e)
         {
-            SetButtonState(ToolStripButtonSound);
+            SetButtonState(ToolStripButtonSound, ConentTypeEnum.Sound);
             //ToolStripButtonSound.BackColor = Color.GreenYellow;
             //ToolStripButtonText.BackColor = Color.SeaShell;
             //ToolStripButtonImage.BackColor = Color.SeaShell;
@@ -109,7 +111,7 @@ namespace Archive
 
         private void ToolStripButtonText_Click(object sender, EventArgs e)
         {
-            SetButtonState(ToolStripButtonText);
+            SetButtonState(ToolStripButtonText, ConentTypeEnum.Text);
             //ToolStripButtonText.BackColor = Color.GreenYellow;
             //ToolStripButtonSound.BackColor = Color.SeaShell;
             //ToolStripButtonImage.BackColor = Color.SeaShell;
@@ -122,7 +124,7 @@ namespace Archive
 
         private void ToolStripButtonImage_Click(object sender, EventArgs e)
         {
-            SetButtonState(ToolStripButtonImage);
+            SetButtonState(ToolStripButtonImage, ConentTypeEnum.Image);
             //ToolStripButtonImage.BackColor = Color.GreenYellow;
             //ToolStripButtonSound.BackColor = Color.SeaShell;
             //ToolStripButtonText.BackColor = Color.SeaShell;
@@ -135,7 +137,7 @@ namespace Archive
 
         private void ToolStripButtonVideo_Click(object sender, EventArgs e)
         {
-            SetButtonState(ToolStripButtonVideo);
+            SetButtonState(ToolStripButtonVideo, ConentTypeEnum.Video);
             //ToolStripButtonVideo.BackColor = Color.GreenYellow;
             //ToolStripButtonSound.BackColor = Color.SeaShell;
             //ToolStripButtonText.BackColor = Color.SeaShell;
@@ -178,7 +180,7 @@ namespace Archive
             ComboBoxCategory1.Text = "انتخاب کنید";
         }
 
-        private void SetButtonState(ToolStripButton activeButton, bool isVideo = false)
+        private void SetButtonState(ToolStripButton activeButton, ConentTypeEnum conentTypeEnum)
         {
             ToolStripButtonSound.BackColor = Color.SeaShell;
             ToolStripButtonText.BackColor = Color.SeaShell;
@@ -188,15 +190,15 @@ namespace Archive
             ToolStripButtonText.Font = new Font("Segoe UI", 9, FontStyle.Regular);
             ToolStripButtonImage.Font = new Font("Segoe UI", 9, FontStyle.Regular);
             ToolStripButtonVideo.Font = new Font("Segoe UI", 9, FontStyle.Regular);
-            contentType = new ContentType({ ContentTypeTitle = activeButton.Tag.ToString(), ContentTypeId = Enum. });
+            _contentType = new ContentType { ContentTypeTitle = activeButton.Tag.ToString(), ContentTypeId = (int)conentTypeEnum + 1 };
 
             activeButton.BackColor = Color.GreenYellow;
             activeButton.Font = new Font("Segoe UI", 9, FontStyle.Bold);
 
-            ButtonDownloadLQ.Visible = isVideo;
-            ButtonUploadLQ.Visible = isVideo;
+            ButtonDownloadLQ.Visible = conentTypeEnum == ConentTypeEnum.Video;
+            ButtonUploadLQ.Visible = conentTypeEnum == ConentTypeEnum.Video;
 
-            if (isVideo)
+            if (conentTypeEnum == ConentTypeEnum.Video)
             {
                 ButtonDownload.Text = "HQ دانلود";
                 ButtonUpload.Text = "HQ آپلود";
@@ -210,6 +212,9 @@ namespace Archive
 
         private void ComboBoxFileType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var fileTypeId = ((FileType)ComboBoxFileType.SelectedItem).FileTypeId;
+            var fileTypeTitle = ((FileType)ComboBoxFileType.SelectedItem).FileTypeTitle;
+            _fileType = new FileType { FileTypeId = fileTypeId, FileTypeTitle = fileTypeTitle };
         }
 
         private void ButtonSaveTemorary_Click(object sender, EventArgs e)

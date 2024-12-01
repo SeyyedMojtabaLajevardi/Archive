@@ -70,7 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\ArchiveService.cs" />
-    <Compile Include="BLL\Enum\Enum.cs" />
+    <Compile Include="BLL\Enumerations\Enum.cs" />
     <Compile Include="DAL\Dto\ContentDto.cs" />
     <Compile Include="DAL\Dto\UserDto.cs" />
     <Compile Include="DAL\Category.cs">
@@ -158,6 +158,12 @@
     <Compile Include="UI\FormCreateDocumentSpeach.Designer.cs">
       <DependentUpon>FormCreateDocumentSpeach.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FormDocumentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormDocumentList.Designer.cs">
+      <DependentUpon>FormDocumentList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </Compile>
     <EmbeddedResource Include="UI\FormCreateDocumentSpeach.resx">
       <DependentUpon>FormCreateDocumentSpeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormDocumentList.resx">
+      <DependentUpon>FormDocumentList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
