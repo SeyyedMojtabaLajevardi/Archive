@@ -55,7 +55,6 @@ namespace Archive.DAL
         public string Translator { get; set; }
         public string Narrator { get; set; }
     
-        public virtual Category Category { get; set; }
         public virtual Collection Collection { get; set; }
         public virtual Language Language { get; set; }
         public virtual PadidAvar PadidAvar { get; set; }
@@ -68,5 +67,6 @@ namespace Archive.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DocumentSubjectRelation> DocumentSubjectRelations { get; set; }
         public virtual UserInfo UserInfo { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

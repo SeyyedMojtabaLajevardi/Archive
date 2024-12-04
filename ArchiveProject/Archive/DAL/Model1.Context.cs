@@ -25,7 +25,6 @@ namespace Archive.DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<CodeRange> CodeRanges { get; set; }
         public virtual DbSet<Collection> Collections { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
@@ -46,5 +45,6 @@ namespace Archive.DAL
         public virtual DbSet<PermissionState> PermissionStates { get; set; }
         public virtual DbSet<Document> Documents { get; set; }
         public virtual DbSet<UserInfo> UserInfoes { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
     }
 }

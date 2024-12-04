@@ -152,11 +152,11 @@
     <Compile Include="DAL\WorkFlowState.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="UI\FormCreateDocumentSpeach.cs">
+    <Compile Include="UI\FormCreateDocument.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FormCreateDocumentSpeach.Designer.cs">
-      <DependentUpon>FormCreateDocumentSpeach.cs</DependentUpon>
+    <Compile Include="UI\FormCreateDocument.Designer.cs">
+      <DependentUpon>FormCreateDocument.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FormDocumentList.cs">
       <SubType>Form</SubType>
@@ -181,8 +181,8 @@
     <Compile Include="UI\RoundedComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="UI\FormCreateDocumentSpeach.resx">
-      <DependentUpon>FormCreateDocumentSpeach.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FormCreateDocument.resx">
+      <DependentUpon>FormCreateDocument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormDocumentList.resx">
       <DependentUpon>FormDocumentList.cs</DependentUpon>

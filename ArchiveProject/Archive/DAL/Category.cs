@@ -27,6 +27,7 @@ namespace Archive.DAL
         public Nullable<int> LevelNo { get; set; }
         public Nullable<int> ChildCount { get; set; }
         public Nullable<int> ChildOrder { get; set; }
+        public string CategoryEnglishTitle { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CodeRange> CodeRanges { get; set; }

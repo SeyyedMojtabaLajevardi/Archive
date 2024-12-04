@@ -15,6 +15,7 @@
           <Property Name="LevelNo" Type="int" />
           <Property Name="ChildCount" Type="int" />
           <Property Name="ChildOrder" Type="int" />
+          <Property Name="CategoryEnglishTitle" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="CodeRange">
           <Key>
@@ -604,19 +605,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ArchiveModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Category">
-          <Key>
-            <PropertyRef Name="CategoryId" />
-          </Key>
-          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CategoryTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ParentId" Type="Int32" />
-          <Property Name="LevelNo" Type="Int32" />
-          <Property Name="ChildCount" Type="Int32" />
-          <Property Name="ChildOrder" Type="Int32" />
-          <NavigationProperty Name="CodeRanges" Relationship="Self.FK_CodeRange_Category" FromRole="Category" ToRole="CodeRange" />
-          <NavigationProperty Name="Documents" Relationship="ArchiveModel.FK_Document_Category" FromRole="Category" ToRole="Document" />
-        </EntityType>
         <EntityType Name="CodeRange">
           <Key>
             <PropertyRef Name="CodeRangeId" />
@@ -625,7 +613,7 @@
           <Property Name="MinCode" Type="Int32" />
           <Property Name="MaxCode" Type="Int32" />
           <Property Name="CategoryId" Type="Int32" />
-          <NavigationProperty Name="Category" Relationship="Self.FK_CodeRange_Category" FromRole="CodeRange" ToRole="Category" />
+          <NavigationProperty Name="Category" Relationship="ArchiveModel.FK_CodeRange_Category" FromRole="CodeRange" ToRole="Category" />
         </EntityType>
         <EntityType Name="Collection">
           <Key>
@@ -796,18 +784,6 @@
           <NavigationProperty Name="DocumentResourceRelations" Relationship="Self.FK_DocumentResourceRelation_Resource" FromRole="Resource" ToRole="DocumentResourceRelation" />
           <NavigationProperty Name="Contents" Relationship="ArchiveModel.FK_Content_Resource" FromRole="Resource" ToRole="Content" />
         </EntityType>
-        <Association Name="FK_CodeRange_Category">
-          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
-          <End Role="CodeRange" Type="Self.CodeRange" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="CodeRange">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Content_ContentType">
           <End Role="ContentType" Type="Self.ContentType" Multiplicity="0..1" />
           <End Role="Content" Type="Self.Content" Multiplicity="*" />
@@ -869,7 +845,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ArchiveEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="CodeRanges" EntityType="Self.CodeRange" />
           <EntitySet Name="Collections" EntityType="Self.Collection" />
           <EntitySet Name="Comments" EntityType="Self.Comment" />
@@ -887,10 +862,6 @@
           <EntitySet Name="DocumentResourceRelations" EntityType="Self.DocumentResourceRelation" />
           <EntitySet Name="DocumentSubjectRelations" EntityType="Self.DocumentSubjectRelation" />
           <EntitySet Name="Resources" EntityType="Self.Resource" />
-          <AssociationSet Name="FK_CodeRange_Category" Association="Self.FK_CodeRange_Category">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="CodeRange" EntitySet="CodeRanges" />
-          </AssociationSet>
           <AssociationSet Name="FK_Content_ContentType" Association="Self.FK_Content_ContentType">
             <End Role="ContentType" EntitySet="ContentTypes" />
             <End Role="Content" EntitySet="Contents" />
@@ -913,10 +884,6 @@
           </AssociationSet>
           <EntitySet Name="PermissionStates" EntityType="ArchiveModel.PermissionState" />
           <EntitySet Name="Documents" EntityType="ArchiveModel.Document" />
-          <AssociationSet Name="FK_Document_Category" Association="ArchiveModel.FK_Document_Category">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
           <AssociationSet Name="FK_Document_Collection" Association="ArchiveModel.FK_Document_Collection">
             <End Role="Collection" EntitySet="Collections" />
             <End Role="Document" EntitySet="Documents" />
@@ -978,6 +945,15 @@
             <End Role="Resource" EntitySet="Resources" />
             <End Role="Content" EntitySet="Contents" />
           </AssociationSet>
+          <EntitySet Name="Categories" EntityType="ArchiveModel.Category" />
+          <AssociationSet Name="FK_CodeRange_Category" Association="ArchiveModel.FK_CodeRange_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="CodeRange" EntitySet="CodeRanges" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_Category" Association="ArchiveModel.FK_Document_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="PermissionState">
           <Key>
@@ -1023,7 +999,6 @@
           <Property Name="TranslateLanguageId" Type="Int32" />
           <Property Name="Translator" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Narrator" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Category" Relationship="ArchiveModel.FK_Document_Category" FromRole="Document" ToRole="Category" />
           <NavigationProperty Name="Collection" Relationship="ArchiveModel.FK_Document_Collection" FromRole="Document" ToRole="Collection" />
           <NavigationProperty Name="Language" Relationship="ArchiveModel.FK_Document_Language" FromRole="Document" ToRole="Language" />
           <NavigationProperty Name="PadidAvar" Relationship="ArchiveModel.FK_Document_PadidAvar" FromRole="Document" ToRole="PadidAvar" />
@@ -1033,19 +1008,8 @@
           <NavigationProperty Name="DocumentResourceRelations" Relationship="ArchiveModel.FK_DocumentResourceRelation_Document" FromRole="Document" ToRole="DocumentResourceRelation" />
           <NavigationProperty Name="DocumentSubjectRelations" Relationship="ArchiveModel.FK_DocumentSubjectRelation_Document" FromRole="Document" ToRole="DocumentSubjectRelation" />
           <NavigationProperty Name="UserInfo" Relationship="ArchiveModel.FK_Document_User" FromRole="Document" ToRole="UserInfo" />
+          <NavigationProperty Name="Category" Relationship="ArchiveModel.FK_Document_Category" FromRole="Document" ToRole="Category" />
         </EntityType>
-        <Association Name="FK_Document_Category">
-          <End Type="ArchiveModel.Category" Role="Category" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="Document">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Document_Collection">
           <End Type="ArchiveModel.Collection" Role="Collection" Multiplicity="0..1" />
           <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
@@ -1243,24 +1207,50 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="LevelNo" Type="Int32" />
+          <Property Name="ChildCount" Type="Int32" />
+          <Property Name="ChildOrder" Type="Int32" />
+          <Property Name="CategoryEnglishTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CodeRanges" Relationship="ArchiveModel.FK_CodeRange_Category" FromRole="Category" ToRole="CodeRange" />
+          <NavigationProperty Name="Documents" Relationship="ArchiveModel.FK_Document_Category" FromRole="Category" ToRole="Document" />
+        </EntityType>
+        <Association Name="FK_CodeRange_Category">
+          <End Type="ArchiveModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="ArchiveModel.CodeRange" Role="CodeRange" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="CodeRange">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_Category">
+          <End Type="ArchiveModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ArchiveModelStoreContainer" CdmEntityContainer="ArchiveEntities">
-          <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="ArchiveModel.Category">
-              <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="CategoryTitle" ColumnName="CategoryTitle" />
-                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-                <ScalarProperty Name="LevelNo" ColumnName="LevelNo" />
-                <ScalarProperty Name="ChildCount" ColumnName="ChildCount" />
-                <ScalarProperty Name="ChildOrder" ColumnName="ChildOrder" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CodeRanges">
             <EntityTypeMapping TypeName="ArchiveModel.CodeRange">
               <MappingFragment StoreEntitySet="CodeRange">
@@ -1487,6 +1477,19 @@
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="UsreId" ColumnName="UsreId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="ArchiveModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryEnglishTitle" ColumnName="CategoryEnglishTitle" />
+                <ScalarProperty Name="ChildOrder" ColumnName="ChildOrder" />
+                <ScalarProperty Name="ChildCount" ColumnName="ChildCount" />
+                <ScalarProperty Name="LevelNo" ColumnName="LevelNo" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="CategoryTitle" ColumnName="CategoryTitle" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
