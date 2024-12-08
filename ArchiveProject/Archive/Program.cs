@@ -17,8 +17,8 @@ namespace Archive
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormCreateDocumentSpeach());
-            Application.Run(new FormDocumentList());
+            Application.Run(new FormCreateDocument());
+            //Application.Run(new FormDocumentList());
         }
     }
 }
