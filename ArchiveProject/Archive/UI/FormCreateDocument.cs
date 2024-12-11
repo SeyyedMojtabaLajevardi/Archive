@@ -217,7 +217,7 @@ namespace Archive
             //var filetype;
         }
 
-        private void ButtonAddFile_Click(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
 
         }
