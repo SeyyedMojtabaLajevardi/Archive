@@ -34,18 +34,18 @@
             Telerik.WinControls.UI.RadCheckedListDataItem radCheckedListDataItem3 = new Telerik.WinControls.UI.RadCheckedListDataItem();
             Telerik.WinControls.UI.RadCheckedListDataItem radCheckedListDataItem4 = new Telerik.WinControls.UI.RadCheckedListDataItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateDocument));
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn1 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn2 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn3 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn4 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn15 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn16 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn17 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn18 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn19 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn20 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn21 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn9 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn10 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn11 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn12 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
             this.ComboBoxPermissionState = new System.Windows.Forms.ComboBox();
             this.ComboBoxPadidAvar = new System.Windows.Forms.ComboBox();
             this.PanelHeader = new System.Windows.Forms.Panel();
@@ -230,6 +230,7 @@
             // 
             // ComboBoxSubject
             // 
+            this.ComboBoxSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ComboBoxSubject.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.ComboBoxSubject.DropDownAnimationEasing = Telerik.WinControls.RadEasingType.InCubic;
             this.ComboBoxSubject.DropDownAnimationEnabled = true;
@@ -249,6 +250,7 @@
             // 
             // ButtonAddCategory2
             // 
+            this.ButtonAddCategory2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ButtonAddCategory2.AutoSize = true;
             this.ButtonAddCategory2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddCategory2.Image = global::Archive.Properties.Resources.Add2;
@@ -260,6 +262,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button2.AutoSize = true;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::Archive.Properties.Resources.Add2;
@@ -271,6 +274,7 @@
             // 
             // ButtonAddLanguage
             // 
+            this.ButtonAddLanguage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ButtonAddLanguage.AutoSize = true;
             this.ButtonAddLanguage.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddLanguage.Image = global::Archive.Properties.Resources.Add2;
@@ -282,6 +286,7 @@
             // 
             // ButtonAddPadidAvar
             // 
+            this.ButtonAddPadidAvar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ButtonAddPadidAvar.AutoSize = true;
             this.ButtonAddPadidAvar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddPadidAvar.Image = global::Archive.Properties.Resources.Add2;
@@ -293,6 +298,7 @@
             // 
             // ButtonAddSubject
             // 
+            this.ButtonAddSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonAddSubject.AutoSize = true;
             this.ButtonAddSubject.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddSubject.Image = global::Archive.Properties.Resources.Add2;
@@ -304,6 +310,7 @@
             // 
             // ButtonAddCategory1
             // 
+            this.ButtonAddCategory1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ButtonAddCategory1.AutoSize = true;
             this.ButtonAddCategory1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddCategory1.Image = global::Archive.Properties.Resources.Add2;
@@ -315,6 +322,7 @@
             // 
             // ButtonAddMainCategory
             // 
+            this.ButtonAddMainCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonAddMainCategory.AutoSize = true;
             this.ButtonAddMainCategory.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddMainCategory.Image = global::Archive.Properties.Resources.Add2;
@@ -662,7 +670,7 @@
             // 
             // ComboBoxCategory1
             // 
-            this.ComboBoxCategory1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboBoxCategory1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ComboBoxCategory1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ComboBoxCategory1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ComboBoxCategory1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -751,65 +759,65 @@
             // 
             // 
             this.radGridView1.MasterTemplate.AllowAddNewRow = false;
-            gridViewTextBoxColumn1.FieldName = "ocumentId";
-            gridViewTextBoxColumn1.HeaderText = "DocumentId";
-            gridViewTextBoxColumn1.IsVisible = false;
-            gridViewTextBoxColumn1.Name = "DocumentId";
-            gridViewTextBoxColumn2.FieldName = "ContentId";
-            gridViewTextBoxColumn2.HeaderText = "ContentId";
-            gridViewTextBoxColumn2.IsVisible = false;
-            gridViewTextBoxColumn2.Name = "ContentId";
-            gridViewTextBoxColumn3.FieldName = "ContentTypeTitle";
-            gridViewTextBoxColumn3.HeaderText = "نوع محتوا";
-            gridViewTextBoxColumn3.MaxWidth = 100;
-            gridViewTextBoxColumn3.Name = "ContentTypeTitle";
-            gridViewTextBoxColumn3.Width = 100;
-            gridViewTextBoxColumn4.FieldName = "FileType";
-            gridViewTextBoxColumn4.HeaderText = "نوع فایل";
-            gridViewTextBoxColumn4.MaxWidth = 150;
-            gridViewTextBoxColumn4.Name = "FileType";
-            gridViewTextBoxColumn4.Width = 150;
-            gridViewTextBoxColumn5.FieldName = "FileNumber";
-            gridViewTextBoxColumn5.HeaderText = "ش-فایل";
-            gridViewTextBoxColumn5.MaxWidth = 70;
-            gridViewTextBoxColumn5.Name = "FileNumber";
-            gridViewTextBoxColumn5.Width = 70;
-            gridViewTextBoxColumn6.FieldName = "ResourceTitle";
-            gridViewTextBoxColumn6.HeaderText = "منبع";
-            gridViewTextBoxColumn6.MaxWidth = 150;
-            gridViewTextBoxColumn6.Name = "ResourceTitle";
-            gridViewTextBoxColumn6.Width = 150;
-            gridViewTextBoxColumn7.FieldName = "DeletionDescription";
-            gridViewTextBoxColumn7.HeaderText = "توضیح حذفیات";
-            gridViewTextBoxColumn7.MaxWidth = 500;
-            gridViewTextBoxColumn7.Name = "DeletionDescription";
-            gridViewTextBoxColumn7.Width = 500;
-            gridViewCommandColumn1.FieldName = "Upload";
-            gridViewCommandColumn1.HeaderText = "Upld";
-            gridViewCommandColumn1.Image = global::Archive.Properties.Resources.Add2;
-            gridViewCommandColumn1.Name = "Upload";
-            gridViewCommandColumn2.FieldName = "Download";
-            gridViewCommandColumn2.HeaderText = "Dnld";
-            gridViewCommandColumn2.Name = "Download";
-            gridViewCommandColumn3.FieldName = "UploadQ";
-            gridViewCommandColumn3.HeaderText = "UpldQ";
-            gridViewCommandColumn3.Name = "UploadQ";
-            gridViewCommandColumn4.FieldName = "DownloadQ";
-            gridViewCommandColumn4.HeaderText = "DnldQ";
-            gridViewCommandColumn4.Name = "DownloadQ";
+            gridViewTextBoxColumn15.FieldName = "ocumentId";
+            gridViewTextBoxColumn15.HeaderText = "DocumentId";
+            gridViewTextBoxColumn15.IsVisible = false;
+            gridViewTextBoxColumn15.Name = "DocumentId";
+            gridViewTextBoxColumn16.FieldName = "ContentId";
+            gridViewTextBoxColumn16.HeaderText = "ContentId";
+            gridViewTextBoxColumn16.IsVisible = false;
+            gridViewTextBoxColumn16.Name = "ContentId";
+            gridViewTextBoxColumn17.FieldName = "ContentTypeTitle";
+            gridViewTextBoxColumn17.HeaderText = "نوع محتوا";
+            gridViewTextBoxColumn17.MaxWidth = 100;
+            gridViewTextBoxColumn17.Name = "ContentTypeTitle";
+            gridViewTextBoxColumn17.Width = 100;
+            gridViewTextBoxColumn18.FieldName = "FileType";
+            gridViewTextBoxColumn18.HeaderText = "نوع فایل";
+            gridViewTextBoxColumn18.MaxWidth = 150;
+            gridViewTextBoxColumn18.Name = "FileType";
+            gridViewTextBoxColumn18.Width = 150;
+            gridViewTextBoxColumn19.FieldName = "FileNumber";
+            gridViewTextBoxColumn19.HeaderText = "ش-فایل";
+            gridViewTextBoxColumn19.MaxWidth = 70;
+            gridViewTextBoxColumn19.Name = "FileNumber";
+            gridViewTextBoxColumn19.Width = 70;
+            gridViewTextBoxColumn20.FieldName = "ResourceTitle";
+            gridViewTextBoxColumn20.HeaderText = "منبع";
+            gridViewTextBoxColumn20.MaxWidth = 150;
+            gridViewTextBoxColumn20.Name = "ResourceTitle";
+            gridViewTextBoxColumn20.Width = 150;
+            gridViewTextBoxColumn21.FieldName = "DeletionDescription";
+            gridViewTextBoxColumn21.HeaderText = "توضیح حذفیات";
+            gridViewTextBoxColumn21.MaxWidth = 500;
+            gridViewTextBoxColumn21.Name = "DeletionDescription";
+            gridViewTextBoxColumn21.Width = 500;
+            gridViewCommandColumn9.FieldName = "Upload";
+            gridViewCommandColumn9.HeaderText = "Upld";
+            gridViewCommandColumn9.Image = global::Archive.Properties.Resources.Add2;
+            gridViewCommandColumn9.Name = "Upload";
+            gridViewCommandColumn10.FieldName = "Download";
+            gridViewCommandColumn10.HeaderText = "Dnld";
+            gridViewCommandColumn10.Name = "Download";
+            gridViewCommandColumn11.FieldName = "UploadQ";
+            gridViewCommandColumn11.HeaderText = "UpldQ";
+            gridViewCommandColumn11.Name = "UploadQ";
+            gridViewCommandColumn12.FieldName = "DownloadQ";
+            gridViewCommandColumn12.HeaderText = "DnldQ";
+            gridViewCommandColumn12.Name = "DownloadQ";
             this.radGridView1.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1,
-            gridViewTextBoxColumn2,
-            gridViewTextBoxColumn3,
-            gridViewTextBoxColumn4,
-            gridViewTextBoxColumn5,
-            gridViewTextBoxColumn6,
-            gridViewTextBoxColumn7,
-            gridViewCommandColumn1,
-            gridViewCommandColumn2,
-            gridViewCommandColumn3,
-            gridViewCommandColumn4});
-            this.radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            gridViewTextBoxColumn15,
+            gridViewTextBoxColumn16,
+            gridViewTextBoxColumn17,
+            gridViewTextBoxColumn18,
+            gridViewTextBoxColumn19,
+            gridViewTextBoxColumn20,
+            gridViewTextBoxColumn21,
+            gridViewCommandColumn9,
+            gridViewCommandColumn10,
+            gridViewCommandColumn11,
+            gridViewCommandColumn12});
+            this.radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.radGridView1.Name = "radGridView1";
             this.radGridView1.ReadOnly = true;
             this.radGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1070,6 +1078,7 @@
             this.ToolStripButtonText.Size = new System.Drawing.Size(150, 22);
             this.ToolStripButtonText.Tag = "Text";
             this.ToolStripButtonText.Text = "متن";
+            this.ToolStripButtonText.Click += new System.EventHandler(this.ToolStripButtonText_Click);
             // 
             // toolStripSeparator2
             // 
@@ -1089,6 +1098,7 @@
             this.ToolStripButtonImage.Size = new System.Drawing.Size(150, 22);
             this.ToolStripButtonImage.Tag = "Image";
             this.ToolStripButtonImage.Text = "تصویر";
+            this.ToolStripButtonImage.Click += new System.EventHandler(this.ToolStripButtonImage_Click);
             // 
             // toolStripSeparator3
             // 
@@ -1106,6 +1116,7 @@
             this.ToolStripButtonVideo.Size = new System.Drawing.Size(150, 22);
             this.ToolStripButtonVideo.Tag = "Video";
             this.ToolStripButtonVideo.Text = "ویدئو";
+            this.ToolStripButtonVideo.Click += new System.EventHandler(this.ToolStripButtonVideo_Click);
             // 
             // FormCreateDocument
             // 

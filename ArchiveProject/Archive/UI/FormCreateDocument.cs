@@ -235,7 +235,7 @@ namespace Archive
                 ContentTypeTitle = _contentType.ContentTypeTitle,
                 Comment = TextBoxComment.Text.Trim(),
                 DeletionDescription = textBoxDeleteDescription.Text.Trim(),
-                
+                //DocumentId = ???
             };
         }
 
