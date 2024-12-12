@@ -121,8 +121,6 @@
             this.ToolStripButtonImage = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.ToolStripButtonVideo = new System.Windows.Forms.ToolStripButton();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.radDateTimePicker1 = new Telerik.WinControls.UI.RadDateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ComboBoxSubject)).BeginInit();
@@ -133,7 +131,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radGridView1.MasterTemplate)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.ToolStripContentType.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radDateTimePicker1)).BeginInit();
             this.SuspendLayout();
             // 
             // ComboBoxPermissionState
@@ -177,8 +174,6 @@
             // 
             this.radGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
             this.radGroupBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.radGroupBox1.Controls.Add(this.radDateTimePicker1);
-            this.radGroupBox1.Controls.Add(this.dateTimePicker1);
             this.radGroupBox1.Controls.Add(this.ComboBoxSubject);
             this.radGroupBox1.Controls.Add(this.ButtonAddCategory2);
             this.radGroupBox1.Controls.Add(this.button2);
@@ -1057,7 +1052,7 @@
             this.ToolStripButtonSound.Size = new System.Drawing.Size(150, 22);
             this.ToolStripButtonSound.Tag = "Sound";
             this.ToolStripButtonSound.Text = "صوت";
-            this.ToolStripButtonSound.Click += new System.EventHandler(this.ToolStripButtonSound_Click_1);
+            this.ToolStripButtonSound.Click += new System.EventHandler(this.ToolStripButtonSound_Click);
             // 
             // toolStripSeparator1
             // 
@@ -1112,26 +1107,6 @@
             this.ToolStripButtonVideo.Tag = "Video";
             this.ToolStripButtonVideo.Text = "ویدئو";
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(287, 154);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 19;
-            // 
-            // radDateTimePicker1
-            // 
-            this.radDateTimePicker1.CalendarSize = new System.Drawing.Size(290, 320);
-            this.radDateTimePicker1.Location = new System.Drawing.Point(287, 242);
-            this.radDateTimePicker1.Name = "radDateTimePicker1";
-            this.radDateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radDateTimePicker1.Size = new System.Drawing.Size(164, 24);
-            this.radDateTimePicker1.TabIndex = 20;
-            this.radDateTimePicker1.TabStop = false;
-            this.radDateTimePicker1.Text = "Thursday, December 12, 2024";
-            this.radDateTimePicker1.Value = new System.DateTime(2024, 12, 12, 15, 55, 20, 915);
-            // 
             // FormCreateDocument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1158,7 +1133,6 @@
             this.groupBox1.PerformLayout();
             this.ToolStripContentType.ResumeLayout(false);
             this.ToolStripContentType.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radDateTimePicker1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1240,7 +1214,5 @@
         private System.Windows.Forms.ToolStripButton ToolStripButtonImage;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton ToolStripButtonVideo;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private Telerik.WinControls.UI.RadDateTimePicker radDateTimePicker1;
     }
 }

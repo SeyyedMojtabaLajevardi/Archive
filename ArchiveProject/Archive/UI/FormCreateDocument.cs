@@ -253,10 +253,5 @@ namespace Archive
                 TextBoxFileNo.Text = "";
             }
         }
-
-        private void ToolStripButtonSound_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
