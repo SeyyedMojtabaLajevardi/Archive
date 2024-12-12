@@ -1,6 +1,7 @@
 ﻿using Archive.BLL;
 using Archive.BLL.Enumerations;
 using Archive.DAL;
+using Archive.DAL.Dto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
@@ -28,11 +30,12 @@ namespace Archive
         private List<PadidAvar> _padidAvars = new List<PadidAvar>();
         private List<Language> _languages = new List<Language>();
         private List<FileType> _fileTypes = new List<FileType>();
-        private List<Editor> _editors = new List<Editor>();
         private bool _isFirst = false;
         private ContentType _contentType = null;
         private FileType _fileType = null;
         private int _mainCategoryId;
+        private string _fileTypeTitle = "";
+        private string _resourceTitle = "";
         //Enums enums = new Enums();
 
         public FormCreateDocument(int mainCategoryId)
@@ -184,17 +187,17 @@ namespace Archive
             activeButton.BackColor = Color.GreenYellow;
             activeButton.Font = new Font("Segoe UI", 9, FontStyle.Bold);
 
-            ButtonDownloadLQ.Visible = conentTypeEnum == ConentTypeEnum.Video;
+            //ButtonDownloadLQ.Visible = conentTypeEnum == ConentTypeEnum.Video;
             ButtonUploadLQ.Visible = conentTypeEnum == ConentTypeEnum.Video;
 
             if (conentTypeEnum == ConentTypeEnum.Video)
             {
-                ButtonDownload.Text = "HQ دانلود";
+                //ButtonDownload.Text = "HQ دانلود";
                 ButtonUpload.Text = "HQ آپلود";
             }
             else
             {
-                ButtonDownload.Text = "دانلود";
+                //ButtonDownload.Text = "دانلود";
                 ButtonUpload.Text = "آپلود";
             }
         }
@@ -202,8 +205,8 @@ namespace Archive
         private void ComboBoxFileType_SelectedIndexChanged(object sender, EventArgs e)
         {
             var fileTypeId = ((FileType)ComboBoxFileType.SelectedItem).FileTypeId;
-            var fileTypeTitle = ((FileType)ComboBoxFileType.SelectedItem).FileTypeTitle;
-            _fileType = new FileType { FileTypeId = fileTypeId, FileTypeTitle = fileTypeTitle };
+            _fileTypeTitle = ((FileType)ComboBoxFileType.SelectedItem).FileTypeTitle;
+            //_fileType = new FileType { FileTypeId = fileTypeId, FileTypeTitle = fileTypeTitle };
         }
 
         private void ButtonSaveTemorary_Click(object sender, EventArgs e)
@@ -217,7 +220,41 @@ namespace Archive
             //var filetype;
         }
 
-        private void ButtonCancel_Click(object sender, EventArgs e)
+        private void ButtonAddFile_Click(object sender, EventArgs e)
+        {
+            if(TextBoxFileNo.Text.Trim() == "")
+            {
+                MessageBox.Show("شماره فایل باید مقداردهی شود");
+                return; 
+            }
+            ContentDto contentDto = new ContentDto
+            {
+                ResourceTitle = _resourceTitle,
+                FileTypeTitle = _fileTypeTitle,
+                FileNumber = int.Parse(TextBoxFileNo.Text.Trim()),
+                ContentTypeTitle = _contentType.ContentTypeTitle,
+                Comment = TextBoxComment.Text.Trim(),
+                DeletionDescription = textBoxDeleteDescription.Text.Trim(),
+                
+            };
+        }
+
+        private void ComboBoxResource_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var resourceId = ((Resource)ComboBoxResource.SelectedItem).ResourceId;
+            _resourceTitle = ((Resource)ComboBoxResource.SelectedItem).ResourceTitle;
+        }
+
+        private void TextBoxFileNo_TextChanged(object sender, EventArgs e)
+        {
+            // باید فقط مقادیر عددی وارد شود
+            if (Regex.Replace(TextBoxFileNo.Text, @"\d+", "").Length > 0)
+            {
+                TextBoxFileNo.Text = "";
+            }
+        }
+
+        private void ToolStripButtonSound_Click_1(object sender, EventArgs e)
         {
 
         }

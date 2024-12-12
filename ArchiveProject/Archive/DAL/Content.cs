@@ -19,17 +19,15 @@ namespace Archive.DAL
         public Nullable<int> DocumentId { get; set; }
         public string Code { get; set; }
         public string Description { get; set; }
-        public Nullable<int> EditorId { get; set; }
         public Nullable<int> FileTypeId { get; set; }
         public Nullable<int> FileNumber { get; set; }
         public Nullable<int> ResourceId { get; set; }
-        public Nullable<int> WorkFlowStateId { get; set; }
         public string DeletionDescription { get; set; }
         public string Comment { get; set; }
         public string Text { get; set; }
+        public string FileName { get; set; }
     
         public virtual ContentType ContentType { get; set; }
-        public virtual Editor Editor { get; set; }
         public virtual FileType FileType { get; set; }
         public virtual Document Document { get; set; }
         public virtual Resource Resource { get; set; }

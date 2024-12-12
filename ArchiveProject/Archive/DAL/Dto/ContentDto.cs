@@ -9,5 +9,7 @@ namespace Archive.DAL.Dto
     internal class ContentDto : Content
     {
         public string ContentTypeTitle { get; set; }
+        public string FileTypeTitle { get; set; }
+        public string ResourceTitle { get; set; }
     }
 }

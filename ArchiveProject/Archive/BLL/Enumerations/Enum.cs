@@ -9,13 +9,9 @@ namespace Archive.BLL.Enumerations
 {
     public enum ConentTypeEnum
     {
-        [Description:متن]
         Text,
-        [Description:صوت]
         Sound,
-        [Description:تصویر]
         Image,
-        [Description:ویدئو]
         Video
     }
 }

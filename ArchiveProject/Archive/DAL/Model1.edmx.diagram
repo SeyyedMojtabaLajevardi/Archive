@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="ArchiveModel.Collection" Width="1.5" PointX="3.75" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ArchiveModel.Comment" Width="1.5" PointX="6" PointY="19.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ArchiveModel.ContentType" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArchiveModel.Editor" Width="1.5" PointX="6" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ArchiveModel.FileType" Width="1.5" PointX="6" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ArchiveModel.Language" Width="1.5" PointX="3.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ArchiveModel.PadidAvar" Width="1.5" PointX="3.75" PointY="15.375" IsExpanded="true" />
@@ -18,13 +17,9 @@
         <EntityTypeShape EntityType="ArchiveModel.Subject" Width="1.5" PointX="9" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ArchiveModel.View" Width="1.5" PointX="6" PointY="23.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ArchiveModel.WorkFlowState" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArchiveModel.Content" Width="1.5" PointX="8.25" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="ArchiveModel.DocumentResourceRelation" Width="1.5" PointX="11.25" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ArchiveModel.DocumentSubjectRelation" Width="1.5" PointX="11.25" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ArchiveModel.Resource" Width="1.5" PointX="9" PointY="11.25" IsExpanded="true" />
-        <AssociationConnector Association="ArchiveModel.FK_Content_ContentType" ManuallyRouted="false" />
-        <AssociationConnector Association="ArchiveModel.FK_Content_Editor" ManuallyRouted="false" />
-        <AssociationConnector Association="ArchiveModel.FK_Content_FileType" ManuallyRouted="false" />
         <AssociationConnector Association="ArchiveModel.FK_DocumentSubjectRelation_Subject" ManuallyRouted="false" />
         <AssociationConnector Association="ArchiveModel.FK_DocumentResourceRelation_Resource" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ArchiveModel.PermissionState" Width="1.5" PointX="0.75" PointY="3.875" />
@@ -34,7 +29,6 @@
         <AssociationConnector Association="ArchiveModel.FK_Document_PadidAvar" />
         <AssociationConnector Association="ArchiveModel.FK_Document_PermissionLevel" />
         <AssociationConnector Association="ArchiveModel.FK_Document_PublishState" />
-        <AssociationConnector Association="ArchiveModel.FK_Content_Document" />
         <AssociationConnector Association="ArchiveModel.FK_DocumentResourceRelation_Document" />
         <AssociationConnector Association="ArchiveModel.FK_DocumentSubjectRelation_Document" />
         <EntityTypeShape EntityType="ArchiveModel.UserInfo" Width="1.5" PointX="3.75" PointY="20.5" />
@@ -44,10 +38,14 @@
         <AssociationConnector Association="ArchiveModel.FK_Document_User" />
         <AssociationConnector Association="ArchiveModel.FK_View_User" />
         <AssociationConnector Association="ArchiveModel.FK_View_User1" />
-        <AssociationConnector Association="ArchiveModel.FK_Content_Resource" />
         <EntityTypeShape EntityType="ArchiveModel.Category" Width="1.5" PointX="0.75" PointY="7.375" />
         <AssociationConnector Association="ArchiveModel.FK_CodeRange_Category" />
         <AssociationConnector Association="ArchiveModel.FK_Document_Category" />
+        <EntityTypeShape EntityType="ArchiveModel.Content" Width="1.5" PointX="11.25" PointY="10.625" />
+        <AssociationConnector Association="ArchiveModel.FK_Content_ContentType" />
+        <AssociationConnector Association="ArchiveModel.FK_Content_FileType" />
+        <AssociationConnector Association="ArchiveModel.FK_Content_Document" />
+        <AssociationConnector Association="ArchiveModel.FK_Content_Resource" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

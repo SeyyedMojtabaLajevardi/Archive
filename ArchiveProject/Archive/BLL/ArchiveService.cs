@@ -70,11 +70,10 @@ namespace Archive.BLL
             return _userDtoRepository.GetUserDtos();
         }
 
-        public List<Editor> FillEditor()
-        {
-            var repository = new Repository<Editor>(_context);
-            return repository.GetAll();
-        }
-
+        //public List<Editor> FillEditor()
+        //{
+        //    var repository = new Repository<Editor>(_context);
+        //    return repository.GetAll();
+        //}
     }
 }
