@@ -19,9 +19,9 @@ namespace Archive.DAL
         {
             this.Comments = new HashSet<Comment>();
             this.Comments1 = new HashSet<Comment>();
-            this.Documents = new HashSet<Document>();
             this.Views = new HashSet<View>();
             this.Views1 = new HashSet<View>();
+            this.Documents = new HashSet<Document>();
         }
     
         public int UsreId { get; set; }
@@ -37,10 +37,10 @@ namespace Archive.DAL
         public virtual ICollection<Comment> Comments1 { get; set; }
         public virtual PermissionType PermissionType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Document> Documents { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<View> Views { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<View> Views1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Document> Documents { get; set; }
     }
 }

@@ -23,29 +23,29 @@
         <AssociationConnector Association="ArchiveModel.FK_DocumentSubjectRelation_Subject" ManuallyRouted="false" />
         <AssociationConnector Association="ArchiveModel.FK_DocumentResourceRelation_Resource" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ArchiveModel.PermissionState" Width="1.5" PointX="0.75" PointY="3.875" />
-        <EntityTypeShape EntityType="ArchiveModel.Document" Width="1.5" PointX="6" PointY="4.25" />
+        <EntityTypeShape EntityType="ArchiveModel.UserInfo" Width="1.5" PointX="3.75" PointY="20.5" />
+        <AssociationConnector Association="ArchiveModel.FK_Comment_User" />
+        <AssociationConnector Association="ArchiveModel.FK_Comment_User1" />
+        <AssociationConnector Association="ArchiveModel.FK_User_PermissionType" />
+        <AssociationConnector Association="ArchiveModel.FK_View_User" />
+        <AssociationConnector Association="ArchiveModel.FK_View_User1" />
+        <EntityTypeShape EntityType="ArchiveModel.Category" Width="1.5" PointX="0.75" PointY="7.375" />
+        <AssociationConnector Association="ArchiveModel.FK_CodeRange_Category" />
+        <EntityTypeShape EntityType="ArchiveModel.Content" Width="1.5" PointX="11.25" PointY="10.625" />
+        <AssociationConnector Association="ArchiveModel.FK_Content_ContentType" />
+        <AssociationConnector Association="ArchiveModel.FK_Content_FileType" />
+        <AssociationConnector Association="ArchiveModel.FK_Content_Resource" />
+        <EntityTypeShape EntityType="ArchiveModel.Document" Width="1.5" PointX="6" PointY="6" />
+        <AssociationConnector Association="ArchiveModel.FK_Document_Category" />
         <AssociationConnector Association="ArchiveModel.FK_Document_Collection" />
         <AssociationConnector Association="ArchiveModel.FK_Document_Language" />
         <AssociationConnector Association="ArchiveModel.FK_Document_PadidAvar" />
         <AssociationConnector Association="ArchiveModel.FK_Document_PermissionLevel" />
         <AssociationConnector Association="ArchiveModel.FK_Document_PublishState" />
+        <AssociationConnector Association="ArchiveModel.FK_Document_User" />
+        <AssociationConnector Association="ArchiveModel.FK_Content_Document" />
         <AssociationConnector Association="ArchiveModel.FK_DocumentResourceRelation_Document" />
         <AssociationConnector Association="ArchiveModel.FK_DocumentSubjectRelation_Document" />
-        <EntityTypeShape EntityType="ArchiveModel.UserInfo" Width="1.5" PointX="3.75" PointY="20.5" />
-        <AssociationConnector Association="ArchiveModel.FK_Comment_User" />
-        <AssociationConnector Association="ArchiveModel.FK_Comment_User1" />
-        <AssociationConnector Association="ArchiveModel.FK_User_PermissionType" />
-        <AssociationConnector Association="ArchiveModel.FK_Document_User" />
-        <AssociationConnector Association="ArchiveModel.FK_View_User" />
-        <AssociationConnector Association="ArchiveModel.FK_View_User1" />
-        <EntityTypeShape EntityType="ArchiveModel.Category" Width="1.5" PointX="0.75" PointY="7.375" />
-        <AssociationConnector Association="ArchiveModel.FK_CodeRange_Category" />
-        <AssociationConnector Association="ArchiveModel.FK_Document_Category" />
-        <EntityTypeShape EntityType="ArchiveModel.Content" Width="1.5" PointX="11.25" PointY="10.625" />
-        <AssociationConnector Association="ArchiveModel.FK_Content_ContentType" />
-        <AssociationConnector Association="ArchiveModel.FK_Content_FileType" />
-        <AssociationConnector Association="ArchiveModel.FK_Content_Document" />
-        <AssociationConnector Association="ArchiveModel.FK_Content_Resource" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

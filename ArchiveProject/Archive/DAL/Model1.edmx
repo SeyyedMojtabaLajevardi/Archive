@@ -182,7 +182,7 @@
           <Property Name="SessionDate" Type="datetime" />
           <Property Name="RelatedLink" Type="nvarchar(max)" />
           <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="CategoryId" Type="int" />
+          <Property Name="MainCategoryId" Type="int" />
           <Property Name="ContentTypeId" Type="int" />
           <Property Name="PublishYear" Type="int" />
           <Property Name="PublishPlace" Type="nvarchar" MaxLength="50" />
@@ -194,6 +194,8 @@
           <Property Name="TranslateLanguageId" Type="int" />
           <Property Name="Translator" Type="nvarchar" MaxLength="150" />
           <Property Name="Narrator" Type="nvarchar" MaxLength="150" />
+          <Property Name="SecondCategoryId" Type="int" />
+          <Property Name="FirstCategoryId" Type="int" />
         </EntityType>
         <EntityType Name="DocumentResourceRelation">
           <Key>
@@ -310,7 +312,7 @@
               <PropertyRef Name="CategoryId" />
             </Principal>
             <Dependent Role="Document">
-              <PropertyRef Name="CategoryId" />
+              <PropertyRef Name="MainCategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -776,7 +778,50 @@
             <End Role="DocumentResourceRelation" EntitySet="DocumentResourceRelations" />
           </AssociationSet>
           <EntitySet Name="PermissionStates" EntityType="ArchiveModel.PermissionState" />
+          <EntitySet Name="UserInfoes" EntityType="ArchiveModel.UserInfo" />
+          <AssociationSet Name="FK_Comment_User" Association="ArchiveModel.FK_Comment_User">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_User1" Association="ArchiveModel.FK_Comment_User1">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_PermissionType" Association="ArchiveModel.FK_User_PermissionType">
+            <End Role="PermissionType" EntitySet="PermissionTypes" />
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_View_User" Association="ArchiveModel.FK_View_User">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="View" EntitySet="Views" />
+          </AssociationSet>
+          <AssociationSet Name="FK_View_User1" Association="ArchiveModel.FK_View_User1">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="View" EntitySet="Views" />
+          </AssociationSet>
+          <EntitySet Name="Categories" EntityType="ArchiveModel.Category" />
+          <AssociationSet Name="FK_CodeRange_Category" Association="ArchiveModel.FK_CodeRange_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="CodeRange" EntitySet="CodeRanges" />
+          </AssociationSet>
+          <EntitySet Name="Contents" EntityType="ArchiveModel.Content" />
+          <AssociationSet Name="FK_Content_ContentType" Association="ArchiveModel.FK_Content_ContentType">
+            <End Role="ContentType" EntitySet="ContentTypes" />
+            <End Role="Content" EntitySet="Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_FileType" Association="ArchiveModel.FK_Content_FileType">
+            <End Role="FileType" EntitySet="FileTypes" />
+            <End Role="Content" EntitySet="Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_Resource" Association="ArchiveModel.FK_Content_Resource">
+            <End Role="Resource" EntitySet="Resources" />
+            <End Role="Content" EntitySet="Contents" />
+          </AssociationSet>
           <EntitySet Name="Documents" EntityType="ArchiveModel.Document" />
+          <AssociationSet Name="FK_Document_Category" Association="ArchiveModel.FK_Document_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
           <AssociationSet Name="FK_Document_Collection" Association="ArchiveModel.FK_Document_Collection">
             <End Role="Collection" EntitySet="Collections" />
             <End Role="Document" EntitySet="Documents" />
@@ -797,6 +842,14 @@
             <End Role="PublishState" EntitySet="PublishStates" />
             <End Role="Document" EntitySet="Documents" />
           </AssociationSet>
+          <AssociationSet Name="FK_Document_User" Association="ArchiveModel.FK_Document_User">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_Document" Association="ArchiveModel.FK_Content_Document">
+            <End Role="Document" EntitySet="Documents" />
+            <End Role="Content" EntitySet="Contents" />
+          </AssociationSet>
           <AssociationSet Name="FK_DocumentResourceRelation_Document" Association="ArchiveModel.FK_DocumentResourceRelation_Document">
             <End Role="Document" EntitySet="Documents" />
             <End Role="DocumentResourceRelation" EntitySet="DocumentResourceRelations" />
@@ -804,57 +857,6 @@
           <AssociationSet Name="FK_DocumentSubjectRelation_Document" Association="ArchiveModel.FK_DocumentSubjectRelation_Document">
             <End Role="Document" EntitySet="Documents" />
             <End Role="DocumentSubjectRelation" EntitySet="DocumentSubjectRelations" />
-          </AssociationSet>
-          <EntitySet Name="UserInfoes" EntityType="ArchiveModel.UserInfo" />
-          <AssociationSet Name="FK_Comment_User" Association="ArchiveModel.FK_Comment_User">
-            <End Role="UserInfo" EntitySet="UserInfoes" />
-            <End Role="Comment" EntitySet="Comments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Comment_User1" Association="ArchiveModel.FK_Comment_User1">
-            <End Role="UserInfo" EntitySet="UserInfoes" />
-            <End Role="Comment" EntitySet="Comments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_PermissionType" Association="ArchiveModel.FK_User_PermissionType">
-            <End Role="PermissionType" EntitySet="PermissionTypes" />
-            <End Role="UserInfo" EntitySet="UserInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Document_User" Association="ArchiveModel.FK_Document_User">
-            <End Role="UserInfo" EntitySet="UserInfoes" />
-            <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_View_User" Association="ArchiveModel.FK_View_User">
-            <End Role="UserInfo" EntitySet="UserInfoes" />
-            <End Role="View" EntitySet="Views" />
-          </AssociationSet>
-          <AssociationSet Name="FK_View_User1" Association="ArchiveModel.FK_View_User1">
-            <End Role="UserInfo" EntitySet="UserInfoes" />
-            <End Role="View" EntitySet="Views" />
-          </AssociationSet>
-          <EntitySet Name="Categories" EntityType="ArchiveModel.Category" />
-          <AssociationSet Name="FK_CodeRange_Category" Association="ArchiveModel.FK_CodeRange_Category">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="CodeRange" EntitySet="CodeRanges" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Document_Category" Association="ArchiveModel.FK_Document_Category">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
-          <EntitySet Name="Contents" EntityType="ArchiveModel.Content" />
-          <AssociationSet Name="FK_Content_ContentType" Association="ArchiveModel.FK_Content_ContentType">
-            <End Role="ContentType" EntitySet="ContentTypes" />
-            <End Role="Content" EntitySet="Contents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Content_FileType" Association="ArchiveModel.FK_Content_FileType">
-            <End Role="FileType" EntitySet="FileTypes" />
-            <End Role="Content" EntitySet="Contents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Content_Document" Association="ArchiveModel.FK_Content_Document">
-            <End Role="Document" EntitySet="Documents" />
-            <End Role="Content" EntitySet="Contents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Content_Resource" Association="ArchiveModel.FK_Content_Resource">
-            <End Role="Resource" EntitySet="Resources" />
-            <End Role="Content" EntitySet="Contents" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="PermissionState">
@@ -865,11 +867,172 @@
           <Property Name="PermissionStateTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Documents" Relationship="ArchiveModel.FK_Document_PermissionLevel" FromRole="PermissionState" ToRole="Document" />
         </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UsreId" />
+          </Key>
+          <Property Name="UsreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PermissionTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Comments" Relationship="ArchiveModel.FK_Comment_User" FromRole="UserInfo" ToRole="Comment" />
+          <NavigationProperty Name="Comments1" Relationship="ArchiveModel.FK_Comment_User1" FromRole="UserInfo" ToRole="Comment" />
+          <NavigationProperty Name="PermissionType" Relationship="ArchiveModel.FK_User_PermissionType" FromRole="UserInfo" ToRole="PermissionType" />
+          <NavigationProperty Name="Views" Relationship="ArchiveModel.FK_View_User" FromRole="UserInfo" ToRole="View" />
+          <NavigationProperty Name="Views1" Relationship="ArchiveModel.FK_View_User1" FromRole="UserInfo" ToRole="View" />
+          <NavigationProperty Name="Documents" Relationship="ArchiveModel.FK_Document_User" FromRole="UserInfo" ToRole="Document" />
+        </EntityType>
+        <Association Name="FK_Comment_User">
+          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="ArchiveModel.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="UsreId" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="SenderUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_User1">
+          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="ArchiveModel.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="UsreId" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="ReceiverUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_PermissionType">
+          <End Type="ArchiveModel.PermissionType" Role="PermissionType" Multiplicity="1" />
+          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PermissionType">
+              <PropertyRef Name="PermissionTypeId" />
+            </Principal>
+            <Dependent Role="UserInfo">
+              <PropertyRef Name="PermissionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_View_User">
+          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="ArchiveModel.View" Role="View" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="UsreId" />
+            </Principal>
+            <Dependent Role="View">
+              <PropertyRef Name="SenderUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_View_User1">
+          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="ArchiveModel.View" Role="View" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="UsreId" />
+            </Principal>
+            <Dependent Role="View">
+              <PropertyRef Name="ReceiverUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="LevelNo" Type="Int32" />
+          <Property Name="ChildCount" Type="Int32" />
+          <Property Name="ChildOrder" Type="Int32" />
+          <Property Name="CategoryEnglishTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CodeRanges" Relationship="ArchiveModel.FK_CodeRange_Category" FromRole="Category" ToRole="CodeRange" />
+          <NavigationProperty Name="Documents" Relationship="ArchiveModel.FK_Document_Category" FromRole="Category" ToRole="Document" />
+        </EntityType>
+        <Association Name="FK_CodeRange_Category">
+          <End Type="ArchiveModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="ArchiveModel.CodeRange" Role="CodeRange" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="CodeRange">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Content">
+          <Key>
+            <PropertyRef Name="ContentId" />
+          </Key>
+          <Property Name="ContentId" Type="Int32" Nullable="false" />
+          <Property Name="ContentTypeId" Type="Int32" />
+          <Property Name="DocumentId" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileTypeId" Type="Int32" />
+          <Property Name="FileNumber" Type="Int32" />
+          <Property Name="ResourceId" Type="Int32" />
+          <Property Name="DeletionDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ContentType" Relationship="ArchiveModel.FK_Content_ContentType" FromRole="Content" ToRole="ContentType" />
+          <NavigationProperty Name="FileType" Relationship="ArchiveModel.FK_Content_FileType" FromRole="Content" ToRole="FileType" />
+          <NavigationProperty Name="Resource" Relationship="ArchiveModel.FK_Content_Resource" FromRole="Content" ToRole="Resource" />
+          <NavigationProperty Name="Document" Relationship="ArchiveModel.FK_Content_Document" FromRole="Content" ToRole="Document" />
+        </EntityType>
+        <Association Name="FK_Content_ContentType">
+          <End Type="ArchiveModel.ContentType" Role="ContentType" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Content" Role="Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentType">
+              <PropertyRef Name="ContentTypeId" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="ContentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Content_FileType">
+          <End Type="ArchiveModel.FileType" Role="FileType" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Content" Role="Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileType">
+              <PropertyRef Name="FileTypeId" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="FileTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Content_Resource">
+          <End Type="ArchiveModel.Resource" Role="Resource" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Content" Role="Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resource">
+              <PropertyRef Name="ResourceId" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="ResourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="Document">
           <Key>
             <PropertyRef Name="DocumentId" />
           </Key>
           <Property Name="DocumentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
           <Property Name="DocumentCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="SiteCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -889,7 +1052,7 @@
           <Property Name="SessionDate" Type="DateTime" Precision="3" />
           <Property Name="RelatedLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="MainCategoryId" Type="Int32" />
           <Property Name="ContentTypeId" Type="Int32" />
           <Property Name="PublishYear" Type="Int32" />
           <Property Name="PublishPlace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -901,18 +1064,31 @@
           <Property Name="TranslateLanguageId" Type="Int32" />
           <Property Name="Translator" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Narrator" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SecondCategoryId" Type="Int32" />
+          <Property Name="FirstCategoryId" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="ArchiveModel.FK_Document_Category" FromRole="Document" ToRole="Category" />
           <NavigationProperty Name="Collection" Relationship="ArchiveModel.FK_Document_Collection" FromRole="Document" ToRole="Collection" />
           <NavigationProperty Name="Language" Relationship="ArchiveModel.FK_Document_Language" FromRole="Document" ToRole="Language" />
           <NavigationProperty Name="PadidAvar" Relationship="ArchiveModel.FK_Document_PadidAvar" FromRole="Document" ToRole="PadidAvar" />
           <NavigationProperty Name="PermissionState" Relationship="ArchiveModel.FK_Document_PermissionLevel" FromRole="Document" ToRole="PermissionState" />
           <NavigationProperty Name="PublishState" Relationship="ArchiveModel.FK_Document_PublishState" FromRole="Document" ToRole="PublishState" />
+          <NavigationProperty Name="UserInfo" Relationship="ArchiveModel.FK_Document_User" FromRole="Document" ToRole="UserInfo" />
+          <NavigationProperty Name="Contents" Relationship="ArchiveModel.FK_Content_Document" FromRole="Document" ToRole="Content" />
           <NavigationProperty Name="DocumentResourceRelations" Relationship="ArchiveModel.FK_DocumentResourceRelation_Document" FromRole="Document" ToRole="DocumentResourceRelation" />
           <NavigationProperty Name="DocumentSubjectRelations" Relationship="ArchiveModel.FK_DocumentSubjectRelation_Document" FromRole="Document" ToRole="DocumentSubjectRelation" />
-          <NavigationProperty Name="UserInfo" Relationship="ArchiveModel.FK_Document_User" FromRole="Document" ToRole="UserInfo" />
-          <NavigationProperty Name="Category" Relationship="ArchiveModel.FK_Document_Category" FromRole="Document" ToRole="Category" />
-          <Property Name="UserId" Type="Int32" />
-          <NavigationProperty Name="Contents" Relationship="ArchiveModel.FK_Content_Document" FromRole="Document" ToRole="Content" />
         </EntityType>
+        <Association Name="FK_Document_Category">
+          <End Type="ArchiveModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="MainCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Document_Collection">
           <End Type="ArchiveModel.Collection" Role="Collection" Multiplicity="0..1" />
           <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
@@ -973,6 +1149,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Document_User">
+          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="UsreId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="CreatorUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Content_Document">
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Content" Role="Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document">
+              <PropertyRef Name="DocumentId" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="DocumentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_DocumentResourceRelation_Document">
           <End Type="ArchiveModel.Document" Role="Document" Multiplicity="0..1" />
           <End Type="ArchiveModel.DocumentResourceRelation" Role="DocumentResourceRelation" Multiplicity="*" />
@@ -994,202 +1194,6 @@
             </Principal>
             <Dependent Role="DocumentSubjectRelation">
               <PropertyRef Name="DocumentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="UserInfo">
-          <Key>
-            <PropertyRef Name="UsreId" />
-          </Key>
-          <Property Name="UsreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PermissionTypeId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Comments" Relationship="ArchiveModel.FK_Comment_User" FromRole="UserInfo" ToRole="Comment" />
-          <NavigationProperty Name="Comments1" Relationship="ArchiveModel.FK_Comment_User1" FromRole="UserInfo" ToRole="Comment" />
-          <NavigationProperty Name="PermissionType" Relationship="ArchiveModel.FK_User_PermissionType" FromRole="UserInfo" ToRole="PermissionType" />
-          <NavigationProperty Name="Documents" Relationship="ArchiveModel.FK_Document_User" FromRole="UserInfo" ToRole="Document" />
-          <NavigationProperty Name="Views" Relationship="ArchiveModel.FK_View_User" FromRole="UserInfo" ToRole="View" />
-          <NavigationProperty Name="Views1" Relationship="ArchiveModel.FK_View_User1" FromRole="UserInfo" ToRole="View" />
-        </EntityType>
-        <Association Name="FK_Comment_User">
-          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
-          <End Type="ArchiveModel.Comment" Role="Comment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
-            </Principal>
-            <Dependent Role="Comment">
-              <PropertyRef Name="SenderUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Comment_User1">
-          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
-          <End Type="ArchiveModel.Comment" Role="Comment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
-            </Principal>
-            <Dependent Role="Comment">
-              <PropertyRef Name="ReceiverUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_User_PermissionType">
-          <End Type="ArchiveModel.PermissionType" Role="PermissionType" Multiplicity="1" />
-          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PermissionType">
-              <PropertyRef Name="PermissionTypeId" />
-            </Principal>
-            <Dependent Role="UserInfo">
-              <PropertyRef Name="PermissionTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Document_User">
-          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
-            </Principal>
-            <Dependent Role="Document">
-              <PropertyRef Name="CreatorUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_View_User">
-          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
-          <End Type="ArchiveModel.View" Role="View" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
-            </Principal>
-            <Dependent Role="View">
-              <PropertyRef Name="SenderUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_View_User1">
-          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
-          <End Type="ArchiveModel.View" Role="View" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
-            </Principal>
-            <Dependent Role="View">
-              <PropertyRef Name="ReceiverUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Category">
-          <Key>
-            <PropertyRef Name="CategoryId" />
-          </Key>
-          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CategoryTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ParentId" Type="Int32" />
-          <Property Name="LevelNo" Type="Int32" />
-          <Property Name="ChildCount" Type="Int32" />
-          <Property Name="ChildOrder" Type="Int32" />
-          <Property Name="CategoryEnglishTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CodeRanges" Relationship="ArchiveModel.FK_CodeRange_Category" FromRole="Category" ToRole="CodeRange" />
-          <NavigationProperty Name="Documents" Relationship="ArchiveModel.FK_Document_Category" FromRole="Category" ToRole="Document" />
-        </EntityType>
-        <Association Name="FK_CodeRange_Category">
-          <End Type="ArchiveModel.Category" Role="Category" Multiplicity="0..1" />
-          <End Type="ArchiveModel.CodeRange" Role="CodeRange" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="CodeRange">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Document_Category">
-          <End Type="ArchiveModel.Category" Role="Category" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="Document">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Content">
-          <Key>
-            <PropertyRef Name="ContentId" />
-          </Key>
-          <Property Name="ContentId" Type="Int32" Nullable="false" />
-          <Property Name="ContentTypeId" Type="Int32" />
-          <Property Name="DocumentId" Type="Int32" />
-          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FileTypeId" Type="Int32" />
-          <Property Name="FileNumber" Type="Int32" />
-          <Property Name="ResourceId" Type="Int32" />
-          <Property Name="DeletionDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ContentType" Relationship="ArchiveModel.FK_Content_ContentType" FromRole="Content" ToRole="ContentType" />
-          <NavigationProperty Name="FileType" Relationship="ArchiveModel.FK_Content_FileType" FromRole="Content" ToRole="FileType" />
-          <NavigationProperty Name="Document" Relationship="ArchiveModel.FK_Content_Document" FromRole="Content" ToRole="Document" />
-          <NavigationProperty Name="Resource" Relationship="ArchiveModel.FK_Content_Resource" FromRole="Content" ToRole="Resource" />
-        </EntityType>
-        <Association Name="FK_Content_ContentType">
-          <End Type="ArchiveModel.ContentType" Role="ContentType" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Content" Role="Content" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ContentType">
-              <PropertyRef Name="ContentTypeId" />
-            </Principal>
-            <Dependent Role="Content">
-              <PropertyRef Name="ContentTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Content_FileType">
-          <End Type="ArchiveModel.FileType" Role="FileType" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Content" Role="Content" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FileType">
-              <PropertyRef Name="FileTypeId" />
-            </Principal>
-            <Dependent Role="Content">
-              <PropertyRef Name="FileTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Content_Document">
-          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Content" Role="Content" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Document">
-              <PropertyRef Name="DocumentId" />
-            </Principal>
-            <Dependent Role="Content">
-              <PropertyRef Name="DocumentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Content_Resource">
-          <End Type="ArchiveModel.Resource" Role="Resource" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Content" Role="Content" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Resource">
-              <PropertyRef Name="ResourceId" />
-            </Principal>
-            <Dependent Role="Content">
-              <PropertyRef Name="ResourceId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1350,45 +1354,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Documents">
-            <EntityTypeMapping TypeName="ArchiveModel.Document">
-              <MappingFragment StoreEntitySet="Document">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Narrator" ColumnName="Narrator" />
-                <ScalarProperty Name="Translator" ColumnName="Translator" />
-                <ScalarProperty Name="TranslateLanguageId" ColumnName="TranslateLanguageId" />
-                <ScalarProperty Name="FipaCode" ColumnName="FipaCode" />
-                <ScalarProperty Name="BookVolumeCount" ColumnName="BookVolumeCount" />
-                <ScalarProperty Name="BookPageNumber" ColumnName="BookPageNumber" />
-                <ScalarProperty Name="BookVolumeNumber" ColumnName="BookVolumeNumber" />
-                <ScalarProperty Name="BookPublisher" ColumnName="BookPublisher" />
-                <ScalarProperty Name="PublishPlace" ColumnName="PublishPlace" />
-                <ScalarProperty Name="PublishYear" ColumnName="PublishYear" />
-                <ScalarProperty Name="ContentTypeId" ColumnName="ContentTypeId" />
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="RelatedLink" ColumnName="RelatedLink" />
-                <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
-                <ScalarProperty Name="SessionPlace" ColumnName="SessionPlace" />
-                <ScalarProperty Name="SessionCount" ColumnName="SessionCount" />
-                <ScalarProperty Name="SessionNumber" ColumnName="SessionNumber" />
-                <ScalarProperty Name="CollectionId" ColumnName="CollectionId" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
-                <ScalarProperty Name="PadidAvarId" ColumnName="PadidAvarId" />
-                <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
-                <ScalarProperty Name="PermissionStateId" ColumnName="PermissionStateId" />
-                <ScalarProperty Name="PublishStateId" ColumnName="PublishStateId" />
-                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
-                <ScalarProperty Name="NewTitle" ColumnName="NewTitle" />
-                <ScalarProperty Name="OldTitle" ColumnName="OldTitle" />
-                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="DocumentCode" ColumnName="DocumentCode" />
-                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="UserInfoes">
             <EntityTypeMapping TypeName="ArchiveModel.UserInfo">
               <MappingFragment StoreEntitySet="UserInfo">
@@ -1429,6 +1394,47 @@
                 <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
                 <ScalarProperty Name="ContentTypeId" ColumnName="ContentTypeId" />
                 <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="ArchiveModel.Document">
+              <MappingFragment StoreEntitySet="Document">
+                <ScalarProperty Name="FirstCategoryId" ColumnName="FirstCategoryId" />
+                <ScalarProperty Name="SecondCategoryId" ColumnName="SecondCategoryId" />
+                <ScalarProperty Name="Narrator" ColumnName="Narrator" />
+                <ScalarProperty Name="Translator" ColumnName="Translator" />
+                <ScalarProperty Name="TranslateLanguageId" ColumnName="TranslateLanguageId" />
+                <ScalarProperty Name="FipaCode" ColumnName="FipaCode" />
+                <ScalarProperty Name="BookVolumeCount" ColumnName="BookVolumeCount" />
+                <ScalarProperty Name="BookPageNumber" ColumnName="BookPageNumber" />
+                <ScalarProperty Name="BookVolumeNumber" ColumnName="BookVolumeNumber" />
+                <ScalarProperty Name="BookPublisher" ColumnName="BookPublisher" />
+                <ScalarProperty Name="PublishPlace" ColumnName="PublishPlace" />
+                <ScalarProperty Name="PublishYear" ColumnName="PublishYear" />
+                <ScalarProperty Name="ContentTypeId" ColumnName="ContentTypeId" />
+                <ScalarProperty Name="MainCategoryId" ColumnName="MainCategoryId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RelatedLink" ColumnName="RelatedLink" />
+                <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
+                <ScalarProperty Name="SessionPlace" ColumnName="SessionPlace" />
+                <ScalarProperty Name="SessionCount" ColumnName="SessionCount" />
+                <ScalarProperty Name="SessionNumber" ColumnName="SessionNumber" />
+                <ScalarProperty Name="CollectionId" ColumnName="CollectionId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="PadidAvarId" ColumnName="PadidAvarId" />
+                <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+                <ScalarProperty Name="PermissionStateId" ColumnName="PermissionStateId" />
+                <ScalarProperty Name="PublishStateId" ColumnName="PublishStateId" />
+                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="NewTitle" ColumnName="NewTitle" />
+                <ScalarProperty Name="OldTitle" ColumnName="OldTitle" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="DocumentCode" ColumnName="DocumentCode" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

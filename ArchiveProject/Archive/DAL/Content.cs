@@ -29,7 +29,7 @@ namespace Archive.DAL
     
         public virtual ContentType ContentType { get; set; }
         public virtual FileType FileType { get; set; }
-        public virtual Document Document { get; set; }
         public virtual Resource Resource { get; set; }
+        public virtual Document Document { get; set; }
     }
 }
