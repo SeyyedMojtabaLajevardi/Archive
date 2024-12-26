@@ -88,6 +88,7 @@ namespace Archive
             _collections = _archiveService.FillCollection();
             _mainCategories = _archiveService.FillCategory(null, 1);
             _fileTypes = _archiveService.FillFileType();
+            _languages = _archiveService.FillLanguage();
 
             ComboBoxPermissionState.DataSource = _permissionStates;
             ComboBoxPermissionState.DisplayMember = "PermissionStateTitle";
@@ -98,6 +99,11 @@ namespace Archive
             ComboBoxPadidAvar.DisplayMember = "PadidAvarTitle";
             ComboBoxPadidAvar.ValueMember = "PadidAvarId";
             ComboBoxPadidAvar.Text = "انتخاب کنید";
+
+            ComboBoxLanguage.DataSource = _languages;
+            ComboBoxLanguage.DisplayMember = "LanguageTitle";
+            ComboBoxLanguage.ValueMember = "LanguageId";
+            ComboBoxLanguage.Text = "انتخاب کنید";
 
             ComboBoxMainCategory.DataSource = _mainCategories;
             ComboBoxMainCategory.DisplayMember = "CategoryTitle";
@@ -223,7 +229,7 @@ namespace Archive
             int.TryParse(ComboBoxPermissionState.SelectedValue?.ToString(), out _permissionStateId);
             _permissionStateId = ((PermissionState)ComboBoxPermissionState.SelectedItem).PermissionStateId;
             var permissionLeveTitle = ((PermissionState)ComboBoxPermissionState.SelectedItem).PermissionStateTitle;
-            
+
         }
 
         private void ComboBoxCategory1_SelectedIndexChanged(object sender, EventArgs e)
@@ -311,6 +317,41 @@ namespace Archive
             var categoryTitle = ((Category)ComboBoxCategory2.SelectedItem).CategoryTitle;
         }
 
+        private void TextBoxSiteCode_Leave(object sender, EventArgs e)
+        {
+            var siteCode = TextBoxSiteCode.Text.Trim();
+            using (ArchiveEntities context = new ArchiveEntities())
+            {
+                var document = context.Documents.FirstOrDefault(x => x.SiteCode == siteCode);
+                if (document == null) return;
+                _isFirst = true;
+                FillControls(document);
+                _isFirst = false;
+            }
+        }
+
+        private void FillControls(Document document)
+        {
+            _documentId = document.DocumentId;
+            TextBoxSiteCode.Text = document.SiteCode;
+            TextBoxOldTitle.Text = document.OldTitle;
+            TextBoxNewTitle.Text = document.NewTitle;
+            TextBoxSubTitle.Text = document.SubTitle;
+            TextBoxComment.Text = document.Comment;
+            TextBoxSessionCount.Text = document.SessionCount?.ToString();
+            TextBoxSessionNumber.Text = document.SessionNumber?.ToString();
+            TextBoxPlace.Text = document.SessionPlace;
+            TextBoxLink.Text = document.RelatedLink;
+            TextBoxDocumentDescription.Text = document.Description;
+            ComboBoxPermissionState.SelectedIndex = ComboBoxPermissionState.FindStringExact(document.PermissionState.PermissionStateTitle);
+            ComboBoxPadidAvar.SelectedIndex = ComboBoxPadidAvar.FindStringExact(document.PadidAvar.PadidAvarTitle);
+            ComboBoxLanguage.SelectedIndex = ComboBoxLanguage.FindStringExact(document.Language.LanguageTitle);
+            ComboBoxPublishState.SelectedIndex = ComboBoxPublishState.FindStringExact(document.PublishState.PublishStateTitle);
+            ComboBoxMainCategory.SelectedIndex = ComboBoxMainCategory.FindStringExact(document.Category.CategoryTitle);
+            ComboBoxCategory1.SelectedIndex = ComboBoxCategory1.FindStringExact(document.Category.CategoryTitle);
+            ComboBoxCategory2.SelectedIndex = ComboBoxCategory2.FindStringExact(document.Category.CategoryTitle);
+        }
+
         private void ComboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
             int.TryParse(ComboBoxLanguage.SelectedValue?.ToString(), out _languageId);
@@ -345,7 +386,11 @@ namespace Archive
                 DocumentId = _documentId,
                 FileTypeId = _fileTypeId
             };
-            FillGrid();
+            using (ArchiveEntities context = new ArchiveEntities())
+            {
+                context.Contents.Add(contentDto);
+            }
+                FillGrid();
         }
 
         private void FillGrid()
@@ -375,6 +420,11 @@ namespace Archive
 
         private void ButtonRegisterDocument_Click(object sender, EventArgs e)
         {
+            if (IsDuplicatedData())
+            {
+                MessageBox.Show("اطلاعات وارد شده تکراری می‌باشد");
+                return;
+            }
             if (TextBoxSiteCode.Text.Trim() == "")
             {
                 TextBoxSiteCode.Focus();
@@ -474,10 +524,20 @@ namespace Archive
             }
         }
 
+        private bool IsDuplicatedData()
+        {
+            using (ArchiveEntities context = new ArchiveEntities())
+            {
+                return context.Documents.Count(x => x.SiteCode == TextBoxSiteCode.Text.Trim()) > 0;
+            }
+        }
+
         private void ComboBoxPadidAvar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int.TryParse(ComboBoxPadidAvar.SelectedValue?.ToString(), out int padidAvarId);
-            var permissionLeveTitle = ComboBoxPadidAvar.SelectedItem;
+            _padidAvarId = ((PadidAvar)ComboBoxPadidAvar.SelectedItem).PadidAvarId;
+            var padidAvarTitle = ((PadidAvar)ComboBoxPadidAvar.SelectedItem).PadidAvarTitle;
+            //int.TryParse(ComboBoxPadidAvar.SelectedValue?.ToString(), out int padidAvarId);
+            //var padidAvarTitle = ComboBoxPadidAvar.SelectedItem;
         }
 
         private List<ContentDto> GetInformation()
@@ -488,7 +548,7 @@ namespace Archive
                 using (var db = new SqlConnection(context.Database.Connection.ConnectionString))
                 {
                     var parameters = new DynamicParameters();
-                    parameters.Add("@param1", _documentId, DbType.Int32);
+                    parameters.Add("@DocumentId", _documentId, DbType.Int32);
                     contents = db.Query<ContentDto>("GetContentByDocumentId", parameters, commandType: CommandType.StoredProcedure).ToList();
                 }
                 return contents;

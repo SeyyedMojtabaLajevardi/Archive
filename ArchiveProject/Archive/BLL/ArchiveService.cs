@@ -65,6 +65,12 @@ namespace Archive.BLL
             return repository.GetAll();
         }
 
+        public List<Language> FillLanguage()
+        {
+            var repository = new Repository<Language>(_context);
+            return repository.GetAll();
+        }
+
         public List<UserDto> FillUser()
         {
             return _userDtoRepository.GetUserDtos();
