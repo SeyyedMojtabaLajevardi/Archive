@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7a2770b02f89407a8dbcade61138315d" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="ArchiveModel.Category" Width="1.5" PointX="0.75" PointY="7.25" />
+        <EntityTypeShape EntityType="ArchiveModel.CodeRange" Width="1.5" PointX="3" PointY="18.125" />
+        <EntityTypeShape EntityType="ArchiveModel.Collection" Width="1.5" PointX="0.75" PointY="11" />
+        <EntityTypeShape EntityType="ArchiveModel.Comment" Width="1.5" PointX="3" PointY="32.375" />
+        <EntityTypeShape EntityType="ArchiveModel.ContentType" Width="1.5" PointX="3" PointY="14.75" />
+        <EntityTypeShape EntityType="ArchiveModel.Editor" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="ArchiveModel.FileType" Width="1.5" PointX="5.25" PointY="13.875" />
+        <EntityTypeShape EntityType="ArchiveModel.Language" Width="1.5" PointX="0.75" PointY="15.625" />
+        <EntityTypeShape EntityType="ArchiveModel.PadidAvar" Width="1.5" PointX="0.75" PointY="18.375" />
+        <EntityTypeShape EntityType="ArchiveModel.PermissionState" Width="1.5" PointX="0.75" PointY="13.375" />
+        <EntityTypeShape EntityType="ArchiveModel.PermissionType" Width="1.5" PointX="1.5" PointY="26.125" />
+        <EntityTypeShape EntityType="ArchiveModel.PublishState" Width="1.5" PointX="0.75" PointY="29.375" />
+        <EntityTypeShape EntityType="ArchiveModel.Subject" Width="1.5" PointX="3" PointY="20.875" />
+        <EntityTypeShape EntityType="ArchiveModel.UserInfo" Width="1.5" PointX="0.75" PointY="21.375" />
+        <EntityTypeShape EntityType="ArchiveModel.View" Width="1.5" PointX="3" PointY="28.875" />
+        <EntityTypeShape EntityType="ArchiveModel.WorkFlowState" Width="1.5" PointX="7.75" PointY="1.75" />
+        <EntityTypeShape EntityType="ArchiveModel.Document" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="ArchiveModel.DocumentResourceRelation" Width="1.5" PointX="5.25" PointY="4.625" />
+        <EntityTypeShape EntityType="ArchiveModel.DocumentSubjectRelation" Width="1.5" PointX="5.25" PointY="10.625" />
+        <EntityTypeShape EntityType="ArchiveModel.File" Width="1.5" PointX="7.5" PointY="6.75" />
+        <EntityTypeShape EntityType="ArchiveModel.Resource" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="ArchiveModel.sysdiagram" Width="1.5" PointX="9.75" PointY="1.75" />
+        <AssociationConnector Association="ArchiveModel.FK_CodeRange_Category" />
+        <AssociationConnector Association="ArchiveModel.FK_Document_Category" />
+        <AssociationConnector Association="ArchiveModel.FK_Document_Collection" />
+        <AssociationConnector Association="ArchiveModel.FK_Comment_User" />
+        <AssociationConnector Association="ArchiveModel.FK_Comment_User1" />
+        <AssociationConnector Association="ArchiveModel.FK_File_Editor" />
+        <AssociationConnector Association="ArchiveModel.FK_File_FileType" />
+        <AssociationConnector Association="ArchiveModel.FK_Document_Language" />
+        <AssociationConnector Association="ArchiveModel.FK_Document_PadidAvar" />
+        <AssociationConnector Association="ArchiveModel.FK_Document_PermissionLevel" />
+        <AssociationConnector Association="ArchiveModel.FK_User_PermissionType" />
+        <AssociationConnector Association="ArchiveModel.FK_Document_PublishState" />
+        <AssociationConnector Association="ArchiveModel.FK_DocumentSubjectRelation_Subject" />
+        <AssociationConnector Association="ArchiveModel.FK_Document_User" />
+        <AssociationConnector Association="ArchiveModel.FK_View_User" />
+        <AssociationConnector Association="ArchiveModel.FK_View_User1" />
+        <AssociationConnector Association="ArchiveModel.FK_DocumentResourceRelation_Document" />
+        <AssociationConnector Association="ArchiveModel.FK_DocumentSubjectRelation_Document" />
+        <AssociationConnector Association="ArchiveModel.FK_DocumentResourceRelation_Resource" />
+        <AssociationConnector Association="ArchiveModel.FK_File_Resource" />
+        <EntityTypeShape EntityType="ArchiveModel.Content" Width="1.5" PointX="8.25" PointY="11.875" />
+        <AssociationConnector Association="ArchiveModel.FK_Content_ContentType" />
+        <AssociationConnector Association="ArchiveModel.FK_Content_Document" />
+        <AssociationConnector Association="ArchiveModel.FK_File_Content" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

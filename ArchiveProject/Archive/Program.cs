@@ -43,6 +43,7 @@ namespace Archive
             builder.RegisterType<DocumentService>().As<IDocumentService>();
             builder.RegisterType<ContentService>().As<IContentService>();
             builder.RegisterType<FileService>().As<IFileService>();
+            builder.RegisterType<CategoryService>().As<ICategoryService>();
 
             // ثبت فرم‌ها
             builder.RegisterType<FormCreateDocument>();
