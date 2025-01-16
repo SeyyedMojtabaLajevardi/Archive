@@ -16,5 +16,10 @@ namespace Archive
         {
             InitializeComponent();
         }
+
+        private void radPageViewSearch_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

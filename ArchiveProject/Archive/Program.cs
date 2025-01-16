@@ -22,7 +22,7 @@ namespace Archive
             // ایجاد محدوده عمر و اجرای اپلیکیشن
             using (var scope = container.BeginLifetimeScope())
             {
-                var mainForm = scope.Resolve<FormCreateDocument>();
+                var mainForm = scope.Resolve<FormCreateDocument_Copy>();
                 Application.Run(mainForm);
             }
 
@@ -46,7 +46,7 @@ namespace Archive
             builder.RegisterType<CategoryService>().As<ICategoryService>();
 
             // ثبت فرم‌ها
-            builder.RegisterType<FormCreateDocument>();
+            builder.RegisterType<FormCreateDocument_Copy>();
 
             return builder.Build();
         }

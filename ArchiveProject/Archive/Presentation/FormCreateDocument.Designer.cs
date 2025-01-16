@@ -54,6 +54,7 @@
             this.PanelHeader = new System.Windows.Forms.Panel();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
             this.ButtonEditDocument = new System.Windows.Forms.Button();
+            this.ButtonSaveTemorary = new System.Windows.Forms.Button();
             this.ButtonRegisterDocument = new System.Windows.Forms.Button();
             this.ComboBoxSubject = new Telerik.WinControls.UI.RadCheckedDropDownList();
             this.ButtonAddCategory2 = new System.Windows.Forms.Button();
@@ -98,7 +99,6 @@
             this.ComboBoxLanguage = new System.Windows.Forms.ComboBox();
             this.ComboBoxCategory1 = new System.Windows.Forms.ComboBox();
             this.ComboBoxMainCategory = new System.Windows.Forms.ComboBox();
-            this.ButtonSaveTemorary = new System.Windows.Forms.Button();
             this.ButtonCancel = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
@@ -251,12 +251,25 @@
             // ButtonEditDocument
             // 
             this.ButtonEditDocument.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonEditDocument.Location = new System.Drawing.Point(210, 291);
+            this.ButtonEditDocument.Location = new System.Drawing.Point(178, 290);
             this.ButtonEditDocument.Name = "ButtonEditDocument";
-            this.ButtonEditDocument.Size = new System.Drawing.Size(76, 26);
+            this.ButtonEditDocument.Size = new System.Drawing.Size(88, 26);
             this.ButtonEditDocument.TabIndex = 20;
             this.ButtonEditDocument.Text = "ویرایش سند";
             this.ButtonEditDocument.UseVisualStyleBackColor = true;
+            this.ButtonEditDocument.Click += new System.EventHandler(this.ButtonEditDocument_Click);
+            // 
+            // ButtonSaveTemorary
+            // 
+            this.ButtonSaveTemorary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ButtonSaveTemorary.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.ButtonSaveTemorary.Location = new System.Drawing.Point(97, 289);
+            this.ButtonSaveTemorary.Name = "ButtonSaveTemorary";
+            this.ButtonSaveTemorary.Size = new System.Drawing.Size(75, 26);
+            this.ButtonSaveTemorary.TabIndex = 17;
+            this.ButtonSaveTemorary.Text = "ثبت موقت";
+            this.ButtonSaveTemorary.UseVisualStyleBackColor = true;
+            this.ButtonSaveTemorary.Click += new System.EventHandler(this.ButtonSaveTemorary_Click);
             // 
             // ButtonRegisterDocument
             // 
@@ -764,18 +777,6 @@
             this.ComboBoxMainCategory.TabIndex = 8;
             this.ComboBoxMainCategory.SelectedIndexChanged += new System.EventHandler(this.ComboBoxMainCategory_SelectedIndexChanged);
             // 
-            // ButtonSaveTemorary
-            // 
-            this.ButtonSaveTemorary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ButtonSaveTemorary.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonSaveTemorary.Location = new System.Drawing.Point(97, 289);
-            this.ButtonSaveTemorary.Name = "ButtonSaveTemorary";
-            this.ButtonSaveTemorary.Size = new System.Drawing.Size(75, 26);
-            this.ButtonSaveTemorary.TabIndex = 17;
-            this.ButtonSaveTemorary.Text = "ثبت موقت";
-            this.ButtonSaveTemorary.UseVisualStyleBackColor = true;
-            this.ButtonSaveTemorary.Click += new System.EventHandler(this.ButtonSaveTemorary_Click);
-            // 
             // ButtonCancel
             // 
             this.ButtonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -800,7 +801,7 @@
             this.panel1.Controls.Add(this.ButtonSaveContent);
             this.panel1.Controls.Add(this.ButtonCancel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 815);
+            this.panel1.Location = new System.Drawing.Point(0, 1015);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1226, 46);
             this.panel1.TabIndex = 3;
@@ -826,13 +827,13 @@
             this.PanelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelContent.Location = new System.Drawing.Point(0, 422);
             this.PanelContent.Name = "PanelContent";
-            this.PanelContent.Size = new System.Drawing.Size(1226, 393);
+            this.PanelContent.Size = new System.Drawing.Size(1226, 593);
             this.PanelContent.TabIndex = 18;
             // 
             // GridViewContent
             // 
             this.GridViewContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridViewContent.Location = new System.Drawing.Point(0, 226);
+            this.GridViewContent.Location = new System.Drawing.Point(0, 429);
             // 
             // 
             // 
@@ -918,7 +919,7 @@
             // 
             // 
             this.GridViewContent.RootElement.BorderHighlightColor = System.Drawing.SystemColors.Control;
-            this.GridViewContent.Size = new System.Drawing.Size(1222, 163);
+            this.GridViewContent.Size = new System.Drawing.Size(1222, 160);
             this.GridViewContent.TabIndex = 19;
             // 
             // groupBox1
@@ -943,7 +944,7 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox1.Location = new System.Drawing.Point(0, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1222, 201);
+            this.groupBox1.Size = new System.Drawing.Size(1222, 404);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -1019,7 +1020,7 @@
             this.ButtonAddFile.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.ButtonAddFile.Location = new System.Drawing.Point(6, 167);
             this.ButtonAddFile.Name = "ButtonAddFile";
-            this.ButtonAddFile.Size = new System.Drawing.Size(75, 26);
+            this.ButtonAddFile.Size = new System.Drawing.Size(83, 26);
             this.ButtonAddFile.TabIndex = 16;
             this.ButtonAddFile.Text = "افزودن فایل";
             this.ButtonAddFile.UseVisualStyleBackColor = true;
@@ -1066,7 +1067,7 @@
             this.ButtonUploadLQ.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.ButtonUploadLQ.Location = new System.Drawing.Point(6, 109);
             this.ButtonUploadLQ.Name = "ButtonUploadLQ";
-            this.ButtonUploadLQ.Size = new System.Drawing.Size(75, 26);
+            this.ButtonUploadLQ.Size = new System.Drawing.Size(83, 26);
             this.ButtonUploadLQ.TabIndex = 16;
             this.ButtonUploadLQ.Text = "LQ آپلود";
             this.ButtonUploadLQ.UseVisualStyleBackColor = true;
@@ -1089,7 +1090,7 @@
             this.ButtonUpload.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.ButtonUpload.Location = new System.Drawing.Point(6, 138);
             this.ButtonUpload.Name = "ButtonUpload";
-            this.ButtonUpload.Size = new System.Drawing.Size(75, 26);
+            this.ButtonUpload.Size = new System.Drawing.Size(83, 26);
             this.ButtonUpload.TabIndex = 16;
             this.ButtonUpload.Text = "آپلود";
             this.ButtonUpload.UseVisualStyleBackColor = true;
@@ -1277,7 +1278,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 861);
+            this.ClientSize = new System.Drawing.Size(1226, 1061);
             this.Controls.Add(this.PanelContent);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.radGroupBox1);

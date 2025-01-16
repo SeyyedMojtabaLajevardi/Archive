@@ -34,7 +34,7 @@ namespace Archive.UI
 
         private void ButtonCreateDocument_Click(object sender, EventArgs e)
         {
-            FormCreateDocument formCreateDocument = new FormCreateDocument(_mainCategoryId);
+            FormCreateDocument_Copy formCreateDocument = new FormCreateDocument_Copy(_mainCategoryId);
             formCreateDocument.ShowDialog();
         }
 

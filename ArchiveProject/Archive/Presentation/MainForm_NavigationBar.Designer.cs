@@ -48,6 +48,7 @@
             this.radNavigationView1.Controls.Add(this.radPageViewCreateDocument);
             this.radNavigationView1.Controls.Add(this.radPageViewReport);
             this.radNavigationView1.Controls.Add(this.radPageViewPageManagement);
+            this.radNavigationView1.DisplayMode = Telerik.WinControls.UI.NavigationViewDisplayModes.Auto;
             this.radNavigationView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radNavigationView1.HeaderHeight = 30;
             this.radNavigationView1.HierarchyPopupExpandMode = Telerik.WinControls.UI.NavigationViewHierarchyPopupExpandMode.OnItemClick;
@@ -56,7 +57,7 @@
             this.radNavigationView1.Name = "radNavigationView1";
             this.radNavigationView1.PageBackColor = System.Drawing.Color.White;
             this.radNavigationView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radNavigationView1.SelectedPage = this.radPageViewDashboard;
+            this.radNavigationView1.SelectedPage = this.radPageViewPageManagement;
             this.radNavigationView1.Size = new System.Drawing.Size(1454, 720);
             this.radNavigationView1.TabIndex = 0;
             // 
@@ -83,38 +84,39 @@
             this.radPageViewSearch.Name = "radPageViewSearch";
             this.radPageViewSearch.Size = new System.Drawing.Size(1172, 688);
             this.radPageViewSearch.Text = "جستجوی پیشرفته";
+            this.radPageViewSearch.Paint += new System.Windows.Forms.PaintEventHandler(this.radPageViewSearch_Paint);
             // 
             // radPageViewCreateDocument
             // 
             this.radPageViewCreateDocument.ItemSize = new System.Drawing.SizeF(106F, 33F);
-            this.radPageViewCreateDocument.Location = new System.Drawing.Point(1, 30);
+            this.radPageViewCreateDocument.Location = new System.Drawing.Point(1, 31);
             this.radPageViewCreateDocument.Name = "radPageViewCreateDocument";
-            this.radPageViewCreateDocument.Size = new System.Drawing.Size(1172, 689);
+            this.radPageViewCreateDocument.Size = new System.Drawing.Size(1172, 688);
             this.radPageViewCreateDocument.Text = "ایجاد سند";
             // 
             // radPageViewReport
             // 
             this.radPageViewReport.ItemSize = new System.Drawing.SizeF(106F, 33F);
-            this.radPageViewReport.Location = new System.Drawing.Point(0, 0);
+            this.radPageViewReport.Location = new System.Drawing.Point(1, 31);
             this.radPageViewReport.Name = "radPageViewReport";
-            this.radPageViewReport.Size = new System.Drawing.Size(200, 100);
+            this.radPageViewReport.Size = new System.Drawing.Size(1172, 688);
             this.radPageViewReport.Text = "گزارشات";
             // 
             // radPageViewPageManagement
             // 
             this.radPageViewPageManagement.ItemSize = new System.Drawing.SizeF(106F, 33F);
-            this.radPageViewPageManagement.Location = new System.Drawing.Point(1, 30);
+            this.radPageViewPageManagement.Location = new System.Drawing.Point(1, 31);
             this.radPageViewPageManagement.Name = "radPageViewPageManagement";
-            this.radPageViewPageManagement.Size = new System.Drawing.Size(1172, 689);
+            this.radPageViewPageManagement.Size = new System.Drawing.Size(1172, 688);
             this.radPageViewPageManagement.Text = "پنل مدیریت";
             // 
-            // MainForm
+            // MainForm_NavigationBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1454, 720);
             this.Controls.Add(this.radNavigationView1);
-            this.Name = "MainForm";
+            this.Name = "MainForm_NavigationBar";
             this.Text = "MainForm";
             ((System.ComponentModel.ISupportInitialize)(this.radNavigationView1)).EndInit();
             this.radNavigationView1.ResumeLayout(false);

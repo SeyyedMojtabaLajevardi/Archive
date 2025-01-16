@@ -340,11 +340,17 @@ namespace Archive
 
             if (document == null) return;
             _isFirst = true;
-            FillControls(document);
+            FillDocumentControls(document);
+            FillContentControls(document.DocumentId);
             _isFirst = false;
         }
 
-        private void FillControls(Document document)
+        private void FillContentControls(int documentId)
+        {
+            FillGrid();
+        }
+
+        private void FillDocumentControls(Document document)
         {
             _isFirst = true;
             string mainCategory = _categoryService.GetCategoryById(document.MainCategoryId.Value).CategoryTitle;
@@ -477,6 +483,11 @@ namespace Archive
                 document = CreateDocumentModel();
                 _documentId = _documentService.AddDocument(document);
             }
+        }
+
+        private void ButtonEditDocument_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void FillGrid()
