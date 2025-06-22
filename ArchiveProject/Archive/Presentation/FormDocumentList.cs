@@ -1,14 +1,9 @@
 ﻿using Archive.BusinessLogic;
-using Archive.BusinessLogic.Enumerations;
 using Archive.DataAccess;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Archive.UI
@@ -34,7 +29,7 @@ namespace Archive.UI
 
         private void ButtonCreateDocument_Click(object sender, EventArgs e)
         {
-            FormCreateDocument_Copy formCreateDocument = new FormCreateDocument_Copy(_mainCategoryId);
+            FormCreateDocument formCreateDocument = new FormCreateDocument(_mainCategoryId);
             formCreateDocument.ShowDialog();
         }
 

@@ -2,22 +2,15 @@
 using Archive.BusinessLogic.Enumerations;
 using Archive.DataAccess;
 using Archive.DataAccess.Dto;
-using Dapper;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using System.Xml.Linq;
-using Telerik.WinControls;
+using Telerik.WinControls.UI;
 
 namespace Archive
 {
@@ -27,6 +20,8 @@ namespace Archive
         private readonly IContentService _contentService;
         private readonly IFileService _fileService;
         private readonly ICategoryService _categoryService;
+        private readonly IContentTypeService _contentTypeService;
+        private readonly IFileTypeService _fileTypeService;
         private readonly ArchiveService _archiveService;
 
         private List<PermissionType> _permissionTypes = new List<PermissionType>();
@@ -39,7 +34,10 @@ namespace Archive
         private List<Collection> _collections = new List<Collection>();
         private List<PadidAvar> _padidAvars = new List<PadidAvar>();
         private List<Language> _languages = new List<Language>();
-        private List<FileType> _fileTypes = new List<FileType>();
+        private List<FileType> _fileTypes_Sound = new List<FileType>();
+        private List<FileType> _fileTypes_Text = new List<FileType>();
+        private List<FileType> _fileTypes_Image = new List<FileType>();
+        private List<FileType> _fileTypes_Video = new List<FileType>();
         private bool _isFirst = false;
         private ContentType _contentType = null;
         private FileType _fileType = null;
@@ -56,6 +54,7 @@ namespace Archive
             _contentId;
         private string _fileTypeTitle = "";
         private string _resourceTitle = "";
+        CultureInfo _persianCulture = new CultureInfo("fa-IR");
         //Enums enums = new Enums();
 
         public FormCreateDocument(int mainCategoryId)
@@ -63,11 +62,11 @@ namespace Archive
             InitializeComponent();
             _mainCategoryId = mainCategoryId;
             _archiveService = new ArchiveService(new ArchiveEntities());
-            var width = (ToolStripContentType.Width / 4) - 10;
-            ToolStripButtonSound.Width = width;
-            ToolStripButtonText.Width = width;
-            ToolStripButtonImage.Width = width;
-            ToolStripButtonVideo.Width = width;
+            //var width = (ToolStripContentType.Width / 4) - 10;
+            //ToolStripButtonSound.Width = width;
+            //ToolStripButtonText.Width = width;
+            //ToolStripButtonImage.Width = width;
+            //ToolStripButtonVideo.Width = width;
         }
 
         public FormCreateDocument(IDocumentService documentService, IContentService contentService, IFileService fileService, ICategoryService categoryService)
@@ -76,11 +75,6 @@ namespace Archive
             InitializeComponent();
             this.ResumeLayout();
             _archiveService = new ArchiveService(new ArchiveEntities());
-            var width = (ToolStripContentType.Width / 4) - 10;
-            ToolStripButtonSound.Width = width;
-            ToolStripButtonText.Width = width;
-            ToolStripButtonImage.Width = width;
-            ToolStripButtonVideo.Width = width;
             _documentService = documentService;
             _contentService = contentService;
             _categoryService = categoryService;
@@ -92,226 +86,8 @@ namespace Archive
             //Thread th = new Thread(ControlConfiguration);
             //th.Start();
             _isFirst = true;
-            _permissionStates = _archiveService.FillPermissionState();
-            _padidAvars = _archiveService.FillPadidAvar();
-            _permissionTypes = _archiveService.FillPermissionType();
-            _subjects = _archiveService.FillSubject();
-            _publishStates = _archiveService.FillPublishState();
-            _collections = _archiveService.FillCollection();
-            _mainCategories = _archiveService.FillCategory(null, 1);
-            _fileTypes = _archiveService.FillFileType();
-            _languages = _archiveService.FillLanguage();
-
-            ComboBoxPermissionState.DataSource = _permissionStates;
-            ComboBoxPermissionState.DisplayMember = "PermissionStateTitle";
-            ComboBoxPermissionState.ValueMember = "PermissionStateId";
-            ComboBoxPermissionState.Text = "انتخاب کنید";
-
-            ComboBoxPadidAvar.DataSource = _padidAvars;
-            ComboBoxPadidAvar.DisplayMember = "PadidAvarTitle";
-            ComboBoxPadidAvar.ValueMember = "PadidAvarId";
-            ComboBoxPadidAvar.Text = "انتخاب کنید";
-
-            ComboBoxLanguage.DataSource = _languages;
-            ComboBoxLanguage.DisplayMember = "LanguageTitle";
-            ComboBoxLanguage.ValueMember = "LanguageId";
-            ComboBoxLanguage.Text = "انتخاب کنید";
-
-            ComboBoxMainCategory.DataSource = _mainCategories;
-            ComboBoxMainCategory.DisplayMember = "CategoryTitle";
-            ComboBoxMainCategory.ValueMember = "CategoryId";
-            ComboBoxMainCategory.Text = "انتخاب کنید";
-            if (_mainCategoryId > 0)
-            {
-                var category = _mainCategories.Where(x => x.CategoryId == _mainCategoryId).FirstOrDefault();
-                ComboBoxMainCategory.SelectedIndex = category == null ? -1 : category.CategoryId - 1;
-                _categories1 = _archiveService.FillCategory(category.CategoryId, 2);
-                ComboBoxCategory1.DataSource = _categories1;
-                ComboBoxCategory1.DisplayMember = "CategoryTitle";
-                ComboBoxCategory1.ValueMember = "CategoryId";
-                ComboBoxCategory1.Text = "انتخاب کنید";
-            }
-
-            //ComboBoxCollection.DataSource = _collections;
-            //ComboBoxCollection.DisplayMember = "CollectionTitle";
-            //ComboBoxCollection.ValueMember = "CollectionId";
-            //ComboBoxCollection.Text = "انتخاب کنید";
-
-            ComboBoxPublishState.DataSource = _publishStates;
-            ComboBoxPublishState.DisplayMember = "PublishStateTitle";
-            ComboBoxPublishState.ValueMember = "PublishStateId";
-            ComboBoxPublishState.Text = "انتخاب کنید";
-
-            ComboBoxFileType.DataSource = _fileTypes;
-            ComboBoxFileType.DisplayMember = "FileTypeTitle";
-            ComboBoxFileType.ValueMember = "FileTypeId";
-            ComboBoxFileType.Text = "انتخاب کنید";
-
-            //ComboBoxEditor.DataSource = _editors;
-            //ComboBoxEditor.DisplayMember = "EditorTitle";
-            //ComboBoxEditor.ValueMember = "EditorId";
-            //ComboBoxEditor.Text = "انتخاب کنید";
-            SetButtonState(ToolStripButtonSound, ConentTypeEnum.Sound);
+            FillDropDownList();
             _isFirst = false;
-        }
-
-        private void ControlConfiguration()
-        {
-            _isFirst = true;
-            _permissionStates = _archiveService.FillPermissionState();
-            _padidAvars = _archiveService.FillPadidAvar();
-            _permissionTypes = _archiveService.FillPermissionType();
-            _subjects = _archiveService.FillSubject();
-            _publishStates = _archiveService.FillPublishState();
-            _collections = _archiveService.FillCollection();
-            _mainCategories = _archiveService.FillCategory(null, 1);
-            _fileTypes = _archiveService.FillFileType();
-
-            ComboBoxPermissionState.DataSource = _permissionStates;
-            ComboBoxPermissionState.DisplayMember = "PermissionStateTitle";
-            ComboBoxPermissionState.ValueMember = "PermissionStateId";
-            ComboBoxPermissionState.Text = "انتخاب کنید";
-
-            ComboBoxPadidAvar.DataSource = _padidAvars;
-            ComboBoxPadidAvar.DisplayMember = "PadidAvarTitle";
-            ComboBoxPadidAvar.ValueMember = "PadidAvarId";
-            ComboBoxPadidAvar.Text = "انتخاب کنید";
-
-            ComboBoxMainCategory.DataSource = _mainCategories;
-            ComboBoxMainCategory.DisplayMember = "CategoryTitle";
-            ComboBoxMainCategory.ValueMember = "CategoryId";
-            ComboBoxMainCategory.Text = "انتخاب کنید";
-            if (_mainCategoryId > 0)
-            {
-                var category = _mainCategories.Where(x => x.CategoryId == _mainCategoryId).FirstOrDefault();
-                ComboBoxMainCategory.SelectedIndex = category == null ? -1 : category.CategoryId - 1;
-                _categories1 = _archiveService.FillCategory(category.CategoryId, 2);
-                ComboBoxCategory1.DataSource = _categories1;
-                ComboBoxCategory1.DisplayMember = "CategoryTitle";
-                ComboBoxCategory1.ValueMember = "CategoryId";
-                ComboBoxCategory1.Text = "انتخاب کنید";
-            }
-
-            //ComboBoxCollection.DataSource = _collections;
-            //ComboBoxCollection.DisplayMember = "CollectionTitle";
-            //ComboBoxCollection.ValueMember = "CollectionId";
-            //ComboBoxCollection.Text = "انتخاب کنید";
-
-            ComboBoxPublishState.DataSource = _publishStates;
-            ComboBoxPublishState.DisplayMember = "PublishStateTitle";
-            ComboBoxPublishState.ValueMember = "PublishStateId";
-            ComboBoxPublishState.Text = "انتخاب کنید";
-
-            ComboBoxFileType.DataSource = _fileTypes;
-            ComboBoxFileType.DisplayMember = "FileTypeTitle";
-            ComboBoxFileType.ValueMember = "FileTypeId";
-            ComboBoxFileType.Text = "انتخاب کنید";
-
-            //ComboBoxEditor.DataSource = _editors;
-            //ComboBoxEditor.DisplayMember = "EditorTitle";
-            //ComboBoxEditor.ValueMember = "EditorId";
-            //ComboBoxEditor.Text = "انتخاب کنید";
-
-            _isFirst = false;
-        }
-
-        private void ToolStripButtonSound_Click(object sender, EventArgs e)
-        {
-            SetButtonState(ToolStripButtonSound, ConentTypeEnum.Sound);
-        }
-
-        private void ToolStripButtonText_Click(object sender, EventArgs e)
-        {
-            SetButtonState(ToolStripButtonText, ConentTypeEnum.Text);
-        }
-
-        private void ToolStripButtonImage_Click(object sender, EventArgs e)
-        {
-            SetButtonState(ToolStripButtonImage, ConentTypeEnum.Image);
-        }
-
-        private void ToolStripButtonVideo_Click(object sender, EventArgs e)
-        {
-            SetButtonState(ToolStripButtonVideo, ConentTypeEnum.Video);
-        }
-
-        private void ComboBoxPermissionState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (_isFirst) return;
-            int.TryParse(ComboBoxPermissionState.SelectedValue?.ToString(), out _permissionStateId);
-            _permissionStateId = ((PermissionState)ComboBoxPermissionState.SelectedItem).PermissionStateId;
-            var permissionLeveTitle = ((PermissionState)ComboBoxPermissionState.SelectedItem).PermissionStateTitle;
-
-        }
-
-        private void ComboBoxCategory1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (_isFirst) return;
-            //int.TryParse(ComboBoxCategory1.SelectedValue?.ToString(), out _FirstcategoryId);
-            _firstCategoryId = ((Category)ComboBoxCategory1.SelectedItem).CategoryId;
-            var categoryTitle = ((Category)ComboBoxCategory1.SelectedItem).CategoryTitle;
-            _isFirst = true;
-            _categories2 = _archiveService.FillCategory(_firstCategoryId, 3);
-            ComboBoxCategory2.DataSource = _categories2;
-            ComboBoxCategory2.DisplayMember = "CategoryTitle";
-            ComboBoxCategory2.ValueMember = "CategoryId";
-            ComboBoxCategory2.Text = "انتخاب کنید";
-            _isFirst = false;
-        }
-
-        private void ComboBoxMainCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (_isFirst) return;
-            _isFirst = true;
-            _mainCategoryId = ((Category)ComboBoxMainCategory.SelectedItem).CategoryId;
-            var categoryTitle = ((Category)ComboBoxMainCategory.SelectedItem).CategoryTitle;
-
-            _categories1 = _archiveService.FillCategory(_mainCategoryId, 2);
-            ComboBoxCategory1.DataSource = _categories1;
-            ComboBoxCategory1.DisplayMember = "CategoryTitle";
-            ComboBoxCategory1.ValueMember = "CategoryId";
-            ComboBoxCategory1.Text = "انتخاب کنید";
-            _isFirst = false;
-        }
-
-        private void SetButtonState(ToolStripButton activeButton, ConentTypeEnum conentTypeEnum)
-        {
-            ToolStripButtonSound.BackColor = Color.SeaShell;
-            ToolStripButtonText.BackColor = Color.SeaShell;
-            ToolStripButtonImage.BackColor = Color.SeaShell;
-            ToolStripButtonVideo.BackColor = Color.SeaShell;
-            ToolStripButtonSound.Font = new Font("Segoe UI", 9, FontStyle.Regular);
-            ToolStripButtonText.Font = new Font("Segoe UI", 9, FontStyle.Regular);
-            ToolStripButtonImage.Font = new Font("Segoe UI", 9, FontStyle.Regular);
-            ToolStripButtonVideo.Font = new Font("Segoe UI", 9, FontStyle.Regular);
-            _contentType = new ContentType { ContentTypeTitle = activeButton.Tag.ToString(), ContentTypeId = (int)conentTypeEnum + 1 };
-
-            activeButton.BackColor = Color.GreenYellow;
-            activeButton.Font = new Font("Segoe UI", 9, FontStyle.Bold);
-
-            //ButtonDownloadLQ.Visible = conentTypeEnum == ConentTypeEnum.Video;
-            ButtonUploadLQ.Visible = conentTypeEnum == ConentTypeEnum.Video;
-            LabelCode.Enabled = conentTypeEnum == ConentTypeEnum.Sound;
-            TextBoxCode.Enabled = conentTypeEnum == ConentTypeEnum.Sound;
-
-            if (conentTypeEnum == ConentTypeEnum.Video)
-            {
-                //ButtonDownload.Text = "HQ دانلود";
-                ButtonUpload.Text = "HQ آپلود";
-            }
-            else
-            {
-                //ButtonDownload.Text = "دانلود";
-                ButtonUpload.Text = "آپلود";
-            }
-        }
-
-        private void ComboBoxFileType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (_isFirst) return;
-            _fileTypeId = ((FileType)ComboBoxFileType.SelectedItem).FileTypeId;
-            _fileTypeTitle = ((FileType)ComboBoxFileType.SelectedItem).FileTypeTitle;
-            //_fileType = new FileType { FileTypeId = fileTypeId, FileTypeTitle = fileTypeTitle };
         }
 
         private void ButtonSaveTemorary_Click(object sender, EventArgs e)
@@ -325,20 +101,15 @@ namespace Archive
             //var filetype;
         }
 
-        private void ComboBoxCategory2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (_isFirst) return;
-            //int.TryParse(ComboBoxCategory2.SelectedValue?.ToString(), out _secondCategoryId);
-            _secondCategoryId = ((Category)ComboBoxCategory2.SelectedItem).CategoryId;
-            var categoryTitle = ((Category)ComboBoxCategory2.SelectedItem).CategoryTitle;
-        }
-
         private void TextBoxSiteCode_Leave(object sender, EventArgs e)
         {
+            _contentType = GetConentType();
             var siteCode = TextBoxSiteCode.Text.Trim();
             var document = _documentService.GetDocumentBySiteCode(siteCode);
 
-            if (document == null) return;
+            if (document == null)
+                return;
+            ClearBox();
             _isFirst = true;
             FillDocumentControls(document);
             FillContentControls(document.DocumentId);
@@ -358,16 +129,14 @@ namespace Archive
             string secondCategory = _categoryService.GetCategoryById(document.SecondCategoryId.Value).CategoryTitle;
 
             _documentId = document.DocumentId;
-            ComboBoxPermissionState.SelectedIndex = -1;
-            ComboBoxPadidAvar.SelectedIndex = -1;
-            ComboBoxLanguage.SelectedIndex = -1;
-            ComboBoxPublishState.SelectedIndex = -1;
-            ComboBoxMainCategory.SelectedIndex = -1;
-            ComboBoxCategory1.SelectedIndex = -1;
-            ComboBoxCategory2.SelectedIndex = -1;
+            radDropDownListPermissionState.SelectedIndex = -1;
+            radDropDownListPadidAvar.SelectedIndex = -1;
+            radDropDownListLanguage.SelectedIndex = -1;
+            radDropDownListPublishState.SelectedIndex = -1;
+            radDropDownListMainCategory.SelectedIndex = -1;
+            radDropDownListCategory1.SelectedIndex = -1;
+            radDropDownListCategory2.SelectedIndex = -1;
             TextBoxSiteCode.Text = document.SiteCode;
-            TextBoxOldTitle.Text = document.OldTitle;
-            TextBoxNewTitle.Text = document.NewTitle;
             TextBoxSubTitle.Text = document.SubTitle;
             TextBoxComment.Text = document.Comment;
             TextBoxSessionCount.Text = document.SessionCount?.ToString();
@@ -377,51 +146,39 @@ namespace Archive
             TextBoxDocumentDescription.Text = document.Description;
 
             if (document.PermissionState != null)
-                ComboBoxPermissionState.SelectedIndex = ComboBoxPermissionState.FindStringExact(document.PermissionState.PermissionStateTitle);
+                radDropDownListPermissionState.SelectedIndex = radDropDownListPermissionState.FindStringExact(document.PermissionState.PermissionStateTitle);
             if (document.PadidAvar != null)
-                ComboBoxPadidAvar.SelectedIndex = ComboBoxPadidAvar.FindStringExact(document.PadidAvar.PadidAvarTitle);
+                radDropDownListPadidAvar.SelectedIndex = radDropDownListPadidAvar.FindStringExact(document.PadidAvar.PadidAvarTitle);
             if (document.Language != null)
-                ComboBoxLanguage.SelectedIndex = ComboBoxLanguage.FindStringExact(document.Language.LanguageTitle);
+                radDropDownListLanguage.SelectedIndex = radDropDownListLanguage.FindStringExact(document.Language.LanguageTitle);
             if (document.PublishState != null)
-                ComboBoxPublishState.SelectedIndex = ComboBoxPublishState.FindStringExact(document.PublishState.PublishStateTitle);
+                radDropDownListPublishState.SelectedIndex = radDropDownListPublishState.FindStringExact(document.PublishState.PublishStateTitle);
+            if (document.OldTitle != null)
+                radDropDownListOldTitle.SelectedIndex = radDropDownListOldTitle.FindStringExact(document.OldTitle);
+            if (document.NewTitle != null)
+                radDropDownListNewTitle.SelectedIndex = radDropDownListNewTitle.FindStringExact(document.NewTitle);
+            if (document.SessionDate != null)
+                PersiandateTimePickerDate.DateValue = document.SessionDate.Value.ToString("yyyy/MM/dd", _persianCulture);
+
             _isFirst = false;
             if (!string.IsNullOrEmpty(mainCategory.Trim()))
-                ComboBoxMainCategory.SelectedIndex = ComboBoxMainCategory.FindStringExact(mainCategory);
+                radDropDownListMainCategory.SelectedIndex = radDropDownListMainCategory.FindStringExact(mainCategory);
             if (!string.IsNullOrEmpty(firstCategory.Trim()))
-                ComboBoxCategory1.SelectedIndex = ComboBoxCategory1.FindStringExact(firstCategory);
+                radDropDownListCategory1.SelectedIndex = radDropDownListCategory1.FindStringExact(firstCategory);
             _isFirst = true;
-            ComboBoxCategory2.SelectedIndex = -1;
+            radDropDownListCategory2.SelectedIndex = -1;
             _isFirst = false;
             if (!string.IsNullOrEmpty(secondCategory.Trim()))
             {
-                ComboBoxCategory2.SelectedIndex = ComboBoxCategory2.FindStringExact(secondCategory);
-                ComboBoxCategory2.Text = secondCategory;
+                radDropDownListCategory2.SelectedIndex = radDropDownListCategory2.FindStringExact(secondCategory);
+                radDropDownListCategory2.Text = secondCategory;
             }
-        }
-
-        private void ComboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (_isFirst) return;
-            //int.TryParse(ComboBoxLanguage.SelectedValue?.ToString(), out _languageId);
-            _languageId = ((Language)ComboBoxLanguage.SelectedItem).LanguageId;
-            //var languageTitle = ((Language)ComboBoxLanguage.SelectedItem).LanguageTitle;
-        }
-
-        private void ComboBoxPublishState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (_isFirst) return;
-            //int.TryParse(ComboBoxPublishState.SelectedValue?.ToString(), out _publishStateId);
-            _publishStateId = ((PublishState)ComboBoxPublishState.SelectedItem).PublishStateId;
-            //var publishStateTitle = ((PublishState)ComboBoxPublishState.SelectedItem).PublishStateTitle;
         }
 
         private void ButtonAddFile_Click(object sender, EventArgs e)
         {
-            if (TextBoxFileNo.Text.Trim() == "")
-            {
-                MessageBox.Show("شماره فایل باید مقداردهی شود");
+            if (!FormValidations())
                 return;
-            }
 
             Content content = _contentService.GetContentByContentTypeIdAndDocumentId(_contentType.ContentTypeId, _documentId);
 
@@ -432,24 +189,24 @@ namespace Archive
                     ContentTypeId = _contentType.ContentTypeId,
                     DocumentId = _documentId,
                     Code = TextBoxCode.Text.Trim(),
-                    Description = TextBoxContentDescription.Text.Trim(),
+                    Description = TextBoxContentDescription_Sound.Text.Trim(),
                 };
                 _contentService.AddContent(content);
             }
             _contentId = content.ContentId;
 
-            File file = _fileService.GetFileByContentIdAndFileTypeIdAndFileNumber(_contentId, _fileTypeId, int.Parse(TextBoxFileNo.Text.Trim()));
+            File file = _fileService.GetFileByContentIdAndFileTypeIdAndFileNumber(_contentId, _fileTypeId, int.Parse(TextBoxFileNo_Sound.Text.Trim()));
             if (file == null)
             {
                 file = new File
                 {
                     ResourceId = _resourceId > 0 ? _resourceId : (int?)null,
                     FileTypeId = _fileTypeId,
-                    FileNumber = int.Parse(TextBoxFileNo.Text.Trim()),
-                    Comment = TextBoxContentComment.Text.Trim(),
+                    FileNumber = int.Parse(TextBoxFileNo_Sound.Text.Trim()),
+                    Comment = TextBoxContentComment_Sound.Text.Trim(),
                     //EditorId = null,
-                    DeletionDescription = textBoxDeletionDescription.Text.Trim(),
-                    FileName = "test" + TextBoxFileNo.Text.Trim(),
+                    DeletionDescription = textBoxDeletionDescription_Sound.Text.Trim(),
+                    FileName = "test" + TextBoxFileNo_Sound.Text.Trim(),
                     ContentId = content.ContentId
                 };
                 _fileService.AddFile(file);
@@ -457,6 +214,7 @@ namespace Archive
             }
             else
             {
+                _fileService.UpdateFile(file.FileId, file);
                 MessageBox.Show(@"فایل مورد نظر موجود می‌باشد");
                 return;
             }
@@ -464,30 +222,298 @@ namespace Archive
             FillGrid();
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            if (!FormValidations())
-                return;
-
-            Document document = DuplicatedData();
-            if (document != null)
-            {
-                if (MessageBox.Show("اطلاعات وارد شده تکراری می‌باشد" + "\r\r" + "آیا تمایل به ویرایش اطلاعات دارید؟", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    var documentDto = CreateDocumentModel(document);
-                    _documentService.UpdateDocument(documentDto);
-                }
-            }
-            else
-            {
-                document = CreateDocumentModel();
-                _documentId = _documentService.AddDocument(document);
-            }
-        }
-
         private void ButtonEditDocument_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void radNavigationView1_SelectedPageChanged(object sender, EventArgs e)
+        {
+            _contentType = GetConentType();
+        }
+
+        private ContentType GetConentType()
+        {
+            var contentTypeTitle = radNavigationView1.SelectedPage.Tag.ToString();
+            int contentTypeId = -1;
+            switch (radNavigationView1.SelectedPage.Name)
+            {
+                case "radPageViewPageSound":
+                    contentTypeId = (int)ConentTypeEnum.Sound + 1;
+                    break;
+                case "radPageViewPageText":
+                    contentTypeId = (int)ConentTypeEnum.Text + 1;
+                    break;
+                case "radPageViewPageImage":
+                    contentTypeId = (int)ConentTypeEnum.Image + 1;
+                    break;
+                case "radPageViewPageVideo":
+                    contentTypeId = (int)ConentTypeEnum.Video + 1;
+                    break;
+                default:
+                    break;
+            }
+            var contentType = new ContentType { ContentTypeTitle = contentTypeTitle, ContentTypeId = contentTypeId };
+            return contentType;
+        }
+
+        private void GridViewContent_CurrentRowChanged(object sender, Telerik.WinControls.UI.CurrentRowChangedEventArgs e)
+        {
+            if (_isFirst || GridViewContent.CurrentRow == null || GridViewContent.CurrentRow.HierarchyLevel == 0)
+                return;
+            File fileInfo = GetCurrentFileInfo(GridViewContent.CurrentRow);
+            _contentType = GetContentTypeFromGridView();
+            switch (_contentType.ContentTypeTitle?.ToLower())
+            {
+                case "sound":
+                    TextBoxContentComment_Sound.Text = fileInfo.Comment;
+                    textBoxDeletionDescription_Sound.Text = fileInfo.DeletionDescription;
+                    TextBoxFileNo_Sound.Text = fileInfo.FileNumber.ToString();
+                    if (fileInfo.FileType != null)
+                        radDropDownListFileType_Sound.SelectedIndex = radDropDownListFileType_Sound.FindStringExact(fileInfo.FileType.FileTypeTitle);
+                    if (fileInfo.Resource != null)
+                        radDropDownListResource_Sound.SelectedIndex = radDropDownListResource_Sound.FindStringExact(fileInfo.Resource.ResourceTitle);
+                    radNavigationView1.SelectedPage = radPageViewPageSound;
+
+                    break;
+
+                case "text":
+                    TextBoxContentComment_Text.Text = fileInfo.Comment;
+                    textBoxDeletionDescription_Text.Text = fileInfo.DeletionDescription;
+                    TextBoxFileNo_Text.Text = fileInfo.FileNumber.ToString();
+                    if (fileInfo.FileType != null)
+                        radDropDownListFileType_Text.SelectedIndex = radDropDownListFileType_Text.FindStringExact(fileInfo.FileType.FileTypeTitle);
+                    if (fileInfo.Resource != null)
+                        radDropDownListResource_Text.SelectedIndex = radDropDownListResource_Text.FindStringExact(fileInfo.Resource.ResourceTitle);
+                    RichTextBoxTextUpload.Text = fileInfo.Text;
+                    radNavigationView1.SelectedPage = radPageViewPageText;
+                    break;
+
+                case "image":
+                    TextBoxContentComment_Image.Text = fileInfo.Comment;
+                    textBoxDeletionDescription_Image.Text = fileInfo.DeletionDescription;
+                    TextBoxFileNo_Image.Text = fileInfo.FileNumber.ToString();
+                    if (fileInfo.FileType != null)
+                        radDropDownListFileType_Image.SelectedIndex = radDropDownListFileType_Image.FindStringExact(fileInfo.FileType.FileTypeTitle);
+                    if (fileInfo.Resource != null)
+                        radDropDownListResource_Image.SelectedIndex = radDropDownListResource_Image.FindStringExact(fileInfo.Resource.ResourceTitle);
+                    radNavigationView1.SelectedPage = radPageViewPageImage;
+                    break;
+
+                case "video":
+                    TextBoxContentComment_Video.Text = fileInfo.Comment;
+                    textBoxDeletionDescription_Video.Text = fileInfo.DeletionDescription;
+                    TextBoxFileNo_Video.Text = fileInfo.FileNumber.ToString();
+                    if (fileInfo.FileType != null)
+                        radDropDownListFileType_Video.SelectedIndex = radDropDownListFileType_Video.FindStringExact(fileInfo.FileType.FileTypeTitle);
+                    if (fileInfo.Resource != null)
+                        radDropDownListResource_Video.SelectedIndex = radDropDownListResource_Video.FindStringExact(fileInfo.Resource.ResourceTitle);
+                    radNavigationView1.SelectedPage = radPageViewPageVideo;
+                    break;
+                default:
+                    MessageBox.Show(@"اشکال در واکشی نوع محتوا");
+                    break;
+            }
+
+        }
+
+        private File GetCurrentFileInfo(GridViewRowInfo currentRow)
+        {
+            File file = new File();
+            try
+            {
+                file.Comment = currentRow.Cells["Comment"].Value?.ToString();
+                file.ContentId = int.Parse(currentRow.Cells["ContentId"].Value?.ToString());
+                file.DeletionDescription = currentRow.Cells["DeletionDescription"].Value.ToString();
+                file.FileName = currentRow.Cells["FileName"]?.Value?.ToString();
+                file.FileNumber = int.Parse(currentRow.Cells["FileNumber"].Value.ToString());
+                if (currentRow.Cells["FileTypeTitle"].Value != null)
+                    file.FileType = new FileType { FileTypeId = int.Parse(currentRow.Cells["FileTypeId"].Value.ToString()), FileTypeTitle = currentRow.Cells["FileTypeTitle"].Value.ToString() };
+                if (currentRow.Cells["ResourceTitle"].Value != null)
+                    file.Resource = new Resource { ResourceId = int.Parse(currentRow.Cells["ResourceId"].Value.ToString()), ResourceTitle = currentRow.Cells["ResourceTitle"].Value.ToString() };
+                file.Text = currentRow.Cells["Text"]?.Value?.ToString();
+            }
+            catch (Exception ex)
+            {
+            }
+            return file;
+        }
+
+        private ContentType GetContentTypeFromGridView()
+        {
+            int contentTypeId = -1;
+            var contentTypeTitle = GridViewContent.CurrentRow.Cells["ContentTypeTitle"].Value?.ToString().ToLower();
+            if (contentTypeTitle == null) return new ContentType();
+            switch (contentTypeTitle.ToLower())
+            {
+                case "sound":
+                    contentTypeId = (int)ConentTypeEnum.Sound + 1;
+                    break;
+                case "text":
+                    contentTypeId = (int)ConentTypeEnum.Sound + 1;
+                    break;
+                case "image":
+                    contentTypeId = (int)ConentTypeEnum.Sound + 1;
+                    break;
+                case "video":
+                    contentTypeId = (int)ConentTypeEnum.Sound + 1;
+                    break;
+            }
+            var contentType = new ContentType { ContentTypeTitle = contentTypeTitle, ContentTypeId = contentTypeId };
+            return contentType;
+        }
+
+        private void radDropDownListLanguage_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            if (_isFirst) return;
+            //int.TryParse(radDropDownListLanguage.SelectedValue?.ToString(), out _languageId);
+            int.TryParse(radDropDownListLanguage?.SelectedValue?.ToString(), out _languageId);
+            var languageTitle = radDropDownListLanguage.SelectedText;
+        }
+
+        private void radDropDownListPermissionState_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            if (_isFirst) return;
+            int.TryParse(radDropDownListPermissionState.SelectedValue?.ToString(), out _permissionStateId);
+            var permissionLeveTitle = radDropDownListPermissionState.SelectedText;
+        }
+
+        private void radDropDownListPublishState_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            if (_isFirst) return;
+            //int.TryParse(radDropDownListPublishState.SelectedValue?.ToString(), out _publishStateId);
+            int.TryParse(radDropDownListPublishState?.SelectedItem?.Value.ToString(), out _publishStateId);
+            //var publishStateTitle = ((PublishState)radDropDownListPublishState.SelectedItem).PublishStateTitle;
+        }
+
+        private void radDropDownListMainCategory_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            if (_isFirst) return;
+            _isFirst = true;
+            int.TryParse(radDropDownListMainCategory?.SelectedItem?.Value.ToString(), out _mainCategoryId);
+            var categoryTitle = radDropDownListMainCategory.SelectedText;
+
+            _categories1 = _archiveService.FillCategory(_mainCategoryId, 2);
+            radDropDownListCategory1.DataSource = _categories1;
+            radDropDownListCategory1.DisplayMember = "CategoryTitle";
+            radDropDownListCategory1.ValueMember = "CategoryId";
+            //radDropDownListCategory1.Text = "انتخاب کنید";
+            _isFirst = false;
+        }
+
+        private void radDropDownListCategory1_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            if (_isFirst) return;
+            //_firstCategoryId = ((Category)radDropDownListCategory1.SelectedItem.Value).CategoryId;
+            int.TryParse(radDropDownListCategory1?.SelectedItem?.Value.ToString(), out _firstCategoryId);
+            var categoryTitle = radDropDownListCategory1.SelectedText;
+            _isFirst = true;
+            _categories2 = _archiveService.FillCategory(_firstCategoryId, 3);
+            radDropDownListCategory2.DataSource = _categories2;
+            radDropDownListCategory2.DisplayMember = "CategoryTitle";
+            radDropDownListCategory2.ValueMember = "CategoryId";
+            radDropDownListCategory2.Text = "انتخاب کنید";
+            _isFirst = false;
+        }
+
+        private void radDropDownListCategory2_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            if (_isFirst) return;
+            //int.TryParse(radDropDownListCategory2.SelectedValue?.ToString(), out _secondCategoryId);
+            int.TryParse(radDropDownListCategory2?.SelectedItem?.Value.ToString(), out _secondCategoryId);
+            var categoryTitle = radDropDownListCategory2.SelectedText;
+        }
+
+        private void radDropDownListFileType_Sound_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            if (_isFirst) return;
+            int.TryParse(radDropDownListFileType_Sound?.SelectedItem?.Value.ToString(), out _fileTypeId);
+            _fileTypeTitle = radDropDownListFileType_Sound.SelectedText;
+            //_fileType = new FileType { FileTypeId = fileTypeId, FileTypeTitle = fileTypeTitle };
+        }
+
+        private void radDropDownListFileType_Text_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+
+        }
+
+        private void radDropDownListResource_Text_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+
+        }
+
+        private void radDropDownListResource_Image_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+
+        }
+
+        private void radDropDownListResource_Sound_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            if (_isFirst) return;
+            int.TryParse(radDropDownListResource_Sound?.SelectedItem?.Value.ToString(), out _resourceId);
+            _resourceTitle = radDropDownListResource_Sound.SelectedText;
+        }
+
+        private void TextBoxSiteCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter || TextBoxSiteCode.Text.Trim() == "")
+                return;
+
+            _contentType = GetConentType();
+            var siteCode = TextBoxSiteCode.Text.Trim();
+            var document = _documentService.GetDocumentBySiteCode(siteCode);
+
+            ClearBox();
+            if (document == null)
+                return;
+            _isFirst = true;
+            FillDocumentControls(document);
+            FillContentControls(document.DocumentId);
+            _isFirst = false;
+
+        }
+
+        private void radDropDownListOldTitle_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            if (_isFirst || radDropDownListOldTitle.Text.Trim() == "") 
+                return;
+
+            var document = _documentService.GetDocumentByOldTitle(radDropDownListOldTitle.Text.Trim());
+            ClearBox();
+            if (document == null)
+                return;
+            _isFirst = true;
+            FillDocumentControls(document);
+            FillContentControls(document.DocumentId);
+            _isFirst = false;
+        }
+
+        private void radDropDownListNewTitle_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            if (_isFirst || radDropDownListNewTitle.Text.Trim() == "")
+                return;
+
+            var document = _documentService.GetDocumentByNewTitle(radDropDownListNewTitle.Text.Trim());
+            ClearBox();
+            if (document == null)
+                return;
+
+            _isFirst = true;
+            FillDocumentControls(document);
+            FillContentControls(document.DocumentId);
+            _isFirst = false;
+        }
+
+        private void ButtonUpload_Sound_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radDropDownListPadidAvar_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            if (_isFirst) return;
+            int.TryParse(radDropDownListPadidAvar.SelectedItem?.Value?.ToString(), out _padidAvarId);
+            var padidAvarTitle = radDropDownListPadidAvar.SelectedText;
         }
 
         private void FillGrid()
@@ -497,23 +523,18 @@ namespace Archive
                 index = GridViewContent.CurrentRow.Index;
             var list = _contentService.GetContentByDocumentId(_documentId);
             //GetInformation();
+            _isFirst = true;
             GridViewContent.DataSource = list;
             if (GridViewContent.RowCount > 0) GridViewContent.CurrentRow = GridViewContent.Rows[index];
-        }
-
-        private void ComboBoxResource_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (_isFirst) return;
-            _resourceId = ((Resource)ComboBoxResource.SelectedItem).ResourceId;
-            _resourceTitle = ((Resource)ComboBoxResource.SelectedItem).ResourceTitle;
+            _isFirst = false;
         }
 
         private void TextBoxFileNo_TextChanged(object sender, EventArgs e)
         {
             // باید فقط مقادیر عددی وارد شود
-            if (Regex.Replace(TextBoxFileNo.Text, @"\d+", "").Length > 0)
+            if (Regex.Replace(TextBoxFileNo_Sound.Text, @"\d+", "").Length > 0)
             {
-                TextBoxFileNo.Text = "";
+                TextBoxFileNo_Sound.Text = "";
             }
         }
 
@@ -547,10 +568,10 @@ namespace Archive
                 return false;
             }
 
-            if (TextBoxNewTitle.Text.Trim() == "")
+            if (radDropDownListNewTitle.Text.Trim() == "")
             {
-                TextBoxNewTitle.Focus();
-                TextBoxNewTitle.BackColor = Color.IndianRed;
+                radDropDownListNewTitle.Focus();
+                radDropDownListNewTitle.BackColor = Color.IndianRed;
                 return false;
             }
 
@@ -561,47 +582,76 @@ namespace Archive
                 return false;
             }
 
-            if (ComboBoxPermissionState.SelectedIndex == -1)
+            if (radDropDownListPermissionState.SelectedIndex == -1)
             {
-                ComboBoxPermissionState.Focus();
-                ComboBoxPermissionState.BackColor = Color.IndianRed;
+                radDropDownListPermissionState.Focus();
+                radDropDownListPermissionState.BackColor = Color.IndianRed;
                 return false;
             }
 
-            if (ComboBoxPublishState.SelectedIndex == -1)
+            if (radDropDownListPublishState.SelectedIndex == -1)
             {
-                ComboBoxPublishState.Focus();
-                ComboBoxPublishState.BackColor = Color.IndianRed;
+                radDropDownListPublishState.Focus();
+                radDropDownListPublishState.BackColor = Color.IndianRed;
                 return false;
             }
 
-            if (ComboBoxLanguage.SelectedIndex == -1)
+            if (radDropDownListLanguage.SelectedIndex == -1)
             {
-                ComboBoxLanguage.Focus();
-                ComboBoxLanguage.BackColor = Color.IndianRed;
+                radDropDownListLanguage.Focus();
+                radDropDownListLanguage.BackColor = Color.IndianRed;
                 return false;
             }
 
-            if (ComboBoxPadidAvar.SelectedIndex == -1)
+            if (radDropDownListPadidAvar.SelectedIndex == -1)
             {
-                ComboBoxPadidAvar.Focus();
-                ComboBoxPadidAvar.BackColor = Color.IndianRed;
+                radDropDownListPadidAvar.Focus();
+                radDropDownListPadidAvar.BackColor = Color.IndianRed;
                 return false;
             }
 
-            if (ComboBoxMainCategory.SelectedIndex == -1)
+            if (radDropDownListMainCategory.SelectedIndex == -1)
             {
-                ComboBoxMainCategory.Focus();
-                ComboBoxMainCategory.BackColor = Color.IndianRed;
+                radDropDownListMainCategory.Focus();
+                radDropDownListMainCategory.BackColor = Color.IndianRed;
                 return false;
             }
 
-            if (ComboBoxCategory1.SelectedIndex == -1)
+            if (radDropDownListCategory1.SelectedIndex == -1)
             {
-                ComboBoxCategory1.Focus();
-                ComboBoxCategory1.BackColor = Color.IndianRed;
+                radDropDownListCategory1.Focus();
+                radDropDownListCategory1.BackColor = Color.IndianRed;
                 return false;
             }
+
+            /*            if (_contentType.ContentTypeTitle == ConentTypeEnum.Sound.ToString() && string.IsNullOrEmpty(TextBoxFileNo_Sound.Text))
+                        {
+                            TextBoxFileNo_Sound.Focus();
+                            TextBoxFileNo_Sound.BackColor = Color.IndianRed;
+                            return false;
+                        }
+
+                        if (_contentType.ContentTypeTitle == ConentTypeEnum.Text.ToString() && string.IsNullOrEmpty(TextBoxFileNo_Text.Text))
+                        {
+                            TextBoxFileNo_Sound.Focus();
+                            TextBoxFileNo_Sound.BackColor = Color.IndianRed;
+                            return false;
+                        }
+
+                        if (_contentType.ContentTypeTitle == ConentTypeEnum.Image.ToString() && string.IsNullOrEmpty(TextBoxFileNo_Image.Text))
+                        {
+                            TextBoxFileNo_Sound.Focus();
+                            TextBoxFileNo_Sound.BackColor = Color.IndianRed;
+                            return false;
+                        }
+
+                        if (_contentType.ContentTypeTitle == ConentTypeEnum.Video.ToString() && string.IsNullOrEmpty(TextBoxFileNo_Video.Text))
+                        {
+                            TextBoxFileNo_Sound.Focus();
+                            TextBoxFileNo_Sound.BackColor = Color.IndianRed;
+                            return false;
+                        }*/
+
             return true;
         }
 
@@ -610,16 +660,27 @@ namespace Archive
             DocumentDto documentDto = new DocumentDto();
             int.TryParse(TextBoxSessionCount.Text.Trim(), out int sessionCount);
             int.TryParse(TextBoxSessionNumber.Text.Trim(), out int sessionNumber);
+            int.TryParse(radDropDownListPermissionState?.SelectedItem?.Value.ToString(), out _permissionStateId);
+            int.TryParse(radDropDownListCategory2?.SelectedItem?.Value.ToString(), out _secondCategoryId);
+            int.TryParse(radDropDownListCategory1?.SelectedItem?.Value.ToString(), out _firstCategoryId);
+            int.TryParse(radDropDownListPadidAvar?.SelectedItem?.Value.ToString(), out _padidAvarId);
+            int.TryParse(radDropDownListLanguage?.SelectedItem?.Value.ToString(), out _languageId);
+            int.TryParse(radDropDownListMainCategory?.SelectedItem?.Value.ToString(), out _mainCategoryId);
+            int.TryParse(radDropDownListPublishState?.SelectedItem?.Value.ToString(), out _publishStateId);
             //if (document == null)
             //    document = new Document();
 
             //documentDto.UserId = ??
-            //documentDto.DocumentCode = ??
             //documentDto.CreatedDate = ??
             //documentDto.CreatorUserId = ??
+            var date = PersiandateTimePickerDate.DateValue != null ? PersiandateTimePickerDate.DateValue : ""; ;
+            documentDto.SessionDate = DateTime.ParseExact(date, "yyyy/MM/dd", _persianCulture, DateTimeStyles.None);
+            documentDto.DocumentCode = document.DocumentCode;
+            documentDto.DocumentId = document.DocumentId;
             documentDto.SiteCode = TextBoxSiteCode.Text.Trim();
-            documentDto.OldTitle = TextBoxOldTitle.Text.Trim();
-            documentDto.NewTitle = TextBoxNewTitle.Text.Trim();
+            documentDto.OldTitle = radDropDownListOldTitle.Text.Trim();
+            documentDto.NewTitle = radDropDownListNewTitle.Text.Trim();
+            documentDto.NewTitle = radDropDownListNewTitle.Text.Trim();
             documentDto.SubTitle = TextBoxSubTitle.Text.Trim();
             documentDto.PermissionStateId = _permissionStateId;
             //documentDto.CreatorUserId = ??
@@ -656,7 +717,9 @@ namespace Archive
 
         private void ClearBox()
         {
+            _isFirst = true;
             ClearFormControls(this);
+            _isFirst = false;
         }
 
         private void ClearFormControls(Control control)
@@ -669,7 +732,15 @@ namespace Archive
                 }
                 else if (c is ComboBox comboBox)
                 {
+                    _isFirst = true;
                     comboBox.SelectedIndex = -1; // یا هر مقداری که برای تنظیم اولیه نیاز دارید
+                    _isFirst = false;
+                }
+                else if (c is RadDropDownList radDropDownList)
+                {
+                    _isFirst = true;
+                    radDropDownList.SelectedIndex = -1; // یا هر مقداری که برای تنظیم اولیه نیاز دارید
+                    _isFirst = false;
                 }
                 else if (c is CheckBox checkBox)
                 {
@@ -695,11 +766,118 @@ namespace Archive
             return _documentService.GetDocumentBySiteCode(TextBoxSiteCode.Text.Trim());
         }
 
-        private void ComboBoxPadidAvar_SelectedIndexChanged(object sender, EventArgs e)
+        private void FillDropDownList()
         {
-            if (_isFirst) return;
-            _padidAvarId = ((PadidAvar)ComboBoxPadidAvar.SelectedItem).PadidAvarId;
-            var padidAvarTitle = ((PadidAvar)ComboBoxPadidAvar.SelectedItem).PadidAvarTitle;
+            _permissionStates = _archiveService.FillPermissionState();
+            _padidAvars = _archiveService.FillPadidAvar();
+            _permissionTypes = _archiveService.FillPermissionType();
+            _subjects = _archiveService.FillSubject();
+            _publishStates = _archiveService.FillPublishState();
+            _collections = _archiveService.FillCollection();
+            _mainCategories = _archiveService.FillCategory(null, 1);
+            _fileTypes_Text = _archiveService.FillFileTypeByContentType(ConentTypeEnum.Text);
+            _fileTypes_Sound = _archiveService.FillFileTypeByContentType(ConentTypeEnum.Sound);
+            _fileTypes_Video = _archiveService.FillFileTypeByContentType(ConentTypeEnum.Video);
+            _fileTypes_Image = _archiveService.FillFileTypeByContentType(ConentTypeEnum.Image);
+            _languages = _archiveService.FillLanguage();
+
+            radDropDownListPermissionState.DataSource = _permissionStates;
+            radDropDownListPermissionState.DisplayMember = "PermissionStateTitle";
+            radDropDownListPermissionState.ValueMember = "PermissionStateId";
+            radDropDownListPermissionState.Text = "انتخاب کنید";
+
+            radDropDownListPadidAvar.DataSource = _padidAvars;
+            radDropDownListPadidAvar.DisplayMember = "PadidAvarTitle";
+            radDropDownListPadidAvar.ValueMember = "PadidAvarId";
+            radDropDownListPadidAvar.Text = "انتخاب کنید";
+
+            radDropDownListLanguage.DataSource = _languages;
+            radDropDownListLanguage.DisplayMember = "LanguageTitle";
+            radDropDownListLanguage.ValueMember = "LanguageId";
+            radDropDownListLanguage.Text = "انتخاب کنید";
+
+            radDropDownListOldTitle.DataSource = _documentService.GetAll();
+            radDropDownListOldTitle.DisplayMember = "OldTitle";
+            radDropDownListOldTitle.ValueMember = "DocumentId";
+            radDropDownListOldTitle.Text = "انتخاب کنید";
+
+            radDropDownListNewTitle.DataSource = _documentService.GetAll();
+            radDropDownListNewTitle.DisplayMember = "NewTitle";
+            radDropDownListNewTitle.ValueMember = "DocumentId";
+            radDropDownListNewTitle.Text = "انتخاب کنید";
+
+            radDropDownListMainCategory.DataSource = _mainCategories;
+            radDropDownListMainCategory.DisplayMember = "CategoryTitle";
+            radDropDownListMainCategory.ValueMember = "CategoryId";
+            radDropDownListMainCategory.Text = "انتخاب کنید";
+            if (_mainCategoryId > 0)
+            {
+                var category = _mainCategories.Where(x => x.CategoryId == _mainCategoryId).FirstOrDefault();
+                radDropDownListMainCategory.SelectedIndex = category == null ? -1 : category.CategoryId - 1;
+                _categories1 = _archiveService.FillCategory(category.CategoryId, 2);
+                radDropDownListCategory1.DataSource = _categories1;
+                radDropDownListCategory1.DisplayMember = "CategoryTitle";
+                radDropDownListCategory1.ValueMember = "CategoryId";
+                radDropDownListCategory1.Text = "انتخاب کنید";
+            }
+
+            radDropDownListPublishState.DataSource = _publishStates;
+            radDropDownListPublishState.DisplayMember = "PublishStateTitle";
+            radDropDownListPublishState.ValueMember = "PublishStateId";
+            radDropDownListPublishState.Text = "انتخاب کنید";
+
+            radDropDownListFileType_Sound.DataSource = _fileTypes_Sound;
+            radDropDownListFileType_Sound.DisplayMember = "FileTypeTitle";
+            radDropDownListFileType_Sound.ValueMember = "FileTypeId";
+            radDropDownListFileType_Sound.Text = "انتخاب کنید";
+
+            radDropDownListFileType_Text.DataSource = _fileTypes_Text;
+            radDropDownListFileType_Text.DisplayMember = "FileTypeTitle";
+            radDropDownListFileType_Text.ValueMember = "FileTypeId";
+            radDropDownListFileType_Text.Text = "انتخاب کنید";
+
+            radDropDownListFileType_Image.DataSource = _fileTypes_Image;
+            radDropDownListFileType_Image.DisplayMember = "FileTypeTitle";
+            radDropDownListFileType_Image.ValueMember = "FileTypeId";
+            radDropDownListFileType_Image.Text = "انتخاب کنید";
+
+            radDropDownListFileType_Video.DataSource = _fileTypes_Video;
+            radDropDownListFileType_Video.DisplayMember = "FileTypeTitle";
+            radDropDownListFileType_Video.ValueMember = "FileTypeId";
+            radDropDownListFileType_Video.Text = "انتخاب کنید";
+
+            radDropDownListOldTitle.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListOldTitle.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListOldTitle.DropDownListElement);
+            radDropDownListNewTitle.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListNewTitle.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListNewTitle.DropDownListElement);
+            radDropDownListPermissionState.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListPermissionState.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListPermissionState.DropDownListElement);
+            radDropDownListPadidAvar.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListPadidAvar.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListPadidAvar.DropDownListElement);
+            radDropDownListLanguage.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListLanguage.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListLanguage.DropDownListElement);
+            radDropDownListPublishState.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListPublishState.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListPublishState.DropDownListElement);
+            radDropDownListCategory1.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListCategory1.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListCategory1.DropDownListElement);
+            radDropDownListCategory2.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListCategory2.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListCategory2.DropDownListElement);
+            radDropDownListFileType_Sound.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListFileType_Sound.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListFileType_Sound.DropDownListElement);
+            radDropDownListFileType_Text.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListFileType_Text.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListFileType_Text.DropDownListElement);
+            radDropDownListFileType_Image.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListFileType_Image.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListFileType_Image.DropDownListElement);
+            radDropDownListFileType_Video.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListFileType_Video.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListFileType_Video.DropDownListElement);
+            radDropDownListResource_Sound.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListResource_Sound.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListResource_Sound.DropDownListElement);
+            radDropDownListResource_Text.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListResource_Text.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListResource_Text.DropDownListElement);
+            radDropDownListResource_Image.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListResource_Image.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListResource_Image.DropDownListElement);
+            radDropDownListResource_Video.AutoCompleteMode = AutoCompleteMode.Suggest;
+            radDropDownListResource_Video.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListResource_Video.DropDownListElement);
         }
 
         //private List<ContentDto> GetInformation()

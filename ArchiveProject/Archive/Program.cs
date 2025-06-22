@@ -1,4 +1,6 @@
 ﻿using Archive.BusinessLogic;
+//using Archive.BusinessLogic.Implementation;
+//using Archive.BusinessLogic.Interfaces;
 using Archive.DataAccess;
 using Autofac;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,7 +24,7 @@ namespace Archive
             // ایجاد محدوده عمر و اجرای اپلیکیشن
             using (var scope = container.BeginLifetimeScope())
             {
-                var mainForm = scope.Resolve<FormCreateDocument_Copy>();
+                var mainForm = scope.Resolve<FormCreateDocument>();
                 Application.Run(mainForm);
             }
 
@@ -44,9 +46,11 @@ namespace Archive
             builder.RegisterType<ContentService>().As<IContentService>();
             builder.RegisterType<FileService>().As<IFileService>();
             builder.RegisterType<CategoryService>().As<ICategoryService>();
+            builder.RegisterType<FileTypeService>().As<IFileTypeService>();
+            builder.RegisterType<ContentTypeService>().As<IContentTypeService>();
 
             // ثبت فرم‌ها
-            builder.RegisterType<FormCreateDocument_Copy>();
+            builder.RegisterType<FormCreateDocument>();
 
             return builder.Build();
         }

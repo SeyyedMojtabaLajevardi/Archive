@@ -133,6 +133,16 @@ namespace Archive.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Undo_20 {
+            get {
+                object obj = ResourceManager.GetObject("Undo_20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Video_30 {
             get {
                 object obj = ResourceManager.GetObject("Video_30", resourceCulture);

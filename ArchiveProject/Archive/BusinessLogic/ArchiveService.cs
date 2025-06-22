@@ -1,4 +1,5 @@
 ﻿using Archive.BusinessLogic.Dto;
+using Archive.BusinessLogic.Enumerations;
 using Archive.DataAccess;
 using System.Collections.Generic;
 
@@ -59,6 +60,12 @@ namespace Archive.BusinessLogic
         {
             var repository = new Repository<FileType>(_context);
             return repository.GetAll();
+        }
+
+        public List<FileType> FillFileTypeByContentType(ConentTypeEnum conentTypeEnum)
+        {
+            var repository = new Repository<FileType>(_context);
+            return repository.GetByCondition(x => x.ContentTypeId == (int)conentTypeEnum + 1);
         }
 
         public List<Language> FillLanguage()

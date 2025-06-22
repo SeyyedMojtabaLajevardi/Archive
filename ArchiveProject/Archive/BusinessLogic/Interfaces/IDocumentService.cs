@@ -13,7 +13,10 @@ namespace Archive.BusinessLogic
         int AddDocument(Document document);
         void DeleteDocument(int documentId);
         Document GetDocumentById(int documentId);
+        List<Document> GetAll();
         Document GetDocumentBySiteCode(string siteCode);
+        Document GetDocumentByOldTitle(string oldTitle);
+        Document GetDocumentByNewTitle(string newTitle);
         void UpdateDocument(DocumentDto documentDto);
         void Save();
     }

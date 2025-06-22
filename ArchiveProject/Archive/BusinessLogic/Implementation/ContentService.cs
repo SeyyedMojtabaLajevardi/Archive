@@ -74,6 +74,7 @@ namespace Archive.BusinessLogic
                                 FileTypeTitle = ft.FileTypeTitle,
                                 FileNumber = f.FileNumber.Value,
                                 ResourceTitle = r != null ? r.ResourceTitle : null,
+                                ResourceId = r != null ? r.ResourceId : -1,
                                 DocumentId = c.DocumentId,
                                 Code = c.Code,
                                 Description = c.Description,
@@ -81,7 +82,8 @@ namespace Archive.BusinessLogic
                                 Comment = f.Comment,
                                 Text = f.Text,
                                 FileName = f.FileName,
-                                ContentTypeId = ct.ContentTypeId
+                                ContentTypeId = ct.ContentTypeId,
+                                FileTypeId = ft.FileTypeId
                             };
 
                 var results = query.ToList();

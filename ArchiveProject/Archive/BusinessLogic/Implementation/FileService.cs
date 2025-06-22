@@ -20,7 +20,6 @@ namespace Archive.BusinessLogic
             _context.SaveChanges();
         }
 
-
         public void DeleteFile(int fileId)
         {
             var file = GetFileById(fileId);
@@ -43,7 +42,8 @@ namespace Archive.BusinessLogic
 
         public bool UpdateFile(int fileId, File file)
         {
-            throw new NotImplementedException();
+            //_context.Files = (File)file;
+            return false;
         }
         //public void AddFilesByContentId(int contentId, List<File> fileList)
         //{

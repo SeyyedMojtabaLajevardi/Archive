@@ -10,6 +10,8 @@ namespace Archive.DataAccess.Dto
     {
         public string ContentTypeTitle { get; set; }
         public string FileTypeTitle { get; set; }
+        public int FileTypeId { get; set; }
+        public int ResourceId { get; set; }
         public string ResourceTitle { get; set; }
         public int FileNumber { get; set; }
         public string DeletionDescription { get; set; }

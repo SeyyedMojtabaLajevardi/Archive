@@ -36,6 +36,11 @@ namespace Archive.BusinessLogic
             }
         }
 
+        public List<Document> GetAll()
+        {
+            return _context.Documents.ToList();
+        }
+
         public Document GetDocumentById(int documentId)
         {
             return _context.Documents.Find(documentId);
@@ -44,6 +49,14 @@ namespace Archive.BusinessLogic
         public Document GetDocumentBySiteCode(string siteCode)
         {
             return _context.Documents.FirstOrDefault(x => x.SiteCode == siteCode);
+        }
+        Document IDocumentService.GetDocumentByOldTitle(string oldTitle)
+        {            
+            return _context.Documents.FirstOrDefault(x => x.OldTitle == oldTitle);
+        }
+        Document IDocumentService.GetDocumentByNewTitle(string newTitle)
+        {
+            return _context.Documents.FirstOrDefault(x => x.NewTitle == newTitle);
         }
 
         public void Save()
@@ -94,5 +107,6 @@ namespace Archive.BusinessLogic
                 _context.SaveChanges();
             }
         }
+
     }
 }
