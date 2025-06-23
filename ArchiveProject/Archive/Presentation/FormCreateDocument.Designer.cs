@@ -30,29 +30,30 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateDocument));
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn23 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn24 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn25 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn26 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn27 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn28 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn29 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn30 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn31 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn32 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn3 = new Telerik.WinControls.UI.GridViewImageColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn13 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn14 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn15 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn16 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn17 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn18 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn33 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn34 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn35 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn36 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn37 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn38 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn39 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn40 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn41 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn42 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn43 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn4 = new Telerik.WinControls.UI.GridViewImageColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn19 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn20 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn21 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn22 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn23 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn24 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn44 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.PanelHeader = new System.Windows.Forms.Panel();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
             this.radDropDownListNewTitle = new Telerik.WinControls.UI.RadDropDownList();
             this.roundRectShape1 = new Telerik.WinControls.RoundRectShape(this.components);
+            this.circleShape1 = new Telerik.WinControls.CircleShape();
             this.radDropDownListOldTitle = new Telerik.WinControls.UI.RadDropDownList();
             this.radDropDownListCategory2 = new Telerik.WinControls.UI.RadDropDownList();
             this.radDropDownListCategory1 = new Telerik.WinControls.UI.RadDropDownList();
@@ -190,7 +191,6 @@
             this.customShape1 = new Telerik.WinControls.OldShapeEditor.CustomShape();
             this.calloutElementShape1 = new Telerik.WinControls.UI.Callout.CalloutElementShape();
             this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01 = new Telerik.WinControls.UI.RadDropDownListRootElement();
-            this.circleShape1 = new Telerik.WinControls.CircleShape();
             this.starShape1 = new Telerik.WinControls.UI.StarShape();
             this.object_11f9d28c_2b62_4037_bed9_39e037d87daa = new Telerik.WinControls.UI.RadDropDownListRootElement();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
@@ -323,6 +323,10 @@
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListNewTitle.GetChildAt(0))).Shape = this.roundRectShape1;
             ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListNewTitle.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Shape = this.circleShape1;
             // 
+            // circleShape1
+            // 
+            this.circleShape1.IsRightToLeft = true;
+            // 
             // radDropDownListOldTitle
             // 
             this.radDropDownListOldTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -375,6 +379,7 @@
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListCategory1.GetChildAt(0))).ShouldPaint = false;
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListCategory1.GetChildAt(0))).Shape = this.roundRectShape1;
             ((Telerik.WinControls.UI.StackLayoutElement)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2))).ShouldPaint = true;
+            ((Telerik.WinControls.UI.RadDropDownTextBoxElement)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2).GetChildAt(0).GetChildAt(0))).Text = "انتخاب کنید";
             ((Telerik.WinControls.UI.RadTextBoxItem)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2).GetChildAt(0).GetChildAt(0).GetChildAt(0))).ShouldPaint = false;
             ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2).GetChildAt(1))).EnableElementShadow = false;
             ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2).GetChildAt(1))).ShadowDepth = 0;
@@ -410,6 +415,8 @@
             this.radDropDownListMainCategory.TabIndex = 26;
             this.radDropDownListMainCategory.Text = "انتخاب کنید";
             this.radDropDownListMainCategory.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListMainCategory_SelectedIndexChanged);
+            ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListMainCategory.GetChildAt(0))).RightToLeft = true;
+            ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListMainCategory.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
             ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListMainCategory.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Shape = this.circleShape1;
             // 
             // radDropDownListPublishState
@@ -632,6 +639,7 @@
             this.TextBoxSubTitle.Name = "TextBoxSubTitle";
             this.TextBoxSubTitle.Size = new System.Drawing.Size(166, 26);
             this.TextBoxSubTitle.TabIndex = 3;
+            this.TextBoxSubTitle.TextChanged += new System.EventHandler(this.TextBoxSiteCode_TextChanged);
             // 
             // LabelNewTitle
             // 
@@ -844,6 +852,7 @@
             this.TextBoxPlace.Name = "TextBoxPlace";
             this.TextBoxPlace.Size = new System.Drawing.Size(166, 26);
             this.TextBoxPlace.TabIndex = 16;
+            this.TextBoxPlace.TextChanged += new System.EventHandler(this.TextBoxSiteCode_TextChanged);
             // 
             // TextBoxSessionNumber
             // 
@@ -854,6 +863,7 @@
             this.TextBoxSessionNumber.Name = "TextBoxSessionNumber";
             this.TextBoxSessionNumber.Size = new System.Drawing.Size(194, 26);
             this.TextBoxSessionNumber.TabIndex = 13;
+            this.TextBoxSessionNumber.TextChanged += new System.EventHandler(this.TextBoxSiteCode_TextChanged);
             // 
             // TextBoxSessionCount
             // 
@@ -864,6 +874,7 @@
             this.TextBoxSessionCount.Name = "TextBoxSessionCount";
             this.TextBoxSessionCount.Size = new System.Drawing.Size(197, 26);
             this.TextBoxSessionCount.TabIndex = 14;
+            this.TextBoxSessionCount.TextChanged += new System.EventHandler(this.TextBoxSiteCode_TextChanged);
             // 
             // LabelSiteCode
             // 
@@ -885,6 +896,7 @@
             this.TextBoxSiteCode.Name = "TextBoxSiteCode";
             this.TextBoxSiteCode.Size = new System.Drawing.Size(149, 23);
             this.TextBoxSiteCode.TabIndex = 0;
+            this.TextBoxSiteCode.TextChanged += new System.EventHandler(this.TextBoxSiteCode_TextChanged);
             this.TextBoxSiteCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxSiteCode_KeyDown);
             this.TextBoxSiteCode.Leave += new System.EventHandler(this.TextBoxSiteCode_Leave);
             // 
@@ -961,106 +973,106 @@
             // 
             // 
             this.GridViewContent.MasterTemplate.AllowAddNewRow = false;
-            gridViewTextBoxColumn23.FieldName = "DocumentId";
-            gridViewTextBoxColumn23.HeaderText = "DocumentId";
-            gridViewTextBoxColumn23.IsVisible = false;
-            gridViewTextBoxColumn23.Name = "DocumentId";
-            gridViewTextBoxColumn24.FieldName = "ContentId";
-            gridViewTextBoxColumn24.HeaderText = "ContentId";
-            gridViewTextBoxColumn24.IsVisible = false;
-            gridViewTextBoxColumn24.Name = "ContentId";
-            gridViewTextBoxColumn25.FieldName = "ContentTypeTitle";
-            gridViewTextBoxColumn25.HeaderText = "نوع محتوا";
-            gridViewTextBoxColumn25.MaxWidth = 100;
-            gridViewTextBoxColumn25.Name = "ContentTypeTitle";
-            gridViewTextBoxColumn25.Width = 60;
-            gridViewTextBoxColumn26.FieldName = "FileTypeTitle";
-            gridViewTextBoxColumn26.HeaderText = "نوع فایل";
-            gridViewTextBoxColumn26.MaxWidth = 150;
-            gridViewTextBoxColumn26.Name = "FileTypeTitle";
-            gridViewTextBoxColumn26.Width = 100;
-            gridViewTextBoxColumn27.FieldName = "FileTypeId";
-            gridViewTextBoxColumn27.HeaderText = "FileTypeId";
-            gridViewTextBoxColumn27.IsVisible = false;
-            gridViewTextBoxColumn27.Name = "FileTypeId";
-            gridViewTextBoxColumn28.FieldName = "FileNumber";
-            gridViewTextBoxColumn28.HeaderText = "ش-فایل";
-            gridViewTextBoxColumn28.MaxWidth = 70;
-            gridViewTextBoxColumn28.Name = "FileNumber";
-            gridViewTextBoxColumn29.FieldName = "ResourceTitle";
-            gridViewTextBoxColumn29.HeaderText = "منبع";
-            gridViewTextBoxColumn29.MaxWidth = 150;
-            gridViewTextBoxColumn29.Name = "ResourceTitle";
-            gridViewTextBoxColumn29.Width = 150;
-            gridViewTextBoxColumn30.FieldName = "DeletionDescription";
-            gridViewTextBoxColumn30.HeaderText = "توضیح حذفیات";
-            gridViewTextBoxColumn30.MaxWidth = 500;
-            gridViewTextBoxColumn30.Name = "DeletionDescription";
-            gridViewTextBoxColumn30.Width = 380;
-            gridViewTextBoxColumn31.FieldName = "Comment";
-            gridViewTextBoxColumn31.HeaderText = "کامنت";
-            gridViewTextBoxColumn31.IsVisible = false;
-            gridViewTextBoxColumn31.Name = "Comment";
-            gridViewTextBoxColumn32.FieldName = "FileName";
-            gridViewTextBoxColumn32.HeaderText = "نام فایل";
-            gridViewTextBoxColumn32.MaxWidth = 250;
-            gridViewTextBoxColumn32.Name = "FileName";
-            gridViewTextBoxColumn32.Width = 230;
-            gridViewImageColumn3.FieldName = "UploadState";
-            gridViewImageColumn3.HeaderText = "وضعیت";
-            gridViewImageColumn3.Name = "UploadState";
-            gridViewCommandColumn13.FieldName = "Upload";
-            gridViewCommandColumn13.HeaderText = "Upld";
-            gridViewCommandColumn13.Image = global::Archive.Properties.Resources.Add2;
-            gridViewCommandColumn13.IsVisible = false;
-            gridViewCommandColumn13.Name = "Upload";
-            gridViewCommandColumn13.Width = 40;
-            gridViewCommandColumn14.FieldName = "Download";
-            gridViewCommandColumn14.HeaderText = "دانلود";
-            gridViewCommandColumn14.Name = "Download";
-            gridViewCommandColumn14.Width = 40;
-            gridViewCommandColumn15.FieldName = "UploadQ";
-            gridViewCommandColumn15.HeaderText = "UpldQ";
-            gridViewCommandColumn15.IsVisible = false;
-            gridViewCommandColumn15.Name = "UploadQ";
-            gridViewCommandColumn16.FieldName = "DownloadQ";
-            gridViewCommandColumn16.HeaderText = "دانلودHQ";
-            gridViewCommandColumn16.Name = "DownloadQ";
-            gridViewCommandColumn16.Width = 60;
-            gridViewCommandColumn17.FieldName = "Delete";
-            gridViewCommandColumn17.HeaderText = "Del";
-            gridViewCommandColumn17.Image = global::Archive.Properties.Resources.Delete_20;
-            gridViewCommandColumn17.Name = "Delete";
-            gridViewCommandColumn17.Width = 30;
-            gridViewCommandColumn18.FieldName = "Undo";
-            gridViewCommandColumn18.HeaderText = "Undo";
-            gridViewCommandColumn18.Image = global::Archive.Properties.Resources.Undo_20;
-            gridViewCommandColumn18.Name = "Undo";
-            gridViewCommandColumn18.Width = 40;
-            gridViewTextBoxColumn33.FieldName = "Text";
-            gridViewTextBoxColumn33.HeaderText = "Text";
-            gridViewTextBoxColumn33.IsVisible = false;
-            gridViewTextBoxColumn33.Name = "Text";
+            gridViewTextBoxColumn34.FieldName = "DocumentId";
+            gridViewTextBoxColumn34.HeaderText = "DocumentId";
+            gridViewTextBoxColumn34.IsVisible = false;
+            gridViewTextBoxColumn34.Name = "DocumentId";
+            gridViewTextBoxColumn35.FieldName = "ContentId";
+            gridViewTextBoxColumn35.HeaderText = "ContentId";
+            gridViewTextBoxColumn35.IsVisible = false;
+            gridViewTextBoxColumn35.Name = "ContentId";
+            gridViewTextBoxColumn36.FieldName = "ContentTypeTitle";
+            gridViewTextBoxColumn36.HeaderText = "نوع محتوا";
+            gridViewTextBoxColumn36.MaxWidth = 100;
+            gridViewTextBoxColumn36.Name = "ContentTypeTitle";
+            gridViewTextBoxColumn36.Width = 60;
+            gridViewTextBoxColumn37.FieldName = "FileTypeTitle";
+            gridViewTextBoxColumn37.HeaderText = "نوع فایل";
+            gridViewTextBoxColumn37.MaxWidth = 150;
+            gridViewTextBoxColumn37.Name = "FileTypeTitle";
+            gridViewTextBoxColumn37.Width = 100;
+            gridViewTextBoxColumn38.FieldName = "FileTypeId";
+            gridViewTextBoxColumn38.HeaderText = "FileTypeId";
+            gridViewTextBoxColumn38.IsVisible = false;
+            gridViewTextBoxColumn38.Name = "FileTypeId";
+            gridViewTextBoxColumn39.FieldName = "FileNumber";
+            gridViewTextBoxColumn39.HeaderText = "ش-فایل";
+            gridViewTextBoxColumn39.MaxWidth = 70;
+            gridViewTextBoxColumn39.Name = "FileNumber";
+            gridViewTextBoxColumn40.FieldName = "ResourceTitle";
+            gridViewTextBoxColumn40.HeaderText = "منبع";
+            gridViewTextBoxColumn40.MaxWidth = 150;
+            gridViewTextBoxColumn40.Name = "ResourceTitle";
+            gridViewTextBoxColumn40.Width = 150;
+            gridViewTextBoxColumn41.FieldName = "DeletionDescription";
+            gridViewTextBoxColumn41.HeaderText = "توضیح حذفیات";
+            gridViewTextBoxColumn41.MaxWidth = 500;
+            gridViewTextBoxColumn41.Name = "DeletionDescription";
+            gridViewTextBoxColumn41.Width = 380;
+            gridViewTextBoxColumn42.FieldName = "Comment";
+            gridViewTextBoxColumn42.HeaderText = "کامنت";
+            gridViewTextBoxColumn42.IsVisible = false;
+            gridViewTextBoxColumn42.Name = "Comment";
+            gridViewTextBoxColumn43.FieldName = "FileName";
+            gridViewTextBoxColumn43.HeaderText = "نام فایل";
+            gridViewTextBoxColumn43.MaxWidth = 250;
+            gridViewTextBoxColumn43.Name = "FileName";
+            gridViewTextBoxColumn43.Width = 230;
+            gridViewImageColumn4.FieldName = "UploadState";
+            gridViewImageColumn4.HeaderText = "وضعیت";
+            gridViewImageColumn4.Name = "UploadState";
+            gridViewCommandColumn19.FieldName = "Upload";
+            gridViewCommandColumn19.HeaderText = "Upld";
+            gridViewCommandColumn19.Image = global::Archive.Properties.Resources.Add2;
+            gridViewCommandColumn19.IsVisible = false;
+            gridViewCommandColumn19.Name = "Upload";
+            gridViewCommandColumn19.Width = 40;
+            gridViewCommandColumn20.FieldName = "Download";
+            gridViewCommandColumn20.HeaderText = "دانلود";
+            gridViewCommandColumn20.Name = "Download";
+            gridViewCommandColumn20.Width = 40;
+            gridViewCommandColumn21.FieldName = "UploadQ";
+            gridViewCommandColumn21.HeaderText = "UpldQ";
+            gridViewCommandColumn21.IsVisible = false;
+            gridViewCommandColumn21.Name = "UploadQ";
+            gridViewCommandColumn22.FieldName = "DownloadQ";
+            gridViewCommandColumn22.HeaderText = "دانلودHQ";
+            gridViewCommandColumn22.Name = "DownloadQ";
+            gridViewCommandColumn22.Width = 60;
+            gridViewCommandColumn23.FieldName = "Delete";
+            gridViewCommandColumn23.HeaderText = "Del";
+            gridViewCommandColumn23.Image = global::Archive.Properties.Resources.Delete_20;
+            gridViewCommandColumn23.Name = "Delete";
+            gridViewCommandColumn23.Width = 30;
+            gridViewCommandColumn24.FieldName = "Undo";
+            gridViewCommandColumn24.HeaderText = "Undo";
+            gridViewCommandColumn24.Image = global::Archive.Properties.Resources.Undo_20;
+            gridViewCommandColumn24.Name = "Undo";
+            gridViewCommandColumn24.Width = 40;
+            gridViewTextBoxColumn44.FieldName = "Text";
+            gridViewTextBoxColumn44.HeaderText = "Text";
+            gridViewTextBoxColumn44.IsVisible = false;
+            gridViewTextBoxColumn44.Name = "Text";
             this.GridViewContent.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn23,
-            gridViewTextBoxColumn24,
-            gridViewTextBoxColumn25,
-            gridViewTextBoxColumn26,
-            gridViewTextBoxColumn27,
-            gridViewTextBoxColumn28,
-            gridViewTextBoxColumn29,
-            gridViewTextBoxColumn30,
-            gridViewTextBoxColumn31,
-            gridViewTextBoxColumn32,
-            gridViewImageColumn3,
-            gridViewCommandColumn13,
-            gridViewCommandColumn14,
-            gridViewCommandColumn15,
-            gridViewCommandColumn16,
-            gridViewCommandColumn17,
-            gridViewCommandColumn18,
-            gridViewTextBoxColumn33});
-            this.GridViewContent.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            gridViewTextBoxColumn34,
+            gridViewTextBoxColumn35,
+            gridViewTextBoxColumn36,
+            gridViewTextBoxColumn37,
+            gridViewTextBoxColumn38,
+            gridViewTextBoxColumn39,
+            gridViewTextBoxColumn40,
+            gridViewTextBoxColumn41,
+            gridViewTextBoxColumn42,
+            gridViewTextBoxColumn43,
+            gridViewImageColumn4,
+            gridViewCommandColumn19,
+            gridViewCommandColumn20,
+            gridViewCommandColumn21,
+            gridViewCommandColumn22,
+            gridViewCommandColumn23,
+            gridViewCommandColumn24,
+            gridViewTextBoxColumn44});
+            this.GridViewContent.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.GridViewContent.Name = "GridViewContent";
             this.GridViewContent.ReadOnly = true;
             this.GridViewContent.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

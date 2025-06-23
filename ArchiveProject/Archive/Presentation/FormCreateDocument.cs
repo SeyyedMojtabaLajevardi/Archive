@@ -79,6 +79,15 @@ namespace Archive
             _contentService = contentService;
             _categoryService = categoryService;
             _fileService = fileService;
+            GridViewContent.ViewCellFormatting += GridViewContent_ViewCellFormatting;
+        }
+
+        private void GridViewContent_ViewCellFormatting(object sender, Telerik.WinControls.UI.CellFormattingEventArgs e)
+        {
+            if (e.CellElement is Telerik.WinControls.UI.GridDataCellElement)
+            {
+                e.CellElement.Font = e.Column.FieldName == "ContentTypeTitle" ? new Font("Dana", 10, FontStyle.Bold) : new Font("Dana", 10, FontStyle.Regular);
+            }
         }
 
         private void FormCreateDocumentSpeach_Load(object sender, EventArgs e)
@@ -92,28 +101,27 @@ namespace Archive
 
         private void ButtonSaveTemorary_Click(object sender, EventArgs e)
         {
-            var content = GetCurrentContentInfo();
+            //var content = GetCurrentContentInfo();
+            Document document = DuplicatedData();
+            if (document != null)
+            {
+                if (MessageBox.Show("اطلاعات وارد شده تکراری می‌باشد" + "\r\r" + "آیا تمایل به ویرایش اطلاعات دارید؟", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var documentDto = CreateDocumentModel(document);
+                    _documentService.UpdateDocument(documentDto);
+                }
+            }
+            else
+            {
+                document = CreateDocumentModel();
+                _documentId = _documentService.AddDocument(document);
+            }
         }
 
         private object GetCurrentContentInfo()
         {
             return null;
             //var filetype;
-        }
-
-        private void TextBoxSiteCode_Leave(object sender, EventArgs e)
-        {
-            _contentType = GetConentType();
-            var siteCode = TextBoxSiteCode.Text.Trim();
-            var document = _documentService.GetDocumentBySiteCode(siteCode);
-
-            if (document == null)
-                return;
-            ClearBox();
-            _isFirst = true;
-            FillDocumentControls(document);
-            FillContentControls(document.DocumentId);
-            _isFirst = false;
         }
 
         private void FillContentControls(int documentId)
@@ -259,9 +267,10 @@ namespace Archive
 
         private void GridViewContent_CurrentRowChanged(object sender, Telerik.WinControls.UI.CurrentRowChangedEventArgs e)
         {
-            if (_isFirst || GridViewContent.CurrentRow == null || GridViewContent.CurrentRow.HierarchyLevel == 0)
+            if (_isFirst || GridViewContent.CurrentRow == null/* || GridViewContent.CurrentRow.HierarchyLevel == 0*/)
                 return;
             File fileInfo = GetCurrentFileInfo(GridViewContent.CurrentRow);
+            if (fileInfo.ContentId == 0) return;
             _contentType = GetContentTypeFromGridView();
             switch (_contentType.ContentTypeTitle?.ToLower())
             {
@@ -366,6 +375,7 @@ namespace Archive
         private void radDropDownListLanguage_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
             if (_isFirst) return;
+            radDropDownListLanguage.BackColor = Color.White;
             //int.TryParse(radDropDownListLanguage.SelectedValue?.ToString(), out _languageId);
             int.TryParse(radDropDownListLanguage?.SelectedValue?.ToString(), out _languageId);
             var languageTitle = radDropDownListLanguage.SelectedText;
@@ -374,6 +384,7 @@ namespace Archive
         private void radDropDownListPermissionState_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
             if (_isFirst) return;
+            radDropDownListPermissionState.BackColor = Color.White;
             int.TryParse(radDropDownListPermissionState.SelectedValue?.ToString(), out _permissionStateId);
             var permissionLeveTitle = radDropDownListPermissionState.SelectedText;
         }
@@ -381,6 +392,7 @@ namespace Archive
         private void radDropDownListPublishState_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
             if (_isFirst) return;
+            radDropDownListPublishState.BackColor = Color.White;
             //int.TryParse(radDropDownListPublishState.SelectedValue?.ToString(), out _publishStateId);
             int.TryParse(radDropDownListPublishState?.SelectedItem?.Value.ToString(), out _publishStateId);
             //var publishStateTitle = ((PublishState)radDropDownListPublishState.SelectedItem).PublishStateTitle;
@@ -390,6 +402,7 @@ namespace Archive
         {
             if (_isFirst) return;
             _isFirst = true;
+            radDropDownListMainCategory.BackColor = Color.White;
             int.TryParse(radDropDownListMainCategory?.SelectedItem?.Value.ToString(), out _mainCategoryId);
             var categoryTitle = radDropDownListMainCategory.SelectedText;
 
@@ -406,6 +419,7 @@ namespace Archive
             if (_isFirst) return;
             //_firstCategoryId = ((Category)radDropDownListCategory1.SelectedItem.Value).CategoryId;
             int.TryParse(radDropDownListCategory1?.SelectedItem?.Value.ToString(), out _firstCategoryId);
+            radDropDownListCategory1.BackColor = Color.White;
             var categoryTitle = radDropDownListCategory1.SelectedText;
             _isFirst = true;
             _categories2 = _archiveService.FillCategory(_firstCategoryId, 3);
@@ -419,6 +433,7 @@ namespace Archive
         private void radDropDownListCategory2_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
             if (_isFirst) return;
+            radDropDownListCategory2.BackColor = Color.White;
             //int.TryParse(radDropDownListCategory2.SelectedValue?.ToString(), out _secondCategoryId);
             int.TryParse(radDropDownListCategory2?.SelectedItem?.Value.ToString(), out _secondCategoryId);
             var categoryTitle = radDropDownListCategory2.SelectedText;
@@ -427,6 +442,7 @@ namespace Archive
         private void radDropDownListFileType_Sound_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
             if (_isFirst) return;
+            radDropDownListFileType_Sound.BackColor = Color.White;
             int.TryParse(radDropDownListFileType_Sound?.SelectedItem?.Value.ToString(), out _fileTypeId);
             _fileTypeTitle = radDropDownListFileType_Sound.SelectedText;
             //_fileType = new FileType { FileTypeId = fileTypeId, FileTypeTitle = fileTypeTitle };
@@ -434,31 +450,35 @@ namespace Archive
 
         private void radDropDownListFileType_Text_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-
+            radDropDownListFileType_Text.BackColor = Color.White;
+            int.TryParse(radDropDownListFileType_Text?.SelectedItem?.Value.ToString(), out _fileTypeId);
+            _fileTypeTitle = radDropDownListFileType_Text.SelectedText;
         }
 
         private void radDropDownListResource_Text_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-
+            radDropDownListResource_Text.BackColor = Color.White;
+            int.TryParse(radDropDownListResource_Text?.SelectedItem?.Value.ToString(), out _fileTypeId);
+            _fileTypeTitle = radDropDownListResource_Text.SelectedText;
         }
 
         private void radDropDownListResource_Image_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-
+            radDropDownListResource_Image.BackColor = Color.White;
+            int.TryParse(radDropDownListResource_Image?.SelectedItem?.Value.ToString(), out _fileTypeId);
+            _fileTypeTitle = radDropDownListResource_Image.SelectedText;
         }
 
         private void radDropDownListResource_Sound_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
             if (_isFirst) return;
+            radDropDownListResource_Sound.BackColor = Color.White;
             int.TryParse(radDropDownListResource_Sound?.SelectedItem?.Value.ToString(), out _resourceId);
             _resourceTitle = radDropDownListResource_Sound.SelectedText;
         }
 
-        private void TextBoxSiteCode_KeyDown(object sender, KeyEventArgs e)
+        private void TextBoxSiteCode_Leave(object sender, EventArgs e)
         {
-            if (e.KeyCode != Keys.Enter || TextBoxSiteCode.Text.Trim() == "")
-                return;
-
             _contentType = GetConentType();
             var siteCode = TextBoxSiteCode.Text.Trim();
             var document = _documentService.GetDocumentBySiteCode(siteCode);
@@ -470,6 +490,24 @@ namespace Archive
             FillDocumentControls(document);
             FillContentControls(document.DocumentId);
             _isFirst = false;
+        }
+        private void TextBoxSiteCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter)
+                return;
+
+            _contentType = GetConentType();
+            var siteCode = TextBoxSiteCode.Text.Trim();
+            var document = _documentService.GetDocumentBySiteCode(siteCode);
+
+            ClearBox();
+            if (document == null)
+                return;
+            _isFirst = true;
+            TextBoxSiteCode.Text = siteCode;
+            FillDocumentControls(document);
+            FillContentControls(document.DocumentId);
+            _isFirst = false;
 
         }
 
@@ -477,11 +515,21 @@ namespace Archive
         {
             if (_isFirst || radDropDownListOldTitle.Text.Trim() == "") 
                 return;
-
+            radDropDownListOldTitle.BackColor = Color.White;
+            
+            //  اگر سایت کد، مشخص شده باشد، تغییر عنوان قدیم بابت ویرایش خواهد بود نه جستجوی مستند
+            //  لذا دیگر نباید جستجوی مستند بر اساس عنوان قدیم صورت پذیرد
+            if (TextBoxSiteCode.Text.Trim() != "")  
+                return;
             var document = _documentService.GetDocumentByOldTitle(radDropDownListOldTitle.Text.Trim());
+            var text = radDropDownListOldTitle.Text.Trim();
             ClearBox();
             if (document == null)
                 return;
+            _isFirst = true;
+            radDropDownListOldTitle.Text = text;
+            _isFirst = false;
+
             _isFirst = true;
             FillDocumentControls(document);
             FillContentControls(document.DocumentId);
@@ -493,10 +541,21 @@ namespace Archive
             if (_isFirst || radDropDownListNewTitle.Text.Trim() == "")
                 return;
 
+            radDropDownListNewTitle.BackColor = Color.White;
+
+            //  اگر سایت کد، مشخص شده باشد، تغییر عنوان جدید بابت ویرایش خواهد بود نه جستجوی مستند
+            //  لذا دیگر نباید جستجوی مستند بر اساس عنوان جدید صورت پذیرد
+            if (TextBoxSiteCode.Text.Trim() != "")
+                return;
             var document = _documentService.GetDocumentByNewTitle(radDropDownListNewTitle.Text.Trim());
+            var text = radDropDownListNewTitle.Text.Trim();
             ClearBox();
             if (document == null)
                 return;
+
+            _isFirst = true;
+            radDropDownListNewTitle.Text = text;
+            _isFirst = false;
 
             _isFirst = true;
             FillDocumentControls(document);
@@ -507,6 +566,11 @@ namespace Archive
         private void ButtonUpload_Sound_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void TextBoxSiteCode_TextChanged(object sender, EventArgs e)
+        {
+            TextBoxSiteCode.BackColor = Color.White;
         }
 
         private void radDropDownListPadidAvar_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
@@ -541,7 +605,10 @@ namespace Archive
         private void ButtonRegisterDocument_Click(object sender, EventArgs e)
         {
             if (!FormValidations())
+            {
+                MessageBox.Show(@"اطلاعات ضروری، تکمیل نشده است. برای ثبت اطلاعات ناقص از دکمه «ثبت موقت» استفاده کنید", @"عدم تکمیل اطلاعات");
                 return;
+            }
 
             Document document = DuplicatedData();
             if (document != null)
@@ -568,7 +635,7 @@ namespace Archive
                 return false;
             }
 
-            if (radDropDownListNewTitle.Text.Trim() == "")
+            if (radDropDownListNewTitle.SelectedIndex == -1)
             {
                 radDropDownListNewTitle.Focus();
                 radDropDownListNewTitle.BackColor = Color.IndianRed;
@@ -658,6 +725,8 @@ namespace Archive
         private DocumentDto CreateDocumentModel(Document document = null)
         {
             DocumentDto documentDto = new DocumentDto();
+            if (document == null)
+                document = new Document();
             int.TryParse(TextBoxSessionCount.Text.Trim(), out int sessionCount);
             int.TryParse(TextBoxSessionNumber.Text.Trim(), out int sessionNumber);
             int.TryParse(radDropDownListPermissionState?.SelectedItem?.Value.ToString(), out _permissionStateId);
@@ -673,7 +742,7 @@ namespace Archive
             //documentDto.UserId = ??
             //documentDto.CreatedDate = ??
             //documentDto.CreatorUserId = ??
-            var date = PersiandateTimePickerDate.DateValue != null ? PersiandateTimePickerDate.DateValue : ""; ;
+            var date = PersiandateTimePickerDate.DateValue != null ? PersiandateTimePickerDate.DateValue : "";
             documentDto.SessionDate = DateTime.ParseExact(date, "yyyy/MM/dd", _persianCulture, DateTimeStyles.None);
             documentDto.DocumentCode = document.DocumentCode;
             documentDto.DocumentId = document.DocumentId;
@@ -758,6 +827,11 @@ namespace Archive
                 {
                     ClearFormControls(c);
                 }
+            }
+            if (control == this)
+            {
+                GridViewContent.DataSource = null;
+                GridViewContent.Rows.Clear();
             }
         }
 
