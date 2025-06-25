@@ -59,7 +59,6 @@ namespace Archive.BusinessLogic
             using (ArchiveEntities context = new ArchiveEntities())
             {
                 List<ContentDto> contents = new List<ContentDto>();
-
                 var query = from f in context.Files
                             join c in context.Contents on f.ContentId equals c.ContentId
                             join ft in context.FileTypes on f.FileTypeId equals ft.FileTypeId
@@ -69,32 +68,26 @@ namespace Archive.BusinessLogic
                             where c.DocumentId == documentId
                             select new ContentDto
                             {
+                                FileNumber = f.FileNumber,
+                                DeletionDescription = f.DeletionDescription,
+                                Comment = f.Comment,
+                                Text = f.Text,
+                                FileName = f.FileName,
+                                FileTypeId = ft.FileTypeId,
+                                FileCode = f.FileCode,
+                                CategoryId = f.CategoryId,
                                 ContentId = c.ContentId,
                                 ContentTypeTitle = ct.ContentTypeTitle,
                                 FileTypeTitle = ft.FileTypeTitle,
-                                FileNumber = f.FileNumber.Value,
                                 ResourceTitle = r != null ? r.ResourceTitle : null,
                                 ResourceId = r != null ? r.ResourceId : -1,
                                 DocumentId = c.DocumentId,
                                 Code = c.Code,
                                 Description = c.Description,
-                                DeletionDescription = f.DeletionDescription,
-                                Comment = f.Comment,
-                                Text = f.Text,
-                                FileName = f.FileName,
                                 ContentTypeId = ct.ContentTypeId,
-                                FileTypeId = ft.FileTypeId
                             };
 
                 var results = query.ToList();
-
-
-                //using (var db = new SqlConnection(context.Database.Connection.ConnectionString))
-                //{
-                //    var parameters = new DynamicParameters();
-                //    parameters.Add("@DocumentId", documentId, DbType.Int32);
-                //    var content = db.Query<ContentDto>("GetContentByDocumentId", parameters, commandType: CommandType.StoredProcedure);
-                //}
                 return results;
             }
         }

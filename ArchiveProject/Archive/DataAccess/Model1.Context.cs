@@ -31,7 +31,6 @@ namespace Archive.DataAccess
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<ContentType> ContentTypes { get; set; }
         public virtual DbSet<Editor> Editors { get; set; }
-        public virtual DbSet<FileType> FileTypes { get; set; }
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<PadidAvar> PadidAvars { get; set; }
         public virtual DbSet<PermissionState> PermissionStates { get; set; }
@@ -44,9 +43,10 @@ namespace Archive.DataAccess
         public virtual DbSet<Document> Documents { get; set; }
         public virtual DbSet<DocumentResourceRelation> DocumentResourceRelations { get; set; }
         public virtual DbSet<DocumentSubjectRelation> DocumentSubjectRelations { get; set; }
-        public virtual DbSet<File> Files { get; set; }
         public virtual DbSet<Resource> Resources { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
+        public virtual DbSet<File> Files { get; set; }
+        public virtual DbSet<FileType> FileTypes { get; set; }
     }
 }

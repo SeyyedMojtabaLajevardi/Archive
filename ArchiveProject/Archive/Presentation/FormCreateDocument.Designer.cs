@@ -30,25 +30,27 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateDocument));
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn34 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn35 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn36 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn37 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn38 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn39 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn40 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn41 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn42 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn43 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn4 = new Telerik.WinControls.UI.GridViewImageColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn19 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn20 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn21 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn22 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn23 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn24 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn44 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn14 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn15 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn16 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn17 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn18 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn19 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn20 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn21 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn22 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn23 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn2 = new Telerik.WinControls.UI.GridViewImageColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn7 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn8 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn9 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn10 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn11 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn12 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn24 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn25 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn26 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             this.PanelHeader = new System.Windows.Forms.Panel();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
             this.radDropDownListNewTitle = new Telerik.WinControls.UI.RadDropDownList();
@@ -968,111 +970,121 @@
             // 
             this.GridViewContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridViewContent.Font = new System.Drawing.Font("Dana", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.GridViewContent.Location = new System.Drawing.Point(0, 280);
+            this.GridViewContent.Location = new System.Drawing.Point(0, 249);
             // 
             // 
             // 
             this.GridViewContent.MasterTemplate.AllowAddNewRow = false;
-            gridViewTextBoxColumn34.FieldName = "DocumentId";
-            gridViewTextBoxColumn34.HeaderText = "DocumentId";
-            gridViewTextBoxColumn34.IsVisible = false;
-            gridViewTextBoxColumn34.Name = "DocumentId";
-            gridViewTextBoxColumn35.FieldName = "ContentId";
-            gridViewTextBoxColumn35.HeaderText = "ContentId";
-            gridViewTextBoxColumn35.IsVisible = false;
-            gridViewTextBoxColumn35.Name = "ContentId";
-            gridViewTextBoxColumn36.FieldName = "ContentTypeTitle";
-            gridViewTextBoxColumn36.HeaderText = "نوع محتوا";
-            gridViewTextBoxColumn36.MaxWidth = 100;
-            gridViewTextBoxColumn36.Name = "ContentTypeTitle";
-            gridViewTextBoxColumn36.Width = 60;
-            gridViewTextBoxColumn37.FieldName = "FileTypeTitle";
-            gridViewTextBoxColumn37.HeaderText = "نوع فایل";
-            gridViewTextBoxColumn37.MaxWidth = 150;
-            gridViewTextBoxColumn37.Name = "FileTypeTitle";
-            gridViewTextBoxColumn37.Width = 100;
-            gridViewTextBoxColumn38.FieldName = "FileTypeId";
-            gridViewTextBoxColumn38.HeaderText = "FileTypeId";
-            gridViewTextBoxColumn38.IsVisible = false;
-            gridViewTextBoxColumn38.Name = "FileTypeId";
-            gridViewTextBoxColumn39.FieldName = "FileNumber";
-            gridViewTextBoxColumn39.HeaderText = "ش-فایل";
-            gridViewTextBoxColumn39.MaxWidth = 70;
-            gridViewTextBoxColumn39.Name = "FileNumber";
-            gridViewTextBoxColumn40.FieldName = "ResourceTitle";
-            gridViewTextBoxColumn40.HeaderText = "منبع";
-            gridViewTextBoxColumn40.MaxWidth = 150;
-            gridViewTextBoxColumn40.Name = "ResourceTitle";
-            gridViewTextBoxColumn40.Width = 150;
-            gridViewTextBoxColumn41.FieldName = "DeletionDescription";
-            gridViewTextBoxColumn41.HeaderText = "توضیح حذفیات";
-            gridViewTextBoxColumn41.MaxWidth = 500;
-            gridViewTextBoxColumn41.Name = "DeletionDescription";
-            gridViewTextBoxColumn41.Width = 380;
-            gridViewTextBoxColumn42.FieldName = "Comment";
-            gridViewTextBoxColumn42.HeaderText = "کامنت";
-            gridViewTextBoxColumn42.IsVisible = false;
-            gridViewTextBoxColumn42.Name = "Comment";
-            gridViewTextBoxColumn43.FieldName = "FileName";
-            gridViewTextBoxColumn43.HeaderText = "نام فایل";
-            gridViewTextBoxColumn43.MaxWidth = 250;
-            gridViewTextBoxColumn43.Name = "FileName";
-            gridViewTextBoxColumn43.Width = 230;
-            gridViewImageColumn4.FieldName = "UploadState";
-            gridViewImageColumn4.HeaderText = "وضعیت";
-            gridViewImageColumn4.Name = "UploadState";
-            gridViewCommandColumn19.FieldName = "Upload";
-            gridViewCommandColumn19.HeaderText = "Upld";
-            gridViewCommandColumn19.Image = global::Archive.Properties.Resources.Add2;
-            gridViewCommandColumn19.IsVisible = false;
-            gridViewCommandColumn19.Name = "Upload";
-            gridViewCommandColumn19.Width = 40;
-            gridViewCommandColumn20.FieldName = "Download";
-            gridViewCommandColumn20.HeaderText = "دانلود";
-            gridViewCommandColumn20.Name = "Download";
-            gridViewCommandColumn20.Width = 40;
-            gridViewCommandColumn21.FieldName = "UploadQ";
-            gridViewCommandColumn21.HeaderText = "UpldQ";
-            gridViewCommandColumn21.IsVisible = false;
-            gridViewCommandColumn21.Name = "UploadQ";
-            gridViewCommandColumn22.FieldName = "DownloadQ";
-            gridViewCommandColumn22.HeaderText = "دانلودHQ";
-            gridViewCommandColumn22.Name = "DownloadQ";
-            gridViewCommandColumn22.Width = 60;
-            gridViewCommandColumn23.FieldName = "Delete";
-            gridViewCommandColumn23.HeaderText = "Del";
-            gridViewCommandColumn23.Image = global::Archive.Properties.Resources.Delete_20;
-            gridViewCommandColumn23.Name = "Delete";
-            gridViewCommandColumn23.Width = 30;
-            gridViewCommandColumn24.FieldName = "Undo";
-            gridViewCommandColumn24.HeaderText = "Undo";
-            gridViewCommandColumn24.Image = global::Archive.Properties.Resources.Undo_20;
-            gridViewCommandColumn24.Name = "Undo";
-            gridViewCommandColumn24.Width = 40;
-            gridViewTextBoxColumn44.FieldName = "Text";
-            gridViewTextBoxColumn44.HeaderText = "Text";
-            gridViewTextBoxColumn44.IsVisible = false;
-            gridViewTextBoxColumn44.Name = "Text";
+            gridViewTextBoxColumn14.FieldName = "DocumentId";
+            gridViewTextBoxColumn14.HeaderText = "DocumentId";
+            gridViewTextBoxColumn14.IsVisible = false;
+            gridViewTextBoxColumn14.Name = "DocumentId";
+            gridViewTextBoxColumn15.FieldName = "ContentId";
+            gridViewTextBoxColumn15.HeaderText = "ContentId";
+            gridViewTextBoxColumn15.IsVisible = false;
+            gridViewTextBoxColumn15.Name = "ContentId";
+            gridViewTextBoxColumn16.FieldName = "ContentTypeTitle";
+            gridViewTextBoxColumn16.HeaderText = "نوع محتوا";
+            gridViewTextBoxColumn16.MaxWidth = 100;
+            gridViewTextBoxColumn16.Name = "ContentTypeTitle";
+            gridViewTextBoxColumn16.Width = 60;
+            gridViewTextBoxColumn17.FieldName = "FileTypeTitle";
+            gridViewTextBoxColumn17.HeaderText = "نوع فایل";
+            gridViewTextBoxColumn17.MaxWidth = 150;
+            gridViewTextBoxColumn17.Name = "FileTypeTitle";
+            gridViewTextBoxColumn17.Width = 100;
+            gridViewTextBoxColumn18.FieldName = "FileTypeId";
+            gridViewTextBoxColumn18.HeaderText = "FileTypeId";
+            gridViewTextBoxColumn18.IsVisible = false;
+            gridViewTextBoxColumn18.Name = "FileTypeId";
+            gridViewTextBoxColumn19.FieldName = "FileNumber";
+            gridViewTextBoxColumn19.HeaderText = "ش-فایل";
+            gridViewTextBoxColumn19.MaxWidth = 70;
+            gridViewTextBoxColumn19.Name = "FileNumber";
+            gridViewTextBoxColumn20.FieldName = "ResourceTitle";
+            gridViewTextBoxColumn20.HeaderText = "منبع";
+            gridViewTextBoxColumn20.MaxWidth = 150;
+            gridViewTextBoxColumn20.Name = "ResourceTitle";
+            gridViewTextBoxColumn20.Width = 150;
+            gridViewTextBoxColumn21.FieldName = "DeletionDescription";
+            gridViewTextBoxColumn21.HeaderText = "توضیح حذفیات";
+            gridViewTextBoxColumn21.MaxWidth = 500;
+            gridViewTextBoxColumn21.Name = "DeletionDescription";
+            gridViewTextBoxColumn21.Width = 380;
+            gridViewTextBoxColumn22.FieldName = "Comment";
+            gridViewTextBoxColumn22.HeaderText = "کامنت";
+            gridViewTextBoxColumn22.IsVisible = false;
+            gridViewTextBoxColumn22.Name = "Comment";
+            gridViewTextBoxColumn23.FieldName = "FileName";
+            gridViewTextBoxColumn23.HeaderText = "نام فایل";
+            gridViewTextBoxColumn23.MaxWidth = 250;
+            gridViewTextBoxColumn23.Name = "FileName";
+            gridViewTextBoxColumn23.Width = 230;
+            gridViewImageColumn2.FieldName = "UploadState";
+            gridViewImageColumn2.HeaderText = "وضعیت";
+            gridViewImageColumn2.Name = "UploadState";
+            gridViewCommandColumn7.FieldName = "Upload";
+            gridViewCommandColumn7.HeaderText = "Upld";
+            gridViewCommandColumn7.Image = global::Archive.Properties.Resources.Add2;
+            gridViewCommandColumn7.IsVisible = false;
+            gridViewCommandColumn7.Name = "Upload";
+            gridViewCommandColumn7.Width = 40;
+            gridViewCommandColumn8.FieldName = "Download";
+            gridViewCommandColumn8.HeaderText = "دانلود";
+            gridViewCommandColumn8.Name = "Download";
+            gridViewCommandColumn8.Width = 40;
+            gridViewCommandColumn9.FieldName = "UploadQ";
+            gridViewCommandColumn9.HeaderText = "UpldQ";
+            gridViewCommandColumn9.IsVisible = false;
+            gridViewCommandColumn9.Name = "UploadQ";
+            gridViewCommandColumn10.FieldName = "DownloadQ";
+            gridViewCommandColumn10.HeaderText = "دانلودHQ";
+            gridViewCommandColumn10.Name = "DownloadQ";
+            gridViewCommandColumn10.Width = 60;
+            gridViewCommandColumn11.FieldName = "Delete";
+            gridViewCommandColumn11.HeaderText = "Del";
+            gridViewCommandColumn11.Image = global::Archive.Properties.Resources.Delete_20;
+            gridViewCommandColumn11.Name = "Delete";
+            gridViewCommandColumn11.Width = 30;
+            gridViewCommandColumn12.FieldName = "Undo";
+            gridViewCommandColumn12.HeaderText = "Undo";
+            gridViewCommandColumn12.Image = global::Archive.Properties.Resources.Undo_20;
+            gridViewCommandColumn12.Name = "Undo";
+            gridViewCommandColumn12.Width = 40;
+            gridViewTextBoxColumn24.FieldName = "Text";
+            gridViewTextBoxColumn24.HeaderText = "Text";
+            gridViewTextBoxColumn24.IsVisible = false;
+            gridViewTextBoxColumn24.Name = "Text";
+            gridViewTextBoxColumn25.FieldName = "CategoryId";
+            gridViewTextBoxColumn25.HeaderText = "CategoryId";
+            gridViewTextBoxColumn25.IsVisible = false;
+            gridViewTextBoxColumn25.Name = "CategoryId";
+            gridViewTextBoxColumn26.FieldName = "FileCode";
+            gridViewTextBoxColumn26.HeaderText = "FileCode";
+            gridViewTextBoxColumn26.IsVisible = false;
+            gridViewTextBoxColumn26.Name = "FileCode";
             this.GridViewContent.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn34,
-            gridViewTextBoxColumn35,
-            gridViewTextBoxColumn36,
-            gridViewTextBoxColumn37,
-            gridViewTextBoxColumn38,
-            gridViewTextBoxColumn39,
-            gridViewTextBoxColumn40,
-            gridViewTextBoxColumn41,
-            gridViewTextBoxColumn42,
-            gridViewTextBoxColumn43,
-            gridViewImageColumn4,
-            gridViewCommandColumn19,
-            gridViewCommandColumn20,
-            gridViewCommandColumn21,
-            gridViewCommandColumn22,
-            gridViewCommandColumn23,
-            gridViewCommandColumn24,
-            gridViewTextBoxColumn44});
-            this.GridViewContent.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            gridViewTextBoxColumn14,
+            gridViewTextBoxColumn15,
+            gridViewTextBoxColumn16,
+            gridViewTextBoxColumn17,
+            gridViewTextBoxColumn18,
+            gridViewTextBoxColumn19,
+            gridViewTextBoxColumn20,
+            gridViewTextBoxColumn21,
+            gridViewTextBoxColumn22,
+            gridViewTextBoxColumn23,
+            gridViewImageColumn2,
+            gridViewCommandColumn7,
+            gridViewCommandColumn8,
+            gridViewCommandColumn9,
+            gridViewCommandColumn10,
+            gridViewCommandColumn11,
+            gridViewCommandColumn12,
+            gridViewTextBoxColumn24,
+            gridViewTextBoxColumn25,
+            gridViewTextBoxColumn26});
+            this.GridViewContent.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.GridViewContent.Name = "GridViewContent";
             this.GridViewContent.ReadOnly = true;
             this.GridViewContent.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1081,7 +1093,7 @@
             // 
             this.GridViewContent.RootElement.BorderHighlightColor = System.Drawing.SystemColors.Control;
             this.GridViewContent.RootElement.CustomFont = "None";
-            this.GridViewContent.Size = new System.Drawing.Size(1222, 209);
+            this.GridViewContent.Size = new System.Drawing.Size(1222, 240);
             this.GridViewContent.TabIndex = 20;
             this.GridViewContent.CurrentRowChanged += new Telerik.WinControls.UI.CurrentRowChangedEventHandler(this.GridViewContent_CurrentRowChanged);
             // 
@@ -1102,7 +1114,7 @@
             this.radNavigationView1.Name = "radNavigationView1";
             this.radNavigationView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.radNavigationView1.SelectedPage = this.radPageViewPageSound;
-            this.radNavigationView1.Size = new System.Drawing.Size(1222, 280);
+            this.radNavigationView1.Size = new System.Drawing.Size(1222, 249);
             this.radNavigationView1.TabIndex = 18;
             this.radNavigationView1.SelectedPageChanged += new System.EventHandler(this.radNavigationView1_SelectedPageChanged);
             // 
@@ -1115,7 +1127,7 @@
             this.radPageViewPageSound.ItemSize = new System.Drawing.SizeF(84F, 49F);
             this.radPageViewPageSound.Location = new System.Drawing.Point(1, 37);
             this.radPageViewPageSound.Name = "radPageViewPageSound";
-            this.radPageViewPageSound.Size = new System.Drawing.Size(1070, 242);
+            this.radPageViewPageSound.Size = new System.Drawing.Size(1070, 211);
             this.radPageViewPageSound.Tag = "Sound";
             this.radPageViewPageSound.Text = "صوت";
             // 
@@ -1138,7 +1150,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 48);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1070, 194);
+            this.panel4.Size = new System.Drawing.Size(1070, 163);
             this.panel4.TabIndex = 18;
             // 
             // radDropDownListResource_Sound
@@ -1146,7 +1158,7 @@
             this.radDropDownListResource_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radDropDownListResource_Sound.DropDownAnimationEnabled = true;
             this.radDropDownListResource_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.radDropDownListResource_Sound.Location = new System.Drawing.Point(851, 164);
+            this.radDropDownListResource_Sound.Location = new System.Drawing.Point(851, 93);
             this.radDropDownListResource_Sound.Name = "radDropDownListResource_Sound";
             this.radDropDownListResource_Sound.Size = new System.Drawing.Size(136, 28);
             this.radDropDownListResource_Sound.TabIndex = 28;
@@ -1158,7 +1170,7 @@
             this.radDropDownListFileType_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radDropDownListFileType_Sound.DropDownAnimationEnabled = true;
             this.radDropDownListFileType_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.radDropDownListFileType_Sound.Location = new System.Drawing.Point(851, 93);
+            this.radDropDownListFileType_Sound.Location = new System.Drawing.Point(851, 21);
             this.radDropDownListFileType_Sound.Name = "radDropDownListFileType_Sound";
             this.radDropDownListFileType_Sound.Size = new System.Drawing.Size(136, 28);
             this.radDropDownListFileType_Sound.TabIndex = 27;
@@ -1169,10 +1181,10 @@
             // 
             this.textBoxDeletionDescription_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxDeletionDescription_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.textBoxDeletionDescription_Sound.Location = new System.Drawing.Point(242, 165);
+            this.textBoxDeletionDescription_Sound.Location = new System.Drawing.Point(128, 131);
             this.textBoxDeletionDescription_Sound.Name = "textBoxDeletionDescription_Sound";
             this.textBoxDeletionDescription_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxDeletionDescription_Sound.Size = new System.Drawing.Size(430, 26);
+            this.textBoxDeletionDescription_Sound.Size = new System.Drawing.Size(375, 26);
             this.textBoxDeletionDescription_Sound.TabIndex = 12;
             // 
             // LabelDeleteComment_Sound
@@ -1180,7 +1192,7 @@
             this.LabelDeleteComment_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelDeleteComment_Sound.AutoSize = true;
             this.LabelDeleteComment_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.LabelDeleteComment_Sound.Location = new System.Drawing.Point(676, 168);
+            this.LabelDeleteComment_Sound.Location = new System.Drawing.Point(509, 134);
             this.LabelDeleteComment_Sound.Name = "LabelDeleteComment_Sound";
             this.LabelDeleteComment_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelDeleteComment_Sound.Size = new System.Drawing.Size(126, 20);
@@ -1191,7 +1203,7 @@
             // 
             this.ButtonAddFile_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonAddFile_Sound.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonAddFile_Sound.Location = new System.Drawing.Point(9, 163);
+            this.ButtonAddFile_Sound.Location = new System.Drawing.Point(9, 133);
             this.ButtonAddFile_Sound.Name = "ButtonAddFile_Sound";
             this.ButtonAddFile_Sound.Size = new System.Drawing.Size(83, 26);
             this.ButtonAddFile_Sound.TabIndex = 16;
@@ -1204,7 +1216,7 @@
             this.TextBoxFileNo_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxFileNo_Sound.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxFileNo_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.TextBoxFileNo_Sound.Location = new System.Drawing.Point(851, 130);
+            this.TextBoxFileNo_Sound.Location = new System.Drawing.Point(851, 58);
             this.TextBoxFileNo_Sound.Name = "TextBoxFileNo_Sound";
             this.TextBoxFileNo_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TextBoxFileNo_Sound.Size = new System.Drawing.Size(136, 26);
@@ -1215,11 +1227,11 @@
             // 
             this.LabelComment_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelComment_Sound.AutoSize = true;
-            this.LabelComment_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.LabelComment_Sound.Location = new System.Drawing.Point(738, 133);
+            this.LabelComment_Sound.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.LabelComment_Sound.Location = new System.Drawing.Point(1011, 131);
             this.LabelComment_Sound.Name = "LabelComment_Sound";
             this.LabelComment_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelComment_Sound.Size = new System.Drawing.Size(52, 20);
+            this.LabelComment_Sound.Size = new System.Drawing.Size(45, 17);
             this.LabelComment_Sound.TabIndex = 13;
             this.LabelComment_Sound.Text = "کامنت:";
             // 
@@ -1228,10 +1240,10 @@
             this.TextBoxContentComment_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxContentComment_Sound.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxContentComment_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.TextBoxContentComment_Sound.Location = new System.Drawing.Point(242, 130);
+            this.TextBoxContentComment_Sound.Location = new System.Drawing.Point(656, 131);
             this.TextBoxContentComment_Sound.Name = "TextBoxContentComment_Sound";
             this.TextBoxContentComment_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxContentComment_Sound.Size = new System.Drawing.Size(430, 26);
+            this.TextBoxContentComment_Sound.Size = new System.Drawing.Size(333, 26);
             this.TextBoxContentComment_Sound.TabIndex = 12;
             // 
             // ButtonAddFileType_Sound
@@ -1240,7 +1252,7 @@
             this.ButtonAddFileType_Sound.AutoSize = true;
             this.ButtonAddFileType_Sound.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddFileType_Sound.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddFileType_Sound.Location = new System.Drawing.Point(826, 94);
+            this.ButtonAddFileType_Sound.Location = new System.Drawing.Point(826, 21);
             this.ButtonAddFileType_Sound.Name = "ButtonAddFileType_Sound";
             this.ButtonAddFileType_Sound.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddFileType_Sound.TabIndex = 17;
@@ -1250,7 +1262,7 @@
             // 
             this.ButtonUpload_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonUpload_Sound.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonUpload_Sound.Location = new System.Drawing.Point(9, 131);
+            this.ButtonUpload_Sound.Location = new System.Drawing.Point(9, 105);
             this.ButtonUpload_Sound.Name = "ButtonUpload_Sound";
             this.ButtonUpload_Sound.Size = new System.Drawing.Size(83, 26);
             this.ButtonUpload_Sound.TabIndex = 16;
@@ -1263,11 +1275,11 @@
             // 
             this.LabelResource_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelResource_Sound.AutoSize = true;
-            this.LabelResource_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.LabelResource_Sound.Location = new System.Drawing.Point(1021, 168);
+            this.LabelResource_Sound.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.LabelResource_Sound.Location = new System.Drawing.Point(1021, 93);
             this.LabelResource_Sound.Name = "LabelResource_Sound";
             this.LabelResource_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelResource_Sound.Size = new System.Drawing.Size(41, 20);
+            this.LabelResource_Sound.Size = new System.Drawing.Size(35, 17);
             this.LabelResource_Sound.TabIndex = 9;
             this.LabelResource_Sound.Text = "منبع:";
             // 
@@ -1275,11 +1287,11 @@
             // 
             this.LabelFileType_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelFileType_Sound.AutoSize = true;
-            this.LabelFileType_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.LabelFileType_Sound.Location = new System.Drawing.Point(1001, 96);
+            this.LabelFileType_Sound.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.LabelFileType_Sound.Location = new System.Drawing.Point(1001, 21);
             this.LabelFileType_Sound.Name = "LabelFileType_Sound";
             this.LabelFileType_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelFileType_Sound.Size = new System.Drawing.Size(67, 20);
+            this.LabelFileType_Sound.Size = new System.Drawing.Size(57, 17);
             this.LabelFileType_Sound.TabIndex = 5;
             this.LabelFileType_Sound.Text = "نوع فایل:";
             // 
@@ -1289,7 +1301,7 @@
             this.ButtonAddResource.AutoSize = true;
             this.ButtonAddResource.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddResource.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddResource.Location = new System.Drawing.Point(826, 165);
+            this.ButtonAddResource.Location = new System.Drawing.Point(826, 93);
             this.ButtonAddResource.Name = "ButtonAddResource";
             this.ButtonAddResource.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddResource.TabIndex = 17;
@@ -1299,11 +1311,11 @@
             // 
             this.LabelFileNo_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelFileNo_Sound.AutoSize = true;
-            this.LabelFileNo_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.LabelFileNo_Sound.Location = new System.Drawing.Point(987, 133);
+            this.LabelFileNo_Sound.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.LabelFileNo_Sound.Location = new System.Drawing.Point(987, 58);
             this.LabelFileNo_Sound.Name = "LabelFileNo_Sound";
             this.LabelFileNo_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelFileNo_Sound.Size = new System.Drawing.Size(81, 20);
+            this.LabelFileNo_Sound.Size = new System.Drawing.Size(71, 17);
             this.LabelFileNo_Sound.TabIndex = 3;
             this.LabelFileNo_Sound.Text = "شماره فایل:";
             // 
@@ -1374,7 +1386,7 @@
             this.radPageViewPageText.ItemSize = new System.Drawing.SizeF(84F, 49F);
             this.radPageViewPageText.Location = new System.Drawing.Point(1, 37);
             this.radPageViewPageText.Name = "radPageViewPageText";
-            this.radPageViewPageText.Size = new System.Drawing.Size(1070, 242);
+            this.radPageViewPageText.Size = new System.Drawing.Size(1070, 211);
             this.radPageViewPageText.Tag = "Text";
             this.radPageViewPageText.Text = "متن";
             // 
@@ -1399,7 +1411,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 48);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1070, 194);
+            this.panel5.Size = new System.Drawing.Size(1070, 163);
             this.panel5.TabIndex = 19;
             // 
             // radDropDownListResource_Text
@@ -1407,7 +1419,7 @@
             this.radDropDownListResource_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radDropDownListResource_Text.DropDownAnimationEnabled = true;
             this.radDropDownListResource_Text.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.radDropDownListResource_Text.Location = new System.Drawing.Point(851, 164);
+            this.radDropDownListResource_Text.Location = new System.Drawing.Point(851, 93);
             this.radDropDownListResource_Text.Name = "radDropDownListResource_Text";
             this.radDropDownListResource_Text.Size = new System.Drawing.Size(136, 25);
             this.radDropDownListResource_Text.TabIndex = 29;
@@ -1419,7 +1431,7 @@
             this.radDropDownListFileType_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radDropDownListFileType_Text.DropDownAnimationEnabled = true;
             this.radDropDownListFileType_Text.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.radDropDownListFileType_Text.Location = new System.Drawing.Point(851, 93);
+            this.radDropDownListFileType_Text.Location = new System.Drawing.Point(851, 21);
             this.radDropDownListFileType_Text.Name = "radDropDownListFileType_Text";
             this.radDropDownListFileType_Text.Size = new System.Drawing.Size(136, 25);
             this.radDropDownListFileType_Text.TabIndex = 28;
@@ -1429,7 +1441,7 @@
             // RichTextBoxTextUpload
             // 
             this.RichTextBoxTextUpload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RichTextBoxTextUpload.Location = new System.Drawing.Point(3, 14);
+            this.RichTextBoxTextUpload.Location = new System.Drawing.Point(3, 6);
             this.RichTextBoxTextUpload.Name = "RichTextBoxTextUpload";
             this.RichTextBoxTextUpload.Size = new System.Drawing.Size(669, 100);
             this.RichTextBoxTextUpload.TabIndex = 20;
@@ -1440,7 +1452,7 @@
             this.LabelTextUpload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelTextUpload.AutoSize = true;
             this.LabelTextUpload.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelTextUpload.Location = new System.Drawing.Point(722, 51);
+            this.LabelTextUpload.Location = new System.Drawing.Point(690, 49);
             this.LabelTextUpload.Name = "LabelTextUpload";
             this.LabelTextUpload.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelTextUpload.Size = new System.Drawing.Size(61, 17);
@@ -1451,10 +1463,10 @@
             // 
             this.textBoxDeletionDescription_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxDeletionDescription_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDeletionDescription_Text.Location = new System.Drawing.Point(242, 165);
+            this.textBoxDeletionDescription_Text.Location = new System.Drawing.Point(128, 131);
             this.textBoxDeletionDescription_Text.Name = "textBoxDeletionDescription_Text";
             this.textBoxDeletionDescription_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxDeletionDescription_Text.Size = new System.Drawing.Size(430, 25);
+            this.textBoxDeletionDescription_Text.Size = new System.Drawing.Size(375, 25);
             this.textBoxDeletionDescription_Text.TabIndex = 12;
             // 
             // LabelDeleteComment_Text
@@ -1462,7 +1474,7 @@
             this.LabelDeleteComment_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelDeleteComment_Text.AutoSize = true;
             this.LabelDeleteComment_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelDeleteComment_Text.Location = new System.Drawing.Point(676, 168);
+            this.LabelDeleteComment_Text.Location = new System.Drawing.Point(509, 134);
             this.LabelDeleteComment_Text.Name = "LabelDeleteComment_Text";
             this.LabelDeleteComment_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelDeleteComment_Text.Size = new System.Drawing.Size(107, 17);
@@ -1473,7 +1485,7 @@
             // 
             this.ButtonAddFile_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonAddFile_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonAddFile_Text.Location = new System.Drawing.Point(9, 163);
+            this.ButtonAddFile_Text.Location = new System.Drawing.Point(9, 133);
             this.ButtonAddFile_Text.Name = "ButtonAddFile_Text";
             this.ButtonAddFile_Text.Size = new System.Drawing.Size(83, 26);
             this.ButtonAddFile_Text.TabIndex = 16;
@@ -1485,7 +1497,7 @@
             this.TextBoxFileNo_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxFileNo_Text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxFileNo_Text.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.TextBoxFileNo_Text.Location = new System.Drawing.Point(851, 130);
+            this.TextBoxFileNo_Text.Location = new System.Drawing.Point(851, 58);
             this.TextBoxFileNo_Text.Name = "TextBoxFileNo_Text";
             this.TextBoxFileNo_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TextBoxFileNo_Text.Size = new System.Drawing.Size(136, 22);
@@ -1496,7 +1508,7 @@
             this.LabelComment_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelComment_Text.AutoSize = true;
             this.LabelComment_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelComment_Text.Location = new System.Drawing.Point(738, 133);
+            this.LabelComment_Text.Location = new System.Drawing.Point(1011, 131);
             this.LabelComment_Text.Name = "LabelComment_Text";
             this.LabelComment_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelComment_Text.Size = new System.Drawing.Size(45, 17);
@@ -1508,10 +1520,10 @@
             this.TextBoxContentComment_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxContentComment_Text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxContentComment_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxContentComment_Text.Location = new System.Drawing.Point(242, 130);
+            this.TextBoxContentComment_Text.Location = new System.Drawing.Point(656, 131);
             this.TextBoxContentComment_Text.Name = "TextBoxContentComment_Text";
             this.TextBoxContentComment_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxContentComment_Text.Size = new System.Drawing.Size(430, 25);
+            this.TextBoxContentComment_Text.Size = new System.Drawing.Size(333, 25);
             this.TextBoxContentComment_Text.TabIndex = 12;
             // 
             // ButtonAddFileType_Text
@@ -1520,7 +1532,7 @@
             this.ButtonAddFileType_Text.AutoSize = true;
             this.ButtonAddFileType_Text.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddFileType_Text.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddFileType_Text.Location = new System.Drawing.Point(826, 94);
+            this.ButtonAddFileType_Text.Location = new System.Drawing.Point(826, 21);
             this.ButtonAddFileType_Text.Name = "ButtonAddFileType_Text";
             this.ButtonAddFileType_Text.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddFileType_Text.TabIndex = 17;
@@ -1530,7 +1542,7 @@
             // 
             this.ButtonUpload_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonUpload_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonUpload_Text.Location = new System.Drawing.Point(9, 131);
+            this.ButtonUpload_Text.Location = new System.Drawing.Point(9, 105);
             this.ButtonUpload_Text.Name = "ButtonUpload_Text";
             this.ButtonUpload_Text.Size = new System.Drawing.Size(83, 26);
             this.ButtonUpload_Text.TabIndex = 16;
@@ -1542,7 +1554,7 @@
             this.LabelResource_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelResource_Text.AutoSize = true;
             this.LabelResource_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelResource_Text.Location = new System.Drawing.Point(1021, 168);
+            this.LabelResource_Text.Location = new System.Drawing.Point(1021, 93);
             this.LabelResource_Text.Name = "LabelResource_Text";
             this.LabelResource_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelResource_Text.Size = new System.Drawing.Size(35, 17);
@@ -1554,7 +1566,7 @@
             this.LabelFileType_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelFileType_Text.AutoSize = true;
             this.LabelFileType_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelFileType_Text.Location = new System.Drawing.Point(1001, 96);
+            this.LabelFileType_Text.Location = new System.Drawing.Point(1001, 21);
             this.LabelFileType_Text.Name = "LabelFileType_Text";
             this.LabelFileType_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelFileType_Text.Size = new System.Drawing.Size(57, 17);
@@ -1567,7 +1579,7 @@
             this.ButtonAddResource_Text.AutoSize = true;
             this.ButtonAddResource_Text.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddResource_Text.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddResource_Text.Location = new System.Drawing.Point(826, 165);
+            this.ButtonAddResource_Text.Location = new System.Drawing.Point(826, 93);
             this.ButtonAddResource_Text.Name = "ButtonAddResource_Text";
             this.ButtonAddResource_Text.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddResource_Text.TabIndex = 17;
@@ -1578,7 +1590,7 @@
             this.LabelFileNo_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelFileNo_Text.AutoSize = true;
             this.LabelFileNo_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelFileNo_Text.Location = new System.Drawing.Point(987, 133);
+            this.LabelFileNo_Text.Location = new System.Drawing.Point(987, 58);
             this.LabelFileNo_Text.Name = "LabelFileNo_Text";
             this.LabelFileNo_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelFileNo_Text.Size = new System.Drawing.Size(71, 17);
@@ -1627,7 +1639,7 @@
             this.radPageViewPageImage.ItemSize = new System.Drawing.SizeF(84F, 49F);
             this.radPageViewPageImage.Location = new System.Drawing.Point(1, 37);
             this.radPageViewPageImage.Name = "radPageViewPageImage";
-            this.radPageViewPageImage.Size = new System.Drawing.Size(1070, 242);
+            this.radPageViewPageImage.Size = new System.Drawing.Size(1070, 211);
             this.radPageViewPageImage.Tag = "Image";
             this.radPageViewPageImage.Text = "تصویر";
             // 
@@ -1650,7 +1662,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 48);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1070, 194);
+            this.panel6.Size = new System.Drawing.Size(1070, 163);
             this.panel6.TabIndex = 20;
             // 
             // radDropDownListResource_Image
@@ -1658,7 +1670,7 @@
             this.radDropDownListResource_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radDropDownListResource_Image.DropDownAnimationEnabled = true;
             this.radDropDownListResource_Image.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.radDropDownListResource_Image.Location = new System.Drawing.Point(851, 164);
+            this.radDropDownListResource_Image.Location = new System.Drawing.Point(851, 93);
             this.radDropDownListResource_Image.Name = "radDropDownListResource_Image";
             this.radDropDownListResource_Image.Size = new System.Drawing.Size(136, 25);
             this.radDropDownListResource_Image.TabIndex = 30;
@@ -1670,7 +1682,7 @@
             this.radDropDownListFileType_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radDropDownListFileType_Image.DropDownAnimationEnabled = true;
             this.radDropDownListFileType_Image.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.radDropDownListFileType_Image.Location = new System.Drawing.Point(851, 93);
+            this.radDropDownListFileType_Image.Location = new System.Drawing.Point(851, 21);
             this.radDropDownListFileType_Image.Name = "radDropDownListFileType_Image";
             this.radDropDownListFileType_Image.Size = new System.Drawing.Size(136, 25);
             this.radDropDownListFileType_Image.TabIndex = 29;
@@ -1680,10 +1692,10 @@
             // 
             this.textBoxDeletionDescription_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxDeletionDescription_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDeletionDescription_Image.Location = new System.Drawing.Point(242, 165);
+            this.textBoxDeletionDescription_Image.Location = new System.Drawing.Point(128, 131);
             this.textBoxDeletionDescription_Image.Name = "textBoxDeletionDescription_Image";
             this.textBoxDeletionDescription_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxDeletionDescription_Image.Size = new System.Drawing.Size(430, 25);
+            this.textBoxDeletionDescription_Image.Size = new System.Drawing.Size(375, 25);
             this.textBoxDeletionDescription_Image.TabIndex = 12;
             // 
             // LabelDeleteComment_Image
@@ -1691,7 +1703,7 @@
             this.LabelDeleteComment_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelDeleteComment_Image.AutoSize = true;
             this.LabelDeleteComment_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelDeleteComment_Image.Location = new System.Drawing.Point(676, 168);
+            this.LabelDeleteComment_Image.Location = new System.Drawing.Point(509, 134);
             this.LabelDeleteComment_Image.Name = "LabelDeleteComment_Image";
             this.LabelDeleteComment_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelDeleteComment_Image.Size = new System.Drawing.Size(107, 17);
@@ -1702,7 +1714,7 @@
             // 
             this.ButtonAddFile_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonAddFile_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonAddFile_Image.Location = new System.Drawing.Point(9, 163);
+            this.ButtonAddFile_Image.Location = new System.Drawing.Point(9, 133);
             this.ButtonAddFile_Image.Name = "ButtonAddFile_Image";
             this.ButtonAddFile_Image.Size = new System.Drawing.Size(83, 26);
             this.ButtonAddFile_Image.TabIndex = 16;
@@ -1714,7 +1726,7 @@
             this.TextBoxFileNo_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxFileNo_Image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxFileNo_Image.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.TextBoxFileNo_Image.Location = new System.Drawing.Point(851, 130);
+            this.TextBoxFileNo_Image.Location = new System.Drawing.Point(851, 58);
             this.TextBoxFileNo_Image.Name = "TextBoxFileNo_Image";
             this.TextBoxFileNo_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TextBoxFileNo_Image.Size = new System.Drawing.Size(136, 22);
@@ -1725,7 +1737,7 @@
             this.LabelComment_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelComment_Image.AutoSize = true;
             this.LabelComment_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelComment_Image.Location = new System.Drawing.Point(738, 133);
+            this.LabelComment_Image.Location = new System.Drawing.Point(1011, 131);
             this.LabelComment_Image.Name = "LabelComment_Image";
             this.LabelComment_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelComment_Image.Size = new System.Drawing.Size(45, 17);
@@ -1737,10 +1749,10 @@
             this.TextBoxContentComment_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxContentComment_Image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxContentComment_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxContentComment_Image.Location = new System.Drawing.Point(242, 130);
+            this.TextBoxContentComment_Image.Location = new System.Drawing.Point(656, 131);
             this.TextBoxContentComment_Image.Name = "TextBoxContentComment_Image";
             this.TextBoxContentComment_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxContentComment_Image.Size = new System.Drawing.Size(430, 25);
+            this.TextBoxContentComment_Image.Size = new System.Drawing.Size(333, 25);
             this.TextBoxContentComment_Image.TabIndex = 12;
             // 
             // ButtonAddFileType_Image
@@ -1749,7 +1761,7 @@
             this.ButtonAddFileType_Image.AutoSize = true;
             this.ButtonAddFileType_Image.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddFileType_Image.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddFileType_Image.Location = new System.Drawing.Point(826, 94);
+            this.ButtonAddFileType_Image.Location = new System.Drawing.Point(826, 21);
             this.ButtonAddFileType_Image.Name = "ButtonAddFileType_Image";
             this.ButtonAddFileType_Image.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddFileType_Image.TabIndex = 17;
@@ -1759,7 +1771,7 @@
             // 
             this.ButtonUpload_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonUpload_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonUpload_Image.Location = new System.Drawing.Point(9, 131);
+            this.ButtonUpload_Image.Location = new System.Drawing.Point(9, 105);
             this.ButtonUpload_Image.Name = "ButtonUpload_Image";
             this.ButtonUpload_Image.Size = new System.Drawing.Size(83, 26);
             this.ButtonUpload_Image.TabIndex = 16;
@@ -1771,7 +1783,7 @@
             this.LabelResource_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelResource_Image.AutoSize = true;
             this.LabelResource_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelResource_Image.Location = new System.Drawing.Point(1021, 168);
+            this.LabelResource_Image.Location = new System.Drawing.Point(1021, 93);
             this.LabelResource_Image.Name = "LabelResource_Image";
             this.LabelResource_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelResource_Image.Size = new System.Drawing.Size(35, 17);
@@ -1783,7 +1795,7 @@
             this.LabelFileType_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelFileType_Image.AutoSize = true;
             this.LabelFileType_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelFileType_Image.Location = new System.Drawing.Point(1001, 96);
+            this.LabelFileType_Image.Location = new System.Drawing.Point(1001, 21);
             this.LabelFileType_Image.Name = "LabelFileType_Image";
             this.LabelFileType_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelFileType_Image.Size = new System.Drawing.Size(57, 17);
@@ -1796,7 +1808,7 @@
             this.ButtonAddResource_Image.AutoSize = true;
             this.ButtonAddResource_Image.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddResource_Image.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddResource_Image.Location = new System.Drawing.Point(826, 165);
+            this.ButtonAddResource_Image.Location = new System.Drawing.Point(826, 93);
             this.ButtonAddResource_Image.Name = "ButtonAddResource_Image";
             this.ButtonAddResource_Image.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddResource_Image.TabIndex = 17;
@@ -1807,7 +1819,7 @@
             this.LabelFileNo_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelFileNo_Image.AutoSize = true;
             this.LabelFileNo_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelFileNo_Image.Location = new System.Drawing.Point(987, 133);
+            this.LabelFileNo_Image.Location = new System.Drawing.Point(987, 58);
             this.LabelFileNo_Image.Name = "LabelFileNo_Image";
             this.LabelFileNo_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelFileNo_Image.Size = new System.Drawing.Size(71, 17);
@@ -1857,7 +1869,7 @@
             this.radPageViewPageVideo.ItemSize = new System.Drawing.SizeF(84F, 49F);
             this.radPageViewPageVideo.Location = new System.Drawing.Point(1, 37);
             this.radPageViewPageVideo.Name = "radPageViewPageVideo";
-            this.radPageViewPageVideo.Size = new System.Drawing.Size(1070, 242);
+            this.radPageViewPageVideo.Size = new System.Drawing.Size(1070, 211);
             this.radPageViewPageVideo.Tag = "Video";
             this.radPageViewPageVideo.Text = "ویدئو";
             this.radPageViewPageVideo.Title = "l;kj";
@@ -1882,7 +1894,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 48);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1070, 194);
+            this.panel8.Size = new System.Drawing.Size(1070, 163);
             this.panel8.TabIndex = 21;
             this.panel8.Tag = "Video";
             // 
@@ -1891,7 +1903,7 @@
             this.radDropDownListResource_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radDropDownListResource_Video.DropDownAnimationEnabled = true;
             this.radDropDownListResource_Video.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.radDropDownListResource_Video.Location = new System.Drawing.Point(851, 164);
+            this.radDropDownListResource_Video.Location = new System.Drawing.Point(851, 93);
             this.radDropDownListResource_Video.Name = "radDropDownListResource_Video";
             this.radDropDownListResource_Video.Size = new System.Drawing.Size(136, 25);
             this.radDropDownListResource_Video.TabIndex = 32;
@@ -1902,7 +1914,7 @@
             this.radDropDownListFileType_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radDropDownListFileType_Video.DropDownAnimationEnabled = true;
             this.radDropDownListFileType_Video.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.radDropDownListFileType_Video.Location = new System.Drawing.Point(851, 93);
+            this.radDropDownListFileType_Video.Location = new System.Drawing.Point(851, 21);
             this.radDropDownListFileType_Video.Name = "radDropDownListFileType_Video";
             this.radDropDownListFileType_Video.Size = new System.Drawing.Size(136, 25);
             this.radDropDownListFileType_Video.TabIndex = 31;
@@ -1912,10 +1924,10 @@
             // 
             this.textBoxDeletionDescription_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxDeletionDescription_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDeletionDescription_Video.Location = new System.Drawing.Point(242, 165);
+            this.textBoxDeletionDescription_Video.Location = new System.Drawing.Point(128, 131);
             this.textBoxDeletionDescription_Video.Name = "textBoxDeletionDescription_Video";
             this.textBoxDeletionDescription_Video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxDeletionDescription_Video.Size = new System.Drawing.Size(430, 25);
+            this.textBoxDeletionDescription_Video.Size = new System.Drawing.Size(375, 25);
             this.textBoxDeletionDescription_Video.TabIndex = 12;
             // 
             // LabelDeleteComment_Video
@@ -1923,7 +1935,7 @@
             this.LabelDeleteComment_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelDeleteComment_Video.AutoSize = true;
             this.LabelDeleteComment_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelDeleteComment_Video.Location = new System.Drawing.Point(676, 168);
+            this.LabelDeleteComment_Video.Location = new System.Drawing.Point(509, 134);
             this.LabelDeleteComment_Video.Name = "LabelDeleteComment_Video";
             this.LabelDeleteComment_Video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelDeleteComment_Video.Size = new System.Drawing.Size(107, 17);
@@ -1934,7 +1946,7 @@
             // 
             this.ButtonAddFile_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonAddFile_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonAddFile_Video.Location = new System.Drawing.Point(9, 163);
+            this.ButtonAddFile_Video.Location = new System.Drawing.Point(9, 133);
             this.ButtonAddFile_Video.Name = "ButtonAddFile_Video";
             this.ButtonAddFile_Video.Size = new System.Drawing.Size(83, 26);
             this.ButtonAddFile_Video.TabIndex = 16;
@@ -1946,7 +1958,7 @@
             this.TextBoxFileNo_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxFileNo_Video.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxFileNo_Video.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.TextBoxFileNo_Video.Location = new System.Drawing.Point(851, 130);
+            this.TextBoxFileNo_Video.Location = new System.Drawing.Point(851, 58);
             this.TextBoxFileNo_Video.Name = "TextBoxFileNo_Video";
             this.TextBoxFileNo_Video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TextBoxFileNo_Video.Size = new System.Drawing.Size(136, 22);
@@ -1956,7 +1968,7 @@
             // 
             this.ButtonUploadLQ_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonUploadLQ_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonUploadLQ_Video.Location = new System.Drawing.Point(9, 98);
+            this.ButtonUploadLQ_Video.Location = new System.Drawing.Point(9, 72);
             this.ButtonUploadLQ_Video.Name = "ButtonUploadLQ_Video";
             this.ButtonUploadLQ_Video.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ButtonUploadLQ_Video.Size = new System.Drawing.Size(83, 26);
@@ -1970,7 +1982,7 @@
             this.LabelComment_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelComment_Video.AutoSize = true;
             this.LabelComment_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelComment_Video.Location = new System.Drawing.Point(738, 133);
+            this.LabelComment_Video.Location = new System.Drawing.Point(1011, 131);
             this.LabelComment_Video.Name = "LabelComment_Video";
             this.LabelComment_Video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelComment_Video.Size = new System.Drawing.Size(45, 17);
@@ -1982,10 +1994,10 @@
             this.TextBoxContentComment_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxContentComment_Video.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxContentComment_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxContentComment_Video.Location = new System.Drawing.Point(242, 130);
+            this.TextBoxContentComment_Video.Location = new System.Drawing.Point(656, 131);
             this.TextBoxContentComment_Video.Name = "TextBoxContentComment_Video";
             this.TextBoxContentComment_Video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxContentComment_Video.Size = new System.Drawing.Size(430, 25);
+            this.TextBoxContentComment_Video.Size = new System.Drawing.Size(333, 25);
             this.TextBoxContentComment_Video.TabIndex = 12;
             // 
             // ButtonAddFileType_Video
@@ -1994,7 +2006,7 @@
             this.ButtonAddFileType_Video.AutoSize = true;
             this.ButtonAddFileType_Video.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddFileType_Video.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddFileType_Video.Location = new System.Drawing.Point(826, 94);
+            this.ButtonAddFileType_Video.Location = new System.Drawing.Point(826, 21);
             this.ButtonAddFileType_Video.Name = "ButtonAddFileType_Video";
             this.ButtonAddFileType_Video.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddFileType_Video.TabIndex = 17;
@@ -2004,7 +2016,7 @@
             // 
             this.ButtonUploadHQ_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonUploadHQ_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonUploadHQ_Video.Location = new System.Drawing.Point(9, 131);
+            this.ButtonUploadHQ_Video.Location = new System.Drawing.Point(9, 105);
             this.ButtonUploadHQ_Video.Name = "ButtonUploadHQ_Video";
             this.ButtonUploadHQ_Video.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ButtonUploadHQ_Video.Size = new System.Drawing.Size(83, 26);
@@ -2017,7 +2029,7 @@
             this.LabelResource_video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelResource_video.AutoSize = true;
             this.LabelResource_video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelResource_video.Location = new System.Drawing.Point(1021, 168);
+            this.LabelResource_video.Location = new System.Drawing.Point(1021, 93);
             this.LabelResource_video.Name = "LabelResource_video";
             this.LabelResource_video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelResource_video.Size = new System.Drawing.Size(35, 17);
@@ -2029,7 +2041,7 @@
             this.LabelFileType_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelFileType_Video.AutoSize = true;
             this.LabelFileType_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelFileType_Video.Location = new System.Drawing.Point(1001, 96);
+            this.LabelFileType_Video.Location = new System.Drawing.Point(1001, 21);
             this.LabelFileType_Video.Name = "LabelFileType_Video";
             this.LabelFileType_Video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelFileType_Video.Size = new System.Drawing.Size(57, 17);
@@ -2042,7 +2054,7 @@
             this.ButtonAddResource_Video.AutoSize = true;
             this.ButtonAddResource_Video.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddResource_Video.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddResource_Video.Location = new System.Drawing.Point(826, 165);
+            this.ButtonAddResource_Video.Location = new System.Drawing.Point(826, 93);
             this.ButtonAddResource_Video.Name = "ButtonAddResource_Video";
             this.ButtonAddResource_Video.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddResource_Video.TabIndex = 17;
@@ -2053,7 +2065,7 @@
             this.LabelFileNo_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelFileNo_Video.AutoSize = true;
             this.LabelFileNo_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelFileNo_Video.Location = new System.Drawing.Point(987, 133);
+            this.LabelFileNo_Video.Location = new System.Drawing.Point(987, 58);
             this.LabelFileNo_Video.Name = "LabelFileNo_Video";
             this.LabelFileNo_Video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelFileNo_Video.Size = new System.Drawing.Size(71, 17);

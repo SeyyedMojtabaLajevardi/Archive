@@ -17,17 +17,20 @@ namespace Archive.DataAccess
         public int FileId { get; set; }
         public int ContentId { get; set; }
         public int FileTypeId { get; set; }
-        public Nullable<int> FileNumber { get; set; }
-        public int? ResourceId { get; set; }
+        public int FileNumber { get; set; }
+        public Nullable<int> ResourceId { get; set; }
         public string DeletionDescription { get; set; }
         public string Comment { get; set; }
         public string Text { get; set; }
         public string FileName { get; set; }
-        public int? EditorId { get; set; }
+        public Nullable<int> EditorId { get; set; }
+        public Nullable<bool> IsUploaded { get; set; }
+        public Nullable<int> FileCode { get; set; }
+        public Nullable<int> CategoryId { get; set; }
     
         public virtual Editor Editor { get; set; }
-        public virtual FileType FileType { get; set; }
-        public virtual Resource Resource { get; set; }
         public virtual Content Content { get; set; }
+        public virtual Resource Resource { get; set; }
+        public virtual FileType FileType { get; set; }
     }
 }

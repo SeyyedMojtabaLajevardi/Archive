@@ -6,6 +6,7 @@ using Autofac;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows.Forms;
+using Telerik.WinControls.UI.Localization;
 
 namespace Archive
 {
@@ -19,12 +20,14 @@ namespace Archive
         {
             // تنظیمات Dependency Injection با Autofac
             // تنظیمات کانتینر DI با Autofac
+            RadGridLocalizationProvider.CurrentProvider = new CustomGridLocalizationProvider();
             var container = ConfigureServices();
 
             // ایجاد محدوده عمر و اجرای اپلیکیشن
             using (var scope = container.BeginLifetimeScope())
             {
-                var mainForm = scope.Resolve<FormCreateDocument>();
+                //var mainForm = scope.Resolve<FormCreateDocument>();
+                var mainForm = scope.Resolve<FormFileType>();
                 Application.Run(mainForm);
             }
 
@@ -51,6 +54,7 @@ namespace Archive
 
             // ثبت فرم‌ها
             builder.RegisterType<FormCreateDocument>();
+            builder.RegisterType<FormFileType>();
 
             return builder.Build();
         }

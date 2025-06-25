@@ -202,12 +202,13 @@ namespace Archive
                 _contentService.AddContent(content);
             }
             _contentId = content.ContentId;
-
             File file = _fileService.GetFileByContentIdAndFileTypeIdAndFileNumber(_contentId, _fileTypeId, int.Parse(TextBoxFileNo_Sound.Text.Trim()));
+
             if (file == null)
             {
                 file = new File
                 {
+                    CategoryId = _mainCategoryId,
                     ResourceId = _resourceId > 0 ? _resourceId : (int?)null,
                     FileTypeId = _fileTypeId,
                     FileNumber = int.Parse(TextBoxFileNo_Sound.Text.Trim()),

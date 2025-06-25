@@ -24,7 +24,8 @@ namespace Archive.DataAccess
         public Nullable<int> ContentTypeId { get; set; }
         public Nullable<int> DocumentId { get; set; }
         public string Code { get; set; }
-        public string Description { get; set; }    
+        public string Description { get; set; }
+    
         public virtual ContentType ContentType { get; set; }
         public virtual Document Document { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
