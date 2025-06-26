@@ -18,7 +18,7 @@ namespace Archive.DataAccess
         public Nullable<int> DocumentId { get; set; }
         public Nullable<int> SubjectId { get; set; }
     
-        public virtual Subject Subject { get; set; }
         public virtual Document Document { get; set; }
+        public virtual Subject Subject { get; set; }
     }
 }

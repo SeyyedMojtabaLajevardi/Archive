@@ -53,9 +53,16 @@
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             this.PanelHeader = new System.Windows.Forms.Panel();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.ButtonRegisterDocument = new System.Windows.Forms.Button();
+            this.ButtonSaveTemorary = new System.Windows.Forms.Button();
+            this.TextBoxDocumentDescription = new System.Windows.Forms.TextBox();
+            this.TextBoxComment = new System.Windows.Forms.TextBox();
+            this.TextBoxLink = new System.Windows.Forms.TextBox();
+            this.LabelDescription = new System.Windows.Forms.Label();
+            this.LabelLink = new System.Windows.Forms.Label();
+            this.LabelDocumentDescription = new System.Windows.Forms.Label();
             this.radDropDownListNewTitle = new Telerik.WinControls.UI.RadDropDownList();
-            this.roundRectShape1 = new Telerik.WinControls.RoundRectShape(this.components);
-            this.circleShape1 = new Telerik.WinControls.CircleShape();
             this.radDropDownListOldTitle = new Telerik.WinControls.UI.RadDropDownList();
             this.radDropDownListCategory2 = new Telerik.WinControls.UI.RadDropDownList();
             this.radDropDownListCategory1 = new Telerik.WinControls.UI.RadDropDownList();
@@ -64,9 +71,6 @@
             this.radDropDownListLanguage = new Telerik.WinControls.UI.RadDropDownList();
             this.radDropDownListPermissionState = new Telerik.WinControls.UI.RadDropDownList();
             this.radDropDownListPadidAvar = new Telerik.WinControls.UI.RadDropDownList();
-            this.ButtonEditDocument = new System.Windows.Forms.Button();
-            this.ButtonSaveTemorary = new System.Windows.Forms.Button();
-            this.ButtonRegisterDocument = new System.Windows.Forms.Button();
             this.ComboBoxSubject = new Telerik.WinControls.UI.RadCheckedDropDownList();
             this.ButtonAddCategory2 = new System.Windows.Forms.Button();
             this.ButtonAddLanguage = new System.Windows.Forms.Button();
@@ -79,14 +83,8 @@
             this.TextBoxSubTitle = new System.Windows.Forms.TextBox();
             this.LabelNewTitle = new System.Windows.Forms.Label();
             this.LabelCategory2 = new System.Windows.Forms.Label();
-            this.LabelDocumentDescription = new System.Windows.Forms.Label();
-            this.LabelLink = new System.Windows.Forms.Label();
-            this.LabelDescription = new System.Windows.Forms.Label();
             this.LabelCategory1 = new System.Windows.Forms.Label();
             this.LabelOldTitle = new System.Windows.Forms.Label();
-            this.TextBoxDocumentDescription = new System.Windows.Forms.TextBox();
-            this.TextBoxLink = new System.Windows.Forms.TextBox();
-            this.TextBoxComment = new System.Windows.Forms.TextBox();
             this.LabelPublishState = new System.Windows.Forms.Label();
             this.LabelLanguage = new System.Windows.Forms.Label();
             this.LabelPermissionLevel = new System.Windows.Forms.Label();
@@ -195,8 +193,10 @@
             this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01 = new Telerik.WinControls.UI.RadDropDownListRootElement();
             this.starShape1 = new Telerik.WinControls.UI.StarShape();
             this.object_11f9d28c_2b62_4037_bed9_39e037d87daa = new Telerik.WinControls.UI.RadDropDownListRootElement();
+            this.radButton1 = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
+            this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListNewTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListOldTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListCategory2)).BeginInit();
@@ -233,6 +233,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListResource_Video)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListFileType_Video)).BeginInit();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelHeader
@@ -247,6 +248,8 @@
             // 
             this.radGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
             this.radGroupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.radGroupBox1.Controls.Add(this.ComboBoxSubject);
+            this.radGroupBox1.Controls.Add(this.panel10);
             this.radGroupBox1.Controls.Add(this.radDropDownListNewTitle);
             this.radGroupBox1.Controls.Add(this.radDropDownListOldTitle);
             this.radGroupBox1.Controls.Add(this.radDropDownListCategory2);
@@ -256,10 +259,6 @@
             this.radGroupBox1.Controls.Add(this.radDropDownListLanguage);
             this.radGroupBox1.Controls.Add(this.radDropDownListPermissionState);
             this.radGroupBox1.Controls.Add(this.radDropDownListPadidAvar);
-            this.radGroupBox1.Controls.Add(this.ButtonEditDocument);
-            this.radGroupBox1.Controls.Add(this.ButtonSaveTemorary);
-            this.radGroupBox1.Controls.Add(this.ButtonRegisterDocument);
-            this.radGroupBox1.Controls.Add(this.ComboBoxSubject);
             this.radGroupBox1.Controls.Add(this.ButtonAddCategory2);
             this.radGroupBox1.Controls.Add(this.ButtonAddLanguage);
             this.radGroupBox1.Controls.Add(this.ButtonAddPadidAvar);
@@ -271,14 +270,8 @@
             this.radGroupBox1.Controls.Add(this.TextBoxSubTitle);
             this.radGroupBox1.Controls.Add(this.LabelNewTitle);
             this.radGroupBox1.Controls.Add(this.LabelCategory2);
-            this.radGroupBox1.Controls.Add(this.LabelDocumentDescription);
-            this.radGroupBox1.Controls.Add(this.LabelLink);
-            this.radGroupBox1.Controls.Add(this.LabelDescription);
             this.radGroupBox1.Controls.Add(this.LabelCategory1);
             this.radGroupBox1.Controls.Add(this.LabelOldTitle);
-            this.radGroupBox1.Controls.Add(this.TextBoxDocumentDescription);
-            this.radGroupBox1.Controls.Add(this.TextBoxLink);
-            this.radGroupBox1.Controls.Add(this.TextBoxComment);
             this.radGroupBox1.Controls.Add(this.LabelPublishState);
             this.radGroupBox1.Controls.Add(this.LabelLanguage);
             this.radGroupBox1.Controls.Add(this.LabelPermissionLevel);
@@ -305,6 +298,109 @@
             this.radGroupBox1.TabIndex = 0;
             this.radGroupBox1.Text = "مشخصات سند";
             // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.ButtonRegisterDocument);
+            this.panel10.Controls.Add(this.ButtonSaveTemorary);
+            this.panel10.Controls.Add(this.TextBoxDocumentDescription);
+            this.panel10.Controls.Add(this.TextBoxComment);
+            this.panel10.Controls.Add(this.TextBoxLink);
+            this.panel10.Controls.Add(this.LabelDescription);
+            this.panel10.Controls.Add(this.LabelLink);
+            this.panel10.Controls.Add(this.LabelDocumentDescription);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel10.Location = new System.Drawing.Point(2, 258);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1222, 62);
+            this.panel10.TabIndex = 32;
+            // 
+            // ButtonRegisterDocument
+            // 
+            this.ButtonRegisterDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonRegisterDocument.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.ButtonRegisterDocument.Location = new System.Drawing.Point(7, 32);
+            this.ButtonRegisterDocument.Name = "ButtonRegisterDocument";
+            this.ButtonRegisterDocument.Size = new System.Drawing.Size(86, 28);
+            this.ButtonRegisterDocument.TabIndex = 19;
+            this.ButtonRegisterDocument.Text = "ثبت نهایی";
+            this.ButtonRegisterDocument.UseVisualStyleBackColor = true;
+            this.ButtonRegisterDocument.Click += new System.EventHandler(this.ButtonRegisterDocument_Click);
+            // 
+            // ButtonSaveTemorary
+            // 
+            this.ButtonSaveTemorary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSaveTemorary.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.ButtonSaveTemorary.Location = new System.Drawing.Point(99, 33);
+            this.ButtonSaveTemorary.Name = "ButtonSaveTemorary";
+            this.ButtonSaveTemorary.Size = new System.Drawing.Size(75, 26);
+            this.ButtonSaveTemorary.TabIndex = 17;
+            this.ButtonSaveTemorary.Text = "ثبت موقت";
+            this.ButtonSaveTemorary.UseVisualStyleBackColor = true;
+            this.ButtonSaveTemorary.Click += new System.EventHandler(this.ButtonSaveTemorary_Click);
+            // 
+            // TextBoxDocumentDescription
+            // 
+            this.TextBoxDocumentDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxDocumentDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxDocumentDescription.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxDocumentDescription.Location = new System.Drawing.Point(633, 34);
+            this.TextBoxDocumentDescription.Name = "TextBoxDocumentDescription";
+            this.TextBoxDocumentDescription.Size = new System.Drawing.Size(506, 23);
+            this.TextBoxDocumentDescription.TabIndex = 17;
+            // 
+            // TextBoxComment
+            // 
+            this.TextBoxComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxComment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxComment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxComment.Location = new System.Drawing.Point(633, 6);
+            this.TextBoxComment.Name = "TextBoxComment";
+            this.TextBoxComment.Size = new System.Drawing.Size(506, 23);
+            this.TextBoxComment.TabIndex = 12;
+            // 
+            // TextBoxLink
+            // 
+            this.TextBoxLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxLink.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxLink.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxLink.Location = new System.Drawing.Point(9, 7);
+            this.TextBoxLink.Name = "TextBoxLink";
+            this.TextBoxLink.Size = new System.Drawing.Size(498, 23);
+            this.TextBoxLink.TabIndex = 15;
+            // 
+            // LabelDescription
+            // 
+            this.LabelDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelDescription.AutoSize = true;
+            this.LabelDescription.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
+            this.LabelDescription.Location = new System.Drawing.Point(1146, 9);
+            this.LabelDescription.Name = "LabelDescription";
+            this.LabelDescription.Size = new System.Drawing.Size(72, 20);
+            this.LabelDescription.TabIndex = 3;
+            this.LabelDescription.Text = "توضیحات:";
+            // 
+            // LabelLink
+            // 
+            this.LabelLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelLink.AutoSize = true;
+            this.LabelLink.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
+            this.LabelLink.Location = new System.Drawing.Point(509, 8);
+            this.LabelLink.Name = "LabelLink";
+            this.LabelLink.Size = new System.Drawing.Size(109, 20);
+            this.LabelLink.TabIndex = 3;
+            this.LabelLink.Text = "لینک سند مرتبط:";
+            // 
+            // LabelDocumentDescription
+            // 
+            this.LabelDocumentDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelDocumentDescription.AutoSize = true;
+            this.LabelDocumentDescription.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
+            this.LabelDocumentDescription.Location = new System.Drawing.Point(1149, 38);
+            this.LabelDocumentDescription.Name = "LabelDocumentDescription";
+            this.LabelDocumentDescription.Size = new System.Drawing.Size(69, 20);
+            this.LabelDocumentDescription.TabIndex = 3;
+            this.LabelDocumentDescription.Text = "شرح سند:";
+            // 
             // radDropDownListNewTitle
             // 
             this.radDropDownListNewTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -322,12 +418,6 @@
             this.radDropDownListNewTitle.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListNewTitle_SelectedIndexChanged);
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListNewTitle.GetChildAt(0))).RightToLeft = true;
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListNewTitle.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListNewTitle.GetChildAt(0))).Shape = this.roundRectShape1;
-            ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListNewTitle.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Shape = this.circleShape1;
-            // 
-            // circleShape1
-            // 
-            this.circleShape1.IsRightToLeft = true;
             // 
             // radDropDownListOldTitle
             // 
@@ -336,18 +426,12 @@
             this.radDropDownListOldTitle.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.radDropDownListOldTitle.Location = new System.Drawing.Point(659, 34);
             this.radDropDownListOldTitle.Name = "radDropDownListOldTitle";
-            // 
-            // 
-            // 
-            this.radDropDownListOldTitle.RootElement.Shape = this.circleShape1;
             this.radDropDownListOldTitle.Size = new System.Drawing.Size(194, 28);
             this.radDropDownListOldTitle.TabIndex = 29;
             this.radDropDownListOldTitle.Text = "انتخاب کنید";
             this.radDropDownListOldTitle.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListOldTitle_SelectedIndexChanged);
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListOldTitle.GetChildAt(0))).RightToLeft = true;
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListOldTitle.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListOldTitle.GetChildAt(0))).Shape = this.roundRectShape1;
-            ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListOldTitle.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Shape = this.circleShape1;
             // 
             // radDropDownListCategory2
             // 
@@ -362,8 +446,6 @@
             this.radDropDownListCategory2.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListCategory2_SelectedIndexChanged);
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListCategory2.GetChildAt(0))).RightToLeft = true;
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListCategory2.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListCategory2.GetChildAt(0))).Shape = this.roundRectShape1;
-            ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListCategory2.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Shape = this.circleShape1;
             // 
             // radDropDownListCategory1
             // 
@@ -379,14 +461,12 @@
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListCategory1.GetChildAt(0))).RightToLeft = true;
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListCategory1.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListCategory1.GetChildAt(0))).ShouldPaint = false;
-            ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListCategory1.GetChildAt(0))).Shape = this.roundRectShape1;
             ((Telerik.WinControls.UI.StackLayoutElement)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2))).ShouldPaint = true;
             ((Telerik.WinControls.UI.RadDropDownTextBoxElement)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2).GetChildAt(0).GetChildAt(0))).Text = "انتخاب کنید";
             ((Telerik.WinControls.UI.RadTextBoxItem)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2).GetChildAt(0).GetChildAt(0).GetChildAt(0))).ShouldPaint = false;
             ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2).GetChildAt(1))).EnableElementShadow = false;
             ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2).GetChildAt(1))).ShadowDepth = 0;
             ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2).GetChildAt(1))).ShouldPaint = false;
-            ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Shape = this.circleShape1;
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(0))).PaintUsingParentShape = true;
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(0))).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radDropDownListCategory1.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(0))).ShouldPaint = true;
@@ -419,7 +499,6 @@
             this.radDropDownListMainCategory.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListMainCategory_SelectedIndexChanged);
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListMainCategory.GetChildAt(0))).RightToLeft = true;
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListMainCategory.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListMainCategory.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Shape = this.circleShape1;
             // 
             // radDropDownListPublishState
             // 
@@ -433,8 +512,6 @@
             this.radDropDownListPublishState.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListPublishState_SelectedIndexChanged);
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPublishState.GetChildAt(0))).RightToLeft = true;
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPublishState.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPublishState.GetChildAt(0))).Shape = this.roundRectShape1;
-            ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListPublishState.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Shape = this.circleShape1;
             // 
             // radDropDownListLanguage
             // 
@@ -449,8 +526,6 @@
             this.radDropDownListLanguage.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListLanguage_SelectedIndexChanged);
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListLanguage.GetChildAt(0))).RightToLeft = true;
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListLanguage.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListLanguage.GetChildAt(0))).Shape = this.roundRectShape1;
-            ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListLanguage.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Shape = this.circleShape1;
             // 
             // radDropDownListPermissionState
             // 
@@ -469,8 +544,6 @@
             this.radDropDownListPermissionState.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListPermissionState_SelectedIndexChanged);
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPermissionState.GetChildAt(0))).RightToLeft = true;
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPermissionState.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPermissionState.GetChildAt(0))).Shape = this.roundRectShape1;
-            ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListPermissionState.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Shape = this.circleShape1;
             // 
             // radDropDownListPadidAvar
             // 
@@ -485,60 +558,35 @@
             this.radDropDownListPadidAvar.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListPadidAvar_SelectedIndexChanged);
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPadidAvar.GetChildAt(0))).RightToLeft = true;
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPadidAvar.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPadidAvar.GetChildAt(0))).Shape = this.roundRectShape1;
-            ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.radDropDownListPadidAvar.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Shape = this.circleShape1;
-            // 
-            // ButtonEditDocument
-            // 
-            this.ButtonEditDocument.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonEditDocument.Location = new System.Drawing.Point(178, 290);
-            this.ButtonEditDocument.Name = "ButtonEditDocument";
-            this.ButtonEditDocument.Size = new System.Drawing.Size(88, 26);
-            this.ButtonEditDocument.TabIndex = 20;
-            this.ButtonEditDocument.Text = "ویرایش سند";
-            this.ButtonEditDocument.UseVisualStyleBackColor = true;
-            this.ButtonEditDocument.Visible = false;
-            this.ButtonEditDocument.Click += new System.EventHandler(this.ButtonEditDocument_Click);
-            // 
-            // ButtonSaveTemorary
-            // 
-            this.ButtonSaveTemorary.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonSaveTemorary.Location = new System.Drawing.Point(97, 289);
-            this.ButtonSaveTemorary.Name = "ButtonSaveTemorary";
-            this.ButtonSaveTemorary.Size = new System.Drawing.Size(75, 26);
-            this.ButtonSaveTemorary.TabIndex = 17;
-            this.ButtonSaveTemorary.Text = "ثبت موقت";
-            this.ButtonSaveTemorary.UseVisualStyleBackColor = true;
-            this.ButtonSaveTemorary.Click += new System.EventHandler(this.ButtonSaveTemorary_Click);
-            // 
-            // ButtonRegisterDocument
-            // 
-            this.ButtonRegisterDocument.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonRegisterDocument.Location = new System.Drawing.Point(5, 288);
-            this.ButtonRegisterDocument.Name = "ButtonRegisterDocument";
-            this.ButtonRegisterDocument.Size = new System.Drawing.Size(86, 28);
-            this.ButtonRegisterDocument.TabIndex = 19;
-            this.ButtonRegisterDocument.Text = "ثبت نهایی";
-            this.ButtonRegisterDocument.UseVisualStyleBackColor = true;
-            this.ButtonRegisterDocument.Click += new System.EventHandler(this.ButtonRegisterDocument_Click);
             // 
             // ComboBoxSubject
             // 
             this.ComboBoxSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboBoxSubject.AutoScroll = true;
             this.ComboBoxSubject.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.ComboBoxSubject.DropDownAnimationEasing = Telerik.WinControls.RadEasingType.InCubic;
             this.ComboBoxSubject.DropDownAnimationEnabled = true;
+            this.ComboBoxSubject.DropDownHeight = 150;
             this.ComboBoxSubject.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.ComboBoxSubject.Location = new System.Drawing.Point(992, 151);
+            this.ComboBoxSubject.Location = new System.Drawing.Point(992, 149);
             this.ComboBoxSubject.Multiline = true;
             this.ComboBoxSubject.Name = "ComboBoxSubject";
+            this.ComboBoxSubject.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            // 
+            // 
+            // 
+            this.ComboBoxSubject.RootElement.CustomFontStyle = System.Drawing.FontStyle.Regular;
             this.ComboBoxSubject.Size = new System.Drawing.Size(149, 24);
             this.ComboBoxSubject.TabIndex = 11;
             ((Telerik.WinControls.UI.RadCheckedDropDownListElement)(this.ComboBoxSubject.GetChildAt(0))).RightToLeft = true;
             ((Telerik.WinControls.UI.RadCheckedDropDownListElement)(this.ComboBoxSubject.GetChildAt(0))).DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
             ((Telerik.WinControls.UI.RadCheckedDropDownListElement)(this.ComboBoxSubject.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.UI.RadCheckedDropDownListElement)(this.ComboBoxSubject.GetChildAt(0))).Shape = this.roundRectShape1;
-            ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Shape = this.circleShape1;
+            ((Telerik.WinControls.UI.RadCheckedDropDownListElement)(this.ComboBoxSubject.GetChildAt(0))).Alignment = System.Drawing.ContentAlignment.MiddleRight;
+            ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.TopLeft;
+            ((Telerik.WinControls.Primitives.ArrowPrimitive)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(2))).Direction = Telerik.WinControls.ArrowDirection.Left;
+            ((Telerik.WinControls.Primitives.ArrowPrimitive)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(2))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(5))).TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(5))).LineLimit = false;
             // 
             // ButtonAddCategory2
             // 
@@ -582,11 +630,12 @@
             this.ButtonAddSubject.AutoSize = true;
             this.ButtonAddSubject.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddSubject.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddSubject.Location = new System.Drawing.Point(970, 152);
+            this.ButtonAddSubject.Location = new System.Drawing.Point(970, 150);
             this.ButtonAddSubject.Name = "ButtonAddSubject";
             this.ButtonAddSubject.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddSubject.TabIndex = 17;
             this.ButtonAddSubject.UseVisualStyleBackColor = true;
+            this.ButtonAddSubject.Click += new System.EventHandler(this.ButtonAddSubject_Click);
             // 
             // ButtonAddCategory1
             // 
@@ -606,7 +655,7 @@
             this.ButtonAddMainCategory.AutoSize = true;
             this.ButtonAddMainCategory.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddMainCategory.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddMainCategory.Location = new System.Drawing.Point(970, 111);
+            this.ButtonAddMainCategory.Location = new System.Drawing.Point(970, 112);
             this.ButtonAddMainCategory.Name = "ButtonAddMainCategory";
             this.ButtonAddMainCategory.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddMainCategory.TabIndex = 17;
@@ -665,39 +714,6 @@
             this.LabelCategory2.TabIndex = 3;
             this.LabelCategory2.Text = "دسته 2:";
             // 
-            // LabelDocumentDescription
-            // 
-            this.LabelDocumentDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelDocumentDescription.AutoSize = true;
-            this.LabelDocumentDescription.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.LabelDocumentDescription.Location = new System.Drawing.Point(1152, 287);
-            this.LabelDocumentDescription.Name = "LabelDocumentDescription";
-            this.LabelDocumentDescription.Size = new System.Drawing.Size(69, 20);
-            this.LabelDocumentDescription.TabIndex = 3;
-            this.LabelDocumentDescription.Text = "شرح سند:";
-            // 
-            // LabelLink
-            // 
-            this.LabelLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelLink.AutoSize = true;
-            this.LabelLink.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.LabelLink.Location = new System.Drawing.Point(1112, 253);
-            this.LabelLink.Name = "LabelLink";
-            this.LabelLink.Size = new System.Drawing.Size(109, 20);
-            this.LabelLink.TabIndex = 3;
-            this.LabelLink.Text = "لینک سند مرتبط:";
-            // 
-            // LabelDescription
-            // 
-            this.LabelDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelDescription.AutoSize = true;
-            this.LabelDescription.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.LabelDescription.Location = new System.Drawing.Point(1149, 220);
-            this.LabelDescription.Name = "LabelDescription";
-            this.LabelDescription.Size = new System.Drawing.Size(72, 20);
-            this.LabelDescription.TabIndex = 3;
-            this.LabelDescription.Text = "توضیحات:";
-            // 
             // LabelCategory1
             // 
             this.LabelCategory1.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -719,36 +735,6 @@
             this.LabelOldTitle.Size = new System.Drawing.Size(83, 20);
             this.LabelOldTitle.TabIndex = 3;
             this.LabelOldTitle.Text = "عنوان قدیم:";
-            // 
-            // TextBoxDocumentDescription
-            // 
-            this.TextBoxDocumentDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxDocumentDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxDocumentDescription.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxDocumentDescription.Location = new System.Drawing.Point(600, 283);
-            this.TextBoxDocumentDescription.Name = "TextBoxDocumentDescription";
-            this.TextBoxDocumentDescription.Size = new System.Drawing.Size(506, 23);
-            this.TextBoxDocumentDescription.TabIndex = 17;
-            // 
-            // TextBoxLink
-            // 
-            this.TextBoxLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxLink.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxLink.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxLink.Location = new System.Drawing.Point(600, 249);
-            this.TextBoxLink.Name = "TextBoxLink";
-            this.TextBoxLink.Size = new System.Drawing.Size(506, 23);
-            this.TextBoxLink.TabIndex = 15;
-            // 
-            // TextBoxComment
-            // 
-            this.TextBoxComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxComment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxComment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxComment.Location = new System.Drawing.Point(600, 218);
-            this.TextBoxComment.Name = "TextBoxComment";
-            this.TextBoxComment.Size = new System.Drawing.Size(506, 23);
-            this.TextBoxComment.TabIndex = 12;
             // 
             // LabelPublishState
             // 
@@ -1257,6 +1243,7 @@
             this.ButtonAddFileType_Sound.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddFileType_Sound.TabIndex = 17;
             this.ButtonAddFileType_Sound.UseVisualStyleBackColor = true;
+            this.ButtonAddFileType_Sound.Click += new System.EventHandler(this.ButtonAddFileType_Sound_Click);
             // 
             // ButtonUpload_Sound
             // 
@@ -1537,6 +1524,7 @@
             this.ButtonAddFileType_Text.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddFileType_Text.TabIndex = 17;
             this.ButtonAddFileType_Text.UseVisualStyleBackColor = true;
+            this.ButtonAddFileType_Text.Click += new System.EventHandler(this.ButtonAddFileType_Text_Click);
             // 
             // ButtonUpload_Text
             // 
@@ -1766,6 +1754,7 @@
             this.ButtonAddFileType_Image.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddFileType_Image.TabIndex = 17;
             this.ButtonAddFileType_Image.UseVisualStyleBackColor = true;
+            this.ButtonAddFileType_Image.Click += new System.EventHandler(this.ButtonAddFileType_Image_Click);
             // 
             // ButtonUpload_Image
             // 
@@ -2011,6 +2000,7 @@
             this.ButtonAddFileType_Video.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddFileType_Video.TabIndex = 17;
             this.ButtonAddFileType_Video.UseVisualStyleBackColor = true;
+            this.ButtonAddFileType_Video.Click += new System.EventHandler(this.ButtonAddFileType_Video_Click);
             // 
             // ButtonUploadHQ_Video
             // 
@@ -2132,6 +2122,20 @@
             this.object_11f9d28c_2b62_4037_bed9_39e037d87daa.StretchHorizontally = true;
             this.object_11f9d28c_2b62_4037_bed9_39e037d87daa.StretchVertically = true;
             // 
+            // radButton1
+            // 
+            this.radButton1.BackColor = System.Drawing.SystemColors.Control;
+            this.radButton1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.radButton1.Location = new System.Drawing.Point(3, 73);
+            this.radButton1.Name = "radButton1";
+            this.radButton1.Size = new System.Drawing.Size(110, 24);
+            this.radButton1.TabIndex = 21;
+            this.radButton1.Text = "ثبت نهایی";
+            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton1.GetChildAt(0))).Text = "ثبت نهایی";
+            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton1.GetChildAt(0))).Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(226)))), ((int)(((byte)(246)))));
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            // 
             // FormCreateDocument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2148,6 +2152,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListNewTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListOldTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListCategory2)).EndInit();
@@ -2192,6 +2198,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListFileType_Video)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2255,7 +2262,6 @@
         private System.Windows.Forms.Label LabelCode;
         private System.Windows.Forms.TextBox TextBoxCode;
         private System.Windows.Forms.Button ButtonSaveContent;
-        private System.Windows.Forms.Button ButtonEditDocument;
         private Telerik.WinControls.UI.RadNavigationView radNavigationView1;
         private Telerik.WinControls.UI.RadPageViewPage radPageViewPageSound;
         private Telerik.WinControls.UI.RadPageViewPage radPageViewPageImage;
@@ -2337,9 +2343,9 @@
         private Telerik.WinControls.OldShapeEditor.CustomShape customShape1;
         private Telerik.WinControls.UI.Callout.CalloutElementShape calloutElementShape1;
         private Telerik.WinControls.UI.RadDropDownListRootElement object_cabf595c_b710_44fa_8575_23a8c9cc3d01;
-        private Telerik.WinControls.RoundRectShape roundRectShape1;
-        private Telerik.WinControls.CircleShape circleShape1;
         private Telerik.WinControls.UI.StarShape starShape1;
         private Telerik.WinControls.UI.RadDropDownListRootElement object_11f9d28c_2b62_4037_bed9_39e037d87daa;
+        private System.Windows.Forms.Panel panel10;
+        private Telerik.WinControls.UI.RadButton radButton1;
     }
 }

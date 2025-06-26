@@ -244,6 +244,12 @@
     <Compile Include="DataAccess\WorkFlowState.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\BaseForm\FormSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\BaseForm\FormSubject.Designer.cs">
+      <DependentUpon>FormSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\FormCreateDocument.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +285,9 @@
     <Compile Include="Presentation\RoundedComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="Presentation\BaseForm\FormSubject.resx">
+      <DependentUpon>FormSubject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\FormCreateDocument.resx">
       <DependentUpon>FormCreateDocument.cs</DependentUpon>
       <SubType>Designer</SubType>

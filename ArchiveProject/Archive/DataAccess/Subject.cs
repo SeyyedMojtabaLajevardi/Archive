@@ -22,6 +22,7 @@ namespace Archive.DataAccess
     
         public int SubjectId { get; set; }
         public string SubjectTitle { get; set; }
+        public string SampleSubjectTitle { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DocumentSubjectRelation> DocumentSubjectRelations { get; set; }

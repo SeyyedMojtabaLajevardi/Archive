@@ -118,6 +118,7 @@
           </Key>
           <Property Name="SubjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SubjectTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="SampleSubjectTitle" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="UserInfo">
           <Key>
@@ -659,7 +660,6 @@
           <EntitySet Name="PermissionStates" EntityType="ArchiveModel.PermissionState" />
           <EntitySet Name="PermissionTypes" EntityType="ArchiveModel.PermissionType" />
           <EntitySet Name="PublishStates" EntityType="ArchiveModel.PublishState" />
-          <EntitySet Name="Subjects" EntityType="ArchiveModel.Subject" />
           <EntitySet Name="UserInfoes" EntityType="ArchiveModel.UserInfo" />
           <EntitySet Name="Views" EntityType="ArchiveModel.View" />
           <EntitySet Name="WorkFlowStates" EntityType="ArchiveModel.WorkFlowState" />
@@ -707,10 +707,6 @@
           <AssociationSet Name="FK_Document_PublishState" Association="ArchiveModel.FK_Document_PublishState">
             <End Role="PublishState" EntitySet="PublishStates" />
             <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DocumentSubjectRelation_Subject" Association="ArchiveModel.FK_DocumentSubjectRelation_Subject">
-            <End Role="Subject" EntitySet="Subjects" />
-            <End Role="DocumentSubjectRelation" EntitySet="DocumentSubjectRelations" />
           </AssociationSet>
           <AssociationSet Name="FK_Document_User" Association="ArchiveModel.FK_Document_User">
             <End Role="UserInfo" EntitySet="UserInfoes" />
@@ -762,6 +758,11 @@
           <AssociationSet Name="FK_File_FileType" Association="ArchiveModel.FK_File_FileType">
             <End Role="FileType" EntitySet="FileTypes" />
             <End Role="File" EntitySet="Files" />
+          </AssociationSet>
+          <EntitySet Name="Subjects" EntityType="ArchiveModel.Subject" />
+          <AssociationSet Name="FK_DocumentSubjectRelation_Subject" Association="ArchiveModel.FK_DocumentSubjectRelation_Subject">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="DocumentSubjectRelation" EntitySet="DocumentSubjectRelations" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Category">
@@ -874,14 +875,6 @@
           <Property Name="PublishStateTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Documents" Relationship="ArchiveModel.FK_Document_PublishState" FromRole="PublishState" ToRole="Document" />
         </EntityType>
-        <EntityType Name="Subject">
-          <Key>
-            <PropertyRef Name="SubjectId" />
-          </Key>
-          <Property Name="SubjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SubjectTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DocumentSubjectRelations" Relationship="ArchiveModel.FK_DocumentSubjectRelation_Subject" FromRole="Subject" ToRole="DocumentSubjectRelation" />
-        </EntityType>
         <EntityType Name="UserInfo">
           <Key>
             <PropertyRef Name="UsreId" />
@@ -987,8 +980,8 @@
           <Property Name="DocumentSubjectRelationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DocumentId" Type="Int32" />
           <Property Name="SubjectId" Type="Int32" />
-          <NavigationProperty Name="Subject" Relationship="ArchiveModel.FK_DocumentSubjectRelation_Subject" FromRole="DocumentSubjectRelation" ToRole="Subject" />
           <NavigationProperty Name="Document" Relationship="ArchiveModel.FK_DocumentSubjectRelation_Document" FromRole="DocumentSubjectRelation" ToRole="Document" />
+          <NavigationProperty Name="Subject" Relationship="ArchiveModel.FK_DocumentSubjectRelation_Subject" FromRole="DocumentSubjectRelation" ToRole="Subject" />
         </EntityType>
         <EntityType Name="Resource">
           <Key>
@@ -1126,18 +1119,6 @@
             </Principal>
             <Dependent Role="Document">
               <PropertyRef Name="PublishStateId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DocumentSubjectRelation_Subject">
-          <End Type="ArchiveModel.Subject" Role="Subject" Multiplicity="0..1" />
-          <End Type="ArchiveModel.DocumentSubjectRelation" Role="DocumentSubjectRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="SubjectId" />
-            </Principal>
-            <Dependent Role="DocumentSubjectRelation">
-              <PropertyRef Name="SubjectId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1331,6 +1312,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectId" />
+          </Key>
+          <Property Name="SubjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SampleSubjectTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DocumentSubjectRelations" Relationship="ArchiveModel.FK_DocumentSubjectRelation_Subject" FromRole="Subject" ToRole="DocumentSubjectRelation" />
+        </EntityType>
+        <Association Name="FK_DocumentSubjectRelation_Subject">
+          <End Type="ArchiveModel.Subject" Role="Subject" Multiplicity="0..1" />
+          <End Type="ArchiveModel.DocumentSubjectRelation" Role="DocumentSubjectRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubjectId" />
+            </Principal>
+            <Dependent Role="DocumentSubjectRelation">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1442,14 +1444,6 @@
               <MappingFragment StoreEntitySet="PublishState">
                 <ScalarProperty Name="PublishStateTitle" ColumnName="PublishStateTitle" />
                 <ScalarProperty Name="PublishStateId" ColumnName="PublishStateId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Subjects">
-            <EntityTypeMapping TypeName="ArchiveModel.Subject">
-              <MappingFragment StoreEntitySet="Subject">
-                <ScalarProperty Name="SubjectTitle" ColumnName="SubjectTitle" />
-                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1602,6 +1596,15 @@
                 <ScalarProperty Name="ContentTypeId" ColumnName="ContentTypeId" />
                 <ScalarProperty Name="FileTypeTitle" ColumnName="FileTypeTitle" />
                 <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="ArchiveModel.Subject">
+              <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="SampleSubjectTitle" ColumnName="SampleSubjectTitle" />
+                <ScalarProperty Name="SubjectTitle" ColumnName="SubjectTitle" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

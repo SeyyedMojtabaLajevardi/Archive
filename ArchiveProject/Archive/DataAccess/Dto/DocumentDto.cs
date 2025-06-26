@@ -8,7 +8,7 @@ namespace Archive.DataAccess.Dto
 {
     public class DocumentDto : Document
     {
-        public List<int> SubjectIdListt { get; set; }
+        public List<Subject> SubjectList { get; set; }
         public string MainCategory { get; set; }
         public string FirstCategory { get; set; }
         public string SecondCategory { get; set; }

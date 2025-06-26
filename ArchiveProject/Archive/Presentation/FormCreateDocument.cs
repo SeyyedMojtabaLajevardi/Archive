@@ -92,10 +92,10 @@ namespace Archive
 
         private void FormCreateDocumentSpeach_Load(object sender, EventArgs e)
         {
-            //Thread th = new Thread(ControlConfiguration);
-            //th.Start();
             _isFirst = true;
             FillDropDownList();
+            foreach (RadListDataItem item in ComboBoxSubject.Items)
+                item.TextAlignment = ContentAlignment.MiddleRight;
             _isFirst = false;
         }
 
@@ -181,6 +181,9 @@ namespace Archive
                 radDropDownListCategory2.SelectedIndex = radDropDownListCategory2.FindStringExact(secondCategory);
                 radDropDownListCategory2.Text = secondCategory;
             }
+            var subjects = document.DocumentSubjectRelations
+                        .Select(r => r.Subject)
+                        .ToList();
         }
 
         private void ButtonAddFile_Click(object sender, EventArgs e)
@@ -514,13 +517,13 @@ namespace Archive
 
         private void radDropDownListOldTitle_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            if (_isFirst || radDropDownListOldTitle.Text.Trim() == "") 
+            if (_isFirst || radDropDownListOldTitle.Text.Trim() == "")
                 return;
             radDropDownListOldTitle.BackColor = Color.White;
-            
+
             //  اگر سایت کد، مشخص شده باشد، تغییر عنوان قدیم بابت ویرایش خواهد بود نه جستجوی مستند
             //  لذا دیگر نباید جستجوی مستند بر اساس عنوان قدیم صورت پذیرد
-            if (TextBoxSiteCode.Text.Trim() != "")  
+            if (TextBoxSiteCode.Text.Trim() != "")
                 return;
             var document = _documentService.GetDocumentByOldTitle(radDropDownListOldTitle.Text.Trim());
             var text = radDropDownListOldTitle.Text.Trim();
@@ -572,6 +575,63 @@ namespace Archive
         private void TextBoxSiteCode_TextChanged(object sender, EventArgs e)
         {
             TextBoxSiteCode.BackColor = Color.White;
+        }
+
+        private void ButtonAddFileType_Sound_Click(object sender, EventArgs e)
+        {
+            FormFileType frm = new FormFileType();
+            frm.ShowDialog();
+            frm.Close();
+            radDropDownListFileType_Sound.DataSource = _fileTypes_Sound;
+            radDropDownListFileType_Sound.DisplayMember = "FileTypeTitle";
+            radDropDownListFileType_Sound.ValueMember = "FileTypeId";
+            radDropDownListFileType_Sound.Text = "انتخاب کنید";
+        }
+
+        private void ButtonAddFileType_Text_Click(object sender, EventArgs e)
+        {
+            FormFileType frm = new FormFileType();
+            frm.ShowDialog();
+            frm.Close();
+            radDropDownListFileType_Text.DataSource = _fileTypes_Text;
+            radDropDownListFileType_Text.DisplayMember = "FileTypeTitle";
+            radDropDownListFileType_Text.ValueMember = "FileTypeId";
+            radDropDownListFileType_Text.Text = "انتخاب کنید";
+        }
+
+        private void ButtonAddFileType_Image_Click(object sender, EventArgs e)
+        {
+            FormFileType frm = new FormFileType();
+            frm.ShowDialog();
+            frm.Close();
+            radDropDownListFileType_Image.DataSource = _fileTypes_Image;
+            radDropDownListFileType_Image.DisplayMember = "FileTypeTitle";
+            radDropDownListFileType_Image.ValueMember = "FileTypeId";
+            radDropDownListFileType_Image.Text = "انتخاب کنید";
+        }
+
+        private void ButtonAddFileType_Video_Click(object sender, EventArgs e)
+        {
+            FormFileType frm = new FormFileType();
+            frm.ShowDialog();
+            frm.Close();
+            radDropDownListFileType_Video.DataSource = _fileTypes_Video;
+            radDropDownListFileType_Video.DisplayMember = "FileTypeTitle";
+            radDropDownListFileType_Video.ValueMember = "FileTypeId";
+            radDropDownListFileType_Video.Text = "انتخاب کنید";
+        }
+
+        private void ButtonAddSubject_Click(object sender, EventArgs e)
+        {
+            FormSubject frm = new FormSubject();
+            frm.ShowDialog();
+            frm.Close();
+
+            _subjects = _archiveService.FillSubject();
+            ComboBoxSubject.DataSource = _subjects;
+            ComboBoxSubject.DisplayMember = "SubjectTitle";
+            ComboBoxSubject.ValueMember = "SubjectId";
+            ComboBoxSubject.Text = "انتخاب کنید";
         }
 
         private void radDropDownListPadidAvar_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
@@ -833,6 +893,10 @@ namespace Archive
             {
                 GridViewContent.DataSource = null;
                 GridViewContent.Rows.Clear();
+                _isFirst = true;
+                foreach (RadCheckedListDataItem item in ComboBoxSubject.Items)
+                    item.Checked = false;
+                _isFirst = false;
             }
         }
 
@@ -920,6 +984,12 @@ namespace Archive
             radDropDownListFileType_Video.DisplayMember = "FileTypeTitle";
             radDropDownListFileType_Video.ValueMember = "FileTypeId";
             radDropDownListFileType_Video.Text = "انتخاب کنید";
+
+            ComboBoxSubject.DataSource = _subjects;
+            ComboBoxSubject.DisplayMember = "SubjectTitle";
+            ComboBoxSubject.ValueMember = "SubjectId";
+            ComboBoxSubject.Text = "کنید انتخاب";
+            
 
             radDropDownListOldTitle.AutoCompleteMode = AutoCompleteMode.Suggest;
             radDropDownListOldTitle.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListOldTitle.DropDownListElement);

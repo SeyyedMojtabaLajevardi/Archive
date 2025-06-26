@@ -48,10 +48,14 @@ namespace Archive.BusinessLogic
 
         public Document GetDocumentBySiteCode(string siteCode)
         {
-            return _context.Documents.FirstOrDefault(x => x.SiteCode == siteCode);
+            var document = _context.Documents
+                .Include(d => d.DocumentSubjectRelations.Select(r => r.Subject))
+                .FirstOrDefault(x => x.SiteCode == siteCode);
+            return document;
+            //return _context.Documents.FirstOrDefault(x => x.SiteCode == siteCode);
         }
         Document IDocumentService.GetDocumentByOldTitle(string oldTitle)
-        {            
+        {
             return _context.Documents.FirstOrDefault(x => x.OldTitle == oldTitle);
         }
         Document IDocumentService.GetDocumentByNewTitle(string newTitle)
@@ -79,7 +83,7 @@ namespace Archive.BusinessLogic
                 existingDocument.SubTitle = documentDto.SubTitle;
                 existingDocument.PublishStateId = documentDto.PublishStateId == 0 ? null : documentDto.PublishStateId;
                 existingDocument.PermissionStateId = documentDto.PermissionStateId == 0 ? null : documentDto.PermissionStateId;
-                existingDocument.CreatorUserId = documentDto.CreatorUserId == 0 ? null : documentDto.CreatorUserId ;
+                existingDocument.CreatorUserId = documentDto.CreatorUserId == 0 ? null : documentDto.CreatorUserId;
                 existingDocument.PadidAvarId = documentDto.PadidAvarId == 0 ? null : documentDto.PadidAvarId;
                 existingDocument.LanguageId = documentDto.LanguageId == 0 ? null : documentDto.LanguageId;
                 existingDocument.Comment = documentDto.Comment;
