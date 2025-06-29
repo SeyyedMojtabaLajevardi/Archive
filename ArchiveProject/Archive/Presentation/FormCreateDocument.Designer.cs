@@ -53,6 +53,7 @@
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             this.PanelHeader = new System.Windows.Forms.Panel();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.ComboBoxSubject = new Telerik.WinControls.UI.RadCheckedDropDownList();
             this.panel10 = new System.Windows.Forms.Panel();
             this.ButtonRegisterDocument = new System.Windows.Forms.Button();
             this.ButtonSaveTemorary = new System.Windows.Forms.Button();
@@ -71,7 +72,6 @@
             this.radDropDownListLanguage = new Telerik.WinControls.UI.RadDropDownList();
             this.radDropDownListPermissionState = new Telerik.WinControls.UI.RadDropDownList();
             this.radDropDownListPadidAvar = new Telerik.WinControls.UI.RadDropDownList();
-            this.ComboBoxSubject = new Telerik.WinControls.UI.RadCheckedDropDownList();
             this.ButtonAddCategory2 = new System.Windows.Forms.Button();
             this.ButtonAddLanguage = new System.Windows.Forms.Button();
             this.ButtonAddPadidAvar = new System.Windows.Forms.Button();
@@ -196,6 +196,7 @@
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ComboBoxSubject)).BeginInit();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListNewTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListOldTitle)).BeginInit();
@@ -206,7 +207,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListLanguage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListPermissionState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListPadidAvar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ComboBoxSubject)).BeginInit();
             this.panel1.SuspendLayout();
             this.PanelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewContent)).BeginInit();
@@ -297,6 +297,35 @@
             this.radGroupBox1.Size = new System.Drawing.Size(1226, 322);
             this.radGroupBox1.TabIndex = 0;
             this.radGroupBox1.Text = "مشخصات سند";
+            // 
+            // ComboBoxSubject
+            // 
+            this.ComboBoxSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboBoxSubject.AutoScroll = true;
+            this.ComboBoxSubject.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.ComboBoxSubject.DropDownAnimationEasing = Telerik.WinControls.RadEasingType.InCubic;
+            this.ComboBoxSubject.DropDownAnimationEnabled = true;
+            this.ComboBoxSubject.DropDownHeight = 150;
+            this.ComboBoxSubject.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.ComboBoxSubject.Location = new System.Drawing.Point(992, 149);
+            this.ComboBoxSubject.Multiline = true;
+            this.ComboBoxSubject.Name = "ComboBoxSubject";
+            this.ComboBoxSubject.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            // 
+            // 
+            // 
+            this.ComboBoxSubject.RootElement.CustomFontStyle = System.Drawing.FontStyle.Regular;
+            this.ComboBoxSubject.Size = new System.Drawing.Size(149, 24);
+            this.ComboBoxSubject.TabIndex = 11;
+            ((Telerik.WinControls.UI.RadCheckedDropDownListElement)(this.ComboBoxSubject.GetChildAt(0))).RightToLeft = true;
+            ((Telerik.WinControls.UI.RadCheckedDropDownListElement)(this.ComboBoxSubject.GetChildAt(0))).DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
+            ((Telerik.WinControls.UI.RadCheckedDropDownListElement)(this.ComboBoxSubject.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            ((Telerik.WinControls.UI.RadCheckedDropDownListElement)(this.ComboBoxSubject.GetChildAt(0))).Alignment = System.Drawing.ContentAlignment.MiddleRight;
+            ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.TopLeft;
+            ((Telerik.WinControls.Primitives.ArrowPrimitive)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(2))).Direction = Telerik.WinControls.ArrowDirection.Left;
+            ((Telerik.WinControls.Primitives.ArrowPrimitive)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(2))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(5))).TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(5))).LineLimit = false;
             // 
             // panel10
             // 
@@ -558,35 +587,6 @@
             this.radDropDownListPadidAvar.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListPadidAvar_SelectedIndexChanged);
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPadidAvar.GetChildAt(0))).RightToLeft = true;
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPadidAvar.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            // 
-            // ComboBoxSubject
-            // 
-            this.ComboBoxSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ComboBoxSubject.AutoScroll = true;
-            this.ComboBoxSubject.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.ComboBoxSubject.DropDownAnimationEasing = Telerik.WinControls.RadEasingType.InCubic;
-            this.ComboBoxSubject.DropDownAnimationEnabled = true;
-            this.ComboBoxSubject.DropDownHeight = 150;
-            this.ComboBoxSubject.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.ComboBoxSubject.Location = new System.Drawing.Point(992, 149);
-            this.ComboBoxSubject.Multiline = true;
-            this.ComboBoxSubject.Name = "ComboBoxSubject";
-            this.ComboBoxSubject.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            // 
-            // 
-            // 
-            this.ComboBoxSubject.RootElement.CustomFontStyle = System.Drawing.FontStyle.Regular;
-            this.ComboBoxSubject.Size = new System.Drawing.Size(149, 24);
-            this.ComboBoxSubject.TabIndex = 11;
-            ((Telerik.WinControls.UI.RadCheckedDropDownListElement)(this.ComboBoxSubject.GetChildAt(0))).RightToLeft = true;
-            ((Telerik.WinControls.UI.RadCheckedDropDownListElement)(this.ComboBoxSubject.GetChildAt(0))).DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            ((Telerik.WinControls.UI.RadCheckedDropDownListElement)(this.ComboBoxSubject.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.UI.RadCheckedDropDownListElement)(this.ComboBoxSubject.GetChildAt(0))).Alignment = System.Drawing.ContentAlignment.MiddleRight;
-            ((Telerik.WinControls.UI.RadDropDownListArrowButtonElement)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.TopLeft;
-            ((Telerik.WinControls.Primitives.ArrowPrimitive)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(2))).Direction = Telerik.WinControls.ArrowDirection.Left;
-            ((Telerik.WinControls.Primitives.ArrowPrimitive)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(2))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(5))).TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.ComboBoxSubject.GetChildAt(0).GetChildAt(2).GetChildAt(1).GetChildAt(5))).LineLimit = false;
             // 
             // ButtonAddCategory2
             // 
@@ -891,7 +891,7 @@
             // PersiandateTimePickerDate
             // 
             this.PersiandateTimePickerDate.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.PersiandateTimePickerDate.DateValue = null;
+            this.PersiandateTimePickerDate.DateValue = "1387/7/6";
             this.PersiandateTimePickerDate.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
             this.PersiandateTimePickerDate.Format = ShDateTimePicker.DateTimePicker.ShDateFormat.ShortDate;
             this.PersiandateTimePickerDate.Location = new System.Drawing.Point(10, 151);
@@ -2152,6 +2152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ComboBoxSubject)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListNewTitle)).EndInit();
@@ -2163,7 +2164,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListLanguage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListPermissionState)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListPadidAvar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ComboBoxSubject)).EndInit();
             this.panel1.ResumeLayout(false);
             this.PanelContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridViewContent.MasterTemplate)).EndInit();

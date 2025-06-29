@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
+using static Telerik.WinControls.VirtualKeyboard.VirtualKeyboardNativeMethods;
 
 namespace Archive
 {
@@ -69,16 +70,17 @@ namespace Archive
             //ToolStripButtonVideo.Width = width;
         }
 
-        public FormCreateDocument(IDocumentService documentService, IContentService contentService, IFileService fileService, ICategoryService categoryService)
+        //public FormCreateDocument(IDocumentService documentService, IContentService contentService, IFileService fileService, ICategoryService categoryService)
+        public FormCreateDocument(IArchiveFacadeService archiveFacadeService)
         {
             this.SuspendLayout();
             InitializeComponent();
             this.ResumeLayout();
             _archiveService = new ArchiveService(new ArchiveEntities());
-            _documentService = documentService;
-            _contentService = contentService;
-            _categoryService = categoryService;
-            _fileService = fileService;
+            _documentService = archiveFacadeService.DocumentService;
+            _contentService = archiveFacadeService.ContentService;
+            _categoryService = archiveFacadeService.CategoryService;
+            _fileService = archiveFacadeService.FileService;
             GridViewContent.ViewCellFormatting += GridViewContent_ViewCellFormatting;
         }
 
@@ -184,6 +186,10 @@ namespace Archive
             var subjects = document.DocumentSubjectRelations
                         .Select(r => r.Subject)
                         .ToList();
+            foreach (RadCheckedListDataItem item in ComboBoxSubject.Items)
+            {
+                item.Checked = subjects.Count(x => x.SubjectId.ToString() == item.Value.ToString()) > 0;
+            }
         }
 
         private void ButtonAddFile_Click(object sender, EventArgs e)
@@ -804,9 +810,14 @@ namespace Archive
             //documentDto.CreatedDate = ??
             //documentDto.CreatorUserId = ??
             var date = PersiandateTimePickerDate.DateValue != null ? PersiandateTimePickerDate.DateValue : "";
-            documentDto.SessionDate = DateTime.ParseExact(date, "yyyy/MM/dd", _persianCulture, DateTimeStyles.None);
+            string validDate = Regex.Replace(date, @"(\d{4})/(\d{1,2})/(\d{1,2})",
+            m => $"{m.Groups[1].Value}/{int.Parse(m.Groups[2].Value):00}/{int.Parse(m.Groups[3].Value):00}"
+        );
+            documentDto.SessionDate = DateTime.ParseExact(validDate, "yyyy/MM/dd", _persianCulture, DateTimeStyles.None);
             documentDto.DocumentCode = document.DocumentCode;
             documentDto.DocumentId = document.DocumentId;
+            //documentDto.SubjectIdList = document.DocumentSubjectRelations.Select(x => x.SubjectId.Value).ToList();
+            documentDto.DocumentSubjectRelations = GetNewDocumentSubjectRelation(document);
             documentDto.SiteCode = TextBoxSiteCode.Text.Trim();
             documentDto.OldTitle = radDropDownListOldTitle.Text.Trim();
             documentDto.NewTitle = radDropDownListNewTitle.Text.Trim();
@@ -843,6 +854,18 @@ namespace Archive
 
             //SessionDate = Calendar.va
             return documentDto;
+        }
+
+        private ICollection<DocumentSubjectRelation> GetNewDocumentSubjectRelation(Document document)
+        {
+            List<DocumentSubjectRelation> documentSubjectRelationList = new List<DocumentSubjectRelation>();
+            foreach (RadCheckedListDataItem item in ComboBoxSubject.Items)
+            {
+                if (item.Checked)
+                    documentSubjectRelationList.Add(
+                        new DocumentSubjectRelation { DocumentId = document.DocumentId, SubjectId = int.Parse(item.Value.ToString()) });
+            }
+            return documentSubjectRelationList;
         }
 
         private void ClearBox()
@@ -893,6 +916,7 @@ namespace Archive
             {
                 GridViewContent.DataSource = null;
                 GridViewContent.Rows.Clear();
+                PersiandateTimePickerDate.DateValue = "";
                 _isFirst = true;
                 foreach (RadCheckedListDataItem item in ComboBoxSubject.Items)
                     item.Checked = false;

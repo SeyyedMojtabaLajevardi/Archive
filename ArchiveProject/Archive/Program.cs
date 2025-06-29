@@ -1,5 +1,5 @@
 ﻿using Archive.BusinessLogic;
-//using Archive.BusinessLogic.Implementation;
+using Archive.BusinessLogic.Implementation;
 //using Archive.BusinessLogic.Interfaces;
 using Archive.DataAccess;
 using Autofac;
@@ -24,16 +24,20 @@ namespace Archive
             var container = ConfigureServices();
 
             // ایجاد محدوده عمر و اجرای اپلیکیشن
+            //using (var scope = container.BeginLifetimeScope())
+            //{
+            //    var mainForm = new FormCreateDocument(1); // مقدار دلخواه برای mainCategoryId
+            //    Application.Run(mainForm);
+            //}
+
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new FormCreateDocument(new ArchiveFacadeService()));
             using (var scope = container.BeginLifetimeScope())
             {
-                //var mainForm = scope.Resolve<FormSubject>();
                 var mainForm = scope.Resolve<FormCreateDocument>();
                 Application.Run(mainForm);
             }
-
-            ////Application.EnableVisualStyles();
-            ////Application.SetCompatibleTextRenderingDefault(false);
-            ////Application.Run(new FormCreateDocument());
         }
 
 
@@ -51,6 +55,11 @@ namespace Archive
             builder.RegisterType<CategoryService>().As<ICategoryService>();
             builder.RegisterType<FileTypeService>().As<IFileTypeService>();
             builder.RegisterType<ContentTypeService>().As<IContentTypeService>();
+
+            // Register ArchiveFacadeService
+            builder.RegisterType<ArchiveFacadeService>().As<IArchiveFacadeService>();
+
+            builder.RegisterType<DocumentSubjectRelationService>().As<IDocumentSubjectRelationService>();
 
             // ثبت فرم‌ها
             builder.RegisterType<FormCreateDocument>();

@@ -141,15 +141,20 @@
   <ItemGroup>
     <Compile Include="BusinessLogic\ArchiveService.cs" />
     <Compile Include="BusinessLogic\CustomAutoCompleteSuggestHelper.cs" />
+    <Compile Include="BusinessLogic\Implementation\ArchiveFacadeService.cs" />
     <Compile Include="BusinessLogic\Implementation\CategoryService.cs" />
     <Compile Include="BusinessLogic\Implementation\ContentTypeService.cs" />
+    <Compile Include="BusinessLogic\Implementation\DocumentSubjectRelationService.cs" />
     <Compile Include="BusinessLogic\Implementation\FileService.cs" />
     <Compile Include="BusinessLogic\Implementation\ContentService.cs" />
     <Compile Include="BusinessLogic\Implementation\DocumentService.cs" />
     <Compile Include="BusinessLogic\Enumerations\Enum.cs" />
     <Compile Include="BusinessLogic\Implementation\FileTypeService.cs" />
+    <Compile Include="BusinessLogic\Interfaces\IArchiveFacadeService.cs" />
     <Compile Include="BusinessLogic\Interfaces\ICategoryService.cs" />
     <Compile Include="BusinessLogic\Interfaces\IContentTypeService.cs" />
+    <Compile Include="BusinessLogic\Interfaces\IDocumentSubjectRelationService.cs" />
+    <Compile Include="BusinessLogic\Interfaces\ISubjectService.cs" />
     <Compile Include="BusinessLogic\Interfaces\IFileService.cs" />
     <Compile Include="BusinessLogic\Interfaces\IContentService.cs" />
     <Compile Include="BusinessLogic\Interfaces\IDocumentService.cs" />
