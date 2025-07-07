@@ -9,6 +9,7 @@ namespace Archive.DataAccess.Dto
     public class ContentDto : Content
     {
         public string ContentTypeTitle { get; set; }
+        public string ContentTypeTitlePresian { get; set; }
         public string FileTypeTitle { get; set; }
         public int ResourceId { get; set; }
         public string ResourceTitle { get; set; }
