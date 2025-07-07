@@ -51,7 +51,13 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn25 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn26 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelHeader = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.GroupBoxHeader = new System.Windows.Forms.GroupBox();
+            this.DataGridViewHeaderFileType = new System.Windows.Forms.DataGridView();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
             this.ComboBoxSubject = new Telerik.WinControls.UI.RadCheckedDropDownList();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -108,92 +114,28 @@
             this.GridViewContent = new Telerik.WinControls.UI.RadGridView();
             this.radNavigationView1 = new Telerik.WinControls.UI.RadNavigationView();
             this.radPageViewPageSound = new Telerik.WinControls.UI.RadPageViewPage();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.radDropDownListResource_Sound = new Telerik.WinControls.UI.RadDropDownList();
-            this.radDropDownListFileType_Sound = new Telerik.WinControls.UI.RadDropDownList();
-            this.textBoxDeletionDescription_Sound = new System.Windows.Forms.TextBox();
-            this.LabelDeleteComment_Sound = new System.Windows.Forms.Label();
-            this.ButtonAddFile_Sound = new System.Windows.Forms.Button();
-            this.TextBoxFileNo_Sound = new System.Windows.Forms.TextBox();
-            this.LabelComment_Sound = new System.Windows.Forms.Label();
-            this.TextBoxContentComment_Sound = new System.Windows.Forms.TextBox();
-            this.ButtonAddFileType_Sound = new System.Windows.Forms.Button();
-            this.ButtonUpload_Sound = new System.Windows.Forms.Button();
-            this.LabelResource_Sound = new System.Windows.Forms.Label();
-            this.LabelFileType_Sound = new System.Windows.Forms.Label();
-            this.ButtonAddResource = new System.Windows.Forms.Button();
-            this.LabelFileNo_Sound = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.LabelCode = new System.Windows.Forms.Label();
-            this.TextBoxCode = new System.Windows.Forms.TextBox();
-            this.TextBoxContentDescription_Sound = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Panel_Sound = new System.Windows.Forms.Panel();
             this.radPageViewPageText = new Telerik.WinControls.UI.RadPageViewPage();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.radDropDownListResource_Text = new Telerik.WinControls.UI.RadDropDownList();
-            this.radDropDownListFileType_Text = new Telerik.WinControls.UI.RadDropDownList();
-            this.RichTextBoxTextUpload = new System.Windows.Forms.RichTextBox();
-            this.LabelTextUpload = new System.Windows.Forms.Label();
-            this.textBoxDeletionDescription_Text = new System.Windows.Forms.TextBox();
-            this.LabelDeleteComment_Text = new System.Windows.Forms.Label();
-            this.ButtonAddFile_Text = new System.Windows.Forms.Button();
-            this.TextBoxFileNo_Text = new System.Windows.Forms.TextBox();
-            this.LabelComment_Text = new System.Windows.Forms.Label();
-            this.TextBoxContentComment_Text = new System.Windows.Forms.TextBox();
-            this.ButtonAddFileType_Text = new System.Windows.Forms.Button();
-            this.ButtonUpload_Text = new System.Windows.Forms.Button();
-            this.LabelResource_Text = new System.Windows.Forms.Label();
-            this.LabelFileType_Text = new System.Windows.Forms.Label();
-            this.ButtonAddResource_Text = new System.Windows.Forms.Button();
-            this.LabelFileNo_Text = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.TextBoxContentDescription_Text = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.Panel_Text = new System.Windows.Forms.Panel();
             this.radPageViewPageImage = new Telerik.WinControls.UI.RadPageViewPage();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.radDropDownListResource_Image = new Telerik.WinControls.UI.RadDropDownList();
-            this.radDropDownListFileType_Image = new Telerik.WinControls.UI.RadDropDownList();
-            this.textBoxDeletionDescription_Image = new System.Windows.Forms.TextBox();
-            this.LabelDeleteComment_Image = new System.Windows.Forms.Label();
-            this.ButtonAddFile_Image = new System.Windows.Forms.Button();
-            this.TextBoxFileNo_Image = new System.Windows.Forms.TextBox();
-            this.LabelComment_Image = new System.Windows.Forms.Label();
-            this.TextBoxContentComment_Image = new System.Windows.Forms.TextBox();
-            this.ButtonAddFileType_Image = new System.Windows.Forms.Button();
-            this.ButtonUpload_Image = new System.Windows.Forms.Button();
-            this.LabelResource_Image = new System.Windows.Forms.Label();
-            this.LabelFileType_Image = new System.Windows.Forms.Label();
-            this.ButtonAddResource_Image = new System.Windows.Forms.Button();
-            this.LabelFileNo_Image = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.TextBoxContentDescription_Image = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.Panel_Image = new System.Windows.Forms.Panel();
             this.radPageViewPageVideo = new Telerik.WinControls.UI.RadPageViewPage();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.radDropDownListResource_Video = new Telerik.WinControls.UI.RadDropDownList();
-            this.radDropDownListFileType_Video = new Telerik.WinControls.UI.RadDropDownList();
-            this.textBoxDeletionDescription_Video = new System.Windows.Forms.TextBox();
-            this.LabelDeleteComment_Video = new System.Windows.Forms.Label();
-            this.ButtonAddFile_Video = new System.Windows.Forms.Button();
-            this.TextBoxFileNo_Video = new System.Windows.Forms.TextBox();
-            this.ButtonUploadLQ_Video = new System.Windows.Forms.Button();
-            this.LabelComment_Video = new System.Windows.Forms.Label();
-            this.TextBoxContentComment_Video = new System.Windows.Forms.TextBox();
-            this.ButtonAddFileType_Video = new System.Windows.Forms.Button();
-            this.ButtonUploadHQ_Video = new System.Windows.Forms.Button();
-            this.LabelResource_video = new System.Windows.Forms.Label();
-            this.LabelFileType_Video = new System.Windows.Forms.Label();
-            this.ButtonAddResource_Video = new System.Windows.Forms.Button();
-            this.LabelFileNo_Video = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.Panel_Video = new System.Windows.Forms.Panel();
             this.customShape1 = new Telerik.WinControls.OldShapeEditor.CustomShape();
             this.calloutElementShape1 = new Telerik.WinControls.UI.Callout.CalloutElementShape();
             this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01 = new Telerik.WinControls.UI.RadDropDownListRootElement();
             this.starShape1 = new Telerik.WinControls.UI.StarShape();
             this.object_11f9d28c_2b62_4037_bed9_39e037d87daa = new Telerik.WinControls.UI.RadDropDownListRootElement();
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
+            this.ContentTypeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileTypes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PanelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.GroupBoxHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewHeaderFileType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ComboBoxSubject)).BeginInit();
@@ -214,35 +156,83 @@
             ((System.ComponentModel.ISupportInitialize)(this.radNavigationView1)).BeginInit();
             this.radNavigationView1.SuspendLayout();
             this.radPageViewPageSound.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListResource_Sound)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListFileType_Sound)).BeginInit();
-            this.panel2.SuspendLayout();
             this.radPageViewPageText.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListResource_Text)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListFileType_Text)).BeginInit();
-            this.panel3.SuspendLayout();
             this.radPageViewPageImage.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListResource_Image)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListFileType_Image)).BeginInit();
-            this.panel7.SuspendLayout();
             this.radPageViewPageVideo.SuspendLayout();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListResource_Video)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListFileType_Video)).BeginInit();
-            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelHeader
             // 
+            this.PanelHeader.Controls.Add(this.splitContainer1);
             this.PanelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelHeader.Location = new System.Drawing.Point(0, 0);
             this.PanelHeader.Name = "PanelHeader";
-            this.PanelHeader.Size = new System.Drawing.Size(1226, 100);
+            this.PanelHeader.Size = new System.Drawing.Size(1226, 159);
             this.PanelHeader.TabIndex = 2;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.GroupBoxHeader);
+            this.splitContainer1.Size = new System.Drawing.Size(1226, 159);
+            this.splitContainer1.SplitterDistance = 632;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Font = new System.Drawing.Font("Dana Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.groupBox2.ForeColor = System.Drawing.Color.Purple;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox2.Size = new System.Drawing.Size(632, 159);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "تاریخچه سند";
+            // 
+            // GroupBoxHeader
+            // 
+            this.GroupBoxHeader.Controls.Add(this.DataGridViewHeaderFileType);
+            this.GroupBoxHeader.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GroupBoxHeader.Font = new System.Drawing.Font("Dana Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.GroupBoxHeader.ForeColor = System.Drawing.Color.Purple;
+            this.GroupBoxHeader.Location = new System.Drawing.Point(0, 0);
+            this.GroupBoxHeader.Name = "GroupBoxHeader";
+            this.GroupBoxHeader.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.GroupBoxHeader.Size = new System.Drawing.Size(590, 159);
+            this.GroupBoxHeader.TabIndex = 0;
+            this.GroupBoxHeader.TabStop = false;
+            this.GroupBoxHeader.Text = "تنوع سند";
+            // 
+            // DataGridViewHeaderFileType
+            // 
+            this.DataGridViewHeaderFileType.AllowUserToAddRows = false;
+            this.DataGridViewHeaderFileType.AllowUserToDeleteRows = false;
+            this.DataGridViewHeaderFileType.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.DataGridViewHeaderFileType.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.DataGridViewHeaderFileType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewHeaderFileType.ColumnHeadersVisible = false;
+            this.DataGridViewHeaderFileType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ContentTypeTitle,
+            this.FileTypes});
+            this.DataGridViewHeaderFileType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataGridViewHeaderFileType.Location = new System.Drawing.Point(3, 22);
+            this.DataGridViewHeaderFileType.Name = "DataGridViewHeaderFileType";
+            this.DataGridViewHeaderFileType.ReadOnly = true;
+            this.DataGridViewHeaderFileType.RowHeadersVisible = false;
+            this.DataGridViewHeaderFileType.Size = new System.Drawing.Size(584, 134);
+            this.DataGridViewHeaderFileType.TabIndex = 0;
             // 
             // radGroupBox1
             // 
@@ -291,10 +281,10 @@
             this.radGroupBox1.GroupBoxStyle = Telerik.WinControls.UI.RadGroupBoxStyle.Office;
             this.radGroupBox1.HeaderMargin = new System.Windows.Forms.Padding(1);
             this.radGroupBox1.HeaderText = "مشخصات سند";
-            this.radGroupBox1.Location = new System.Drawing.Point(0, 100);
+            this.radGroupBox1.Location = new System.Drawing.Point(0, 159);
             this.radGroupBox1.Name = "radGroupBox1";
             this.radGroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radGroupBox1.Size = new System.Drawing.Size(1226, 322);
+            this.radGroupBox1.Size = new System.Drawing.Size(1226, 298);
             this.radGroupBox1.TabIndex = 0;
             this.radGroupBox1.Text = "مشخصات سند";
             // 
@@ -338,14 +328,14 @@
             this.panel10.Controls.Add(this.LabelLink);
             this.panel10.Controls.Add(this.LabelDocumentDescription);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(2, 258);
+            this.panel10.Location = new System.Drawing.Point(2, 234);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(1222, 62);
             this.panel10.TabIndex = 32;
             // 
             // ButtonRegisterDocument
             // 
-            this.ButtonRegisterDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonRegisterDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonRegisterDocument.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.ButtonRegisterDocument.Location = new System.Drawing.Point(7, 32);
             this.ButtonRegisterDocument.Name = "ButtonRegisterDocument";
@@ -357,7 +347,7 @@
             // 
             // ButtonSaveTemorary
             // 
-            this.ButtonSaveTemorary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSaveTemorary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonSaveTemorary.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.ButtonSaveTemorary.Location = new System.Drawing.Point(99, 33);
             this.ButtonSaveTemorary.Name = "ButtonSaveTemorary";
@@ -909,7 +899,7 @@
             this.ButtonCancel.Name = "ButtonCancel";
             this.ButtonCancel.Size = new System.Drawing.Size(75, 26);
             this.ButtonCancel.TabIndex = 16;
-            this.ButtonCancel.Text = "انصراف";
+            this.ButtonCancel.Text = "بستن";
             this.ButtonCancel.UseVisualStyleBackColor = true;
             // 
             // imageList1
@@ -947,9 +937,9 @@
             this.PanelContent.Controls.Add(this.GridViewContent);
             this.PanelContent.Controls.Add(this.radNavigationView1);
             this.PanelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelContent.Location = new System.Drawing.Point(0, 422);
+            this.PanelContent.Location = new System.Drawing.Point(0, 457);
             this.PanelContent.Name = "PanelContent";
-            this.PanelContent.Size = new System.Drawing.Size(1226, 493);
+            this.PanelContent.Size = new System.Drawing.Size(1226, 458);
             this.PanelContent.TabIndex = 18;
             // 
             // GridViewContent
@@ -1079,7 +1069,7 @@
             // 
             this.GridViewContent.RootElement.BorderHighlightColor = System.Drawing.SystemColors.Control;
             this.GridViewContent.RootElement.CustomFont = "None";
-            this.GridViewContent.Size = new System.Drawing.Size(1222, 240);
+            this.GridViewContent.Size = new System.Drawing.Size(1222, 205);
             this.GridViewContent.TabIndex = 20;
             this.GridViewContent.CurrentRowChanged += new Telerik.WinControls.UI.CurrentRowChangedEventHandler(this.GridViewContent_CurrentRowChanged);
             // 
@@ -1107,8 +1097,7 @@
             // radPageViewPageSound
             // 
             this.radPageViewPageSound.BackColor = System.Drawing.SystemColors.Control;
-            this.radPageViewPageSound.Controls.Add(this.panel4);
-            this.radPageViewPageSound.Controls.Add(this.panel2);
+            this.radPageViewPageSound.Controls.Add(this.Panel_Sound);
             this.radPageViewPageSound.Image = global::Archive.Properties.Resources.Sound_30;
             this.radPageViewPageSound.ItemSize = new System.Drawing.SizeF(84F, 49F);
             this.radPageViewPageSound.Location = new System.Drawing.Point(1, 37);
@@ -1117,258 +1106,18 @@
             this.radPageViewPageSound.Tag = "Sound";
             this.radPageViewPageSound.Text = "صوت";
             // 
-            // panel4
+            // Panel_Sound
             // 
-            this.panel4.Controls.Add(this.radDropDownListResource_Sound);
-            this.panel4.Controls.Add(this.radDropDownListFileType_Sound);
-            this.panel4.Controls.Add(this.textBoxDeletionDescription_Sound);
-            this.panel4.Controls.Add(this.LabelDeleteComment_Sound);
-            this.panel4.Controls.Add(this.ButtonAddFile_Sound);
-            this.panel4.Controls.Add(this.TextBoxFileNo_Sound);
-            this.panel4.Controls.Add(this.LabelComment_Sound);
-            this.panel4.Controls.Add(this.TextBoxContentComment_Sound);
-            this.panel4.Controls.Add(this.ButtonAddFileType_Sound);
-            this.panel4.Controls.Add(this.ButtonUpload_Sound);
-            this.panel4.Controls.Add(this.LabelResource_Sound);
-            this.panel4.Controls.Add(this.LabelFileType_Sound);
-            this.panel4.Controls.Add(this.ButtonAddResource);
-            this.panel4.Controls.Add(this.LabelFileNo_Sound);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 48);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1070, 163);
-            this.panel4.TabIndex = 18;
-            // 
-            // radDropDownListResource_Sound
-            // 
-            this.radDropDownListResource_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radDropDownListResource_Sound.DropDownAnimationEnabled = true;
-            this.radDropDownListResource_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.radDropDownListResource_Sound.Location = new System.Drawing.Point(851, 93);
-            this.radDropDownListResource_Sound.Name = "radDropDownListResource_Sound";
-            this.radDropDownListResource_Sound.Size = new System.Drawing.Size(136, 28);
-            this.radDropDownListResource_Sound.TabIndex = 28;
-            this.radDropDownListResource_Sound.Text = "انتخاب کنید";
-            this.radDropDownListResource_Sound.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListResource_Sound_SelectedIndexChanged);
-            // 
-            // radDropDownListFileType_Sound
-            // 
-            this.radDropDownListFileType_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radDropDownListFileType_Sound.DropDownAnimationEnabled = true;
-            this.radDropDownListFileType_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.radDropDownListFileType_Sound.Location = new System.Drawing.Point(851, 21);
-            this.radDropDownListFileType_Sound.Name = "radDropDownListFileType_Sound";
-            this.radDropDownListFileType_Sound.Size = new System.Drawing.Size(136, 28);
-            this.radDropDownListFileType_Sound.TabIndex = 27;
-            this.radDropDownListFileType_Sound.Text = "انتخاب کنید";
-            this.radDropDownListFileType_Sound.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListFileType_Sound_SelectedIndexChanged);
-            // 
-            // textBoxDeletionDescription_Sound
-            // 
-            this.textBoxDeletionDescription_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDeletionDescription_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.textBoxDeletionDescription_Sound.Location = new System.Drawing.Point(128, 131);
-            this.textBoxDeletionDescription_Sound.Name = "textBoxDeletionDescription_Sound";
-            this.textBoxDeletionDescription_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxDeletionDescription_Sound.Size = new System.Drawing.Size(375, 26);
-            this.textBoxDeletionDescription_Sound.TabIndex = 12;
-            // 
-            // LabelDeleteComment_Sound
-            // 
-            this.LabelDeleteComment_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelDeleteComment_Sound.AutoSize = true;
-            this.LabelDeleteComment_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.LabelDeleteComment_Sound.Location = new System.Drawing.Point(509, 134);
-            this.LabelDeleteComment_Sound.Name = "LabelDeleteComment_Sound";
-            this.LabelDeleteComment_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelDeleteComment_Sound.Size = new System.Drawing.Size(126, 20);
-            this.LabelDeleteComment_Sound.TabIndex = 13;
-            this.LabelDeleteComment_Sound.Text = "توضیحات حذفیات:";
-            // 
-            // ButtonAddFile_Sound
-            // 
-            this.ButtonAddFile_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ButtonAddFile_Sound.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonAddFile_Sound.Location = new System.Drawing.Point(9, 133);
-            this.ButtonAddFile_Sound.Name = "ButtonAddFile_Sound";
-            this.ButtonAddFile_Sound.Size = new System.Drawing.Size(83, 26);
-            this.ButtonAddFile_Sound.TabIndex = 16;
-            this.ButtonAddFile_Sound.Text = "ثبت و آپلود";
-            this.ButtonAddFile_Sound.UseVisualStyleBackColor = true;
-            this.ButtonAddFile_Sound.Click += new System.EventHandler(this.ButtonAddFile_Click);
-            // 
-            // TextBoxFileNo_Sound
-            // 
-            this.TextBoxFileNo_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxFileNo_Sound.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxFileNo_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.TextBoxFileNo_Sound.Location = new System.Drawing.Point(851, 58);
-            this.TextBoxFileNo_Sound.Name = "TextBoxFileNo_Sound";
-            this.TextBoxFileNo_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxFileNo_Sound.Size = new System.Drawing.Size(136, 26);
-            this.TextBoxFileNo_Sound.TabIndex = 2;
-            this.TextBoxFileNo_Sound.TextChanged += new System.EventHandler(this.TextBoxFileNo_TextChanged);
-            // 
-            // LabelComment_Sound
-            // 
-            this.LabelComment_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelComment_Sound.AutoSize = true;
-            this.LabelComment_Sound.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelComment_Sound.Location = new System.Drawing.Point(1011, 131);
-            this.LabelComment_Sound.Name = "LabelComment_Sound";
-            this.LabelComment_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelComment_Sound.Size = new System.Drawing.Size(45, 17);
-            this.LabelComment_Sound.TabIndex = 13;
-            this.LabelComment_Sound.Text = "کامنت:";
-            // 
-            // TextBoxContentComment_Sound
-            // 
-            this.TextBoxContentComment_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxContentComment_Sound.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxContentComment_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.TextBoxContentComment_Sound.Location = new System.Drawing.Point(656, 131);
-            this.TextBoxContentComment_Sound.Name = "TextBoxContentComment_Sound";
-            this.TextBoxContentComment_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxContentComment_Sound.Size = new System.Drawing.Size(333, 26);
-            this.TextBoxContentComment_Sound.TabIndex = 12;
-            // 
-            // ButtonAddFileType_Sound
-            // 
-            this.ButtonAddFileType_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAddFileType_Sound.AutoSize = true;
-            this.ButtonAddFileType_Sound.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddFileType_Sound.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddFileType_Sound.Location = new System.Drawing.Point(826, 21);
-            this.ButtonAddFileType_Sound.Name = "ButtonAddFileType_Sound";
-            this.ButtonAddFileType_Sound.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddFileType_Sound.TabIndex = 17;
-            this.ButtonAddFileType_Sound.UseVisualStyleBackColor = true;
-            this.ButtonAddFileType_Sound.Click += new System.EventHandler(this.ButtonAddFileType_Sound_Click);
-            // 
-            // ButtonUpload_Sound
-            // 
-            this.ButtonUpload_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ButtonUpload_Sound.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonUpload_Sound.Location = new System.Drawing.Point(9, 105);
-            this.ButtonUpload_Sound.Name = "ButtonUpload_Sound";
-            this.ButtonUpload_Sound.Size = new System.Drawing.Size(83, 26);
-            this.ButtonUpload_Sound.TabIndex = 16;
-            this.ButtonUpload_Sound.Text = "آپلود";
-            this.ButtonUpload_Sound.UseVisualStyleBackColor = true;
-            this.ButtonUpload_Sound.Visible = false;
-            this.ButtonUpload_Sound.Click += new System.EventHandler(this.ButtonUpload_Sound_Click);
-            // 
-            // LabelResource_Sound
-            // 
-            this.LabelResource_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelResource_Sound.AutoSize = true;
-            this.LabelResource_Sound.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelResource_Sound.Location = new System.Drawing.Point(1021, 93);
-            this.LabelResource_Sound.Name = "LabelResource_Sound";
-            this.LabelResource_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelResource_Sound.Size = new System.Drawing.Size(35, 17);
-            this.LabelResource_Sound.TabIndex = 9;
-            this.LabelResource_Sound.Text = "منبع:";
-            // 
-            // LabelFileType_Sound
-            // 
-            this.LabelFileType_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelFileType_Sound.AutoSize = true;
-            this.LabelFileType_Sound.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelFileType_Sound.Location = new System.Drawing.Point(1001, 21);
-            this.LabelFileType_Sound.Name = "LabelFileType_Sound";
-            this.LabelFileType_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelFileType_Sound.Size = new System.Drawing.Size(57, 17);
-            this.LabelFileType_Sound.TabIndex = 5;
-            this.LabelFileType_Sound.Text = "نوع فایل:";
-            // 
-            // ButtonAddResource
-            // 
-            this.ButtonAddResource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAddResource.AutoSize = true;
-            this.ButtonAddResource.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddResource.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddResource.Location = new System.Drawing.Point(826, 93);
-            this.ButtonAddResource.Name = "ButtonAddResource";
-            this.ButtonAddResource.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddResource.TabIndex = 17;
-            this.ButtonAddResource.UseVisualStyleBackColor = true;
-            // 
-            // LabelFileNo_Sound
-            // 
-            this.LabelFileNo_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelFileNo_Sound.AutoSize = true;
-            this.LabelFileNo_Sound.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelFileNo_Sound.Location = new System.Drawing.Point(987, 58);
-            this.LabelFileNo_Sound.Name = "LabelFileNo_Sound";
-            this.LabelFileNo_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelFileNo_Sound.Size = new System.Drawing.Size(71, 17);
-            this.LabelFileNo_Sound.TabIndex = 3;
-            this.LabelFileNo_Sound.Text = "شماره فایل:";
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.LabelCode);
-            this.panel2.Controls.Add(this.TextBoxCode);
-            this.panel2.Controls.Add(this.TextBoxContentDescription_Sound);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1070, 48);
-            this.panel2.TabIndex = 0;
-            // 
-            // LabelCode
-            // 
-            this.LabelCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelCode.AutoSize = true;
-            this.LabelCode.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelCode.Location = new System.Drawing.Point(375, 17);
-            this.LabelCode.Name = "LabelCode";
-            this.LabelCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelCode.Size = new System.Drawing.Size(48, 17);
-            this.LabelCode.TabIndex = 17;
-            this.LabelCode.Text = "کد نوار:";
-            // 
-            // TextBoxCode
-            // 
-            this.TextBoxCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxCode.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.TextBoxCode.Location = new System.Drawing.Point(251, 13);
-            this.TextBoxCode.Name = "TextBoxCode";
-            this.TextBoxCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxCode.Size = new System.Drawing.Size(115, 26);
-            this.TextBoxCode.TabIndex = 1;
-            // 
-            // TextBoxContentDescription_Sound
-            // 
-            this.TextBoxContentDescription_Sound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxContentDescription_Sound.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.TextBoxContentDescription_Sound.Location = new System.Drawing.Point(473, 12);
-            this.TextBoxContentDescription_Sound.Name = "TextBoxContentDescription_Sound";
-            this.TextBoxContentDescription_Sound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxContentDescription_Sound.Size = new System.Drawing.Size(528, 26);
-            this.TextBoxContentDescription_Sound.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.label1.Location = new System.Drawing.Point(1001, 14);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(62, 17);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "توضیحات:";
+            this.Panel_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_Sound.Location = new System.Drawing.Point(0, 0);
+            this.Panel_Sound.Name = "Panel_Sound";
+            this.Panel_Sound.Size = new System.Drawing.Size(1070, 211);
+            this.Panel_Sound.TabIndex = 18;
             // 
             // radPageViewPageText
             // 
             this.radPageViewPageText.BackColor = System.Drawing.SystemColors.Control;
-            this.radPageViewPageText.Controls.Add(this.panel5);
-            this.radPageViewPageText.Controls.Add(this.panel3);
+            this.radPageViewPageText.Controls.Add(this.Panel_Text);
             this.radPageViewPageText.Image = global::Archive.Properties.Resources.Text_30;
             this.radPageViewPageText.ItemSize = new System.Drawing.SizeF(84F, 49F);
             this.radPageViewPageText.Location = new System.Drawing.Point(1, 37);
@@ -1377,252 +1126,18 @@
             this.radPageViewPageText.Tag = "Text";
             this.radPageViewPageText.Text = "متن";
             // 
-            // panel5
+            // Panel_Text
             // 
-            this.panel5.Controls.Add(this.radDropDownListResource_Text);
-            this.panel5.Controls.Add(this.radDropDownListFileType_Text);
-            this.panel5.Controls.Add(this.RichTextBoxTextUpload);
-            this.panel5.Controls.Add(this.LabelTextUpload);
-            this.panel5.Controls.Add(this.textBoxDeletionDescription_Text);
-            this.panel5.Controls.Add(this.LabelDeleteComment_Text);
-            this.panel5.Controls.Add(this.ButtonAddFile_Text);
-            this.panel5.Controls.Add(this.TextBoxFileNo_Text);
-            this.panel5.Controls.Add(this.LabelComment_Text);
-            this.panel5.Controls.Add(this.TextBoxContentComment_Text);
-            this.panel5.Controls.Add(this.ButtonAddFileType_Text);
-            this.panel5.Controls.Add(this.ButtonUpload_Text);
-            this.panel5.Controls.Add(this.LabelResource_Text);
-            this.panel5.Controls.Add(this.LabelFileType_Text);
-            this.panel5.Controls.Add(this.ButtonAddResource_Text);
-            this.panel5.Controls.Add(this.LabelFileNo_Text);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 48);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1070, 163);
-            this.panel5.TabIndex = 19;
-            // 
-            // radDropDownListResource_Text
-            // 
-            this.radDropDownListResource_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radDropDownListResource_Text.DropDownAnimationEnabled = true;
-            this.radDropDownListResource_Text.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.radDropDownListResource_Text.Location = new System.Drawing.Point(851, 93);
-            this.radDropDownListResource_Text.Name = "radDropDownListResource_Text";
-            this.radDropDownListResource_Text.Size = new System.Drawing.Size(136, 25);
-            this.radDropDownListResource_Text.TabIndex = 29;
-            this.radDropDownListResource_Text.Text = "انتخاب کنید";
-            this.radDropDownListResource_Text.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListResource_Text_SelectedIndexChanged);
-            // 
-            // radDropDownListFileType_Text
-            // 
-            this.radDropDownListFileType_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radDropDownListFileType_Text.DropDownAnimationEnabled = true;
-            this.radDropDownListFileType_Text.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.radDropDownListFileType_Text.Location = new System.Drawing.Point(851, 21);
-            this.radDropDownListFileType_Text.Name = "radDropDownListFileType_Text";
-            this.radDropDownListFileType_Text.Size = new System.Drawing.Size(136, 25);
-            this.radDropDownListFileType_Text.TabIndex = 28;
-            this.radDropDownListFileType_Text.Text = "انتخاب کنید";
-            this.radDropDownListFileType_Text.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListFileType_Text_SelectedIndexChanged);
-            // 
-            // RichTextBoxTextUpload
-            // 
-            this.RichTextBoxTextUpload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RichTextBoxTextUpload.Location = new System.Drawing.Point(3, 6);
-            this.RichTextBoxTextUpload.Name = "RichTextBoxTextUpload";
-            this.RichTextBoxTextUpload.Size = new System.Drawing.Size(669, 100);
-            this.RichTextBoxTextUpload.TabIndex = 20;
-            this.RichTextBoxTextUpload.Text = "";
-            // 
-            // LabelTextUpload
-            // 
-            this.LabelTextUpload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelTextUpload.AutoSize = true;
-            this.LabelTextUpload.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelTextUpload.Location = new System.Drawing.Point(690, 49);
-            this.LabelTextUpload.Name = "LabelTextUpload";
-            this.LabelTextUpload.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelTextUpload.Size = new System.Drawing.Size(61, 17);
-            this.LabelTextUpload.TabIndex = 19;
-            this.LabelTextUpload.Text = "آپلود متن:";
-            // 
-            // textBoxDeletionDescription_Text
-            // 
-            this.textBoxDeletionDescription_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDeletionDescription_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDeletionDescription_Text.Location = new System.Drawing.Point(128, 131);
-            this.textBoxDeletionDescription_Text.Name = "textBoxDeletionDescription_Text";
-            this.textBoxDeletionDescription_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxDeletionDescription_Text.Size = new System.Drawing.Size(375, 25);
-            this.textBoxDeletionDescription_Text.TabIndex = 12;
-            // 
-            // LabelDeleteComment_Text
-            // 
-            this.LabelDeleteComment_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelDeleteComment_Text.AutoSize = true;
-            this.LabelDeleteComment_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelDeleteComment_Text.Location = new System.Drawing.Point(509, 134);
-            this.LabelDeleteComment_Text.Name = "LabelDeleteComment_Text";
-            this.LabelDeleteComment_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelDeleteComment_Text.Size = new System.Drawing.Size(107, 17);
-            this.LabelDeleteComment_Text.TabIndex = 13;
-            this.LabelDeleteComment_Text.Text = "توضیحات حذفیات:";
-            // 
-            // ButtonAddFile_Text
-            // 
-            this.ButtonAddFile_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ButtonAddFile_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonAddFile_Text.Location = new System.Drawing.Point(9, 133);
-            this.ButtonAddFile_Text.Name = "ButtonAddFile_Text";
-            this.ButtonAddFile_Text.Size = new System.Drawing.Size(83, 26);
-            this.ButtonAddFile_Text.TabIndex = 16;
-            this.ButtonAddFile_Text.Text = "ثبت و آپلود";
-            this.ButtonAddFile_Text.UseVisualStyleBackColor = true;
-            // 
-            // TextBoxFileNo_Text
-            // 
-            this.TextBoxFileNo_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxFileNo_Text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxFileNo_Text.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.TextBoxFileNo_Text.Location = new System.Drawing.Point(851, 58);
-            this.TextBoxFileNo_Text.Name = "TextBoxFileNo_Text";
-            this.TextBoxFileNo_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxFileNo_Text.Size = new System.Drawing.Size(136, 22);
-            this.TextBoxFileNo_Text.TabIndex = 2;
-            // 
-            // LabelComment_Text
-            // 
-            this.LabelComment_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelComment_Text.AutoSize = true;
-            this.LabelComment_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelComment_Text.Location = new System.Drawing.Point(1011, 131);
-            this.LabelComment_Text.Name = "LabelComment_Text";
-            this.LabelComment_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelComment_Text.Size = new System.Drawing.Size(45, 17);
-            this.LabelComment_Text.TabIndex = 13;
-            this.LabelComment_Text.Text = "کامنت:";
-            // 
-            // TextBoxContentComment_Text
-            // 
-            this.TextBoxContentComment_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxContentComment_Text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxContentComment_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxContentComment_Text.Location = new System.Drawing.Point(656, 131);
-            this.TextBoxContentComment_Text.Name = "TextBoxContentComment_Text";
-            this.TextBoxContentComment_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxContentComment_Text.Size = new System.Drawing.Size(333, 25);
-            this.TextBoxContentComment_Text.TabIndex = 12;
-            // 
-            // ButtonAddFileType_Text
-            // 
-            this.ButtonAddFileType_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAddFileType_Text.AutoSize = true;
-            this.ButtonAddFileType_Text.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddFileType_Text.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddFileType_Text.Location = new System.Drawing.Point(826, 21);
-            this.ButtonAddFileType_Text.Name = "ButtonAddFileType_Text";
-            this.ButtonAddFileType_Text.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddFileType_Text.TabIndex = 17;
-            this.ButtonAddFileType_Text.UseVisualStyleBackColor = true;
-            this.ButtonAddFileType_Text.Click += new System.EventHandler(this.ButtonAddFileType_Text_Click);
-            // 
-            // ButtonUpload_Text
-            // 
-            this.ButtonUpload_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ButtonUpload_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonUpload_Text.Location = new System.Drawing.Point(9, 105);
-            this.ButtonUpload_Text.Name = "ButtonUpload_Text";
-            this.ButtonUpload_Text.Size = new System.Drawing.Size(83, 26);
-            this.ButtonUpload_Text.TabIndex = 16;
-            this.ButtonUpload_Text.Text = "آپلود";
-            this.ButtonUpload_Text.UseVisualStyleBackColor = true;
-            // 
-            // LabelResource_Text
-            // 
-            this.LabelResource_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelResource_Text.AutoSize = true;
-            this.LabelResource_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelResource_Text.Location = new System.Drawing.Point(1021, 93);
-            this.LabelResource_Text.Name = "LabelResource_Text";
-            this.LabelResource_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelResource_Text.Size = new System.Drawing.Size(35, 17);
-            this.LabelResource_Text.TabIndex = 9;
-            this.LabelResource_Text.Text = "منبع:";
-            // 
-            // LabelFileType_Text
-            // 
-            this.LabelFileType_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelFileType_Text.AutoSize = true;
-            this.LabelFileType_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelFileType_Text.Location = new System.Drawing.Point(1001, 21);
-            this.LabelFileType_Text.Name = "LabelFileType_Text";
-            this.LabelFileType_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelFileType_Text.Size = new System.Drawing.Size(57, 17);
-            this.LabelFileType_Text.TabIndex = 5;
-            this.LabelFileType_Text.Text = "نوع فایل:";
-            // 
-            // ButtonAddResource_Text
-            // 
-            this.ButtonAddResource_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAddResource_Text.AutoSize = true;
-            this.ButtonAddResource_Text.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddResource_Text.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddResource_Text.Location = new System.Drawing.Point(826, 93);
-            this.ButtonAddResource_Text.Name = "ButtonAddResource_Text";
-            this.ButtonAddResource_Text.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddResource_Text.TabIndex = 17;
-            this.ButtonAddResource_Text.UseVisualStyleBackColor = true;
-            // 
-            // LabelFileNo_Text
-            // 
-            this.LabelFileNo_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelFileNo_Text.AutoSize = true;
-            this.LabelFileNo_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelFileNo_Text.Location = new System.Drawing.Point(987, 58);
-            this.LabelFileNo_Text.Name = "LabelFileNo_Text";
-            this.LabelFileNo_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelFileNo_Text.Size = new System.Drawing.Size(71, 17);
-            this.LabelFileNo_Text.TabIndex = 3;
-            this.LabelFileNo_Text.Text = "شماره فایل:";
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.TextBoxContentDescription_Text);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1070, 48);
-            this.panel3.TabIndex = 18;
-            // 
-            // TextBoxContentDescription_Text
-            // 
-            this.TextBoxContentDescription_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxContentDescription_Text.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxContentDescription_Text.Location = new System.Drawing.Point(473, 12);
-            this.TextBoxContentDescription_Text.Name = "TextBoxContentDescription_Text";
-            this.TextBoxContentDescription_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxContentDescription_Text.Size = new System.Drawing.Size(528, 25);
-            this.TextBoxContentDescription_Text.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.label3.Location = new System.Drawing.Point(1001, 14);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(62, 17);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "توضیحات:";
+            this.Panel_Text.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_Text.Location = new System.Drawing.Point(0, 0);
+            this.Panel_Text.Name = "Panel_Text";
+            this.Panel_Text.Size = new System.Drawing.Size(1070, 211);
+            this.Panel_Text.TabIndex = 19;
             // 
             // radPageViewPageImage
             // 
             this.radPageViewPageImage.BackColor = System.Drawing.SystemColors.Control;
-            this.radPageViewPageImage.Controls.Add(this.panel6);
-            this.radPageViewPageImage.Controls.Add(this.panel7);
+            this.radPageViewPageImage.Controls.Add(this.Panel_Image);
             this.radPageViewPageImage.Image = global::Archive.Properties.Resources.Image_30;
             this.radPageViewPageImage.ItemSize = new System.Drawing.SizeF(84F, 49F);
             this.radPageViewPageImage.Location = new System.Drawing.Point(1, 37);
@@ -1631,228 +1146,18 @@
             this.radPageViewPageImage.Tag = "Image";
             this.radPageViewPageImage.Text = "تصویر";
             // 
-            // panel6
+            // Panel_Image
             // 
-            this.panel6.Controls.Add(this.radDropDownListResource_Image);
-            this.panel6.Controls.Add(this.radDropDownListFileType_Image);
-            this.panel6.Controls.Add(this.textBoxDeletionDescription_Image);
-            this.panel6.Controls.Add(this.LabelDeleteComment_Image);
-            this.panel6.Controls.Add(this.ButtonAddFile_Image);
-            this.panel6.Controls.Add(this.TextBoxFileNo_Image);
-            this.panel6.Controls.Add(this.LabelComment_Image);
-            this.panel6.Controls.Add(this.TextBoxContentComment_Image);
-            this.panel6.Controls.Add(this.ButtonAddFileType_Image);
-            this.panel6.Controls.Add(this.ButtonUpload_Image);
-            this.panel6.Controls.Add(this.LabelResource_Image);
-            this.panel6.Controls.Add(this.LabelFileType_Image);
-            this.panel6.Controls.Add(this.ButtonAddResource_Image);
-            this.panel6.Controls.Add(this.LabelFileNo_Image);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 48);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1070, 163);
-            this.panel6.TabIndex = 20;
-            // 
-            // radDropDownListResource_Image
-            // 
-            this.radDropDownListResource_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radDropDownListResource_Image.DropDownAnimationEnabled = true;
-            this.radDropDownListResource_Image.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.radDropDownListResource_Image.Location = new System.Drawing.Point(851, 93);
-            this.radDropDownListResource_Image.Name = "radDropDownListResource_Image";
-            this.radDropDownListResource_Image.Size = new System.Drawing.Size(136, 25);
-            this.radDropDownListResource_Image.TabIndex = 30;
-            this.radDropDownListResource_Image.Text = "انتخاب کنید";
-            this.radDropDownListResource_Image.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListResource_Image_SelectedIndexChanged);
-            // 
-            // radDropDownListFileType_Image
-            // 
-            this.radDropDownListFileType_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radDropDownListFileType_Image.DropDownAnimationEnabled = true;
-            this.radDropDownListFileType_Image.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.radDropDownListFileType_Image.Location = new System.Drawing.Point(851, 21);
-            this.radDropDownListFileType_Image.Name = "radDropDownListFileType_Image";
-            this.radDropDownListFileType_Image.Size = new System.Drawing.Size(136, 25);
-            this.radDropDownListFileType_Image.TabIndex = 29;
-            this.radDropDownListFileType_Image.Text = "انتخاب کنید";
-            // 
-            // textBoxDeletionDescription_Image
-            // 
-            this.textBoxDeletionDescription_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDeletionDescription_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDeletionDescription_Image.Location = new System.Drawing.Point(128, 131);
-            this.textBoxDeletionDescription_Image.Name = "textBoxDeletionDescription_Image";
-            this.textBoxDeletionDescription_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxDeletionDescription_Image.Size = new System.Drawing.Size(375, 25);
-            this.textBoxDeletionDescription_Image.TabIndex = 12;
-            // 
-            // LabelDeleteComment_Image
-            // 
-            this.LabelDeleteComment_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelDeleteComment_Image.AutoSize = true;
-            this.LabelDeleteComment_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelDeleteComment_Image.Location = new System.Drawing.Point(509, 134);
-            this.LabelDeleteComment_Image.Name = "LabelDeleteComment_Image";
-            this.LabelDeleteComment_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelDeleteComment_Image.Size = new System.Drawing.Size(107, 17);
-            this.LabelDeleteComment_Image.TabIndex = 13;
-            this.LabelDeleteComment_Image.Text = "توضیحات حذفیات:";
-            // 
-            // ButtonAddFile_Image
-            // 
-            this.ButtonAddFile_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ButtonAddFile_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonAddFile_Image.Location = new System.Drawing.Point(9, 133);
-            this.ButtonAddFile_Image.Name = "ButtonAddFile_Image";
-            this.ButtonAddFile_Image.Size = new System.Drawing.Size(83, 26);
-            this.ButtonAddFile_Image.TabIndex = 16;
-            this.ButtonAddFile_Image.Text = "ثبت و آپلود";
-            this.ButtonAddFile_Image.UseVisualStyleBackColor = true;
-            // 
-            // TextBoxFileNo_Image
-            // 
-            this.TextBoxFileNo_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxFileNo_Image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxFileNo_Image.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.TextBoxFileNo_Image.Location = new System.Drawing.Point(851, 58);
-            this.TextBoxFileNo_Image.Name = "TextBoxFileNo_Image";
-            this.TextBoxFileNo_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxFileNo_Image.Size = new System.Drawing.Size(136, 22);
-            this.TextBoxFileNo_Image.TabIndex = 2;
-            // 
-            // LabelComment_Image
-            // 
-            this.LabelComment_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelComment_Image.AutoSize = true;
-            this.LabelComment_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelComment_Image.Location = new System.Drawing.Point(1011, 131);
-            this.LabelComment_Image.Name = "LabelComment_Image";
-            this.LabelComment_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelComment_Image.Size = new System.Drawing.Size(45, 17);
-            this.LabelComment_Image.TabIndex = 13;
-            this.LabelComment_Image.Text = "کامنت:";
-            // 
-            // TextBoxContentComment_Image
-            // 
-            this.TextBoxContentComment_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxContentComment_Image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxContentComment_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxContentComment_Image.Location = new System.Drawing.Point(656, 131);
-            this.TextBoxContentComment_Image.Name = "TextBoxContentComment_Image";
-            this.TextBoxContentComment_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxContentComment_Image.Size = new System.Drawing.Size(333, 25);
-            this.TextBoxContentComment_Image.TabIndex = 12;
-            // 
-            // ButtonAddFileType_Image
-            // 
-            this.ButtonAddFileType_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAddFileType_Image.AutoSize = true;
-            this.ButtonAddFileType_Image.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddFileType_Image.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddFileType_Image.Location = new System.Drawing.Point(826, 21);
-            this.ButtonAddFileType_Image.Name = "ButtonAddFileType_Image";
-            this.ButtonAddFileType_Image.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddFileType_Image.TabIndex = 17;
-            this.ButtonAddFileType_Image.UseVisualStyleBackColor = true;
-            this.ButtonAddFileType_Image.Click += new System.EventHandler(this.ButtonAddFileType_Image_Click);
-            // 
-            // ButtonUpload_Image
-            // 
-            this.ButtonUpload_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ButtonUpload_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonUpload_Image.Location = new System.Drawing.Point(9, 105);
-            this.ButtonUpload_Image.Name = "ButtonUpload_Image";
-            this.ButtonUpload_Image.Size = new System.Drawing.Size(83, 26);
-            this.ButtonUpload_Image.TabIndex = 16;
-            this.ButtonUpload_Image.Text = "آپلود";
-            this.ButtonUpload_Image.UseVisualStyleBackColor = true;
-            // 
-            // LabelResource_Image
-            // 
-            this.LabelResource_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelResource_Image.AutoSize = true;
-            this.LabelResource_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelResource_Image.Location = new System.Drawing.Point(1021, 93);
-            this.LabelResource_Image.Name = "LabelResource_Image";
-            this.LabelResource_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelResource_Image.Size = new System.Drawing.Size(35, 17);
-            this.LabelResource_Image.TabIndex = 9;
-            this.LabelResource_Image.Text = "منبع:";
-            // 
-            // LabelFileType_Image
-            // 
-            this.LabelFileType_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelFileType_Image.AutoSize = true;
-            this.LabelFileType_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelFileType_Image.Location = new System.Drawing.Point(1001, 21);
-            this.LabelFileType_Image.Name = "LabelFileType_Image";
-            this.LabelFileType_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelFileType_Image.Size = new System.Drawing.Size(57, 17);
-            this.LabelFileType_Image.TabIndex = 5;
-            this.LabelFileType_Image.Text = "نوع فایل:";
-            // 
-            // ButtonAddResource_Image
-            // 
-            this.ButtonAddResource_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAddResource_Image.AutoSize = true;
-            this.ButtonAddResource_Image.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddResource_Image.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddResource_Image.Location = new System.Drawing.Point(826, 93);
-            this.ButtonAddResource_Image.Name = "ButtonAddResource_Image";
-            this.ButtonAddResource_Image.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddResource_Image.TabIndex = 17;
-            this.ButtonAddResource_Image.UseVisualStyleBackColor = true;
-            // 
-            // LabelFileNo_Image
-            // 
-            this.LabelFileNo_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelFileNo_Image.AutoSize = true;
-            this.LabelFileNo_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelFileNo_Image.Location = new System.Drawing.Point(987, 58);
-            this.LabelFileNo_Image.Name = "LabelFileNo_Image";
-            this.LabelFileNo_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelFileNo_Image.Size = new System.Drawing.Size(71, 17);
-            this.LabelFileNo_Image.TabIndex = 3;
-            this.LabelFileNo_Image.Text = "شماره فایل:";
-            // 
-            // panel7
-            // 
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel7.Controls.Add(this.TextBoxContentDescription_Image);
-            this.panel7.Controls.Add(this.label20);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1070, 48);
-            this.panel7.TabIndex = 19;
-            // 
-            // TextBoxContentDescription_Image
-            // 
-            this.TextBoxContentDescription_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxContentDescription_Image.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxContentDescription_Image.Location = new System.Drawing.Point(473, 12);
-            this.TextBoxContentDescription_Image.Name = "TextBoxContentDescription_Image";
-            this.TextBoxContentDescription_Image.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxContentDescription_Image.Size = new System.Drawing.Size(528, 25);
-            this.TextBoxContentDescription_Image.TabIndex = 0;
-            // 
-            // label20
-            // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.label20.Location = new System.Drawing.Point(1001, 14);
-            this.label20.Name = "label20";
-            this.label20.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label20.Size = new System.Drawing.Size(62, 17);
-            this.label20.TabIndex = 15;
-            this.label20.Text = "توضیحات:";
+            this.Panel_Image.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_Image.Location = new System.Drawing.Point(0, 0);
+            this.Panel_Image.Name = "Panel_Image";
+            this.Panel_Image.Size = new System.Drawing.Size(1070, 211);
+            this.Panel_Image.TabIndex = 20;
             // 
             // radPageViewPageVideo
             // 
             this.radPageViewPageVideo.BackColor = System.Drawing.SystemColors.Control;
-            this.radPageViewPageVideo.Controls.Add(this.panel8);
-            this.radPageViewPageVideo.Controls.Add(this.panel9);
+            this.radPageViewPageVideo.Controls.Add(this.Panel_Video);
             this.radPageViewPageVideo.Description = null;
             this.radPageViewPageVideo.Image = global::Archive.Properties.Resources.Video_30;
             this.radPageViewPageVideo.ItemSize = new System.Drawing.SizeF(84F, 49F);
@@ -1863,237 +1168,14 @@
             this.radPageViewPageVideo.Text = "ویدئو";
             this.radPageViewPageVideo.Title = "l;kj";
             // 
-            // panel8
+            // Panel_Video
             // 
-            this.panel8.Controls.Add(this.radDropDownListResource_Video);
-            this.panel8.Controls.Add(this.radDropDownListFileType_Video);
-            this.panel8.Controls.Add(this.textBoxDeletionDescription_Video);
-            this.panel8.Controls.Add(this.LabelDeleteComment_Video);
-            this.panel8.Controls.Add(this.ButtonAddFile_Video);
-            this.panel8.Controls.Add(this.TextBoxFileNo_Video);
-            this.panel8.Controls.Add(this.ButtonUploadLQ_Video);
-            this.panel8.Controls.Add(this.LabelComment_Video);
-            this.panel8.Controls.Add(this.TextBoxContentComment_Video);
-            this.panel8.Controls.Add(this.ButtonAddFileType_Video);
-            this.panel8.Controls.Add(this.ButtonUploadHQ_Video);
-            this.panel8.Controls.Add(this.LabelResource_video);
-            this.panel8.Controls.Add(this.LabelFileType_Video);
-            this.panel8.Controls.Add(this.ButtonAddResource_Video);
-            this.panel8.Controls.Add(this.LabelFileNo_Video);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 48);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1070, 163);
-            this.panel8.TabIndex = 21;
-            this.panel8.Tag = "Video";
-            // 
-            // radDropDownListResource_Video
-            // 
-            this.radDropDownListResource_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radDropDownListResource_Video.DropDownAnimationEnabled = true;
-            this.radDropDownListResource_Video.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.radDropDownListResource_Video.Location = new System.Drawing.Point(851, 93);
-            this.radDropDownListResource_Video.Name = "radDropDownListResource_Video";
-            this.radDropDownListResource_Video.Size = new System.Drawing.Size(136, 25);
-            this.radDropDownListResource_Video.TabIndex = 32;
-            this.radDropDownListResource_Video.Text = "انتخاب کنید";
-            // 
-            // radDropDownListFileType_Video
-            // 
-            this.radDropDownListFileType_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radDropDownListFileType_Video.DropDownAnimationEnabled = true;
-            this.radDropDownListFileType_Video.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.radDropDownListFileType_Video.Location = new System.Drawing.Point(851, 21);
-            this.radDropDownListFileType_Video.Name = "radDropDownListFileType_Video";
-            this.radDropDownListFileType_Video.Size = new System.Drawing.Size(136, 25);
-            this.radDropDownListFileType_Video.TabIndex = 31;
-            this.radDropDownListFileType_Video.Text = "انتخاب کنید";
-            // 
-            // textBoxDeletionDescription_Video
-            // 
-            this.textBoxDeletionDescription_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDeletionDescription_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDeletionDescription_Video.Location = new System.Drawing.Point(128, 131);
-            this.textBoxDeletionDescription_Video.Name = "textBoxDeletionDescription_Video";
-            this.textBoxDeletionDescription_Video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxDeletionDescription_Video.Size = new System.Drawing.Size(375, 25);
-            this.textBoxDeletionDescription_Video.TabIndex = 12;
-            // 
-            // LabelDeleteComment_Video
-            // 
-            this.LabelDeleteComment_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelDeleteComment_Video.AutoSize = true;
-            this.LabelDeleteComment_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelDeleteComment_Video.Location = new System.Drawing.Point(509, 134);
-            this.LabelDeleteComment_Video.Name = "LabelDeleteComment_Video";
-            this.LabelDeleteComment_Video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelDeleteComment_Video.Size = new System.Drawing.Size(107, 17);
-            this.LabelDeleteComment_Video.TabIndex = 13;
-            this.LabelDeleteComment_Video.Text = "توضیحات حذفیات:";
-            // 
-            // ButtonAddFile_Video
-            // 
-            this.ButtonAddFile_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ButtonAddFile_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonAddFile_Video.Location = new System.Drawing.Point(9, 133);
-            this.ButtonAddFile_Video.Name = "ButtonAddFile_Video";
-            this.ButtonAddFile_Video.Size = new System.Drawing.Size(83, 26);
-            this.ButtonAddFile_Video.TabIndex = 16;
-            this.ButtonAddFile_Video.Text = "ثبت و آپلود";
-            this.ButtonAddFile_Video.UseVisualStyleBackColor = true;
-            // 
-            // TextBoxFileNo_Video
-            // 
-            this.TextBoxFileNo_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxFileNo_Video.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxFileNo_Video.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.TextBoxFileNo_Video.Location = new System.Drawing.Point(851, 58);
-            this.TextBoxFileNo_Video.Name = "TextBoxFileNo_Video";
-            this.TextBoxFileNo_Video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxFileNo_Video.Size = new System.Drawing.Size(136, 22);
-            this.TextBoxFileNo_Video.TabIndex = 2;
-            // 
-            // ButtonUploadLQ_Video
-            // 
-            this.ButtonUploadLQ_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ButtonUploadLQ_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonUploadLQ_Video.Location = new System.Drawing.Point(9, 72);
-            this.ButtonUploadLQ_Video.Name = "ButtonUploadLQ_Video";
-            this.ButtonUploadLQ_Video.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ButtonUploadLQ_Video.Size = new System.Drawing.Size(83, 26);
-            this.ButtonUploadLQ_Video.TabIndex = 16;
-            this.ButtonUploadLQ_Video.Text = "LQ آپلود";
-            this.ButtonUploadLQ_Video.UseVisualStyleBackColor = true;
-            this.ButtonUploadLQ_Video.Visible = false;
-            // 
-            // LabelComment_Video
-            // 
-            this.LabelComment_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelComment_Video.AutoSize = true;
-            this.LabelComment_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelComment_Video.Location = new System.Drawing.Point(1011, 131);
-            this.LabelComment_Video.Name = "LabelComment_Video";
-            this.LabelComment_Video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelComment_Video.Size = new System.Drawing.Size(45, 17);
-            this.LabelComment_Video.TabIndex = 13;
-            this.LabelComment_Video.Text = "کامنت:";
-            // 
-            // TextBoxContentComment_Video
-            // 
-            this.TextBoxContentComment_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxContentComment_Video.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxContentComment_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxContentComment_Video.Location = new System.Drawing.Point(656, 131);
-            this.TextBoxContentComment_Video.Name = "TextBoxContentComment_Video";
-            this.TextBoxContentComment_Video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxContentComment_Video.Size = new System.Drawing.Size(333, 25);
-            this.TextBoxContentComment_Video.TabIndex = 12;
-            // 
-            // ButtonAddFileType_Video
-            // 
-            this.ButtonAddFileType_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAddFileType_Video.AutoSize = true;
-            this.ButtonAddFileType_Video.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddFileType_Video.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddFileType_Video.Location = new System.Drawing.Point(826, 21);
-            this.ButtonAddFileType_Video.Name = "ButtonAddFileType_Video";
-            this.ButtonAddFileType_Video.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddFileType_Video.TabIndex = 17;
-            this.ButtonAddFileType_Video.UseVisualStyleBackColor = true;
-            this.ButtonAddFileType_Video.Click += new System.EventHandler(this.ButtonAddFileType_Video_Click);
-            // 
-            // ButtonUploadHQ_Video
-            // 
-            this.ButtonUploadHQ_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ButtonUploadHQ_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonUploadHQ_Video.Location = new System.Drawing.Point(9, 105);
-            this.ButtonUploadHQ_Video.Name = "ButtonUploadHQ_Video";
-            this.ButtonUploadHQ_Video.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ButtonUploadHQ_Video.Size = new System.Drawing.Size(83, 26);
-            this.ButtonUploadHQ_Video.TabIndex = 16;
-            this.ButtonUploadHQ_Video.Text = "HQ آپلود";
-            this.ButtonUploadHQ_Video.UseVisualStyleBackColor = true;
-            // 
-            // LabelResource_video
-            // 
-            this.LabelResource_video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelResource_video.AutoSize = true;
-            this.LabelResource_video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelResource_video.Location = new System.Drawing.Point(1021, 93);
-            this.LabelResource_video.Name = "LabelResource_video";
-            this.LabelResource_video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelResource_video.Size = new System.Drawing.Size(35, 17);
-            this.LabelResource_video.TabIndex = 9;
-            this.LabelResource_video.Text = "منبع:";
-            // 
-            // LabelFileType_Video
-            // 
-            this.LabelFileType_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelFileType_Video.AutoSize = true;
-            this.LabelFileType_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelFileType_Video.Location = new System.Drawing.Point(1001, 21);
-            this.LabelFileType_Video.Name = "LabelFileType_Video";
-            this.LabelFileType_Video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelFileType_Video.Size = new System.Drawing.Size(57, 17);
-            this.LabelFileType_Video.TabIndex = 5;
-            this.LabelFileType_Video.Text = "نوع فایل:";
-            // 
-            // ButtonAddResource_Video
-            // 
-            this.ButtonAddResource_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAddResource_Video.AutoSize = true;
-            this.ButtonAddResource_Video.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddResource_Video.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddResource_Video.Location = new System.Drawing.Point(826, 93);
-            this.ButtonAddResource_Video.Name = "ButtonAddResource_Video";
-            this.ButtonAddResource_Video.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddResource_Video.TabIndex = 17;
-            this.ButtonAddResource_Video.UseVisualStyleBackColor = true;
-            // 
-            // LabelFileNo_Video
-            // 
-            this.LabelFileNo_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelFileNo_Video.AutoSize = true;
-            this.LabelFileNo_Video.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelFileNo_Video.Location = new System.Drawing.Point(987, 58);
-            this.LabelFileNo_Video.Name = "LabelFileNo_Video";
-            this.LabelFileNo_Video.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelFileNo_Video.Size = new System.Drawing.Size(71, 17);
-            this.LabelFileNo_Video.TabIndex = 3;
-            this.LabelFileNo_Video.Text = "شماره فایل:";
-            // 
-            // panel9
-            // 
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel9.Controls.Add(this.textBox12);
-            this.panel9.Controls.Add(this.label19);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1070, 48);
-            this.panel9.TabIndex = 20;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(473, 12);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox12.Size = new System.Drawing.Size(528, 25);
-            this.textBox12.TabIndex = 0;
-            // 
-            // label19
-            // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.label19.Location = new System.Drawing.Point(1001, 14);
-            this.label19.Name = "label19";
-            this.label19.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label19.Size = new System.Drawing.Size(62, 17);
-            this.label19.TabIndex = 15;
-            this.label19.Text = "توضیحات:";
+            this.Panel_Video.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_Video.Location = new System.Drawing.Point(0, 0);
+            this.Panel_Video.Name = "Panel_Video";
+            this.Panel_Video.Size = new System.Drawing.Size(1070, 211);
+            this.Panel_Video.TabIndex = 21;
+            this.Panel_Video.Tag = "Video";
             // 
             // customShape1
             // 
@@ -2136,6 +1218,27 @@
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(226)))), ((int)(((byte)(246)))));
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             // 
+            // ContentTypeTitle
+            // 
+            this.ContentTypeTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ContentTypeTitle.DataPropertyName = "ContentTypeTitle";
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            this.ContentTypeTitle.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ContentTypeTitle.HeaderText = "نوع محتوا";
+            this.ContentTypeTitle.Name = "ContentTypeTitle";
+            this.ContentTypeTitle.ReadOnly = true;
+            // 
+            // FileTypes
+            // 
+            this.FileTypes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.FileTypes.DataPropertyName = "FileTypes";
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            this.FileTypes.DefaultCellStyle = dataGridViewCellStyle4;
+            this.FileTypes.HeaderText = "انواع فایل";
+            this.FileTypes.Name = "FileTypes";
+            this.FileTypes.ReadOnly = true;
+            this.FileTypes.Width = 5;
+            // 
             // FormCreateDocument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2149,6 +1252,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ایجاد سند";
             this.Load += new System.EventHandler(this.FormCreateDocumentSpeach_Load);
+            this.PanelHeader.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.GroupBoxHeader.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewHeaderFileType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
@@ -2171,33 +1281,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.radNavigationView1)).EndInit();
             this.radNavigationView1.ResumeLayout(false);
             this.radPageViewPageSound.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListResource_Sound)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListFileType_Sound)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.radPageViewPageText.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListResource_Text)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListFileType_Text)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.radPageViewPageImage.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListResource_Image)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListFileType_Image)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.radPageViewPageVideo.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListResource_Video)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListFileType_Video)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
             this.ResumeLayout(false);
 
@@ -2243,85 +1329,20 @@
         private Telerik.WinControls.UI.RadCheckedDropDownList ComboBoxSubject;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel PanelContent;
-        private System.Windows.Forms.TextBox textBoxDeletionDescription_Sound;
-        private System.Windows.Forms.Label LabelFileNo_Sound;
-        private System.Windows.Forms.Button ButtonAddResource;
-        private System.Windows.Forms.Button ButtonAddFileType_Sound;
-        private System.Windows.Forms.TextBox TextBoxFileNo_Sound;
-        private System.Windows.Forms.Label LabelDeleteComment_Sound;
-        private System.Windows.Forms.Label LabelComment_Sound;
-        private System.Windows.Forms.Label LabelResource_Sound;
-        private System.Windows.Forms.TextBox TextBoxContentComment_Sound;
-        private System.Windows.Forms.Label LabelFileType_Sound;
         private System.Windows.Forms.Button ButtonRegisterDocument;
         private System.Windows.Forms.Label LabelSessionNumber;
         private System.Windows.Forms.TextBox TextBoxSessionNumber;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox TextBoxContentDescription_Sound;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label LabelCode;
-        private System.Windows.Forms.TextBox TextBoxCode;
         private System.Windows.Forms.Button ButtonSaveContent;
         private Telerik.WinControls.UI.RadNavigationView radNavigationView1;
         private Telerik.WinControls.UI.RadPageViewPage radPageViewPageSound;
         private Telerik.WinControls.UI.RadPageViewPage radPageViewPageImage;
         private Telerik.WinControls.UI.RadPageViewPage radPageViewPageVideo;
         private Telerik.WinControls.UI.RadPageViewPage radPageViewPageText;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox TextBoxContentDescription_Text;
-        private System.Windows.Forms.Label label3;
         private Telerik.WinControls.UI.RadGridView GridViewContent;
-        private System.Windows.Forms.Button ButtonAddFile_Sound;
-        private System.Windows.Forms.Button ButtonUpload_Sound;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBoxDeletionDescription_Text;
-        private System.Windows.Forms.Label LabelDeleteComment_Text;
-        private System.Windows.Forms.Button ButtonAddFile_Text;
-        private System.Windows.Forms.TextBox TextBoxFileNo_Text;
-        private System.Windows.Forms.Label LabelComment_Text;
-        private System.Windows.Forms.TextBox TextBoxContentComment_Text;
-        private System.Windows.Forms.Button ButtonAddFileType_Text;
-        private System.Windows.Forms.Button ButtonUpload_Text;
-        private System.Windows.Forms.Label LabelResource_Text;
-        private System.Windows.Forms.Label LabelFileType_Text;
-        private System.Windows.Forms.Button ButtonAddResource_Text;
-        private System.Windows.Forms.Label LabelFileNo_Text;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox textBoxDeletionDescription_Video;
-        private System.Windows.Forms.Label LabelDeleteComment_Video;
-        private System.Windows.Forms.Button ButtonAddFile_Video;
-        private System.Windows.Forms.TextBox TextBoxFileNo_Video;
-        private System.Windows.Forms.Button ButtonUploadLQ_Video;
-        private System.Windows.Forms.Label LabelComment_Video;
-        private System.Windows.Forms.TextBox TextBoxContentComment_Video;
-        private System.Windows.Forms.Button ButtonAddFileType_Video;
-        private System.Windows.Forms.Button ButtonUploadHQ_Video;
-        private System.Windows.Forms.Label LabelResource_video;
-        private System.Windows.Forms.Label LabelFileType_Video;
-        private System.Windows.Forms.Button ButtonAddResource_Video;
-        private System.Windows.Forms.Label LabelFileNo_Video;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.RichTextBox RichTextBoxTextUpload;
-        private System.Windows.Forms.Label LabelTextUpload;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox textBoxDeletionDescription_Image;
-        private System.Windows.Forms.Label LabelDeleteComment_Image;
-        private System.Windows.Forms.Button ButtonAddFile_Image;
-        private System.Windows.Forms.TextBox TextBoxFileNo_Image;
-        private System.Windows.Forms.Label LabelComment_Image;
-        private System.Windows.Forms.TextBox TextBoxContentComment_Image;
-        private System.Windows.Forms.Button ButtonAddFileType_Image;
-        private System.Windows.Forms.Button ButtonUpload_Image;
-        private System.Windows.Forms.Label LabelResource_Image;
-        private System.Windows.Forms.Label LabelFileType_Image;
-        private System.Windows.Forms.Button ButtonAddResource_Image;
-        private System.Windows.Forms.Label LabelFileNo_Image;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox TextBoxContentDescription_Image;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Panel Panel_Sound;
+        private System.Windows.Forms.Panel Panel_Text;
+        private System.Windows.Forms.Panel Panel_Video;
+        private System.Windows.Forms.Panel Panel_Image;
         private Telerik.WinControls.UI.RadDropDownList radDropDownListPadidAvar;
         private Telerik.WinControls.UI.RadDropDownList radDropDownListPermissionState;
         private Telerik.WinControls.UI.RadDropDownList radDropDownListLanguage;
@@ -2329,14 +1350,6 @@
         private Telerik.WinControls.UI.RadDropDownList radDropDownListMainCategory;
         private Telerik.WinControls.UI.RadDropDownList radDropDownListCategory1;
         private Telerik.WinControls.UI.RadDropDownList radDropDownListCategory2;
-        private Telerik.WinControls.UI.RadDropDownList radDropDownListFileType_Sound;
-        private Telerik.WinControls.UI.RadDropDownList radDropDownListResource_Sound;
-        private Telerik.WinControls.UI.RadDropDownList radDropDownListFileType_Text;
-        private Telerik.WinControls.UI.RadDropDownList radDropDownListResource_Text;
-        private Telerik.WinControls.UI.RadDropDownList radDropDownListFileType_Image;
-        private Telerik.WinControls.UI.RadDropDownList radDropDownListResource_Image;
-        private Telerik.WinControls.UI.RadDropDownList radDropDownListResource_Video;
-        private Telerik.WinControls.UI.RadDropDownList radDropDownListFileType_Video;
         private Telerik.WinControls.UI.RadDropDownList radDropDownListOldTitle;
         private Telerik.WinControls.UI.RadDropDownList radDropDownListNewTitle;
         private ShDateTimePicker.DateTimePicker PersiandateTimePickerDate;
@@ -2347,5 +1360,11 @@
         private Telerik.WinControls.UI.RadDropDownListRootElement object_11f9d28c_2b62_4037_bed9_39e037d87daa;
         private System.Windows.Forms.Panel panel10;
         private Telerik.WinControls.UI.RadButton radButton1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox GroupBoxHeader;
+        private System.Windows.Forms.DataGridView DataGridViewHeaderFileType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContentTypeTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileTypes;
     }
 }

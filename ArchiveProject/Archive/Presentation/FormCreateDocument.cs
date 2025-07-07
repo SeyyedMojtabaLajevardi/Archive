@@ -2,6 +2,7 @@
 using Archive.BusinessLogic.Enumerations;
 using Archive.DataAccess;
 using Archive.DataAccess.Dto;
+using Archive.Presentation.BaseForm;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,7 +11,9 @@ using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Telerik.WinControls.UI;
+using Telerik.Windows.Diagrams.Core;
 using static Telerik.WinControls.VirtualKeyboard.VirtualKeyboardNativeMethods;
 
 namespace Archive
@@ -24,6 +27,14 @@ namespace Archive
         private readonly IContentTypeService _contentTypeService;
         private readonly IFileTypeService _fileTypeService;
         private readonly ArchiveService _archiveService;
+        UserControlFiles _userControlFiles;
+
+        private Dictionary<string, List<string>> documentTypes = new Dictionary<string, List<string>> {
+            { "صوت", new List<string>{ "mp3", "wav", "ogg" } },
+            { "ویدئو", new List<string>{ "mp4", "avi" } },
+            { "تصویر", new List<string>{ "jpg", "png", "tif" } },
+            { "متن", new List<string>{ "doc", "pdf", "txt" } }
+        };
 
         private List<PermissionType> _permissionTypes = new List<PermissionType>();
         private List<PermissionState> _permissionStates = new List<PermissionState>();
@@ -41,7 +52,8 @@ namespace Archive
         private List<FileType> _fileTypes_Video = new List<FileType>();
         private bool _isFirst = false;
         private ContentType _contentType = null;
-        private FileType _fileType = null;
+        private List<FileDto> _headerFileList = null;
+        //private List<File> _headerDocumentList = null;
         private int _mainCategoryId,
             _firstCategoryId,
             _secondCategoryId,
@@ -51,7 +63,7 @@ namespace Archive
             _languageId,
             _publishStateId,
             _documentId,
-            _fileTypeId,
+            //_fileTypeId,
             _contentId;
         private string _fileTypeTitle = "";
         private string _resourceTitle = "";
@@ -61,8 +73,11 @@ namespace Archive
         public FormCreateDocument(int mainCategoryId)
         {
             InitializeComponent();
+            
+            _userControlFiles = new UserControlFiles { Dock = DockStyle.Fill };
             _mainCategoryId = mainCategoryId;
             _archiveService = new ArchiveService(new ArchiveEntities());
+            _userControlFiles.AddButtonClicked += _userControlFiles_AddButtonClicked;
             //var width = (ToolStripContentType.Width / 4) - 10;
             //ToolStripButtonSound.Width = width;
             //ToolStripButtonText.Width = width;
@@ -74,6 +89,7 @@ namespace Archive
         public FormCreateDocument(IArchiveFacadeService archiveFacadeService)
         {
             this.SuspendLayout();
+            _userControlFiles = new UserControlFiles { Dock = DockStyle.Fill };
             InitializeComponent();
             this.ResumeLayout();
             _archiveService = new ArchiveService(new ArchiveEntities());
@@ -81,15 +97,8 @@ namespace Archive
             _contentService = archiveFacadeService.ContentService;
             _categoryService = archiveFacadeService.CategoryService;
             _fileService = archiveFacadeService.FileService;
+            _userControlFiles.AddButtonClicked += _userControlFiles_AddButtonClicked;
             GridViewContent.ViewCellFormatting += GridViewContent_ViewCellFormatting;
-        }
-
-        private void GridViewContent_ViewCellFormatting(object sender, Telerik.WinControls.UI.CellFormattingEventArgs e)
-        {
-            if (e.CellElement is Telerik.WinControls.UI.GridDataCellElement)
-            {
-                e.CellElement.Font = e.Column.FieldName == "ContentTypeTitle" ? new Font("Dana", 10, FontStyle.Bold) : new Font("Dana", 10, FontStyle.Regular);
-            }
         }
 
         private void FormCreateDocumentSpeach_Load(object sender, EventArgs e)
@@ -99,6 +108,63 @@ namespace Archive
             foreach (RadListDataItem item in ComboBoxSubject.Items)
                 item.TextAlignment = ContentAlignment.MiddleRight;
             _isFirst = false;
+            radNavigationView1_SelectedPageChanged(null, null);
+        }
+
+        private void _userControlFiles_AddButtonClicked(object sender, EventArgs e)
+        {
+            if (!FormValidations())
+                return;
+
+            Content content = _contentService.GetContentByContentTypeIdAndDocumentId(_contentType.ContentTypeId, _documentId);
+
+            if (content == null)
+            {
+                content = new Content
+                {
+                    ContentTypeId = _contentType.ContentTypeId,
+                    DocumentId = _documentId,
+                    Code = _userControlFiles.TextBoxCode.Text.Trim(),
+                    Description = _userControlFiles.TextBoxContentDescription.Text.Trim(),
+                };
+                _contentService.AddContent(content);
+            }
+            _contentId = content.ContentId;
+            File file = _fileService.GetFileByContentIdAndFileTypeIdAndFileNumber(_contentId, _userControlFiles.FileTypeId, int.Parse(_userControlFiles.TextBoxFileNo.Text.Trim()));
+
+            if (file == null)
+            {
+                file = new File
+                {
+                    CategoryId = _mainCategoryId,
+                    ResourceId = _resourceId > 0 ? _resourceId : (int?)null,
+                    FileTypeId = _userControlFiles.FileTypeId,
+                    FileNumber = int.Parse(_userControlFiles.TextBoxFileNo.Text.Trim()),
+                    Comment = _userControlFiles.TextBoxContentComment.Text.Trim(),
+                    //EditorId = null,
+                    DeletionDescription = _userControlFiles.textBoxDeletionDescription.Text.Trim(),
+                    FileName = "test" + _userControlFiles.TextBoxFileNo.Text.Trim(),
+                    ContentId = content.ContentId
+                };
+                _fileService.AddFile(file);
+                //_contentService.AddFilesToContentByContentId(content.ContentId, new List<File> { file });
+            }
+            else
+            {
+                _fileService.UpdateFile(file.FileId, file);
+                MessageBox.Show(@"فایل مورد نظر موجود می‌باشد");
+                return;
+            }
+
+            FillGrid();
+        }
+
+        private void GridViewContent_ViewCellFormatting(object sender, Telerik.WinControls.UI.CellFormattingEventArgs e)
+        {
+            if (e.CellElement is Telerik.WinControls.UI.GridDataCellElement)
+            {
+                e.CellElement.Font = e.Column.FieldName == "ContentTypeTitle" ? new Font("Dana", 10, FontStyle.Bold) : new Font("Dana", 10, FontStyle.Regular);
+            }
         }
 
         private void ButtonSaveTemorary_Click(object sender, EventArgs e)
@@ -192,62 +258,38 @@ namespace Archive
             }
         }
 
-        private void ButtonAddFile_Click(object sender, EventArgs e)
-        {
-            if (!FormValidations())
-                return;
-
-            Content content = _contentService.GetContentByContentTypeIdAndDocumentId(_contentType.ContentTypeId, _documentId);
-
-            if (content == null)
-            {
-                content = new Content
-                {
-                    ContentTypeId = _contentType.ContentTypeId,
-                    DocumentId = _documentId,
-                    Code = TextBoxCode.Text.Trim(),
-                    Description = TextBoxContentDescription_Sound.Text.Trim(),
-                };
-                _contentService.AddContent(content);
-            }
-            _contentId = content.ContentId;
-            File file = _fileService.GetFileByContentIdAndFileTypeIdAndFileNumber(_contentId, _fileTypeId, int.Parse(TextBoxFileNo_Sound.Text.Trim()));
-
-            if (file == null)
-            {
-                file = new File
-                {
-                    CategoryId = _mainCategoryId,
-                    ResourceId = _resourceId > 0 ? _resourceId : (int?)null,
-                    FileTypeId = _fileTypeId,
-                    FileNumber = int.Parse(TextBoxFileNo_Sound.Text.Trim()),
-                    Comment = TextBoxContentComment_Sound.Text.Trim(),
-                    //EditorId = null,
-                    DeletionDescription = textBoxDeletionDescription_Sound.Text.Trim(),
-                    FileName = "test" + TextBoxFileNo_Sound.Text.Trim(),
-                    ContentId = content.ContentId
-                };
-                _fileService.AddFile(file);
-                //_contentService.AddFilesToContentByContentId(content.ContentId, new List<File> { file });
-            }
-            else
-            {
-                _fileService.UpdateFile(file.FileId, file);
-                MessageBox.Show(@"فایل مورد نظر موجود می‌باشد");
-                return;
-            }
-
-            FillGrid();
-        }
-
-        private void ButtonEditDocument_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void radNavigationView1_SelectedPageChanged(object sender, EventArgs e)
         {
             _contentType = GetConentType();
+            _userControlFiles.ContentType = _contentType;
+            FillFileType();
+            _userControlFiles.LabelTextUpload.Visible = false;
+            _userControlFiles.RichTextBoxTextUpload.Visible = false;
+            _userControlFiles.LabelCode.Visible = false;
+            _userControlFiles.TextBoxCode.Visible = false;
+            switch (_contentType.ContentTypeTitle?.ToLower())
+            {
+                case "sound":
+                    Panel_Sound.Controls.Clear();
+                    Panel_Sound.Controls.Add(_userControlFiles);
+                    _userControlFiles.LabelCode.Visible = true;
+                    _userControlFiles.TextBoxCode.Visible = true;
+                    break;
+                case "text":
+                    Panel_Text.Controls.Clear();
+                    Panel_Text.Controls.Add(_userControlFiles);
+                    _userControlFiles.LabelTextUpload.Visible = true;
+                    _userControlFiles.RichTextBoxTextUpload.Visible = true;
+                    break;
+                case "image":
+                    Panel_Image.Controls.Clear();
+                    Panel_Image.Controls.Add(_userControlFiles);
+                    break;
+                case "video":
+                    Panel_Video.Controls.Clear();
+                    Panel_Video.Controls.Add(_userControlFiles);
+                    break;
+            }
         }
 
         private ContentType GetConentType()
@@ -268,6 +310,9 @@ namespace Archive
                 case "radPageViewPageVideo":
                     contentTypeId = (int)ConentTypeEnum.Video + 1;
                     break;
+                case "radPageViewPageText2":
+                    contentTypeId = (int)ConentTypeEnum.Text + 1;
+                    break;
                 default:
                     break;
             }
@@ -282,51 +327,52 @@ namespace Archive
             File fileInfo = GetCurrentFileInfo(GridViewContent.CurrentRow);
             if (fileInfo.ContentId == 0) return;
             _contentType = GetContentTypeFromGridView();
+            FillFileType();
             switch (_contentType.ContentTypeTitle?.ToLower())
             {
                 case "sound":
-                    TextBoxContentComment_Sound.Text = fileInfo.Comment;
-                    textBoxDeletionDescription_Sound.Text = fileInfo.DeletionDescription;
-                    TextBoxFileNo_Sound.Text = fileInfo.FileNumber.ToString();
+                    _userControlFiles.TextBoxContentComment.Text = fileInfo.Comment;
+                    _userControlFiles.textBoxDeletionDescription.Text = fileInfo.DeletionDescription;
+                    _userControlFiles.TextBoxFileNo.Text = fileInfo.FileNumber.ToString();
                     if (fileInfo.FileType != null)
-                        radDropDownListFileType_Sound.SelectedIndex = radDropDownListFileType_Sound.FindStringExact(fileInfo.FileType.FileTypeTitle);
+                        _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.FileType.FileTypeTitle);
                     if (fileInfo.Resource != null)
-                        radDropDownListResource_Sound.SelectedIndex = radDropDownListResource_Sound.FindStringExact(fileInfo.Resource.ResourceTitle);
+                        _userControlFiles.radDropDownListResource.SelectedIndex = _userControlFiles.radDropDownListResource.FindStringExact(fileInfo.Resource.ResourceTitle);
                     radNavigationView1.SelectedPage = radPageViewPageSound;
 
                     break;
 
                 case "text":
-                    TextBoxContentComment_Text.Text = fileInfo.Comment;
-                    textBoxDeletionDescription_Text.Text = fileInfo.DeletionDescription;
-                    TextBoxFileNo_Text.Text = fileInfo.FileNumber.ToString();
+                    _userControlFiles.TextBoxContentComment.Text = fileInfo.Comment;
+                    _userControlFiles.textBoxDeletionDescription.Text = fileInfo.DeletionDescription;
+                    _userControlFiles.TextBoxFileNo.Text = fileInfo.FileNumber.ToString();
                     if (fileInfo.FileType != null)
-                        radDropDownListFileType_Text.SelectedIndex = radDropDownListFileType_Text.FindStringExact(fileInfo.FileType.FileTypeTitle);
+                        _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.FileType.FileTypeTitle);
                     if (fileInfo.Resource != null)
-                        radDropDownListResource_Text.SelectedIndex = radDropDownListResource_Text.FindStringExact(fileInfo.Resource.ResourceTitle);
-                    RichTextBoxTextUpload.Text = fileInfo.Text;
+                        _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.Resource.ResourceTitle);
+                    _userControlFiles.RichTextBoxTextUpload.Text = fileInfo.Text;
                     radNavigationView1.SelectedPage = radPageViewPageText;
                     break;
 
                 case "image":
-                    TextBoxContentComment_Image.Text = fileInfo.Comment;
-                    textBoxDeletionDescription_Image.Text = fileInfo.DeletionDescription;
-                    TextBoxFileNo_Image.Text = fileInfo.FileNumber.ToString();
+                    _userControlFiles.TextBoxContentComment.Text = fileInfo.Comment;
+                    _userControlFiles.textBoxDeletionDescription.Text = fileInfo.DeletionDescription;
+                    _userControlFiles.TextBoxFileNo.Text = fileInfo.FileNumber.ToString();
                     if (fileInfo.FileType != null)
-                        radDropDownListFileType_Image.SelectedIndex = radDropDownListFileType_Image.FindStringExact(fileInfo.FileType.FileTypeTitle);
+                        _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.FileType.FileTypeTitle);
                     if (fileInfo.Resource != null)
-                        radDropDownListResource_Image.SelectedIndex = radDropDownListResource_Image.FindStringExact(fileInfo.Resource.ResourceTitle);
+                        _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.Resource.ResourceTitle);
                     radNavigationView1.SelectedPage = radPageViewPageImage;
                     break;
 
                 case "video":
-                    TextBoxContentComment_Video.Text = fileInfo.Comment;
-                    textBoxDeletionDescription_Video.Text = fileInfo.DeletionDescription;
-                    TextBoxFileNo_Video.Text = fileInfo.FileNumber.ToString();
+                    _userControlFiles.TextBoxContentComment.Text = fileInfo.Comment;
+                    _userControlFiles.textBoxDeletionDescription.Text = fileInfo.DeletionDescription;
+                    _userControlFiles.TextBoxFileNo.Text = fileInfo.FileNumber.ToString();
                     if (fileInfo.FileType != null)
-                        radDropDownListFileType_Video.SelectedIndex = radDropDownListFileType_Video.FindStringExact(fileInfo.FileType.FileTypeTitle);
+                        _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.FileType.FileTypeTitle);
                     if (fileInfo.Resource != null)
-                        radDropDownListResource_Video.SelectedIndex = radDropDownListResource_Video.FindStringExact(fileInfo.Resource.ResourceTitle);
+                        _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.Resource.ResourceTitle);
                     radNavigationView1.SelectedPage = radPageViewPageVideo;
                     break;
                 default:
@@ -451,40 +497,40 @@ namespace Archive
 
         private void radDropDownListFileType_Sound_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            if (_isFirst) return;
-            radDropDownListFileType_Sound.BackColor = Color.White;
-            int.TryParse(radDropDownListFileType_Sound?.SelectedItem?.Value.ToString(), out _fileTypeId);
-            _fileTypeTitle = radDropDownListFileType_Sound.SelectedText;
+            //if (_isFirst) return;
+            //_userControlFiles.radDropDownListFileType.BackColor = Color.White;
+            //int.TryParse(_userControlFiles.radDropDownListFileType?.SelectedItem?.Value.ToString(), out _fileTypeId);
+            //_fileTypeTitle = _userControlFiles.radDropDownListFileType.SelectedText;
             //_fileType = new FileType { FileTypeId = fileTypeId, FileTypeTitle = fileTypeTitle };
         }
 
         private void radDropDownListFileType_Text_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            radDropDownListFileType_Text.BackColor = Color.White;
-            int.TryParse(radDropDownListFileType_Text?.SelectedItem?.Value.ToString(), out _fileTypeId);
-            _fileTypeTitle = radDropDownListFileType_Text.SelectedText;
+            //_userControlFiles.radDropDownListFileType.BackColor = Color.White;
+            //int.TryParse(_userControlFiles.radDropDownListFileType?.SelectedItem?.Value.ToString(), out _fileTypeId);
+            //_fileTypeTitle = _userControlFiles.radDropDownListFileType.SelectedText;
         }
 
         private void radDropDownListResource_Text_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            radDropDownListResource_Text.BackColor = Color.White;
-            int.TryParse(radDropDownListResource_Text?.SelectedItem?.Value.ToString(), out _fileTypeId);
-            _fileTypeTitle = radDropDownListResource_Text.SelectedText;
+            //_userControlFiles.radDropDownListResource.BackColor = Color.White;
+            //int.TryParse(_userControlFiles.radDropDownListResource?.SelectedItem?.Value.ToString(), out _fileTypeId);
+            //_fileTypeTitle = _userControlFiles.radDropDownListResource.SelectedText;
         }
 
         private void radDropDownListResource_Image_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            radDropDownListResource_Image.BackColor = Color.White;
-            int.TryParse(radDropDownListResource_Image?.SelectedItem?.Value.ToString(), out _fileTypeId);
-            _fileTypeTitle = radDropDownListResource_Image.SelectedText;
+            //_userControlFiles.radDropDownListResource.BackColor = Color.White;
+            //int.TryParse(_userControlFiles.radDropDownListResource?.SelectedItem?.Value.ToString(), out _fileTypeId);
+            //_fileTypeTitle = _userControlFiles.radDropDownListResource.SelectedText;
         }
 
         private void radDropDownListResource_Sound_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
             if (_isFirst) return;
-            radDropDownListResource_Sound.BackColor = Color.White;
-            int.TryParse(radDropDownListResource_Sound?.SelectedItem?.Value.ToString(), out _resourceId);
-            _resourceTitle = radDropDownListResource_Sound.SelectedText;
+            _userControlFiles.radDropDownListResource.BackColor = Color.White;
+            int.TryParse(_userControlFiles.radDropDownListResource?.SelectedItem?.Value.ToString(), out _resourceId);
+            _resourceTitle = _userControlFiles.radDropDownListResource.SelectedText;
         }
 
         private void TextBoxSiteCode_Leave(object sender, EventArgs e)
@@ -573,58 +619,9 @@ namespace Archive
             _isFirst = false;
         }
 
-        private void ButtonUpload_Sound_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void TextBoxSiteCode_TextChanged(object sender, EventArgs e)
         {
             TextBoxSiteCode.BackColor = Color.White;
-        }
-
-        private void ButtonAddFileType_Sound_Click(object sender, EventArgs e)
-        {
-            FormFileType frm = new FormFileType();
-            frm.ShowDialog();
-            frm.Close();
-            radDropDownListFileType_Sound.DataSource = _fileTypes_Sound;
-            radDropDownListFileType_Sound.DisplayMember = "FileTypeTitle";
-            radDropDownListFileType_Sound.ValueMember = "FileTypeId";
-            radDropDownListFileType_Sound.Text = "انتخاب کنید";
-        }
-
-        private void ButtonAddFileType_Text_Click(object sender, EventArgs e)
-        {
-            FormFileType frm = new FormFileType();
-            frm.ShowDialog();
-            frm.Close();
-            radDropDownListFileType_Text.DataSource = _fileTypes_Text;
-            radDropDownListFileType_Text.DisplayMember = "FileTypeTitle";
-            radDropDownListFileType_Text.ValueMember = "FileTypeId";
-            radDropDownListFileType_Text.Text = "انتخاب کنید";
-        }
-
-        private void ButtonAddFileType_Image_Click(object sender, EventArgs e)
-        {
-            FormFileType frm = new FormFileType();
-            frm.ShowDialog();
-            frm.Close();
-            radDropDownListFileType_Image.DataSource = _fileTypes_Image;
-            radDropDownListFileType_Image.DisplayMember = "FileTypeTitle";
-            radDropDownListFileType_Image.ValueMember = "FileTypeId";
-            radDropDownListFileType_Image.Text = "انتخاب کنید";
-        }
-
-        private void ButtonAddFileType_Video_Click(object sender, EventArgs e)
-        {
-            FormFileType frm = new FormFileType();
-            frm.ShowDialog();
-            frm.Close();
-            radDropDownListFileType_Video.DataSource = _fileTypes_Video;
-            radDropDownListFileType_Video.DisplayMember = "FileTypeTitle";
-            radDropDownListFileType_Video.ValueMember = "FileTypeId";
-            radDropDownListFileType_Video.Text = "انتخاب کنید";
         }
 
         private void ButtonAddSubject_Click(object sender, EventArgs e)
@@ -649,6 +646,7 @@ namespace Archive
 
         private void FillGrid()
         {
+            _headerFileList = new List<FileDto>();
             int index = 0;
             if (GridViewContent.CurrentRow != null)
                 index = GridViewContent.CurrentRow.Index;
@@ -656,16 +654,47 @@ namespace Archive
             //GetInformation();
             _isFirst = true;
             GridViewContent.DataSource = list;
+            _headerFileList.AddRange(list.Select(x => new FileDto
+            {
+                FileTypeTitle = x.FileTypeTitle + x.FileNumber,
+                ContentTypeTitle = x.ContentTypeTitlePresian
+            }).ToList());
             if (GridViewContent.RowCount > 0) GridViewContent.CurrentRow = GridViewContent.Rows[index];
             _isFirst = false;
+            FillHeaderFileTypeBox();
+        }
+
+        private void ButtonUpload_Text_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonAddFile_Text_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FillHeaderFileTypeBox()
+        {
+            var groupedList = _headerFileList
+                .GroupBy(x => x.ContentTypeTitle)
+                .Select(g => new
+                {
+                    ContentTypeTitle = g.Key,
+                    FileTypes = string.Join(" | ", g.Select(f => f.FileTypeTitle))
+                })
+                .ToList();
+            DataGridViewHeaderFileType.DataSource = groupedList;
+            DataGridViewHeaderFileType.DefaultCellStyle = new DataGridViewCellStyle() { BackColor = System.Drawing.SystemColors.Control };
+            DataGridViewHeaderFileType.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void TextBoxFileNo_TextChanged(object sender, EventArgs e)
         {
             // باید فقط مقادیر عددی وارد شود
-            if (Regex.Replace(TextBoxFileNo_Sound.Text, @"\d+", "").Length > 0)
+            if (Regex.Replace(_userControlFiles.TextBoxFileNo.Text, @"\d+", "").Length > 0)
             {
-                TextBoxFileNo_Sound.Text = "";
+                _userControlFiles.TextBoxFileNo.Text = "";
             }
         }
 
@@ -693,7 +722,7 @@ namespace Archive
             }
         }
 
-        private bool FormValidations()
+        public bool FormValidations()
         {
             if (TextBoxSiteCode.Text.Trim() == "")
             {
@@ -757,35 +786,6 @@ namespace Archive
                 radDropDownListCategory1.BackColor = Color.IndianRed;
                 return false;
             }
-
-            /*            if (_contentType.ContentTypeTitle == ConentTypeEnum.Sound.ToString() && string.IsNullOrEmpty(TextBoxFileNo_Sound.Text))
-                        {
-                            TextBoxFileNo_Sound.Focus();
-                            TextBoxFileNo_Sound.BackColor = Color.IndianRed;
-                            return false;
-                        }
-
-                        if (_contentType.ContentTypeTitle == ConentTypeEnum.Text.ToString() && string.IsNullOrEmpty(TextBoxFileNo_Text.Text))
-                        {
-                            TextBoxFileNo_Sound.Focus();
-                            TextBoxFileNo_Sound.BackColor = Color.IndianRed;
-                            return false;
-                        }
-
-                        if (_contentType.ContentTypeTitle == ConentTypeEnum.Image.ToString() && string.IsNullOrEmpty(TextBoxFileNo_Image.Text))
-                        {
-                            TextBoxFileNo_Sound.Focus();
-                            TextBoxFileNo_Sound.BackColor = Color.IndianRed;
-                            return false;
-                        }
-
-                        if (_contentType.ContentTypeTitle == ConentTypeEnum.Video.ToString() && string.IsNullOrEmpty(TextBoxFileNo_Video.Text))
-                        {
-                            TextBoxFileNo_Sound.Focus();
-                            TextBoxFileNo_Sound.BackColor = Color.IndianRed;
-                            return false;
-                        }*/
-
             return true;
         }
 
@@ -914,6 +914,8 @@ namespace Archive
             }
             if (control == this)
             {
+                DataGridViewHeaderFileType.DataSource = null;
+                DataGridViewHeaderFileType.Rows.Clear();
                 GridViewContent.DataSource = null;
                 GridViewContent.Rows.Clear();
                 PersiandateTimePickerDate.DateValue = "";
@@ -989,31 +991,13 @@ namespace Archive
             radDropDownListPublishState.ValueMember = "PublishStateId";
             radDropDownListPublishState.Text = "انتخاب کنید";
 
-            radDropDownListFileType_Sound.DataSource = _fileTypes_Sound;
-            radDropDownListFileType_Sound.DisplayMember = "FileTypeTitle";
-            radDropDownListFileType_Sound.ValueMember = "FileTypeId";
-            radDropDownListFileType_Sound.Text = "انتخاب کنید";
-
-            radDropDownListFileType_Text.DataSource = _fileTypes_Text;
-            radDropDownListFileType_Text.DisplayMember = "FileTypeTitle";
-            radDropDownListFileType_Text.ValueMember = "FileTypeId";
-            radDropDownListFileType_Text.Text = "انتخاب کنید";
-
-            radDropDownListFileType_Image.DataSource = _fileTypes_Image;
-            radDropDownListFileType_Image.DisplayMember = "FileTypeTitle";
-            radDropDownListFileType_Image.ValueMember = "FileTypeId";
-            radDropDownListFileType_Image.Text = "انتخاب کنید";
-
-            radDropDownListFileType_Video.DataSource = _fileTypes_Video;
-            radDropDownListFileType_Video.DisplayMember = "FileTypeTitle";
-            radDropDownListFileType_Video.ValueMember = "FileTypeId";
-            radDropDownListFileType_Video.Text = "انتخاب کنید";
+            FillFileType();
 
             ComboBoxSubject.DataSource = _subjects;
             ComboBoxSubject.DisplayMember = "SubjectTitle";
             ComboBoxSubject.ValueMember = "SubjectId";
             ComboBoxSubject.Text = "کنید انتخاب";
-            
+
 
             radDropDownListOldTitle.AutoCompleteMode = AutoCompleteMode.Suggest;
             radDropDownListOldTitle.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListOldTitle.DropDownListElement);
@@ -1031,37 +1015,38 @@ namespace Archive
             radDropDownListCategory1.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListCategory1.DropDownListElement);
             radDropDownListCategory2.AutoCompleteMode = AutoCompleteMode.Suggest;
             radDropDownListCategory2.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListCategory2.DropDownListElement);
-            radDropDownListFileType_Sound.AutoCompleteMode = AutoCompleteMode.Suggest;
-            radDropDownListFileType_Sound.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListFileType_Sound.DropDownListElement);
-            radDropDownListFileType_Text.AutoCompleteMode = AutoCompleteMode.Suggest;
-            radDropDownListFileType_Text.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListFileType_Text.DropDownListElement);
-            radDropDownListFileType_Image.AutoCompleteMode = AutoCompleteMode.Suggest;
-            radDropDownListFileType_Image.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListFileType_Image.DropDownListElement);
-            radDropDownListFileType_Video.AutoCompleteMode = AutoCompleteMode.Suggest;
-            radDropDownListFileType_Video.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListFileType_Video.DropDownListElement);
-            radDropDownListResource_Sound.AutoCompleteMode = AutoCompleteMode.Suggest;
-            radDropDownListResource_Sound.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListResource_Sound.DropDownListElement);
-            radDropDownListResource_Text.AutoCompleteMode = AutoCompleteMode.Suggest;
-            radDropDownListResource_Text.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListResource_Text.DropDownListElement);
-            radDropDownListResource_Image.AutoCompleteMode = AutoCompleteMode.Suggest;
-            radDropDownListResource_Image.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListResource_Image.DropDownListElement);
-            radDropDownListResource_Video.AutoCompleteMode = AutoCompleteMode.Suggest;
-            radDropDownListResource_Video.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(radDropDownListResource_Video.DropDownListElement);
+
+            _userControlFiles.radDropDownListFileType.AutoCompleteMode = AutoCompleteMode.Suggest;
+            _userControlFiles.radDropDownListFileType.DropDownListElement.AutoCompleteSuggest = new CustomAutoCompleteSuggestHelper(_userControlFiles.radDropDownListFileType.DropDownListElement);
         }
 
-        //private List<ContentDto> GetInformation()
-        //{
-        //    using (ArchiveEntities context = new ArchiveEntities())
-        //    {
-        //        List<ContentDto> contents = new List<ContentDto>();
-        //        using (var db = new SqlConnection(context.Database.Connection.ConnectionString))
-        //        {
-        //            var parameters = new DynamicParameters();
-        //            parameters.Add("@DocumentId", _documentId, DbType.Int32);
-        //            contents = db.Query<ContentDto>("GetContentByDocumentId", parameters, commandType: CommandType.StoredProcedure).ToList();
-        //        }
-        //        return contents;
-        //    }
-        //}
+        private void FillFileType()
+        {
+            if (_contentType == null)
+                _userControlFiles.radDropDownListFileType.DataSource = _fileTypes_Sound;
+            else
+            {
+                switch (_contentType.ContentTypeTitle?.ToLower())
+                {
+                    case "sound":
+                        _userControlFiles.radDropDownListFileType.DataSource = _fileTypes_Sound;
+                        break;
+                    case "text":
+                        _userControlFiles.radDropDownListFileType.DataSource = _fileTypes_Text;
+                        break;
+                    case "image":
+                        _userControlFiles.radDropDownListFileType.DataSource = _fileTypes_Image;
+                        break;
+                    case "video":
+                        _userControlFiles.radDropDownListFileType.DataSource = _fileTypes_Video;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            _userControlFiles.radDropDownListFileType.DisplayMember = "FileTypeTitle";
+            _userControlFiles.radDropDownListFileType.ValueMember = "FileTypeId";
+            _userControlFiles.radDropDownListFileType.Text = "انتخاب کنید";
+        }
     }
 }

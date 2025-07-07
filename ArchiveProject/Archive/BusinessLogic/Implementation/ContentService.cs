@@ -78,6 +78,7 @@ namespace Archive.BusinessLogic
                                 CategoryId = f.CategoryId,
                                 ContentId = c.ContentId,
                                 ContentTypeTitle = ct.ContentTypeTitle,
+                                ContentTypeTitlePresian = ct.ContentTypeTitlePersian,
                                 FileTypeTitle = ft.FileTypeTitle,
                                 ResourceTitle = r != null ? r.ResourceTitle : null,
                                 ResourceId = r != null ? r.ResourceId : -1,
