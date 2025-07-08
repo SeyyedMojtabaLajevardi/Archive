@@ -1,24 +1,45 @@
 using System;
-using System.Globalization;
-using System.Data.SqlClient;
-using System.Data;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Telerik.WinControls.UI;
-using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Web.UI.WebControls;
+using System.Windows.Forms;
+using Telerik.WinControls.UI;
 
 namespace Archive.BusinessObject
 {
     public class Common
     {
-        //public static string AttachmentMainPath = @"e:\Out_Project\Abutorab\AbutorabAttachment\";
-        public static string AttachmentMainPath { get; set; }
+        static Dictionary<char, string> map = new Dictionary<char, string>()
+        {
+            {'ا', "a"}, {'ب', "b"}, {'پ', "p"}, {'ت', "t"}, {'ث', "s"},
+            {'ج', "j"}, {'چ', "ch"}, {'ح', "h"}, {'خ', "kh"}, {'د', "d"},
+            {'ذ', "z"}, {'ر', "r"}, {'ز', "z"}, {'ژ', "zh"}, {'س', "s"},
+            {'ش', "sh"}, {'ص', "s"}, {'ض', "z"}, {'ط', "t"}, {'ظ', "z"},
+            {'ع', "a"}, {'غ', "gh"}, {'ف', "f"}, {'ق', "gh"}, {'ک', "k"},
+            {'گ', "g"}, {'ل', "l"}, {'م', "m"}, {'ن', "n"}, {'و', "v"},
+            {'ه', "h"}, {'ی', "y"}
+        };
 
         #region Method
+        public static string Convert(string input)
+        {
+            StringBuilder result = new StringBuilder();
+            foreach (char c in input)
+            {
+                if (map.ContainsKey(c))
+                    result.Append(map[c]);
+                else
+                    result.Append(c); // برای کاراکترهای غیرقابل‌تبدیل
+            }
+            return result.ToString();
+        }
         public static void SetInputLanguage(string languageCulture)
         {
             foreach (InputLanguage languages in InputLanguage.InstalledInputLanguages)

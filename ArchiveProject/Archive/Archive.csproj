@@ -262,11 +262,11 @@
     <Compile Include="Presentation\BaseForm\UserControlFiles.Designer.cs">
       <DependentUpon>UserControlFiles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\FormCreateDocument.cs">
+    <Compile Include="Presentation\FormCreateDocument_Speech.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\FormCreateDocument.Designer.cs">
-      <DependentUpon>FormCreateDocument.cs</DependentUpon>
+    <Compile Include="Presentation\FormCreateDocument_Speech.Designer.cs">
+      <DependentUpon>FormCreateDocument_Speech.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\FormDocumentList.cs">
       <SubType>Form</SubType>
@@ -303,8 +303,8 @@
     <EmbeddedResource Include="Presentation\BaseForm\UserControlFiles.resx">
       <DependentUpon>UserControlFiles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\FormCreateDocument.resx">
-      <DependentUpon>FormCreateDocument.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\FormCreateDocument_Speech.resx">
+      <DependentUpon>FormCreateDocument_Speech.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\FormDocumentList.resx">
