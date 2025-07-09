@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateDocument));
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn14 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn15 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
@@ -51,13 +53,13 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn25 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn26 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelHeader = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.GroupBoxHeader = new System.Windows.Forms.GroupBox();
             this.DataGridViewHeaderFileType = new System.Windows.Forms.DataGridView();
+            this.ContentTypeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileTypes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
             this.ComboBoxSubject = new Telerik.WinControls.UI.RadCheckedDropDownList();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -127,8 +129,6 @@
             this.starShape1 = new Telerik.WinControls.UI.StarShape();
             this.object_11f9d28c_2b62_4037_bed9_39e037d87daa = new Telerik.WinControls.UI.RadDropDownListRootElement();
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
-            this.ContentTypeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileTypes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -233,6 +233,27 @@
             this.DataGridViewHeaderFileType.RowHeadersVisible = false;
             this.DataGridViewHeaderFileType.Size = new System.Drawing.Size(584, 134);
             this.DataGridViewHeaderFileType.TabIndex = 0;
+            // 
+            // ContentTypeTitle
+            // 
+            this.ContentTypeTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ContentTypeTitle.DataPropertyName = "ContentTypeTitle";
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            this.ContentTypeTitle.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ContentTypeTitle.HeaderText = "نوع محتوا";
+            this.ContentTypeTitle.Name = "ContentTypeTitle";
+            this.ContentTypeTitle.ReadOnly = true;
+            // 
+            // FileTypes
+            // 
+            this.FileTypes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.FileTypes.DataPropertyName = "FileTypes";
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            this.FileTypes.DefaultCellStyle = dataGridViewCellStyle4;
+            this.FileTypes.HeaderText = "انواع فایل";
+            this.FileTypes.Name = "FileTypes";
+            this.FileTypes.ReadOnly = true;
+            this.FileTypes.Width = 5;
             // 
             // radGroupBox1
             // 
@@ -638,6 +659,7 @@
             this.ButtonAddCategory1.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddCategory1.TabIndex = 17;
             this.ButtonAddCategory1.UseVisualStyleBackColor = true;
+            this.ButtonAddCategory1.Click += new System.EventHandler(this.ButtonAddCategory1_Click);
             // 
             // ButtonAddMainCategory
             // 
@@ -1217,27 +1239,6 @@
             ((Telerik.WinControls.UI.RadButtonElement)(this.radButton1.GetChildAt(0))).Font = new System.Drawing.Font("Segoe UI", 9.75F);
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(226)))), ((int)(((byte)(246)))));
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
-            // 
-            // ContentTypeTitle
-            // 
-            this.ContentTypeTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ContentTypeTitle.DataPropertyName = "ContentTypeTitle";
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            this.ContentTypeTitle.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ContentTypeTitle.HeaderText = "نوع محتوا";
-            this.ContentTypeTitle.Name = "ContentTypeTitle";
-            this.ContentTypeTitle.ReadOnly = true;
-            // 
-            // FileTypes
-            // 
-            this.FileTypes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.FileTypes.DataPropertyName = "FileTypes";
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            this.FileTypes.DefaultCellStyle = dataGridViewCellStyle4;
-            this.FileTypes.HeaderText = "انواع فایل";
-            this.FileTypes.Name = "FileTypes";
-            this.FileTypes.ReadOnly = true;
-            this.FileTypes.Width = 5;
             // 
             // FormCreateDocument
             // 

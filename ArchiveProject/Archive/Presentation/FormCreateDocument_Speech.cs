@@ -698,6 +698,11 @@ namespace Archive
             }
         }
 
+        private void ButtonAddCategory1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void ButtonRegisterDocument_Click(object sender, EventArgs e)
         {
             if (!FormValidations())

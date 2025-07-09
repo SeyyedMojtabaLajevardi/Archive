@@ -47,10 +47,10 @@
             this.ButtonAddFileType = new System.Windows.Forms.Button();
             this.ButtonAddResource = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.TextBoxContentDescription = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.LabelCode = new System.Windows.Forms.Label();
             this.TextBoxCode = new System.Windows.Forms.TextBox();
+            this.TextBoxContentDescription = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListResource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListFileType)).BeginInit();
             this.panel1.SuspendLayout();
@@ -204,6 +204,7 @@
             this.ButtonUpload.TabIndex = 40;
             this.ButtonUpload.Text = "آپلود";
             this.ButtonUpload.UseVisualStyleBackColor = true;
+            this.ButtonUpload.Visible = false;
             // 
             // LabelResource
             // 
@@ -281,28 +282,6 @@
             this.panel1.Size = new System.Drawing.Size(1070, 50);
             this.panel1.TabIndex = 50;
             // 
-            // TextBoxContentDescription
-            // 
-            this.TextBoxContentDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxContentDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxContentDescription.Location = new System.Drawing.Point(462, 14);
-            this.TextBoxContentDescription.Name = "TextBoxContentDescription";
-            this.TextBoxContentDescription.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TextBoxContentDescription.Size = new System.Drawing.Size(528, 25);
-            this.TextBoxContentDescription.TabIndex = 16;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.label3.Location = new System.Drawing.Point(997, 16);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(62, 17);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "توضیحات:";
-            // 
             // LabelCode
             // 
             this.LabelCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -325,6 +304,28 @@
             this.TextBoxCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TextBoxCode.Size = new System.Drawing.Size(115, 26);
             this.TextBoxCode.TabIndex = 18;
+            // 
+            // TextBoxContentDescription
+            // 
+            this.TextBoxContentDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxContentDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxContentDescription.Location = new System.Drawing.Point(462, 14);
+            this.TextBoxContentDescription.Name = "TextBoxContentDescription";
+            this.TextBoxContentDescription.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.TextBoxContentDescription.Size = new System.Drawing.Size(528, 25);
+            this.TextBoxContentDescription.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label3.Location = new System.Drawing.Point(997, 16);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(62, 17);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "توضیحات:";
             // 
             // UserControlFiles
             // 
