@@ -85,9 +85,6 @@ namespace Archive.BusinessLogic
                             .Include("DocumentResourceRelations.Resource")
                             .Include("DocumentSubjectRelations.Subject")
                             .FirstOrDefault(d => d.SiteCode == siteCode);
-                //var document = context.Documents
-                //.Include(d => d.DocumentSubjectRelations.Select(r => r.Subject))
-                //.FirstOrDefault(x => x.SiteCode == siteCode);
                 return document;
             }
         }
@@ -95,14 +92,38 @@ namespace Archive.BusinessLogic
         {
             using (var context = new ArchiveEntities())
             {
-                return context.Documents.FirstOrDefault(x => x.OldTitle == oldTitle);
+                var document = context.Documents
+                            .Include("Contents")
+                            .Include("UserInfo")
+                            .Include("PermissionState")
+                            .Include("PadidAvar")
+                            .Include("Language")
+                            .Include("Category")
+                            .Include("PublishState")
+                            .Include("DocumentResourceRelations.Resource")
+                            .Include("DocumentSubjectRelations.Subject")
+                            .FirstOrDefault(d => d.OldTitle == oldTitle);
+                return document;
+                //return context.Documents.FirstOrDefault(x => x.OldTitle == oldTitle);
             }
         }
         Document IDocumentService.GetDocumentByNewTitle(string newTitle)
         {
             using (var context = new ArchiveEntities())
             {
-                return context.Documents.FirstOrDefault(x => x.NewTitle == newTitle);
+                var document = context.Documents
+                            .Include("Contents")
+                            .Include("UserInfo")
+                            .Include("PermissionState")
+                            .Include("PadidAvar")
+                            .Include("Language")
+                            .Include("Category")
+                            .Include("PublishState")
+                            .Include("DocumentResourceRelations.Resource")
+                            .Include("DocumentSubjectRelations.Subject")
+                            .FirstOrDefault(d => d.NewTitle == newTitle);
+                return document;
+                //return context.Documents.FirstOrDefault(x => x.NewTitle == newTitle);
             }
         }
 
