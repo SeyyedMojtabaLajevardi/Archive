@@ -20,7 +20,7 @@ namespace Archive
         {
             // تنظیمات Dependency Injection با Autofac
             // تنظیمات کانتینر DI با Autofac
-            RadGridLocalizationProvider.CurrentProvider = new CustomGridLocalizationProvider();
+            //RadGridLocalizationProvider.CurrentProvider = new CustomGridLocalizationProvider();
             var container = ConfigureServices();
 
             // ایجاد محدوده عمر و اجرای اپلیکیشن
