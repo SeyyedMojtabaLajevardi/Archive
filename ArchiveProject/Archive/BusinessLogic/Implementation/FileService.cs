@@ -40,10 +40,41 @@ namespace Archive.BusinessLogic
             return _context.Files.FirstOrDefault(x => x.ContentId == contentId && x.FileTypeId == fileTypeId && x.FileNumber == fileNumber);
         }
 
+        public File GetMaxFileByCategoryId(int categoryId)
+        {
+            return _context.Files.Where(x => x.CategoryId == categoryId).OrderByDescending(x=>x.FileCode).FirstOrDefault();
+        }
+
         public bool UpdateFile(int fileId, File file)
         {
-            //_context.Files = (File)file;
-            return false;
+            var existingFile = _context.Files.Find(fileId);
+            if (existingFile == null) return false;
+
+            existingFile.FileName = file.FileName;
+            existingFile.Content = file.Content;
+            existingFile.Text = file.Text;
+            existingFile.DeletionDescription = file.DeletionDescription;
+            existingFile.Content = file.Content;
+            existingFile.ContentId = file.ContentId;
+            existingFile.IsUploaded = file.IsUploaded;
+            existingFile.CategoryId = file.CategoryId;
+            existingFile.EditorId = file.EditorId;
+            existingFile.Editor = file.Editor;
+            existingFile.FileNumber = file.FileNumber;
+            existingFile.Comment = file.Comment;
+            existingFile.FileCode = file.FileCode;
+            existingFile.FileName = file.FileName;
+            existingFile.FileType = file.FileType;
+            existingFile.FileTypeId = file.FileTypeId;
+            existingFile.Resource = file.Resource;
+            existingFile.ResourceId = file.ResourceId;
+            _context.SaveChanges();
+            return true;
+        }
+
+        File IFileService.GetFileByFileCode(int fileCode)
+        {
+            return _context.Files.Where(x => x.FileCode == fileCode).FirstOrDefault();
         }
         //public void AddFilesByContentId(int contentId, List<File> fileList)
         //{

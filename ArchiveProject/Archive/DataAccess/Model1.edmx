@@ -233,6 +233,10 @@
           <Property Name="IsUploaded" Type="bit" />
           <Property Name="FileCode" Type="int" />
           <Property Name="CategoryId" Type="int" />
+          <Property Name="Part" Type="int" />
+          <Property Name="Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="Volume" Type="nvarchar" MaxLength="50" />
+          <Property Name="FilePath" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Resource">
           <Key>
@@ -741,9 +745,19 @@
             <End Role="Document" EntitySet="Documents" />
             <End Role="Content" EntitySet="Contents" />
           </AssociationSet>
+          <EntitySet Name="FileTypes" EntityType="ArchiveModel.FileType" />
+          <EntitySet Name="Subjects" EntityType="ArchiveModel.Subject" />
+          <AssociationSet Name="FK_DocumentSubjectRelation_Subject" Association="ArchiveModel.FK_DocumentSubjectRelation_Subject">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="DocumentSubjectRelation" EntitySet="DocumentSubjectRelations" />
+          </AssociationSet>
           <EntitySet Name="Files" EntityType="ArchiveModel.File" />
           <AssociationSet Name="FK_File_Editor" Association="ArchiveModel.FK_File_Editor">
             <End Role="Editor" EntitySet="Editors" />
+            <End Role="File" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="FK_File_FileType" Association="ArchiveModel.FK_File_FileType">
+            <End Role="FileType" EntitySet="FileTypes" />
             <End Role="File" EntitySet="Files" />
           </AssociationSet>
           <AssociationSet Name="FK_File_Content" Association="ArchiveModel.FK_File_Content">
@@ -753,16 +767,6 @@
           <AssociationSet Name="FK_File_Resource" Association="ArchiveModel.FK_File_Resource">
             <End Role="Resource" EntitySet="Resources" />
             <End Role="File" EntitySet="Files" />
-          </AssociationSet>
-          <EntitySet Name="FileTypes" EntityType="ArchiveModel.FileType" />
-          <AssociationSet Name="FK_File_FileType" Association="ArchiveModel.FK_File_FileType">
-            <End Role="FileType" EntitySet="FileTypes" />
-            <End Role="File" EntitySet="Files" />
-          </AssociationSet>
-          <EntitySet Name="Subjects" EntityType="ArchiveModel.Subject" />
-          <AssociationSet Name="FK_DocumentSubjectRelation_Subject" Association="ArchiveModel.FK_DocumentSubjectRelation_Subject">
-            <End Role="Subject" EntitySet="Subjects" />
-            <End Role="DocumentSubjectRelation" EntitySet="DocumentSubjectRelations" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Category">
@@ -1231,6 +1235,38 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="FileType">
+          <Key>
+            <PropertyRef Name="FileTypeId" />
+          </Key>
+          <Property Name="FileTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileTypeTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContentTypeId" Type="Int32" />
+          <Property Name="IsBook" Type="Boolean" />
+          <Property Name="FileTypeTitlePersian" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Files" Relationship="ArchiveModel.FK_File_FileType" FromRole="FileType" ToRole="File" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectId" />
+          </Key>
+          <Property Name="SubjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SampleSubjectTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DocumentSubjectRelations" Relationship="ArchiveModel.FK_DocumentSubjectRelation_Subject" FromRole="Subject" ToRole="DocumentSubjectRelation" />
+        </EntityType>
+        <Association Name="FK_DocumentSubjectRelation_Subject">
+          <End Type="ArchiveModel.Subject" Role="Subject" Multiplicity="0..1" />
+          <End Type="ArchiveModel.DocumentSubjectRelation" Role="DocumentSubjectRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubjectId" />
+            </Principal>
+            <Dependent Role="DocumentSubjectRelation">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="File">
           <Key>
             <PropertyRef Name="FileId" />
@@ -1248,10 +1284,14 @@
           <Property Name="IsUploaded" Type="Boolean" />
           <Property Name="FileCode" Type="Int32" />
           <Property Name="CategoryId" Type="Int32" />
+          <Property Name="Part" Type="Int32" />
+          <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Volume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Editor" Relationship="ArchiveModel.FK_File_Editor" FromRole="File" ToRole="Editor" />
+          <NavigationProperty Name="FileType" Relationship="ArchiveModel.FK_File_FileType" FromRole="File" ToRole="FileType" />
           <NavigationProperty Name="Content" Relationship="ArchiveModel.FK_File_Content" FromRole="File" ToRole="Content" />
           <NavigationProperty Name="Resource" Relationship="ArchiveModel.FK_File_Resource" FromRole="File" ToRole="Resource" />
-          <NavigationProperty Name="FileType" Relationship="ArchiveModel.FK_File_FileType" FromRole="File" ToRole="FileType" />
         </EntityType>
         <Association Name="FK_File_Editor">
           <End Type="ArchiveModel.Editor" Role="Editor" Multiplicity="0..1" />
@@ -1262,6 +1302,18 @@
             </Principal>
             <Dependent Role="File">
               <PropertyRef Name="EditorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_File_FileType">
+          <End Type="ArchiveModel.FileType" Role="FileType" Multiplicity="1" />
+          <End Type="ArchiveModel.File" Role="File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileType">
+              <PropertyRef Name="FileTypeId" />
+            </Principal>
+            <Dependent Role="File">
+              <PropertyRef Name="FileTypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1286,50 +1338,6 @@
             </Principal>
             <Dependent Role="File">
               <PropertyRef Name="ResourceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="FileType">
-          <Key>
-            <PropertyRef Name="FileTypeId" />
-          </Key>
-          <Property Name="FileTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FileTypeTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ContentTypeId" Type="Int32" />
-          <Property Name="IsBook" Type="Boolean" />
-          <Property Name="FileTypeTitlePersian" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Files" Relationship="ArchiveModel.FK_File_FileType" FromRole="FileType" ToRole="File" />
-        </EntityType>
-        <Association Name="FK_File_FileType">
-          <End Type="ArchiveModel.FileType" Role="FileType" Multiplicity="1" />
-          <End Type="ArchiveModel.File" Role="File" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FileType">
-              <PropertyRef Name="FileTypeId" />
-            </Principal>
-            <Dependent Role="File">
-              <PropertyRef Name="FileTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Subject">
-          <Key>
-            <PropertyRef Name="SubjectId" />
-          </Key>
-          <Property Name="SubjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SubjectTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SampleSubjectTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DocumentSubjectRelations" Relationship="ArchiveModel.FK_DocumentSubjectRelation_Subject" FromRole="Subject" ToRole="DocumentSubjectRelation" />
-        </EntityType>
-        <Association Name="FK_DocumentSubjectRelation_Subject">
-          <End Type="ArchiveModel.Subject" Role="Subject" Multiplicity="0..1" />
-          <End Type="ArchiveModel.DocumentSubjectRelation" Role="DocumentSubjectRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="SubjectId" />
-            </Principal>
-            <Dependent Role="DocumentSubjectRelation">
-              <PropertyRef Name="SubjectId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1569,25 +1577,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Files">
-            <EntityTypeMapping TypeName="ArchiveModel.File">
-              <MappingFragment StoreEntitySet="File">
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="FileCode" ColumnName="FileCode" />
-                <ScalarProperty Name="IsUploaded" ColumnName="IsUploaded" />
-                <ScalarProperty Name="EditorId" ColumnName="EditorId" />
-                <ScalarProperty Name="FileName" ColumnName="FileName" />
-                <ScalarProperty Name="Text" ColumnName="Text" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="DeletionDescription" ColumnName="DeletionDescription" />
-                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
-                <ScalarProperty Name="FileNumber" ColumnName="FileNumber" />
-                <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
-                <ScalarProperty Name="ContentId" ColumnName="ContentId" />
-                <ScalarProperty Name="FileId" ColumnName="FileId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="FileTypes">
             <EntityTypeMapping TypeName="ArchiveModel.FileType">
               <MappingFragment StoreEntitySet="FileType">
@@ -1605,6 +1594,29 @@
                 <ScalarProperty Name="SampleSubjectTitle" ColumnName="SampleSubjectTitle" />
                 <ScalarProperty Name="SubjectTitle" ColumnName="SubjectTitle" />
                 <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Files">
+            <EntityTypeMapping TypeName="ArchiveModel.File">
+              <MappingFragment StoreEntitySet="File">
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Part" ColumnName="Part" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="FileCode" ColumnName="FileCode" />
+                <ScalarProperty Name="IsUploaded" ColumnName="IsUploaded" />
+                <ScalarProperty Name="EditorId" ColumnName="EditorId" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="DeletionDescription" ColumnName="DeletionDescription" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="FileNumber" ColumnName="FileNumber" />
+                <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
+                <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+                <ScalarProperty Name="FileId" ColumnName="FileId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

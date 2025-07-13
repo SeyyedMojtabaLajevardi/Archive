@@ -1,19 +1,26 @@
 ﻿using Archive.BusinessLogic;
 using Archive.BusinessLogic.Enumerations;
+using Archive.BusinessObject;
 using Archive.DataAccess;
 using Archive.DataAccess.Dto;
 using Archive.Presentation.BaseForm;
+using Archive.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Web.UI.WebControls.WebParts;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using Telerik.WinControls.UI;
 using Telerik.Windows.Diagrams.Core;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
+using static Telerik.WinControls.UI.DateInput;
+using static Telerik.WinControls.UI.ValueMapper;
 using static Telerik.WinControls.VirtualKeyboard.VirtualKeyboardNativeMethods;
 
 namespace Archive
@@ -28,13 +35,14 @@ namespace Archive
         private readonly IFileTypeService _fileTypeService;
         private readonly ArchiveService _archiveService;
         UserControlFiles _userControlFiles;
+        DataEntryType _dataEentryType;
 
-        private Dictionary<string, List<string>> documentTypes = new Dictionary<string, List<string>> {
-            { "صوت", new List<string>{ "mp3", "wav", "ogg" } },
-            { "ویدئو", new List<string>{ "mp4", "avi" } },
-            { "تصویر", new List<string>{ "jpg", "png", "tif" } },
-            { "متن", new List<string>{ "doc", "pdf", "txt" } }
-        };
+        //private Dictionary<string, List<string>> documentTypes = new Dictionary<string, List<string>> {
+        //    { "صوت", new List<string>{ "mp3", "wav", "ogg" } },
+        //    { "ویدئو", new List<string>{ "mp4", "avi" } },
+        //    { "تصویر", new List<string>{ "jpg", "png", "tif" } },
+        //    { "متن", new List<string>{ "doc", "pdf", "txt" } }
+        //};
 
         private List<PermissionType> _permissionTypes = new List<PermissionType>();
         private List<PermissionState> _permissionStates = new List<PermissionState>();
@@ -53,6 +61,7 @@ namespace Archive
         private bool _isFirst = false;
         private ContentType _contentType = null;
         private List<FileDto> _headerFileList = null;
+        private Document _document = null;
         //private List<File> _headerDocumentList = null;
         private int _mainCategoryId,
             _firstCategoryId,
@@ -73,11 +82,11 @@ namespace Archive
         public FormCreateDocument(int mainCategoryId)
         {
             InitializeComponent();
-            
+
             _userControlFiles = new UserControlFiles { Dock = DockStyle.Fill };
             _mainCategoryId = mainCategoryId;
             _archiveService = new ArchiveService(new ArchiveEntities());
-            _userControlFiles.AddButtonClicked += _userControlFiles_AddButtonClicked;
+            _userControlFiles.UploadButtonClicked += _userControlFiles_UploadButtonClicked;
             //var width = (ToolStripContentType.Width / 4) - 10;
             //ToolStripButtonSound.Width = width;
             //ToolStripButtonText.Width = width;
@@ -97,7 +106,7 @@ namespace Archive
             _contentService = archiveFacadeService.ContentService;
             _categoryService = archiveFacadeService.CategoryService;
             _fileService = archiveFacadeService.FileService;
-            _userControlFiles.AddButtonClicked += _userControlFiles_AddButtonClicked;
+            _userControlFiles.UploadButtonClicked += _userControlFiles_UploadButtonClicked;
             GridViewContent.ViewCellFormatting += GridViewContent_ViewCellFormatting;
         }
 
@@ -111,16 +120,19 @@ namespace Archive
             radNavigationView1_SelectedPageChanged(null, null);
         }
 
-        private void _userControlFiles_AddButtonClicked(object sender, EventArgs e)
+        private void _userControlFiles_UploadButtonClicked(object sender, EventArgs e)
         {
             if (!FormValidations())
                 return;
-
-            Content content = _contentService.GetContentByContentTypeIdAndDocumentId(_contentType.ContentTypeId, _documentId);
+            string sourceFilePath = "";
+            RadOpenFileDialog radOpenFileDialog = new RadOpenFileDialog();
+            var fff = radOpenFileDialog.ShowDialog();
+            sourceFilePath = radOpenFileDialog.FileName;
+            DataAccess.Content content = _contentService.GetContentByContentTypeIdAndDocumentId(_contentType.ContentTypeId, _documentId);
 
             if (content == null)
             {
-                content = new Content
+                content = new DataAccess.Content
                 {
                     ContentTypeId = _contentType.ContentTypeId,
                     DocumentId = _documentId,
@@ -130,32 +142,86 @@ namespace Archive
                 _contentService.AddContent(content);
             }
             _contentId = content.ContentId;
-            File file = _fileService.GetFileByContentIdAndFileTypeIdAndFileNumber(_contentId, _userControlFiles.FileTypeId, int.Parse(_userControlFiles.TextBoxFileNo.Text.Trim()));
+            //int currentFileCode = 0, 
+            int fileId = 0;
+            int newFileCode = 0;
+            if (TextBoxSiteCode.Text.Trim() == "")
+            {
+                CodeRange codeRange = _archiveService.GetCodeRangeByCategoryId(_mainCategoryId);
+                newFileCode = Common.GetSiteCode(_fileService, _mainCategoryId, codeRange);
+            }
+            else
+                int.TryParse(TextBoxSiteCode.Text.Trim(), out newFileCode);
+            //newFileCode = currentFileCode;
+            if (GridViewContent.CurrentRow != null && _dataEentryType == DataEntryType.Edit)
+            {
+                int.TryParse(GridViewContent.CurrentRow.Cells["FileId"].Value.ToString(), out fileId);
+            }
+
+            DataAccess.File file = _fileService.GetFileById(fileId);
+
+            int part = 0;
+            int.TryParse(_userControlFiles.TextBoxPart.Text.Trim(), out part);
+            var fileName = newFileCode.ToString().PadLeft(5, '0') + "_" +
+                radDropDownListNewTitle.Text + "_" +
+                TextBoxSessionNumber.Text.Trim().PadLeft(2, '0') + "_P" +
+                _userControlFiles.TextBoxPart.Text.Trim().PadLeft(2, '0') + "_" +
+                _userControlFiles.radDropDownListFileType.Text.Trim() + "_" +
+                _userControlFiles.TextBoxFileNo.Text.Trim() + Path.GetExtension(sourceFilePath);
+
+            Common common = new Common();
+            string destinationDirectoryPath = common.GetDirectory(_document.MainCategoryId.ToString().PadLeft(3, '0') + "_" + radDropDownListMainCategory.Text,
+                _document.FirstCategoryId.ToString().PadLeft(3, '0') + "_" + radDropDownListCategory1.Text);
+
+            System.IO.File.Copy(sourceFilePath, destinationDirectoryPath + @"\" + fileName);
+            if (System.IO.File.Exists(destinationDirectoryPath + @"\" + fileName))
+                MessageBox.Show("آپلود با موفقیت انجام شد");
+            else
+                MessageBox.Show("آپلود با شکست مواجه شد");
 
             if (file == null)
             {
-                file = new File
+                file = new DataAccess.File
                 {
                     CategoryId = _mainCategoryId,
                     ResourceId = _resourceId > 0 ? _resourceId : (int?)null,
                     FileTypeId = _userControlFiles.FileTypeId,
                     FileNumber = int.Parse(_userControlFiles.TextBoxFileNo.Text.Trim()),
                     Comment = _userControlFiles.TextBoxContentComment.Text.Trim(),
+                    Part = part,
+                    Time = _userControlFiles.LabelTime.Text.Trim(),
+                    Volume = _userControlFiles.TextBoxVolume.Text.Trim(),
+                    FileCode = newFileCode,
+                    Content = content,
+                    FilePath = destinationDirectoryPath + @"\" + fileName,
                     //EditorId = null,
                     DeletionDescription = _userControlFiles.textBoxDeletionDescription.Text.Trim(),
-                    FileName = "test" + _userControlFiles.TextBoxFileNo.Text.Trim(),
+                    FileName = fileName,
                     ContentId = content.ContentId
                 };
                 _fileService.AddFile(file);
-                //_contentService.AddFilesToContentByContentId(content.ContentId, new List<File> { file });
             }
             else
             {
+                file.FileId = file.FileId;
+                file.CategoryId = _mainCategoryId;
+                file.ResourceId = _resourceId > 0 ? _resourceId : (int?)null;
+                file.FileTypeId = _userControlFiles.FileTypeId;
+                file.FileNumber = int.Parse(_userControlFiles.TextBoxFileNo.Text.Trim());
+                file.Comment = _userControlFiles.TextBoxContentComment.Text.Trim();
+                file.FileCode = newFileCode;
+                file.Part = part;
+                file.FilePath = destinationDirectoryPath + @"\" + fileName;
+                file.Time = _userControlFiles.LabelTime.Text.Trim();
+                file.Volume = _userControlFiles.TextBoxVolume.Text.Trim();
+                //file.//EditorId = null,
+                file.DeletionDescription = _userControlFiles.textBoxDeletionDescription.Text.Trim();
+                file.FileName = fileName;
+                file.ContentId = content.ContentId;
+                file.Content.Description = _userControlFiles.TextBoxContentDescription.Text;
                 _fileService.UpdateFile(file.FileId, file);
-                MessageBox.Show(@"فایل مورد نظر موجود می‌باشد");
-                return;
+                MessageBox.Show(@"ویرایش فابل با موفقیت انجام شد");
             }
-
             FillGrid();
         }
 
@@ -170,19 +236,19 @@ namespace Archive
         private void ButtonSaveTemorary_Click(object sender, EventArgs e)
         {
             //var content = GetCurrentContentInfo();
-            Document document = DuplicatedData();
-            if (document != null)
+            _document = GetCurrentDocument();
+            if (_document != null)
             {
                 if (MessageBox.Show("اطلاعات وارد شده تکراری می‌باشد" + "\r\r" + "آیا تمایل به ویرایش اطلاعات دارید؟", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    var documentDto = CreateDocumentModel(document);
+                    var documentDto = CreateDocumentModel(_document);
                     _documentService.UpdateDocument(documentDto);
                 }
             }
             else
             {
-                document = CreateDocumentModel();
-                _documentId = _documentService.AddDocument(document);
+                _document = CreateDocumentModel();
+                _documentId = _documentService.AddDocument(_document);
             }
         }
 
@@ -199,17 +265,19 @@ namespace Archive
 
         private void FillDocumentControls(Document document)
         {
-            _isFirst = true;
             string mainCategory = _categoryService.GetCategoryById(document.MainCategoryId.Value).CategoryTitle;
+            radDropDownListMainCategory.SelectedIndex = radDropDownListMainCategory.FindStringExact(mainCategory);
+
+            radDropDownListMainCategory.Text = mainCategory;
+            _isFirst = true;
             string firstCategory = _categoryService.GetCategoryById(document.FirstCategoryId.Value).CategoryTitle;
             string secondCategory = _categoryService.GetCategoryById(document.SecondCategoryId.Value).CategoryTitle;
-
+            FillDropDownList();
             _documentId = document.DocumentId;
             radDropDownListPermissionState.SelectedIndex = -1;
             radDropDownListPadidAvar.SelectedIndex = -1;
             radDropDownListLanguage.SelectedIndex = -1;
             radDropDownListPublishState.SelectedIndex = -1;
-            radDropDownListMainCategory.SelectedIndex = -1;
             radDropDownListCategory1.SelectedIndex = -1;
             radDropDownListCategory2.SelectedIndex = -1;
             TextBoxSiteCode.Text = document.SiteCode;
@@ -220,27 +288,50 @@ namespace Archive
             TextBoxPlace.Text = document.SessionPlace;
             TextBoxLink.Text = document.RelatedLink;
             TextBoxDocumentDescription.Text = document.Description;
-
             if (document.PermissionState != null)
+            {
                 radDropDownListPermissionState.SelectedIndex = radDropDownListPermissionState.FindStringExact(document.PermissionState.PermissionStateTitle);
+                radDropDownListPermissionState.Text = document.PermissionState.PermissionStateTitle;
+            }
             if (document.PadidAvar != null)
+            {
                 radDropDownListPadidAvar.SelectedIndex = radDropDownListPadidAvar.FindStringExact(document.PadidAvar.PadidAvarTitle);
+                radDropDownListPadidAvar.Text = document.PadidAvar.PadidAvarTitle;
+            }
             if (document.Language != null)
+            {
                 radDropDownListLanguage.SelectedIndex = radDropDownListLanguage.FindStringExact(document.Language.LanguageTitle);
+                radDropDownListLanguage.Text = document.Language.LanguageTitle;
+            }
             if (document.PublishState != null)
+            {
                 radDropDownListPublishState.SelectedIndex = radDropDownListPublishState.FindStringExact(document.PublishState.PublishStateTitle);
+                radDropDownListPublishState.Text = document.PublishState.PublishStateTitle;
+            }
             if (document.OldTitle != null)
+            {
                 radDropDownListOldTitle.SelectedIndex = radDropDownListOldTitle.FindStringExact(document.OldTitle);
+                radDropDownListOldTitle.Text = document.OldTitle;
+            }
             if (document.NewTitle != null)
+            {
                 radDropDownListNewTitle.SelectedIndex = radDropDownListNewTitle.FindStringExact(document.NewTitle);
+                radDropDownListNewTitle.Text = document.NewTitle;
+            }
             if (document.SessionDate != null)
                 PersiandateTimePickerDate.DateValue = document.SessionDate.Value.ToString("yyyy/MM/dd", _persianCulture);
 
             _isFirst = false;
             if (!string.IsNullOrEmpty(mainCategory.Trim()))
+            {
                 radDropDownListMainCategory.SelectedIndex = radDropDownListMainCategory.FindStringExact(mainCategory);
+                radDropDownListMainCategory.Text = mainCategory;
+            }
             if (!string.IsNullOrEmpty(firstCategory.Trim()))
+            {
                 radDropDownListCategory1.SelectedIndex = radDropDownListCategory1.FindStringExact(firstCategory);
+                radDropDownListCategory1.Text = firstCategory;
+            }
             _isFirst = true;
             radDropDownListCategory2.SelectedIndex = -1;
             _isFirst = false;
@@ -249,9 +340,7 @@ namespace Archive
                 radDropDownListCategory2.SelectedIndex = radDropDownListCategory2.FindStringExact(secondCategory);
                 radDropDownListCategory2.Text = secondCategory;
             }
-            var subjects = document.DocumentSubjectRelations
-                        .Select(r => r.Subject)
-                        .ToList();
+            var subjects = document.DocumentSubjectRelations.Select(r => r.Subject).ToList();
             foreach (RadCheckedListDataItem item in ComboBoxSubject.Items)
             {
                 item.Checked = subjects.Count(x => x.SubjectId.ToString() == item.Value.ToString()) > 0;
@@ -320,83 +409,26 @@ namespace Archive
             return contentType;
         }
 
-        private void GridViewContent_CurrentRowChanged(object sender, Telerik.WinControls.UI.CurrentRowChangedEventArgs e)
+        private FileDto GetCurrentFileInfo(GridViewRowInfo currentRow)
         {
-            if (_isFirst || GridViewContent.CurrentRow == null/* || GridViewContent.CurrentRow.HierarchyLevel == 0*/)
-                return;
-            File fileInfo = GetCurrentFileInfo(GridViewContent.CurrentRow);
-            if (fileInfo.ContentId == 0) return;
-            _contentType = GetContentTypeFromGridView();
-            FillFileType();
-            switch (_contentType.ContentTypeTitle?.ToLower())
-            {
-                case "sound":
-                    _userControlFiles.TextBoxContentComment.Text = fileInfo.Comment;
-                    _userControlFiles.textBoxDeletionDescription.Text = fileInfo.DeletionDescription;
-                    _userControlFiles.TextBoxFileNo.Text = fileInfo.FileNumber.ToString();
-                    if (fileInfo.FileType != null)
-                        _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.FileType.FileTypeTitle);
-                    if (fileInfo.Resource != null)
-                        _userControlFiles.radDropDownListResource.SelectedIndex = _userControlFiles.radDropDownListResource.FindStringExact(fileInfo.Resource.ResourceTitle);
-                    radNavigationView1.SelectedPage = radPageViewPageSound;
-
-                    break;
-
-                case "text":
-                    _userControlFiles.TextBoxContentComment.Text = fileInfo.Comment;
-                    _userControlFiles.textBoxDeletionDescription.Text = fileInfo.DeletionDescription;
-                    _userControlFiles.TextBoxFileNo.Text = fileInfo.FileNumber.ToString();
-                    if (fileInfo.FileType != null)
-                        _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.FileType.FileTypeTitle);
-                    if (fileInfo.Resource != null)
-                        _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.Resource.ResourceTitle);
-                    _userControlFiles.RichTextBoxTextUpload.Text = fileInfo.Text;
-                    radNavigationView1.SelectedPage = radPageViewPageText;
-                    break;
-
-                case "image":
-                    _userControlFiles.TextBoxContentComment.Text = fileInfo.Comment;
-                    _userControlFiles.textBoxDeletionDescription.Text = fileInfo.DeletionDescription;
-                    _userControlFiles.TextBoxFileNo.Text = fileInfo.FileNumber.ToString();
-                    if (fileInfo.FileType != null)
-                        _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.FileType.FileTypeTitle);
-                    if (fileInfo.Resource != null)
-                        _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.Resource.ResourceTitle);
-                    radNavigationView1.SelectedPage = radPageViewPageImage;
-                    break;
-
-                case "video":
-                    _userControlFiles.TextBoxContentComment.Text = fileInfo.Comment;
-                    _userControlFiles.textBoxDeletionDescription.Text = fileInfo.DeletionDescription;
-                    _userControlFiles.TextBoxFileNo.Text = fileInfo.FileNumber.ToString();
-                    if (fileInfo.FileType != null)
-                        _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.FileType.FileTypeTitle);
-                    if (fileInfo.Resource != null)
-                        _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.Resource.ResourceTitle);
-                    radNavigationView1.SelectedPage = radPageViewPageVideo;
-                    break;
-                default:
-                    MessageBox.Show(@"اشکال در واکشی نوع محتوا");
-                    break;
-            }
-
-        }
-
-        private File GetCurrentFileInfo(GridViewRowInfo currentRow)
-        {
-            File file = new File();
+            FileDto file = new FileDto();
             try
             {
                 file.Comment = currentRow.Cells["Comment"].Value?.ToString();
                 file.ContentId = int.Parse(currentRow.Cells["ContentId"].Value?.ToString());
                 file.DeletionDescription = currentRow.Cells["DeletionDescription"].Value.ToString();
-                file.FileName = currentRow.Cells["FileName"]?.Value?.ToString();
+                file.FileName = currentRow.Cells["FileName"]?.Value?.ToString().Replace("\u200E", "");
                 file.FileNumber = int.Parse(currentRow.Cells["FileNumber"].Value.ToString());
                 if (currentRow.Cells["FileTypeTitle"].Value != null)
                     file.FileType = new FileType { FileTypeId = int.Parse(currentRow.Cells["FileTypeId"].Value.ToString()), FileTypeTitle = currentRow.Cells["FileTypeTitle"].Value.ToString() };
                 if (currentRow.Cells["ResourceTitle"].Value != null)
                     file.Resource = new Resource { ResourceId = int.Parse(currentRow.Cells["ResourceId"].Value.ToString()), ResourceTitle = currentRow.Cells["ResourceTitle"].Value.ToString() };
                 file.Text = currentRow.Cells["Text"]?.Value?.ToString();
+                if (currentRow.Cells["Code"].Value != null)
+                    file.Code = currentRow.Cells["Code"]?.Value?.ToString();
+                if (currentRow.Cells["Description"].Value != null)
+                    file.Description = currentRow.Cells["Description"]?.Value?.ToString();
+
             }
             catch (Exception ex)
             {
@@ -456,13 +488,12 @@ namespace Archive
 
         private void radDropDownListMainCategory_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            if (_isFirst) return;
+            //if (_isFirst) return;
             _isFirst = true;
             radDropDownListMainCategory.BackColor = Color.White;
-            int.TryParse(radDropDownListMainCategory?.SelectedItem?.Value.ToString(), out _mainCategoryId);
+            _mainCategoryId = _archiveService.GetCategoryByEnglishTitle("Speach").CategoryId;
             var categoryTitle = radDropDownListMainCategory.SelectedText;
-
-            _categories1 = _archiveService.FillCategory(_mainCategoryId, 2);
+            _categories1 = _archiveService.GetCategory(_mainCategoryId, 2);
             radDropDownListCategory1.DataSource = _categories1;
             radDropDownListCategory1.DisplayMember = "CategoryTitle";
             radDropDownListCategory1.ValueMember = "CategoryId";
@@ -473,12 +504,12 @@ namespace Archive
         private void radDropDownListCategory1_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
             if (_isFirst) return;
-            //_firstCategoryId = ((Category)radDropDownListCategory1.SelectedItem.Value).CategoryId;
+            //_firstCategoryId = radDropDownListCategory1.SelectedItem.Value;
             int.TryParse(radDropDownListCategory1?.SelectedItem?.Value.ToString(), out _firstCategoryId);
             radDropDownListCategory1.BackColor = Color.White;
             var categoryTitle = radDropDownListCategory1.SelectedText;
             _isFirst = true;
-            _categories2 = _archiveService.FillCategory(_firstCategoryId, 3);
+            _categories2 = _archiveService.GetCategory(_firstCategoryId, 3);
             radDropDownListCategory2.DataSource = _categories2;
             radDropDownListCategory2.DisplayMember = "CategoryTitle";
             radDropDownListCategory2.ValueMember = "CategoryId";
@@ -537,14 +568,16 @@ namespace Archive
         {
             _contentType = GetConentType();
             var siteCode = TextBoxSiteCode.Text.Trim();
-            var document = _documentService.GetDocumentBySiteCode(siteCode);
+            _document = _documentService.GetDocumentBySiteCode(siteCode);
 
-            ClearBox();
-            if (document == null)
+            if (_document == null)
+            {
+                ClearBox();
                 return;
+            }
             _isFirst = true;
-            FillDocumentControls(document);
-            FillContentControls(document.DocumentId);
+            FillDocumentControls(_document);
+            FillContentControls(_document.DocumentId);
             _isFirst = false;
         }
         private void TextBoxSiteCode_KeyDown(object sender, KeyEventArgs e)
@@ -554,17 +587,18 @@ namespace Archive
 
             _contentType = GetConentType();
             var siteCode = TextBoxSiteCode.Text.Trim();
-            var document = _documentService.GetDocumentBySiteCode(siteCode);
+            _document = _documentService.GetDocumentBySiteCode(siteCode);
 
-            ClearBox();
-            if (document == null)
+            if (_document == null)
+            {
+                ClearBox();
                 return;
+            }
             _isFirst = true;
             TextBoxSiteCode.Text = siteCode;
-            FillDocumentControls(document);
-            FillContentControls(document.DocumentId);
+            FillDocumentControls(_document);
+            FillContentControls(_document.DocumentId);
             _isFirst = false;
-
         }
 
         private void radDropDownListOldTitle_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
@@ -576,19 +610,22 @@ namespace Archive
             //  اگر سایت کد، مشخص شده باشد، تغییر عنوان قدیم بابت ویرایش خواهد بود نه جستجوی مستند
             //  لذا دیگر نباید جستجوی مستند بر اساس عنوان قدیم صورت پذیرد
             if (TextBoxSiteCode.Text.Trim() != "")
+            {
+                //MessageBox.Show($"سندی با کد سایت {TextBoxSiteCode.Text.Trim()} یافت نشد.");
                 return;
-            var document = _documentService.GetDocumentByOldTitle(radDropDownListOldTitle.Text.Trim());
+            }
+            _document = _documentService.GetDocumentByOldTitle(radDropDownListOldTitle.Text.Trim());
             var text = radDropDownListOldTitle.Text.Trim();
             ClearBox();
-            if (document == null)
+            if (_document == null)
                 return;
             _isFirst = true;
             radDropDownListOldTitle.Text = text;
             _isFirst = false;
 
             _isFirst = true;
-            FillDocumentControls(document);
-            FillContentControls(document.DocumentId);
+            FillDocumentControls(_document);
+            FillContentControls(_document.DocumentId);
             _isFirst = false;
         }
 
@@ -603,10 +640,10 @@ namespace Archive
             //  لذا دیگر نباید جستجوی مستند بر اساس عنوان جدید صورت پذیرد
             if (TextBoxSiteCode.Text.Trim() != "")
                 return;
-            var document = _documentService.GetDocumentByNewTitle(radDropDownListNewTitle.Text.Trim());
+            _document = _documentService.GetDocumentByNewTitle(radDropDownListNewTitle.Text.Trim());
             var text = radDropDownListNewTitle.Text.Trim();
             ClearBox();
-            if (document == null)
+            if (_document == null)
                 return;
 
             _isFirst = true;
@@ -614,8 +651,8 @@ namespace Archive
             _isFirst = false;
 
             _isFirst = true;
-            FillDocumentControls(document);
-            FillContentControls(document.DocumentId);
+            FillDocumentControls(_document);
+            FillContentControls(_document.DocumentId);
             _isFirst = false;
         }
 
@@ -630,7 +667,7 @@ namespace Archive
             frm.ShowDialog();
             frm.Close();
 
-            _subjects = _archiveService.FillSubject();
+            _subjects = _archiveService.GetSubject();
             ComboBoxSubject.DataSource = _subjects;
             ComboBoxSubject.DisplayMember = "SubjectTitle";
             ComboBoxSubject.ValueMember = "SubjectId";
@@ -651,7 +688,6 @@ namespace Archive
             if (GridViewContent.CurrentRow != null)
                 index = GridViewContent.CurrentRow.Index;
             var list = _contentService.GetContentByDocumentId(_documentId);
-            //GetInformation();
             _isFirst = true;
             GridViewContent.DataSource = list;
             _headerFileList.AddRange(list.Select(x => new FileDto
@@ -662,16 +698,6 @@ namespace Archive
             if (GridViewContent.RowCount > 0) GridViewContent.CurrentRow = GridViewContent.Rows[index];
             _isFirst = false;
             FillHeaderFileTypeBox();
-        }
-
-        private void ButtonUpload_Text_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ButtonAddFile_Text_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void FillHeaderFileTypeBox()
@@ -703,6 +729,123 @@ namespace Archive
 
         }
 
+        private void radDropDownListOldTitle_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter)
+                return;
+        }
+
+        private void GridViewContent_CurrentRowChanged(object sender, Telerik.WinControls.UI.CurrentRowChangedEventArgs e)
+        {
+            if (_isFirst || GridViewContent.CurrentRow == null/* || GridViewContent.CurrentRow.HierarchyLevel == 0*/)
+                return;
+            //FileDto fileInfo = GetCurrentFileInfo(GridViewContent.CurrentRow);
+            //if (fileInfo.ContentId == 0) return;
+            _dataEentryType = DataEntryType.Insert;
+            _contentType = GetContentTypeFromGridView();
+            //FillFileType();
+            //_userControlFiles.TextBoxCode.Text = "";
+            ///****************/
+            //_userControlFiles.TextBoxContentDescription.Text = fileInfo.Description;
+            //_userControlFiles.TextBoxContentComment.Text = fileInfo.Comment;
+            //_userControlFiles.textBoxDeletionDescription.Text = fileInfo.DeletionDescription;
+            //_userControlFiles.TextBoxFileNo.Text = fileInfo.FileNumber.ToString();
+            //switch (_contentType.ContentTypeTitle?.ToLower())
+            //{
+            //    case "sound":
+            //        _userControlFiles.TextBoxCode.Text = fileInfo.Code;
+            //        radNavigationView1.SelectedPage = radPageViewPageSound;
+            //        break;
+
+            //    case "text":
+            //        radNavigationView1.SelectedPage = radPageViewPageText;
+            //        break;
+
+            //    case "image":
+            //        radNavigationView1.SelectedPage = radPageViewPageImage;
+            //        break;
+
+            //    case "video":
+            //        radNavigationView1.SelectedPage = radPageViewPageVideo;
+            //        break;
+            //    default:
+            //        MessageBox.Show(@"اشکال در واکشی نوع محتوا");
+            //        break;
+            //}
+            //if (fileInfo.FileType != null)
+            //{
+            //    _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.FileType.FileTypeTitle);
+            //    _userControlFiles.radDropDownListFileType.Text = fileInfo.FileType.FileTypeTitle;
+            //}
+            //if (fileInfo.Resource != null)
+            //{
+            //    _userControlFiles.radDropDownListResource.SelectedIndex = _userControlFiles.radDropDownListResource.FindStringExact(fileInfo.Resource.ResourceTitle);
+            //    _userControlFiles.radDropDownListResource.Text = fileInfo.Resource.ResourceTitle;
+            //}
+        }
+
+        private void GridViewContent_CommandCellClick(object sender, GridViewCellEventArgs e)
+        {
+            if (e.Column.HeaderText != "Edit")
+                return;
+            if (_isFirst || GridViewContent.CurrentRow == null/* || GridViewContent.CurrentRow.HierarchyLevel == 0*/)
+                return;
+            _dataEentryType = DataEntryType.Edit;
+            FileDto fileInfo = GetCurrentFileInfo(GridViewContent.CurrentRow);
+            if (fileInfo.ContentId == 0) return;
+            _contentType = GetContentTypeFromGridView();
+            FillFileType();
+            _userControlFiles.TextBoxCode.Text = "";
+            /****************/
+            _userControlFiles.TextBoxContentDescription.Text = fileInfo.Description;
+            _userControlFiles.TextBoxContentComment.Text = fileInfo.Comment;
+            _userControlFiles.textBoxDeletionDescription.Text = fileInfo.DeletionDescription;
+            _userControlFiles.TextBoxFileNo.Text = fileInfo.FileNumber.ToString();
+            switch (_contentType.ContentTypeTitle?.ToLower())
+            {
+                case "sound":
+                    _userControlFiles.TextBoxCode.Text = fileInfo.Code;
+                    radNavigationView1.SelectedPage = radPageViewPageSound;
+                    break;
+
+                case "text":
+                    radNavigationView1.SelectedPage = radPageViewPageText;
+                    break;
+
+                case "image":
+                    radNavigationView1.SelectedPage = radPageViewPageImage;
+                    break;
+
+                case "video":
+                    radNavigationView1.SelectedPage = radPageViewPageVideo;
+                    break;
+                default:
+                    MessageBox.Show(@"اشکال در واکشی نوع محتوا");
+                    break;
+            }
+            if (fileInfo.FileType != null)
+            {
+                _userControlFiles.radDropDownListFileType.SelectedIndex = _userControlFiles.radDropDownListFileType.FindStringExact(fileInfo.FileType.FileTypeTitle);
+                _userControlFiles.radDropDownListFileType.Text = fileInfo.FileType.FileTypeTitle;
+            }
+            if (fileInfo.Resource != null)
+            {
+                _userControlFiles.radDropDownListResource.SelectedIndex = _userControlFiles.radDropDownListResource.FindStringExact(fileInfo.Resource.ResourceTitle);
+                _userControlFiles.radDropDownListResource.Text = fileInfo.Resource.ResourceTitle;
+            }
+
+        }
+
+        private void GridViewContent_Leave(object sender, EventArgs e)
+        {
+            //_dataEentryType = DataEntryType.Insert;
+        }
+
+        private void ButtonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void ButtonRegisterDocument_Click(object sender, EventArgs e)
         {
             if (!FormValidations())
@@ -711,19 +854,19 @@ namespace Archive
                 return;
             }
 
-            Document document = DuplicatedData();
-            if (document != null)
+            _document = GetCurrentDocument();
+            if (_document != null)
             {
                 if (MessageBox.Show("اطلاعات وارد شده تکراری می‌باشد" + "\r\r" + "آیا تمایل به ویرایش اطلاعات دارید؟", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    var documentDto = CreateDocumentModel(document);
-                    _documentService.UpdateDocument(documentDto);
+                    var documentObj = CreateDocumentModel(_document);
+                    _documentService.UpdateDocument(documentObj);
                 }
             }
             else
             {
-                document = CreateDocumentModel();
-                _documentId = _documentService.AddDocument(document);
+                _document = CreateDocumentModel();
+                _documentId = _documentService.AddDocument(_document);
             }
         }
 
@@ -736,10 +879,17 @@ namespace Archive
                 return false;
             }
 
-            if (radDropDownListNewTitle.SelectedIndex == -1)
+            if (radDropDownListNewTitle.SelectedIndex == -1 && radDropDownListNewTitle.Text.Trim() == "")
             {
                 radDropDownListNewTitle.Focus();
                 radDropDownListNewTitle.BackColor = Color.IndianRed;
+                return false;
+            }
+
+            if (radDropDownListOldTitle.SelectedIndex == -1 && radDropDownListOldTitle.Text.Trim() == "")
+            {
+                radDropDownListOldTitle.Focus();
+                radDropDownListOldTitle.BackColor = Color.IndianRed;
                 return false;
             }
 
@@ -794,9 +944,9 @@ namespace Archive
             return true;
         }
 
-        private DocumentDto CreateDocumentModel(Document document = null)
+        private Document CreateDocumentModel(Document document = null)
         {
-            DocumentDto documentDto = new DocumentDto();
+            //DocumentDto documentDto = new DocumentDto();
             if (document == null)
                 document = new Document();
             int.TryParse(TextBoxSessionCount.Text.Trim(), out int sessionCount);
@@ -818,47 +968,46 @@ namespace Archive
             string validDate = Regex.Replace(date, @"(\d{4})/(\d{1,2})/(\d{1,2})",
             m => $"{m.Groups[1].Value}/{int.Parse(m.Groups[2].Value):00}/{int.Parse(m.Groups[3].Value):00}"
         );
-            documentDto.SessionDate = DateTime.ParseExact(validDate, "yyyy/MM/dd", _persianCulture, DateTimeStyles.None);
-            documentDto.DocumentCode = document.DocumentCode;
-            documentDto.DocumentId = document.DocumentId;
-            //documentDto.SubjectIdList = document.DocumentSubjectRelations.Select(x => x.SubjectId.Value).ToList();
-            documentDto.DocumentSubjectRelations = GetNewDocumentSubjectRelation(document);
-            documentDto.SiteCode = TextBoxSiteCode.Text.Trim();
-            documentDto.OldTitle = radDropDownListOldTitle.Text.Trim();
-            documentDto.NewTitle = radDropDownListNewTitle.Text.Trim();
-            documentDto.NewTitle = radDropDownListNewTitle.Text.Trim();
-            documentDto.SubTitle = TextBoxSubTitle.Text.Trim();
-            documentDto.PermissionStateId = _permissionStateId;
-            //documentDto.CreatorUserId = ??
-            documentDto.PadidAvarId = _padidAvarId;
-            documentDto.LanguageId = _languageId;
-            documentDto.Comment = TextBoxDocumentDescription.Text.Trim();
-            documentDto.SessionNumber = sessionNumber;
-            documentDto.SessionCount = sessionCount;
-            documentDto.SessionPlace = TextBoxPlace.Text.Trim();
-            //documentDto.SessionDate = ??
-            documentDto.RelatedLink = TextBoxLink.Text.Trim();
-            documentDto.Description = TextBoxDocumentDescription.Text.Trim();
-            documentDto.MainCategoryId = _mainCategoryId;
-            //documentDto.PublishYear = ??
-            //documentDto.PublishPlace = ??
-            //documentDto.BookPublisher = ??
-            //documentDto.BookVolumeNumber = ??
-            //documentDto.BookPageNumber = ??
-            //documentDto.BookVolumeCount = ??
-            //documentDto.FipaCode = ??
-            //documentDto.TranslateLanguageId = ??
-            //documentDto.Translator = ??
-            //documentDto.Narrator = ??
-            documentDto.SecondCategoryId = _secondCategoryId;
-            documentDto.FirstCategoryId = _firstCategoryId;
-            documentDto.PublishStateId = _publishStateId;
-            documentDto.MainCategory = _categoryService.GetCategoryById(_mainCategoryId).CategoryTitle;
-            documentDto.FirstCategory = _categoryService.GetCategoryById(_firstCategoryId).CategoryTitle;
-            documentDto.SecondCategory = _categoryService.GetCategoryById(_secondCategoryId).CategoryTitle;
+            document.SessionDate = DateTime.ParseExact(validDate, "yyyy/MM/dd", _persianCulture, DateTimeStyles.None);
+            document.DocumentCode = document.DocumentCode;
+            document.DocumentId = document.DocumentId;
+            //document.SubjectIdList = document.DocumentSubjectRelations.Select(x => x.SubjectId.Value).ToList();
+            document.DocumentSubjectRelations = GetNewDocumentSubjectRelation(document);
+            document.SiteCode = TextBoxSiteCode.Text.Trim();
+            document.OldTitle = radDropDownListOldTitle.Text.Trim();
+            document.NewTitle = radDropDownListNewTitle.Text.Trim();
+            document.SubTitle = TextBoxSubTitle.Text.Trim();
+            document.PermissionStateId = _permissionStateId;
+            //documentDCreatorUserId = ??
+            document.PadidAvarId = _padidAvarId;
+            document.LanguageId = _languageId;
+            document.Comment = TextBoxDocumentDescription.Text.Trim();
+            document.SessionNumber = sessionNumber;
+            document.SessionCount = sessionCount;
+            document.SessionPlace = TextBoxPlace.Text.Trim();
+            //document.SessionDate = ??
+            document.RelatedLink = TextBoxLink.Text.Trim();
+            document.Description = TextBoxDocumentDescription.Text.Trim();
+            document.MainCategoryId = _mainCategoryId;
+            //document.PublishYear = ??
+            //document.PublishPlace = ??
+            //document.BookPublisher = ??
+            //document.BookVolumeNumber = ??
+            //document.BookPageNumber = ??
+            //document.BookVolumeCount = ??
+            //document.FipaCode = ??
+            //document.TranslateLanguageId = ??
+            //document.Translator = ??
+            //document.Narrator = ??
+            document.SecondCategoryId = _secondCategoryId;
+            document.FirstCategoryId = _firstCategoryId;
+            document.PublishStateId = _publishStateId;
+            //document.MainCategory = _categoryService.GetCategoryById(_mainCategoryId).CategoryTitle;
+            //document.FirstCategory = _categoryService.GetCategoryById(_firstCategoryId).CategoryTitle;
+            //document.SecondCategory = _categoryService.GetCategoryById(_secondCategoryId).CategoryTitle;
 
             //SessionDate = Calendar.va
-            return documentDto;
+            return document;
         }
 
         private ICollection<DocumentSubjectRelation> GetNewDocumentSubjectRelation(Document document)
@@ -886,18 +1035,28 @@ namespace Archive
             {
                 if (c is TextBox textBox)
                 {
-                    textBox.Clear();
+                    if (textBox.Name != "TextBoxSiteCode")
+                    {
+                        textBox.Clear();
+                        textBox.BackColor = System.Drawing.SystemColors.Control;
+                    }
                 }
                 else if (c is ComboBox comboBox)
                 {
                     _isFirst = true;
                     comboBox.SelectedIndex = -1; // یا هر مقداری که برای تنظیم اولیه نیاز دارید
+                    comboBox.BackColor = System.Drawing.SystemColors.Control;
                     _isFirst = false;
                 }
                 else if (c is RadDropDownList radDropDownList)
                 {
-                    _isFirst = true;
+                    if (radDropDownList.Name == "radDropDownListMainCategory")
+                        continue;
+                    if (radDropDownList.Name != "radDropDownListOldTitle" && radDropDownList.Name != "radDropDownListNewTitle")
+                        _isFirst = true;
                     radDropDownList.SelectedIndex = -1; // یا هر مقداری که برای تنظیم اولیه نیاز دارید
+                    radDropDownList.Text = "";
+                    radDropDownList.BackColor = System.Drawing.SystemColors.Control;
                     _isFirst = false;
                 }
                 else if (c is CheckBox checkBox)
@@ -931,25 +1090,26 @@ namespace Archive
             }
         }
 
-        private Document DuplicatedData()
+        private Document GetCurrentDocument()
         {
             return _documentService.GetDocumentBySiteCode(TextBoxSiteCode.Text.Trim());
         }
 
         private void FillDropDownList()
         {
-            _permissionStates = _archiveService.FillPermissionState();
-            _padidAvars = _archiveService.FillPadidAvar();
-            _permissionTypes = _archiveService.FillPermissionType();
-            _subjects = _archiveService.FillSubject();
-            _publishStates = _archiveService.FillPublishState();
-            _collections = _archiveService.FillCollection();
-            _mainCategories = _archiveService.FillCategory(null, 1);
-            _fileTypes_Text = _archiveService.FillFileTypeByContentType(ConentTypeEnum.Text);
-            _fileTypes_Sound = _archiveService.FillFileTypeByContentType(ConentTypeEnum.Sound);
-            _fileTypes_Video = _archiveService.FillFileTypeByContentType(ConentTypeEnum.Video);
-            _fileTypes_Image = _archiveService.FillFileTypeByContentType(ConentTypeEnum.Image);
-            _languages = _archiveService.FillLanguage();
+            _permissionStates = _archiveService.GetPermissionState();
+            _padidAvars = _archiveService.GetPadidAvar();
+            _permissionTypes = _archiveService.GetPermissionType();
+            _subjects = _archiveService.GetSubject();
+            _publishStates = _archiveService.GetPublishState();
+            _collections = _archiveService.GetCollection();
+            _mainCategories = _archiveService.GetCategory(null, 1);
+
+            _fileTypes_Text = _archiveService.GetFileTypeByContentType(ConentTypeEnum.Text);
+            _fileTypes_Sound = _archiveService.GetFileTypeByContentType(ConentTypeEnum.Sound);
+            _fileTypes_Video = _archiveService.GetFileTypeByContentType(ConentTypeEnum.Video);
+            _fileTypes_Image = _archiveService.GetFileTypeByContentType(ConentTypeEnum.Image);
+            _languages = _archiveService.GetLanguage();
 
             radDropDownListPermissionState.DataSource = _permissionStates;
             radDropDownListPermissionState.DisplayMember = "PermissionStateTitle";
@@ -979,12 +1139,13 @@ namespace Archive
             radDropDownListMainCategory.DataSource = _mainCategories;
             radDropDownListMainCategory.DisplayMember = "CategoryTitle";
             radDropDownListMainCategory.ValueMember = "CategoryId";
-            radDropDownListMainCategory.Text = "انتخاب کنید";
+            radDropDownListMainCategory.Text = _mainCategories.Where(x => x.CategoryEnglishTitle.ToLower() == "speach").Select(x => x.CategoryTitle).FirstOrDefault();
+
             if (_mainCategoryId > 0)
             {
                 var category = _mainCategories.Where(x => x.CategoryId == _mainCategoryId).FirstOrDefault();
                 radDropDownListMainCategory.SelectedIndex = category == null ? -1 : category.CategoryId - 1;
-                _categories1 = _archiveService.FillCategory(category.CategoryId, 2);
+                _categories1 = _archiveService.GetCategory(category.CategoryId, 2);
                 radDropDownListCategory1.DataSource = _categories1;
                 radDropDownListCategory1.DisplayMember = "CategoryTitle";
                 radDropDownListCategory1.ValueMember = "CategoryId";

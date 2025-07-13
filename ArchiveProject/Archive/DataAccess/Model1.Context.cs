@@ -45,8 +45,8 @@ namespace Archive.DataAccess
         public virtual DbSet<Resource> Resources { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
-        public virtual DbSet<File> Files { get; set; }
         public virtual DbSet<FileType> FileTypes { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
+        public virtual DbSet<File> Files { get; set; }
     }
 }

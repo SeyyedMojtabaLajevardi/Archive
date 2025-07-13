@@ -36,11 +36,10 @@
             this.LabelTextUpload = new System.Windows.Forms.Label();
             this.textBoxDeletionDescription = new System.Windows.Forms.TextBox();
             this.LabelDeleteComment = new System.Windows.Forms.Label();
-            this.ButtonAddFile = new System.Windows.Forms.Button();
+            this.ButtonUpload = new System.Windows.Forms.Button();
             this.TextBoxFileNo = new System.Windows.Forms.TextBox();
             this.LabelComment = new System.Windows.Forms.Label();
             this.TextBoxContentComment = new System.Windows.Forms.TextBox();
-            this.ButtonUpload = new System.Windows.Forms.Button();
             this.LabelResource = new System.Windows.Forms.Label();
             this.LabelFileType = new System.Windows.Forms.Label();
             this.LabelFileNo = new System.Windows.Forms.Label();
@@ -51,6 +50,10 @@
             this.TextBoxCode = new System.Windows.Forms.TextBox();
             this.TextBoxContentDescription = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.TextBoxVolume = new System.Windows.Forms.TextBox();
+            this.LabelVolume = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.LabelTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListResource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListFileType)).BeginInit();
             this.panel1.SuspendLayout();
@@ -148,17 +151,17 @@
             this.LabelDeleteComment.TabIndex = 39;
             this.LabelDeleteComment.Text = "توضیحات حذفیات:";
             // 
-            // ButtonAddFile
+            // ButtonUpload
             // 
-            this.ButtonAddFile.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonAddFile.Location = new System.Drawing.Point(7, 186);
-            this.ButtonAddFile.Name = "ButtonAddFile";
-            this.ButtonAddFile.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ButtonAddFile.Size = new System.Drawing.Size(83, 26);
-            this.ButtonAddFile.TabIndex = 41;
-            this.ButtonAddFile.Text = "ثبت و آپلود";
-            this.ButtonAddFile.UseVisualStyleBackColor = true;
-            this.ButtonAddFile.Click += new System.EventHandler(this.ButtonAddFile_Click);
+            this.ButtonUpload.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.ButtonUpload.Location = new System.Drawing.Point(7, 186);
+            this.ButtonUpload.Name = "ButtonUpload";
+            this.ButtonUpload.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ButtonUpload.Size = new System.Drawing.Size(83, 26);
+            this.ButtonUpload.TabIndex = 41;
+            this.ButtonUpload.Text = "ثبت و آپلود";
+            this.ButtonUpload.UseVisualStyleBackColor = true;
+            this.ButtonUpload.Click += new System.EventHandler(this.ButtonUpload_Click);
             // 
             // TextBoxFileNo
             // 
@@ -176,7 +179,7 @@
             this.LabelComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelComment.AutoSize = true;
             this.LabelComment.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.LabelComment.Location = new System.Drawing.Point(1018, 157);
+            this.LabelComment.Location = new System.Drawing.Point(1018, 191);
             this.LabelComment.Name = "LabelComment";
             this.LabelComment.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LabelComment.Size = new System.Drawing.Size(45, 17);
@@ -188,23 +191,11 @@
             this.TextBoxContentComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxContentComment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxContentComment.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxContentComment.Location = new System.Drawing.Point(574, 157);
+            this.TextBoxContentComment.Location = new System.Drawing.Point(574, 191);
             this.TextBoxContentComment.Name = "TextBoxContentComment";
             this.TextBoxContentComment.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TextBoxContentComment.Size = new System.Drawing.Size(420, 25);
             this.TextBoxContentComment.TabIndex = 36;
-            // 
-            // ButtonUpload
-            // 
-            this.ButtonUpload.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonUpload.Location = new System.Drawing.Point(90, 186);
-            this.ButtonUpload.Name = "ButtonUpload";
-            this.ButtonUpload.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ButtonUpload.Size = new System.Drawing.Size(41, 26);
-            this.ButtonUpload.TabIndex = 40;
-            this.ButtonUpload.Text = "آپلود";
-            this.ButtonUpload.UseVisualStyleBackColor = true;
-            this.ButtonUpload.Visible = false;
             // 
             // LabelResource
             // 
@@ -327,10 +318,60 @@
             this.label3.TabIndex = 17;
             this.label3.Text = "توضیحات:";
             // 
+            // TextBoxVolume
+            // 
+            this.TextBoxVolume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxVolume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxVolume.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.TextBoxVolume.Location = new System.Drawing.Point(574, 152);
+            this.TextBoxVolume.Name = "TextBoxVolume";
+            this.TextBoxVolume.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.TextBoxVolume.Size = new System.Drawing.Size(136, 22);
+            this.TextBoxVolume.TabIndex = 53;
+            // 
+            // LabelVolume
+            // 
+            this.LabelVolume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelVolume.AutoSize = true;
+            this.LabelVolume.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.LabelVolume.Location = new System.Drawing.Point(746, 152);
+            this.LabelVolume.Name = "LabelVolume";
+            this.LabelVolume.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LabelVolume.Size = new System.Drawing.Size(35, 17);
+            this.LabelVolume.TabIndex = 54;
+            this.LabelVolume.Text = "حجم:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.textBox2.Location = new System.Drawing.Point(858, 152);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBox2.Size = new System.Drawing.Size(136, 22);
+            this.textBox2.TabIndex = 51;
+            // 
+            // LabelTime
+            // 
+            this.LabelTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelTime.AutoSize = true;
+            this.LabelTime.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.LabelTime.Location = new System.Drawing.Point(1031, 152);
+            this.LabelTime.Name = "LabelTime";
+            this.LabelTime.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LabelTime.Size = new System.Drawing.Size(30, 17);
+            this.LabelTime.TabIndex = 52;
+            this.LabelTime.Text = "تایم:";
+            // 
             // UserControlFiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TextBoxVolume);
+            this.Controls.Add(this.LabelVolume);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.LabelTime);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TextBoxPart);
             this.Controls.Add(this.LabelPart);
@@ -340,12 +381,11 @@
             this.Controls.Add(this.LabelTextUpload);
             this.Controls.Add(this.textBoxDeletionDescription);
             this.Controls.Add(this.LabelDeleteComment);
-            this.Controls.Add(this.ButtonAddFile);
+            this.Controls.Add(this.ButtonUpload);
             this.Controls.Add(this.TextBoxFileNo);
             this.Controls.Add(this.LabelComment);
             this.Controls.Add(this.TextBoxContentComment);
             this.Controls.Add(this.ButtonAddFileType);
-            this.Controls.Add(this.ButtonUpload);
             this.Controls.Add(this.LabelResource);
             this.Controls.Add(this.LabelFileType);
             this.Controls.Add(this.ButtonAddResource);
@@ -363,27 +403,30 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        internal System.Windows.Forms.TextBox TextBoxCode;
-        internal System.Windows.Forms.TextBox TextBoxContentDescription;
-        internal System.Windows.Forms.TextBox TextBoxPart;
-        internal System.Windows.Forms.Label LabelPart;
-        internal Telerik.WinControls.UI.RadDropDownList radDropDownListResource;
-        internal Telerik.WinControls.UI.RadDropDownList radDropDownListFileType;
-        internal System.Windows.Forms.RichTextBox RichTextBoxTextUpload;
-        internal System.Windows.Forms.Label LabelTextUpload;
-        internal System.Windows.Forms.TextBox textBoxDeletionDescription;
-        internal System.Windows.Forms.Label LabelDeleteComment;
-        internal System.Windows.Forms.Button ButtonAddFile;
-        internal System.Windows.Forms.TextBox TextBoxFileNo;
-        internal System.Windows.Forms.Label LabelComment;
-        internal System.Windows.Forms.TextBox TextBoxContentComment;
-        internal System.Windows.Forms.Button ButtonAddFileType;
-        internal System.Windows.Forms.Button ButtonUpload;
-        internal System.Windows.Forms.Label LabelResource;
-        internal System.Windows.Forms.Label LabelFileType;
-        internal System.Windows.Forms.Button ButtonAddResource;
-        internal System.Windows.Forms.Label LabelFileNo;
-        internal System.Windows.Forms.Label label3;
-        internal System.Windows.Forms.Label LabelCode;
+        public System.Windows.Forms.TextBox TextBoxCode;
+        public System.Windows.Forms.TextBox TextBoxContentDescription;
+        public System.Windows.Forms.TextBox TextBoxPart;
+        public System.Windows.Forms.Label LabelPart;
+        public Telerik.WinControls.UI.RadDropDownList radDropDownListResource;
+        public Telerik.WinControls.UI.RadDropDownList radDropDownListFileType;
+        public System.Windows.Forms.RichTextBox RichTextBoxTextUpload;
+        public System.Windows.Forms.Label LabelTextUpload;
+        public System.Windows.Forms.TextBox textBoxDeletionDescription;
+        public System.Windows.Forms.Label LabelDeleteComment;
+        public System.Windows.Forms.TextBox TextBoxFileNo;
+        public System.Windows.Forms.Label LabelComment;
+        public System.Windows.Forms.TextBox TextBoxContentComment;
+        public System.Windows.Forms.Button ButtonAddFileType;
+        public System.Windows.Forms.Button ButtonUpload;
+        public System.Windows.Forms.Label LabelResource;
+        public System.Windows.Forms.Label LabelFileType;
+        public System.Windows.Forms.Button ButtonAddResource;
+        public System.Windows.Forms.Label LabelFileNo;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label LabelCode;
+        public System.Windows.Forms.TextBox TextBoxVolume;
+        public System.Windows.Forms.Label LabelVolume;
+        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.Label LabelTime;
     }
 }

@@ -1,3 +1,5 @@
+using Archive.BusinessLogic;
+using Archive.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +18,7 @@ namespace Archive.BusinessObject
 {
     public class Common
     {
+
         static Dictionary<char, string> map = new Dictionary<char, string>()
         {
             {'ا', "a"}, {'ب', "b"}, {'پ', "p"}, {'ت', "t"}, {'ث', "s"},
@@ -26,8 +29,17 @@ namespace Archive.BusinessObject
             {'گ', "g"}, {'ل', "l"}, {'م', "m"}, {'ن', "n"}, {'و', "v"},
             {'ه', "h"}, {'ی', "y"}
         };
+        const string MainPath = @"D:\DocumentArchive";
 
         #region Method
+        public string GetDirectory(string mainCategory, string secondCategory)
+        {
+            var categoryPath = MainPath + @"\" + mainCategory + @"\" + secondCategory;
+            if (!Directory.Exists(categoryPath))
+                Directory.CreateDirectory(categoryPath);
+
+            return categoryPath;
+        }
         public static string Convert(string input)
         {
             StringBuilder result = new StringBuilder();
@@ -240,6 +252,17 @@ namespace Archive.BusinessObject
             var controls = control.Controls.Cast<Control>();
 
             return controls.SelectMany(ctrl => GetAll(ctrl)).Concat(controls);
+        }
+
+        internal static int GetSiteCode(IFileService fileService, int mainCategoryId, CodeRange codeRange)
+        {
+            int newFileCode = 0;
+            DataAccess.File maxFile = fileService.GetMaxFileByCategoryId(mainCategoryId);
+            if (maxFile != null)
+                newFileCode = maxFile.FileCode.Value + 1;
+            else
+                newFileCode = codeRange.MinCode.Value;
+            return newFileCode;
         }
 
 

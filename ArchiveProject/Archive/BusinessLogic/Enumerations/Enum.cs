@@ -14,4 +14,10 @@ namespace Archive.BusinessLogic.Enumerations
         Image,
         Video
     }
+
+    public enum DataEntryType
+    {
+        Insert,
+        Edit
+    }
 }

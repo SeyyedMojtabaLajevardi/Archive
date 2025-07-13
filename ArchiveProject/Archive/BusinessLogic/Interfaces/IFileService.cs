@@ -15,6 +15,8 @@ namespace Archive.BusinessLogic
         File GetFileById(int fileId);
         bool UpdateFile(int fileId, File file);
         File GetFileByContentIdAndFileTypeIdAndFileNumber(int contentId, int fileTypeId, int fileNumber);
+        File GetFileByFileCode(int fileCode);
+        File GetMaxFileByCategoryId(int categoryId);
         //void AddFilesByContentId(int contentId, List<File> fileList);
     }
 }

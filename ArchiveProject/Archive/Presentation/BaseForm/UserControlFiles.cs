@@ -15,7 +15,7 @@ namespace Archive.Presentation.BaseForm
 {
     public partial class UserControlFiles : UserControl
     {
-        public event EventHandler AddButtonClicked;
+        public event EventHandler UploadButtonClicked;
         public ContentType ContentType { get; set; }
         private readonly ArchiveService _archiveService;
         ContentType _contentType = null;
@@ -31,10 +31,10 @@ namespace Archive.Presentation.BaseForm
             _isFirst = true;
             InitializeComponent();
             _archiveService = new ArchiveService(new ArchiveEntities());
-            _fileTypes_Text = _archiveService.FillFileTypeByContentType(ConentTypeEnum.Text);
-            _fileTypes_Sound = _archiveService.FillFileTypeByContentType(ConentTypeEnum.Sound);
-            _fileTypes_Video = _archiveService.FillFileTypeByContentType(ConentTypeEnum.Video);
-            _fileTypes_Image = _archiveService.FillFileTypeByContentType(ConentTypeEnum.Image);
+            _fileTypes_Text = _archiveService.GetFileTypeByContentType(ConentTypeEnum.Text);
+            _fileTypes_Sound = _archiveService.GetFileTypeByContentType(ConentTypeEnum.Sound);
+            _fileTypes_Video = _archiveService.GetFileTypeByContentType(ConentTypeEnum.Video);
+            _fileTypes_Image = _archiveService.GetFileTypeByContentType(ConentTypeEnum.Image);
             _isFirst = false;
         }
 
@@ -69,9 +69,9 @@ namespace Archive.Presentation.BaseForm
             radDropDownListFileType.Text = "انتخاب کنید";
         }
 
-        private void ButtonAddFile_Click(object sender, EventArgs e)
+        private void ButtonUpload_Click(object sender, EventArgs e)
         {
-            AddButtonClicked?.Invoke(this, EventArgs.Empty);
+            UploadButtonClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void radDropDownListFileType_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)

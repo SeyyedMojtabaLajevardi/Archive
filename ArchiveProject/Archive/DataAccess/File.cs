@@ -27,10 +27,14 @@ namespace Archive.DataAccess
         public Nullable<bool> IsUploaded { get; set; }
         public Nullable<int> FileCode { get; set; }
         public Nullable<int> CategoryId { get; set; }
+        public Nullable<int> Part { get; set; }
+        public string Time { get; set; }
+        public string Volume { get; set; }
+        public string FilePath { get; set; }
     
         public virtual Editor Editor { get; set; }
+        public virtual FileType FileType { get; set; }
         public virtual Content Content { get; set; }
         public virtual Resource Resource { get; set; }
-        public virtual FileType FileType { get; set; }
     }
 }

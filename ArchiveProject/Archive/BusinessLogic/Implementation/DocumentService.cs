@@ -135,50 +135,50 @@ namespace Archive.BusinessLogic
             }
         }
 
-        public void UpdateDocument(DocumentDto documentDto)
+        public void UpdateDocument(Document document)
         {
             using (var context = new ArchiveEntities())
             {
-                var existingDocument = context.Documents.FirstOrDefault(x => x.DocumentId == documentDto.DocumentId);
+                var existingDocument = context.Documents.FirstOrDefault(x => x.DocumentId == document.DocumentId);
                 if (existingDocument != null)
                 {
-                    existingDocument.UserId = documentDto.UserId;
-                    existingDocument.DocumentCode = documentDto.DocumentCode;
-                    existingDocument.CreatedDate = documentDto.CreatedDate;
-                    existingDocument.SiteCode = documentDto.SiteCode;
-                    existingDocument.OldTitle = documentDto.OldTitle;
-                    existingDocument.NewTitle = documentDto.NewTitle;
-                    existingDocument.SubTitle = documentDto.SubTitle;
-                    existingDocument.PublishStateId = documentDto.PublishStateId == 0 ? null : documentDto.PublishStateId;
-                    existingDocument.PermissionStateId = documentDto.PermissionStateId == 0 ? null : documentDto.PermissionStateId;
-                    existingDocument.CreatorUserId = documentDto.CreatorUserId == 0 ? null : documentDto.CreatorUserId;
-                    existingDocument.PadidAvarId = documentDto.PadidAvarId == 0 ? null : documentDto.PadidAvarId;
-                    existingDocument.LanguageId = documentDto.LanguageId == 0 ? null : documentDto.LanguageId;
-                    existingDocument.Comment = documentDto.Comment;
-                    existingDocument.SessionNumber = documentDto.SessionNumber;
-                    existingDocument.SessionCount = documentDto.SessionCount;
-                    existingDocument.SessionPlace = documentDto.SessionPlace;
-                    existingDocument.SessionDate = documentDto.SessionDate;
-                    existingDocument.RelatedLink = documentDto.RelatedLink;
-                    existingDocument.Description = documentDto.Description;
-                    existingDocument.MainCategoryId = documentDto.MainCategoryId == 0 ? null : documentDto.MainCategoryId;
-                    existingDocument.ContentTypeId = documentDto.ContentTypeId == 0 ? null : documentDto.ContentTypeId;
-                    existingDocument.PublishYear = documentDto.PublishYear;
-                    existingDocument.PublishPlace = documentDto.PublishPlace;
-                    existingDocument.BookPublisher = documentDto.BookPublisher;
-                    existingDocument.BookVolumeNumber = documentDto.BookVolumeNumber;
-                    existingDocument.BookPageNumber = documentDto.BookPageNumber;
-                    existingDocument.BookVolumeCount = documentDto.BookVolumeCount;
-                    existingDocument.FipaCode = documentDto.FipaCode;
-                    existingDocument.TranslateLanguageId = documentDto.TranslateLanguageId == 0 ? null : documentDto.TranslateLanguageId;
-                    existingDocument.Translator = documentDto.Translator;
-                    existingDocument.Narrator = documentDto.Narrator;
-                    existingDocument.SecondCategoryId = documentDto.SecondCategoryId == 0 ? null : documentDto.SecondCategoryId;
-                    existingDocument.FirstCategoryId = documentDto.FirstCategoryId == 0 ? null : documentDto.FirstCategoryId;
+                    existingDocument.UserId = document.UserId;
+                    existingDocument.DocumentCode = document.DocumentCode;
+                    existingDocument.CreatedDate = document.CreatedDate;
+                    existingDocument.SiteCode = document.SiteCode;
+                    existingDocument.OldTitle = document.OldTitle;
+                    existingDocument.NewTitle = document.NewTitle;
+                    existingDocument.SubTitle = document.SubTitle;
+                    existingDocument.PublishStateId = document.PublishStateId == 0 ? null : document.PublishStateId;
+                    existingDocument.PermissionStateId = document.PermissionStateId == 0 ? null : document.PermissionStateId;
+                    existingDocument.CreatorUserId = document.CreatorUserId == 0 ? null : document.CreatorUserId;
+                    existingDocument.PadidAvarId = document.PadidAvarId == 0 ? null : document.PadidAvarId;
+                    existingDocument.LanguageId = document.LanguageId == 0 ? null : document.LanguageId;
+                    existingDocument.Comment = document.Comment;
+                    existingDocument.SessionNumber = document.SessionNumber;
+                    existingDocument.SessionCount = document.SessionCount;
+                    existingDocument.SessionPlace = document.SessionPlace;
+                    existingDocument.SessionDate = document.SessionDate;
+                    existingDocument.RelatedLink = document.RelatedLink;
+                    existingDocument.Description = document.Description;
+                    existingDocument.MainCategoryId = document.MainCategoryId == 0 ? null : document.MainCategoryId;
+                    existingDocument.ContentTypeId = document.ContentTypeId == 0 ? null : document.ContentTypeId;
+                    existingDocument.PublishYear = document.PublishYear;
+                    existingDocument.PublishPlace = document.PublishPlace;
+                    existingDocument.BookPublisher = document.BookPublisher;
+                    existingDocument.BookVolumeNumber = document.BookVolumeNumber;
+                    existingDocument.BookPageNumber = document.BookPageNumber;
+                    existingDocument.BookVolumeCount = document.BookVolumeCount;
+                    existingDocument.FipaCode = document.FipaCode;
+                    existingDocument.TranslateLanguageId = document.TranslateLanguageId == 0 ? null : document.TranslateLanguageId;
+                    existingDocument.Translator = document.Translator;
+                    existingDocument.Narrator = document.Narrator;
+                    existingDocument.SecondCategoryId = document.SecondCategoryId == 0 ? null : document.SecondCategoryId;
+                    existingDocument.FirstCategoryId = document.FirstCategoryId == 0 ? null : document.FirstCategoryId;
                     existingDocument.DocumentSubjectRelations.Clear();
-                    var currentDocumentSubjectRelations = context.DocumentSubjectRelations.Where(x => x.DocumentId == documentDto.DocumentId).ToList();
+                    var currentDocumentSubjectRelations = context.DocumentSubjectRelations.Where(x => x.DocumentId == document.DocumentId).ToList();
                     context.DocumentSubjectRelations.RemoveRange(currentDocumentSubjectRelations);
-                    context.DocumentSubjectRelations.AddRange(documentDto.DocumentSubjectRelations);
+                    context.DocumentSubjectRelations.AddRange(document.DocumentSubjectRelations);
 
                     context.SaveChanges();
                 }

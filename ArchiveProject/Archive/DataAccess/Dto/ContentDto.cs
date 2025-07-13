@@ -21,6 +21,6 @@ namespace Archive.DataAccess.Dto
         public string FileName { get; set; }
         public int? CategoryId { get; set; }
         public int? FileCode { get; set; }
-        //public File File { get; set; }
+        public int FileId { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using Archive.DataAccess;
 using Autofac;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.IO;
 using System.Windows.Forms;
 using Telerik.WinControls.UI.Localization;
 

@@ -24,7 +24,7 @@ namespace Archive.UI
         private void FormDocumentList_Load(object sender, EventArgs e)
         {
             _archiveService = new ArchiveService(new ArchiveEntities());
-            _mainCategories = _archiveService.FillCategory(null, 1);
+            _mainCategories = _archiveService.GetCategory(null, 1);
         }
 
         private void ButtonCreateDocument_Click(object sender, EventArgs e)

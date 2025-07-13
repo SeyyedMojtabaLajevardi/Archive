@@ -72,7 +72,7 @@ namespace Archive.BusinessLogic
                                 DeletionDescription = f.DeletionDescription,
                                 Comment = f.Comment,
                                 Text = f.Text,
-                                FileName = f.FileName,
+                                FileName = "\u200E" + f.FileName,
                                 FileTypeId = ft.FileTypeId,
                                 FileCode = f.FileCode,
                                 CategoryId = f.CategoryId,
@@ -86,6 +86,7 @@ namespace Archive.BusinessLogic
                                 Code = c.Code,
                                 Description = c.Description,
                                 ContentTypeId = ct.ContentTypeId,
+                                FileId = f.FileId
                             };
 
                 var results = query.ToList();

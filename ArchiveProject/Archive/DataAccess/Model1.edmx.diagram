@@ -43,14 +43,14 @@
         <EntityTypeShape EntityType="ArchiveModel.Content" Width="1.5" PointX="8.25" PointY="11.875" />
         <AssociationConnector Association="ArchiveModel.FK_Content_ContentType" />
         <AssociationConnector Association="ArchiveModel.FK_Content_Document" />
-        <EntityTypeShape EntityType="ArchiveModel.File" Width="1.5" PointX="10.5" PointY="6.25" />
-        <AssociationConnector Association="ArchiveModel.FK_File_Editor" />
-        <AssociationConnector Association="ArchiveModel.FK_File_Content" />
-        <AssociationConnector Association="ArchiveModel.FK_File_Resource" />
         <EntityTypeShape EntityType="ArchiveModel.FileType" Width="1.5" PointX="7.375" PointY="4.875" />
-        <AssociationConnector Association="ArchiveModel.FK_File_FileType" />
         <EntityTypeShape EntityType="ArchiveModel.Subject" Width="1.5" PointX="7.375" PointY="8.875" />
         <AssociationConnector Association="ArchiveModel.FK_DocumentSubjectRelation_Subject" />
+        <EntityTypeShape EntityType="ArchiveModel.File" Width="1.5" PointX="10.5" PointY="5.125" />
+        <AssociationConnector Association="ArchiveModel.FK_File_Editor" />
+        <AssociationConnector Association="ArchiveModel.FK_File_FileType" />
+        <AssociationConnector Association="ArchiveModel.FK_File_Content" />
+        <AssociationConnector Association="ArchiveModel.FK_File_Resource" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

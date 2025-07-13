@@ -2,6 +2,7 @@
 using Archive.BusinessLogic.Enumerations;
 using Archive.DataAccess;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Archive.BusinessLogic
 {
@@ -14,75 +15,93 @@ namespace Archive.BusinessLogic
             _context = context;
         }
 
-        public List<PermissionType> FillPermissionType()
+        public List<PermissionType> GetPermissionType()
         {
             var repository = new Repository<PermissionType>(_context);
             return repository.GetAll();
         }
 
-        public List<PadidAvar> FillPadidAvar()
+        public List<PadidAvar> GetPadidAvar()
         {
             var padidAvar = new Repository<PadidAvar>(_context);
             return padidAvar.GetAll();
         }
 
-        public List<PermissionState> FillPermissionState()
+        public List<PermissionState> GetPermissionState()
         {
             var repository = new Repository<PermissionState>(_context);
             return repository.GetAll();
         }
 
-        public List<Subject> FillSubject()
+        public List<Subject> GetSubject()
         {
             var repository = new Repository<Subject>(_context);
             return repository.GetAll();
         }
 
-        public List<PublishState> FillPublishState()
+        public List<PublishState> GetPublishState()
         {
             var repository = new Repository<PublishState>(_context);
             return repository.GetAll();
         }
 
-        public List<Category> FillCategory(int? parentId, int levelNo)
+        public List<Category> GetCategory(int? parentId, int levelNo)
         {
             var repository = new Repository<Category>(_context);
             return repository.GetByCondition(x => x.ParentId == parentId && x.LevelNo == levelNo);
         }
 
-        public List<Collection> FillCollection()
+        public Category GetCategoryByEnglishTitle(string title)
+        {
+            var repository = new Repository<Category>(_context);
+            return repository.GetByCondition(x => x.CategoryEnglishTitle.ToLower() == title.ToLower()).FirstOrDefault();
+        }
+
+        public List<CodeRange> GetCodeRange()
+        {
+            var repository = new Repository<CodeRange>(_context);
+            return repository.GetAll();
+        }
+
+        public CodeRange GetCodeRangeByCategoryId(int categoryId)
+        {
+            var repository = new Repository<CodeRange>(_context);
+            return repository.GetByCondition(x => x.CategoryId == categoryId).FirstOrDefault();
+        }
+
+        public List<Collection> GetCollection()
         {
             var repository = new Repository<Collection>(_context);
             return repository.GetAll();
         }
 
-        public List<FileType> FillFileType()
+        public List<FileType> GetFileType()
         {
             var repository = new Repository<FileType>(_context);
             return repository.GetAll();
         }
 
-        public List<FileType> FillFileTypeByContentType(ConentTypeEnum conentTypeEnum)
+        public List<FileType> GetFileTypeByContentType(ConentTypeEnum conentTypeEnum)
         {
             var repository = new Repository<FileType>(_context);
             return repository.GetByCondition(x => x.ContentTypeId == (int)conentTypeEnum + 1);
         }
 
-        public List<Language> FillLanguage()
+        public List<Language> GetLanguage()
         {
             var repository = new Repository<Language>(_context);
             return repository.GetAll();
         }
 
-        public List<UserDto> FillUser()
+        public List<UserDto> GetUser()
         {
             return _userDtoRepository.GetUserDtos();
         }
 
-        //public List<Editor> FillEditor()
-        //{
-        //    var repository = new Repository<Editor>(_context);
-        //    return repository.GetAll();
-        //}
+        public List<Editor> GetEditor()
+        {
+            var repository = new Repository<Editor>(_context);
+            return repository.GetAll();
+        }
     }
 }
