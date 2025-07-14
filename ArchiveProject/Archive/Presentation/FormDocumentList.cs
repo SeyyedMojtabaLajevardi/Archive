@@ -29,13 +29,13 @@ namespace Archive.UI
 
         private void ButtonCreateDocument_Click(object sender, EventArgs e)
         {
-            FormCreateDocument formCreateDocument = new FormCreateDocument(_mainCategoryId);
+            FormCreateDocument_Speech formCreateDocument = new FormCreateDocument_Speech(_mainCategoryId);
             formCreateDocument.ShowDialog();
         }
 
-        private void ButtonSpeach_Click(object sender, EventArgs e)
+        private void ButtonSpeech_Click(object sender, EventArgs e)
         {
-            FetchCategoryData(ButtonSpeach.Tag.ToString());
+            FetchCategoryData(ButtonSpeech.Tag.ToString());
         }
 
         private void ButtonLesson_Click(object sender, EventArgs e)

@@ -36,7 +36,7 @@ namespace Archive
             //Application.Run(new FormCreateDocument(new ArchiveFacadeService()));
             using (var scope = container.BeginLifetimeScope())
             {
-                var mainForm = scope.Resolve<FormCreateDocument>();
+                var mainForm = scope.Resolve<FormCreateDocument_Speech>();
                 Application.Run(mainForm);
             }
         }
@@ -63,7 +63,7 @@ namespace Archive
             builder.RegisterType<DocumentSubjectRelationService>().As<IDocumentSubjectRelationService>();
 
             // ثبت فرم‌ها
-            builder.RegisterType<FormCreateDocument>();
+            builder.RegisterType<FormCreateDocument_Speech>();
             builder.RegisterType<FormFileType>();
             builder.RegisterType<FormSubject>();
 

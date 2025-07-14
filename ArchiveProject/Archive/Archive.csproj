@@ -139,7 +139,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogic\ArchiveService.cs" />
+    <Compile Include="BusinessLogic\Implementation\ArchiveService.cs" />
     <Compile Include="BusinessLogic\CustomAutoCompleteSuggestHelper.cs" />
     <Compile Include="BusinessLogic\Implementation\ArchiveFacadeService.cs" />
     <Compile Include="BusinessLogic\Implementation\CategoryService.cs" />
@@ -159,8 +159,10 @@
     <Compile Include="BusinessLogic\Interfaces\IContentService.cs" />
     <Compile Include="BusinessLogic\Interfaces\IDocumentService.cs" />
     <Compile Include="BusinessLogic\Interfaces\IFileTypeService.cs" />
+    <Compile Include="BusinessLogic\Security\PasswordHelper.cs" />
     <Compile Include="BusinessObject\Common.cs" />
     <Compile Include="BusinessObject\CustomGridLocalizationProvider.cs" />
+    <Compile Include="BusinessObject\Upload.cs" />
     <Compile Include="DataAccess\Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

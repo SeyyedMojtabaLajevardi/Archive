@@ -25,7 +25,7 @@ using static Telerik.WinControls.VirtualKeyboard.VirtualKeyboardNativeMethods;
 
 namespace Archive
 {
-    public partial class FormCreateDocument : Form
+    public partial class FormCreateDocument_Speech : Form
     {
         private readonly IDocumentService _documentService;
         private readonly IContentService _contentService;
@@ -79,7 +79,7 @@ namespace Archive
         CultureInfo _persianCulture = new CultureInfo("fa-IR");
         //Enums enums = new Enums();
 
-        public FormCreateDocument(int mainCategoryId)
+        public FormCreateDocument_Speech(int mainCategoryId)
         {
             InitializeComponent();
 
@@ -95,7 +95,7 @@ namespace Archive
         }
 
         //public FormCreateDocument(IDocumentService documentService, IContentService contentService, IFileService fileService, ICategoryService categoryService)
-        public FormCreateDocument(IArchiveFacadeService archiveFacadeService)
+        public FormCreateDocument_Speech(IArchiveFacadeService archiveFacadeService)
         {
             this.SuspendLayout();
             _userControlFiles = new UserControlFiles { Dock = DockStyle.Fill };
@@ -110,7 +110,7 @@ namespace Archive
             GridViewContent.ViewCellFormatting += GridViewContent_ViewCellFormatting;
         }
 
-        private void FormCreateDocumentSpeach_Load(object sender, EventArgs e)
+        private void FormCreateDocumentSpeech_Load(object sender, EventArgs e)
         {
             _isFirst = true;
             FillDropDownList();
@@ -142,7 +142,7 @@ namespace Archive
                 _contentService.AddContent(content);
             }
             _contentId = content.ContentId;
-            //int currentFileCode = 0, 
+
             int fileId = 0;
             int newFileCode = 0;
             if (TextBoxSiteCode.Text.Trim() == "")
@@ -152,7 +152,7 @@ namespace Archive
             }
             else
                 int.TryParse(TextBoxSiteCode.Text.Trim(), out newFileCode);
-            //newFileCode = currentFileCode;
+
             if (GridViewContent.CurrentRow != null && _dataEentryType == DataEntryType.Edit)
             {
                 int.TryParse(GridViewContent.CurrentRow.Cells["FileId"].Value.ToString(), out fileId);
@@ -170,14 +170,16 @@ namespace Archive
                 _userControlFiles.TextBoxFileNo.Text.Trim() + Path.GetExtension(sourceFilePath);
 
             Common common = new Common();
-            string destinationDirectoryPath = common.GetDirectory(_document.MainCategoryId.ToString().PadLeft(3, '0') + "_" + radDropDownListMainCategory.Text,
-                _document.FirstCategoryId.ToString().PadLeft(3, '0') + "_" + radDropDownListCategory1.Text);
-
-            System.IO.File.Copy(sourceFilePath, destinationDirectoryPath + @"\" + fileName);
-            if (System.IO.File.Exists(destinationDirectoryPath + @"\" + fileName))
-                MessageBox.Show("آپلود با موفقیت انجام شد");
-            else
-                MessageBox.Show("آپلود با شکست مواجه شد");
+            string destinationDirectoryPath = common.GetDirectory(_document, radDropDownListMainCategory.Text, radDropDownListCategory1.Text);
+            try
+            {
+                var message = Upload.UploadFile(sourceFilePath, fileName, destinationDirectoryPath, file);
+                MessageBox.Show(message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             if (file == null)
             {
@@ -189,7 +191,7 @@ namespace Archive
                     FileNumber = int.Parse(_userControlFiles.TextBoxFileNo.Text.Trim()),
                     Comment = _userControlFiles.TextBoxContentComment.Text.Trim(),
                     Part = part,
-                    Time = _userControlFiles.LabelTime.Text.Trim(),
+                    Time = _userControlFiles.TextBoxTime.Text.Trim(),
                     Volume = _userControlFiles.TextBoxVolume.Text.Trim(),
                     FileCode = newFileCode,
                     Content = content,
@@ -212,13 +214,15 @@ namespace Archive
                 file.FileCode = newFileCode;
                 file.Part = part;
                 file.FilePath = destinationDirectoryPath + @"\" + fileName;
-                file.Time = _userControlFiles.LabelTime.Text.Trim();
+                file.Time = _userControlFiles.TextBoxTime.Text.Trim();
                 file.Volume = _userControlFiles.TextBoxVolume.Text.Trim();
                 //file.//EditorId = null,
                 file.DeletionDescription = _userControlFiles.textBoxDeletionDescription.Text.Trim();
                 file.FileName = fileName;
+                file.Content = content;
                 file.ContentId = content.ContentId;
                 file.Content.Description = _userControlFiles.TextBoxContentDescription.Text;
+
                 _fileService.UpdateFile(file.FileId, file);
                 MessageBox.Show(@"ویرایش فابل با موفقیت انجام شد");
             }
@@ -491,7 +495,7 @@ namespace Archive
             //if (_isFirst) return;
             _isFirst = true;
             radDropDownListMainCategory.BackColor = Color.White;
-            _mainCategoryId = _archiveService.GetCategoryByEnglishTitle("Speach").CategoryId;
+            _mainCategoryId = _archiveService.GetCategoryByEnglishTitle("Speech").CategoryId;
             var categoryTitle = radDropDownListMainCategory.SelectedText;
             _categories1 = _archiveService.GetCategory(_mainCategoryId, 2);
             radDropDownListCategory1.DataSource = _categories1;
@@ -786,21 +790,34 @@ namespace Archive
 
         private void GridViewContent_CommandCellClick(object sender, GridViewCellEventArgs e)
         {
-            if (e.Column.HeaderText != "Edit")
-                return;
-            if (_isFirst || GridViewContent.CurrentRow == null/* || GridViewContent.CurrentRow.HierarchyLevel == 0*/)
-                return;
-            _dataEentryType = DataEntryType.Edit;
-            FileDto fileInfo = GetCurrentFileInfo(GridViewContent.CurrentRow);
-            if (fileInfo.ContentId == 0) return;
+            if (e.Column.HeaderText == "Edit")
+            {
+                if (_isFirst || GridViewContent.CurrentRow == null)
+                    return;
+                _dataEentryType = DataEntryType.Edit;
+                FileDto fileInfo = GetCurrentFileInfo(GridViewContent.CurrentRow);
+                if (fileInfo.ContentId == 0) return;
+
+                FillContentBox(fileInfo);
+            }
+
+            if (e.Column.HeaderText == "Remove")
+            {
+                MessageBox.Show(@"با عرض پوزش، مجوز حذف برای شما فعال نیست");
+            }
+        }
+
+        private void FillContentBox(FileDto fileInfo)
+        {
             _contentType = GetContentTypeFromGridView();
             FillFileType();
             _userControlFiles.TextBoxCode.Text = "";
-            /****************/
             _userControlFiles.TextBoxContentDescription.Text = fileInfo.Description;
             _userControlFiles.TextBoxContentComment.Text = fileInfo.Comment;
             _userControlFiles.textBoxDeletionDescription.Text = fileInfo.DeletionDescription;
             _userControlFiles.TextBoxFileNo.Text = fileInfo.FileNumber.ToString();
+            _userControlFiles.TextBoxTime.Text = fileInfo.Time?.ToString();
+            _userControlFiles.TextBoxVolume.Text = fileInfo.Volume?.ToString();
             switch (_contentType.ContentTypeTitle?.ToLower())
             {
                 case "sound":
@@ -833,7 +850,6 @@ namespace Archive
                 _userControlFiles.radDropDownListResource.SelectedIndex = _userControlFiles.radDropDownListResource.FindStringExact(fileInfo.Resource.ResourceTitle);
                 _userControlFiles.radDropDownListResource.Text = fileInfo.Resource.ResourceTitle;
             }
-
         }
 
         private void GridViewContent_Leave(object sender, EventArgs e)
@@ -958,12 +974,10 @@ namespace Archive
             int.TryParse(radDropDownListLanguage?.SelectedItem?.Value.ToString(), out _languageId);
             int.TryParse(radDropDownListMainCategory?.SelectedItem?.Value.ToString(), out _mainCategoryId);
             int.TryParse(radDropDownListPublishState?.SelectedItem?.Value.ToString(), out _publishStateId);
-            //if (document == null)
-            //    document = new Document();
 
-            //documentDto.UserId = ??
-            //documentDto.CreatedDate = ??
-            //documentDto.CreatorUserId = ??
+            //document.UserId = ??
+            //document.CreatedDate = ??
+            //document.CreatorUserId = ??
             var date = PersiandateTimePickerDate.DateValue != null ? PersiandateTimePickerDate.DateValue : "";
             string validDate = Regex.Replace(date, @"(\d{4})/(\d{1,2})/(\d{1,2})",
             m => $"{m.Groups[1].Value}/{int.Parse(m.Groups[2].Value):00}/{int.Parse(m.Groups[3].Value):00}"
@@ -971,7 +985,6 @@ namespace Archive
             document.SessionDate = DateTime.ParseExact(validDate, "yyyy/MM/dd", _persianCulture, DateTimeStyles.None);
             document.DocumentCode = document.DocumentCode;
             document.DocumentId = document.DocumentId;
-            //document.SubjectIdList = document.DocumentSubjectRelations.Select(x => x.SubjectId.Value).ToList();
             document.DocumentSubjectRelations = GetNewDocumentSubjectRelation(document);
             document.SiteCode = TextBoxSiteCode.Text.Trim();
             document.OldTitle = radDropDownListOldTitle.Text.Trim();
@@ -1139,7 +1152,7 @@ namespace Archive
             radDropDownListMainCategory.DataSource = _mainCategories;
             radDropDownListMainCategory.DisplayMember = "CategoryTitle";
             radDropDownListMainCategory.ValueMember = "CategoryId";
-            radDropDownListMainCategory.Text = _mainCategories.Where(x => x.CategoryEnglishTitle.ToLower() == "speach").Select(x => x.CategoryTitle).FirstOrDefault();
+            radDropDownListMainCategory.Text = _mainCategories.Where(x => x.CategoryEnglishTitle.ToLower() == "speech").Select(x => x.CategoryTitle).FirstOrDefault();
 
             if (_mainCategoryId > 0)
             {

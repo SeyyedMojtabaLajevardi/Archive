@@ -12,6 +12,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Telerik.WinControls.UI;
 
 namespace Archive.BusinessObject
@@ -32,9 +33,11 @@ namespace Archive.BusinessObject
         const string MainPath = @"D:\DocumentArchive";
 
         #region Method
-        public string GetDirectory(string mainCategory, string secondCategory)
+        public string GetDirectory(Document _document, string strMainCategory, string strFirstCategory)
         {
-            var categoryPath = MainPath + @"\" + mainCategory + @"\" + secondCategory;
+            string mainCategory = _document.MainCategoryId.ToString().PadLeft(3, '0') + "_" + strMainCategory;
+            string firstCategory = _document.FirstCategoryId.ToString().PadLeft(3, '0') + "_" + strFirstCategory;
+            var categoryPath = MainPath + @"\" + mainCategory + @"\" + firstCategory;
             if (!Directory.Exists(categoryPath))
                 Directory.CreateDirectory(categoryPath);
 

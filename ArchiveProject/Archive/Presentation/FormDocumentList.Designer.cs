@@ -45,7 +45,7 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn15 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.ButtonSpeach = new System.Windows.Forms.Button();
+            this.ButtonSpeech = new System.Windows.Forms.Button();
             this.ButtonLesson = new System.Windows.Forms.Button();
             this.ButtonBook = new System.Windows.Forms.Button();
             this.ButtonQA = new System.Windows.Forms.Button();
@@ -73,7 +73,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Controls.Add(this.ButtonSpeach, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ButtonSpeech, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.ButtonLesson, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.ButtonBook, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.ButtonQA, 2, 0);
@@ -87,18 +87,18 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1198, 68);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // ButtonSpeach
+            // ButtonSpeech
             // 
-            this.ButtonSpeach.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ButtonSpeach.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonSpeach.Location = new System.Drawing.Point(1059, 18);
-            this.ButtonSpeach.Name = "ButtonSpeach";
-            this.ButtonSpeach.Size = new System.Drawing.Size(75, 32);
-            this.ButtonSpeach.TabIndex = 0;
-            this.ButtonSpeach.Tag = "Speach";
-            this.ButtonSpeach.Text = "سخنرانی";
-            this.ButtonSpeach.UseVisualStyleBackColor = true;
-            this.ButtonSpeach.Click += new System.EventHandler(this.ButtonSpeach_Click);
+            this.ButtonSpeech.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ButtonSpeech.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonSpeech.Location = new System.Drawing.Point(1059, 18);
+            this.ButtonSpeech.Name = "ButtonSpeech";
+            this.ButtonSpeech.Size = new System.Drawing.Size(75, 32);
+            this.ButtonSpeech.TabIndex = 0;
+            this.ButtonSpeech.Tag = "Speech";
+            this.ButtonSpeech.Text = "سخنرانی";
+            this.ButtonSpeech.UseVisualStyleBackColor = true;
+            this.ButtonSpeech.Click += new System.EventHandler(this.ButtonSpeech_Click);
             // 
             // ButtonLesson
             // 
@@ -354,7 +354,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button ButtonSpeach;
+        private System.Windows.Forms.Button ButtonSpeech;
         private System.Windows.Forms.Button ButtonLesson;
         private System.Windows.Forms.Button ButtonBook;
         private System.Windows.Forms.Button ButtonQA;

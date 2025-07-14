@@ -1,6 +1,6 @@
 ﻿namespace Archive
 {
-    partial class FormCreateDocument
+    partial class FormCreateDocument_Speech
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateDocument));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateDocument_Speech));
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn17 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn18 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn19 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
@@ -184,10 +184,12 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
+            this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.GroupBoxHeader);
+            this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.splitContainer1.Size = new System.Drawing.Size(1226, 159);
             this.splitContainer1.SplitterDistance = 632;
             this.splitContainer1.TabIndex = 0;
@@ -615,6 +617,7 @@
             this.ButtonAddCategory2.Name = "ButtonAddCategory2";
             this.ButtonAddCategory2.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddCategory2.TabIndex = 17;
+            this.ButtonAddCategory2.TabStop = false;
             this.ButtonAddCategory2.UseVisualStyleBackColor = true;
             // 
             // ButtonAddLanguage
@@ -627,6 +630,7 @@
             this.ButtonAddLanguage.Name = "ButtonAddLanguage";
             this.ButtonAddLanguage.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddLanguage.TabIndex = 17;
+            this.ButtonAddLanguage.TabStop = false;
             this.ButtonAddLanguage.UseVisualStyleBackColor = true;
             // 
             // ButtonAddPadidAvar
@@ -639,6 +643,7 @@
             this.ButtonAddPadidAvar.Name = "ButtonAddPadidAvar";
             this.ButtonAddPadidAvar.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddPadidAvar.TabIndex = 17;
+            this.ButtonAddPadidAvar.TabStop = false;
             this.ButtonAddPadidAvar.UseVisualStyleBackColor = true;
             // 
             // ButtonAddSubject
@@ -651,6 +656,7 @@
             this.ButtonAddSubject.Name = "ButtonAddSubject";
             this.ButtonAddSubject.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddSubject.TabIndex = 17;
+            this.ButtonAddSubject.TabStop = false;
             this.ButtonAddSubject.UseVisualStyleBackColor = true;
             this.ButtonAddSubject.Click += new System.EventHandler(this.ButtonAddSubject_Click);
             // 
@@ -664,6 +670,7 @@
             this.ButtonAddCategory1.Name = "ButtonAddCategory1";
             this.ButtonAddCategory1.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddCategory1.TabIndex = 17;
+            this.ButtonAddCategory1.TabStop = false;
             this.ButtonAddCategory1.UseVisualStyleBackColor = true;
             this.ButtonAddCategory1.Click += new System.EventHandler(this.ButtonAddCategory1_Click);
             // 
@@ -677,6 +684,7 @@
             this.ButtonAddMainCategory.Name = "ButtonAddMainCategory";
             this.ButtonAddMainCategory.Size = new System.Drawing.Size(22, 22);
             this.ButtonAddMainCategory.TabIndex = 17;
+            this.ButtonAddMainCategory.TabStop = false;
             this.ButtonAddMainCategory.UseVisualStyleBackColor = true;
             // 
             // LabelPadidAvar
@@ -1142,9 +1150,9 @@
             this.radNavigationView1.Location = new System.Drawing.Point(0, 0);
             this.radNavigationView1.Name = "radNavigationView1";
             this.radNavigationView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radNavigationView1.SelectedPage = this.radPageViewPageImage;
+            this.radNavigationView1.SelectedPage = this.radPageViewPageSound;
             this.radNavigationView1.Size = new System.Drawing.Size(1222, 259);
-            this.radNavigationView1.TabIndex = 18;
+            this.radNavigationView1.TabIndex = 0;
             this.radNavigationView1.SelectedPageChanged += new System.EventHandler(this.radNavigationView1_SelectedPageChanged);
             // 
             // radPageViewPageSound
@@ -1152,7 +1160,7 @@
             this.radPageViewPageSound.BackColor = System.Drawing.SystemColors.Control;
             this.radPageViewPageSound.Controls.Add(this.Panel_Sound);
             this.radPageViewPageSound.Image = global::Archive.Properties.Resources.Sound_30;
-            this.radPageViewPageSound.ItemSize = new System.Drawing.SizeF(76F, 41F);
+            this.radPageViewPageSound.ItemSize = new System.Drawing.SizeF(84F, 49F);
             this.radPageViewPageSound.Location = new System.Drawing.Point(1, 37);
             this.radPageViewPageSound.Name = "radPageViewPageSound";
             this.radPageViewPageSound.Size = new System.Drawing.Size(1070, 221);
@@ -1172,7 +1180,7 @@
             this.radPageViewPageText.BackColor = System.Drawing.SystemColors.Control;
             this.radPageViewPageText.Controls.Add(this.Panel_Text);
             this.radPageViewPageText.Image = global::Archive.Properties.Resources.Text_30;
-            this.radPageViewPageText.ItemSize = new System.Drawing.SizeF(76F, 41F);
+            this.radPageViewPageText.ItemSize = new System.Drawing.SizeF(84F, 49F);
             this.radPageViewPageText.Location = new System.Drawing.Point(1, 37);
             this.radPageViewPageText.Name = "radPageViewPageText";
             this.radPageViewPageText.Size = new System.Drawing.Size(1070, 221);
@@ -1192,7 +1200,7 @@
             this.radPageViewPageImage.BackColor = System.Drawing.SystemColors.Control;
             this.radPageViewPageImage.Controls.Add(this.Panel_Image);
             this.radPageViewPageImage.Image = global::Archive.Properties.Resources.Image_30;
-            this.radPageViewPageImage.ItemSize = new System.Drawing.SizeF(76F, 41F);
+            this.radPageViewPageImage.ItemSize = new System.Drawing.SizeF(84F, 49F);
             this.radPageViewPageImage.Location = new System.Drawing.Point(1, 37);
             this.radPageViewPageImage.Name = "radPageViewPageImage";
             this.radPageViewPageImage.Size = new System.Drawing.Size(1070, 221);
@@ -1213,7 +1221,7 @@
             this.radPageViewPageVideo.Controls.Add(this.Panel_Video);
             this.radPageViewPageVideo.Description = null;
             this.radPageViewPageVideo.Image = global::Archive.Properties.Resources.Video_30;
-            this.radPageViewPageVideo.ItemSize = new System.Drawing.SizeF(76F, 41F);
+            this.radPageViewPageVideo.ItemSize = new System.Drawing.SizeF(84F, 49F);
             this.radPageViewPageVideo.Location = new System.Drawing.Point(1, 37);
             this.radPageViewPageVideo.Name = "radPageViewPageVideo";
             this.radPageViewPageVideo.Size = new System.Drawing.Size(1070, 216);
@@ -1271,7 +1279,7 @@
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(226)))), ((int)(((byte)(246)))));
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             // 
-            // FormCreateDocument
+            // FormCreateDocument_Speech
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1280,10 +1288,11 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.radGroupBox1);
             this.Controls.Add(this.PanelHeader);
-            this.Name = "FormCreateDocument";
+            this.Name = "FormCreateDocument_Speech";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ایجاد سند سخنرانی";
-            this.Load += new System.EventHandler(this.FormCreateDocumentSpeach_Load);
+            this.Load += new System.EventHandler(this.FormCreateDocumentSpeech_Load);
             this.PanelHeader.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

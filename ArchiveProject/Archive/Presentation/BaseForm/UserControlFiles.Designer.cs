@@ -52,7 +52,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TextBoxVolume = new System.Windows.Forms.TextBox();
             this.LabelVolume = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TextBoxTime = new System.Windows.Forms.TextBox();
             this.LabelTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListResource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListFileType)).BeginInit();
@@ -341,16 +341,16 @@
             this.LabelVolume.TabIndex = 54;
             this.LabelVolume.Text = "حجم:";
             // 
-            // textBox2
+            // TextBoxTime
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.textBox2.Location = new System.Drawing.Point(858, 152);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox2.Size = new System.Drawing.Size(136, 22);
-            this.textBox2.TabIndex = 51;
+            this.TextBoxTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxTime.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.TextBoxTime.Location = new System.Drawing.Point(858, 152);
+            this.TextBoxTime.Name = "TextBoxTime";
+            this.TextBoxTime.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.TextBoxTime.Size = new System.Drawing.Size(136, 22);
+            this.TextBoxTime.TabIndex = 51;
             // 
             // LabelTime
             // 
@@ -370,7 +370,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.TextBoxVolume);
             this.Controls.Add(this.LabelVolume);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TextBoxTime);
             this.Controls.Add(this.LabelTime);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TextBoxPart);
@@ -426,7 +426,7 @@
         public System.Windows.Forms.Label LabelCode;
         public System.Windows.Forms.TextBox TextBoxVolume;
         public System.Windows.Forms.Label LabelVolume;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox TextBoxTime;
         public System.Windows.Forms.Label LabelTime;
     }
 }
