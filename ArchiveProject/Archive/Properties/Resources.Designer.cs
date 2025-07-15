@@ -73,6 +73,16 @@ namespace Archive.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AudioBook_30 {
+            get {
+                object obj = ResourceManager.GetObject("AudioBook_30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Delete_20 {
             get {
                 object obj = ResourceManager.GetObject("Delete_20", resourceCulture);
@@ -86,6 +96,16 @@ namespace Archive.Properties {
         internal static System.Drawing.Bitmap Edit_30 {
             get {
                 object obj = ResourceManager.GetObject("Edit-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GuidanceLicense_30 {
+            get {
+                object obj = ResourceManager.GetObject("GuidanceLicense_30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

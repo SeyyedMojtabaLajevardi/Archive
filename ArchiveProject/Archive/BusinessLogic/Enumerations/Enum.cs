@@ -12,7 +12,8 @@ namespace Archive.BusinessLogic.Enumerations
         Text,
         Sound,
         Image,
-        Video
+        Video,
+        GuidanceLicense
     }
 
     public enum DataEntryType

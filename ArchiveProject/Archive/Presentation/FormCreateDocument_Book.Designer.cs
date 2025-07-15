@@ -1,6 +1,6 @@
 ﻿namespace Archive
 {
-    partial class FormCreateDocument_Speech
+    partial class FormCreateDocument_Book
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateDocument_Speech));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateDocument_Book));
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn17 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn18 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn19 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
@@ -65,8 +65,22 @@
             this.ContentTypeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileTypes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.LabelFipaCode = new System.Windows.Forms.Label();
+            this.TextBoxFipaCode = new System.Windows.Forms.TextBox();
+            this.LabelPublisher = new System.Windows.Forms.Label();
+            this.TextBoxPublisher = new System.Windows.Forms.TextBox();
+            this.LabelPublishYear = new System.Windows.Forms.Label();
+            this.TextBoxPublishYear = new System.Windows.Forms.TextBox();
             this.ComboBoxSubject = new Telerik.WinControls.UI.RadCheckedDropDownList();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.ButtonRegisterDocument = new System.Windows.Forms.Button();
             this.ButtonSaveTemorary = new System.Windows.Forms.Button();
             this.TextBoxDocumentDescription = new System.Windows.Forms.TextBox();
@@ -84,6 +98,12 @@
             this.radDropDownListLanguage = new Telerik.WinControls.UI.RadDropDownList();
             this.radDropDownListPermissionState = new Telerik.WinControls.UI.RadDropDownList();
             this.radDropDownListPadidAvar = new Telerik.WinControls.UI.RadDropDownList();
+            this.ButtonAddCategory2 = new System.Windows.Forms.Button();
+            this.ButtonAddLanguage = new System.Windows.Forms.Button();
+            this.ButtonAddPadidAvar = new System.Windows.Forms.Button();
+            this.ButtonAddSubject = new System.Windows.Forms.Button();
+            this.ButtonAddCategory1 = new System.Windows.Forms.Button();
+            this.ButtonAddMainCategory = new System.Windows.Forms.Button();
             this.LabelPadidAvar = new System.Windows.Forms.Label();
             this.LabelSubTitle = new System.Windows.Forms.Label();
             this.TextBoxSubTitle = new System.Windows.Forms.TextBox();
@@ -96,16 +116,14 @@
             this.LabelPermissionLevel = new System.Windows.Forms.Label();
             this.LabelSubject = new System.Windows.Forms.Label();
             this.LabelMainCategory = new System.Windows.Forms.Label();
-            this.LabelSessionDate = new System.Windows.Forms.Label();
             this.LabelPlace = new System.Windows.Forms.Label();
-            this.LabelSessionNumber = new System.Windows.Forms.Label();
-            this.LabelSessionCount = new System.Windows.Forms.Label();
+            this.LabelBookVolumeNumber = new System.Windows.Forms.Label();
+            this.LabelBookVolumeCount = new System.Windows.Forms.Label();
             this.TextBoxPlace = new System.Windows.Forms.TextBox();
-            this.TextBoxSessionNumber = new System.Windows.Forms.TextBox();
-            this.TextBoxSessionCount = new System.Windows.Forms.TextBox();
+            this.TextBoxBookVolumeNumber = new System.Windows.Forms.TextBox();
+            this.TextBoxBookVolumeCount = new System.Windows.Forms.TextBox();
             this.LabelSiteCode = new System.Windows.Forms.Label();
             this.TextBoxSiteCode = new System.Windows.Forms.TextBox();
-            this.PersiandateTimePickerDate = new ShDateTimePicker.DateTimePicker();
             this.ButtonCancel = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
@@ -113,27 +131,20 @@
             this.PanelContent = new System.Windows.Forms.Panel();
             this.GridViewContent = new Telerik.WinControls.UI.RadGridView();
             this.radNavigationView1 = new Telerik.WinControls.UI.RadNavigationView();
-            this.customShape1 = new Telerik.WinControls.OldShapeEditor.CustomShape();
-            this.calloutElementShape1 = new Telerik.WinControls.UI.Callout.CalloutElementShape();
-            this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01 = new Telerik.WinControls.UI.RadDropDownListRootElement();
-            this.starShape1 = new Telerik.WinControls.UI.StarShape();
-            this.object_11f9d28c_2b62_4037_bed9_39e037d87daa = new Telerik.WinControls.UI.RadDropDownListRootElement();
-            this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.radPageViewPageAudioBook = new Telerik.WinControls.UI.RadPageViewPage();
             this.Panel_Sound = new System.Windows.Forms.Panel();
             this.radPageViewPageText = new Telerik.WinControls.UI.RadPageViewPage();
             this.Panel_Text = new System.Windows.Forms.Panel();
             this.radPageViewPageImage = new Telerik.WinControls.UI.RadPageViewPage();
             this.Panel_Image = new System.Windows.Forms.Panel();
-            this.radPageViewPageVideo = new Telerik.WinControls.UI.RadPageViewPage();
+            this.radPageViewPageGuidanceLicense = new Telerik.WinControls.UI.RadPageViewPage();
             this.Panel_Video = new System.Windows.Forms.Panel();
-            this.ButtonAddCategory2 = new System.Windows.Forms.Button();
-            this.ButtonAddLanguage = new System.Windows.Forms.Button();
-            this.ButtonAddPadidAvar = new System.Windows.Forms.Button();
-            this.ButtonAddSubject = new System.Windows.Forms.Button();
-            this.ButtonAddCategory1 = new System.Windows.Forms.Button();
-            this.ButtonAddMainCategory = new System.Windows.Forms.Button();
-            this.radPageViewPageSound = new Telerik.WinControls.UI.RadPageViewPage();
+            this.customShape1 = new Telerik.WinControls.OldShapeEditor.CustomShape();
+            this.calloutElementShape1 = new Telerik.WinControls.UI.Callout.CalloutElementShape();
+            this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01 = new Telerik.WinControls.UI.RadDropDownListRootElement();
+            this.starShape1 = new Telerik.WinControls.UI.StarShape();
+            this.object_11f9d28c_2b62_4037_bed9_39e037d87daa = new Telerik.WinControls.UI.RadDropDownListRootElement();
+            this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -160,11 +171,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridViewContent.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radNavigationView1)).BeginInit();
             this.radNavigationView1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
+            this.radPageViewPageAudioBook.SuspendLayout();
             this.radPageViewPageText.SuspendLayout();
             this.radPageViewPageImage.SuspendLayout();
-            this.radPageViewPageVideo.SuspendLayout();
-            this.radPageViewPageSound.SuspendLayout();
+            this.radPageViewPageGuidanceLicense.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelHeader
@@ -266,6 +277,14 @@
             // 
             this.radGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
             this.radGroupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.radGroupBox1.Controls.Add(this.label4);
+            this.radGroupBox1.Controls.Add(this.textBox4);
+            this.radGroupBox1.Controls.Add(this.LabelFipaCode);
+            this.radGroupBox1.Controls.Add(this.TextBoxFipaCode);
+            this.radGroupBox1.Controls.Add(this.LabelPublisher);
+            this.radGroupBox1.Controls.Add(this.TextBoxPublisher);
+            this.radGroupBox1.Controls.Add(this.LabelPublishYear);
+            this.radGroupBox1.Controls.Add(this.TextBoxPublishYear);
             this.radGroupBox1.Controls.Add(this.ComboBoxSubject);
             this.radGroupBox1.Controls.Add(this.panel10);
             this.radGroupBox1.Controls.Add(this.radDropDownListNewTitle);
@@ -295,16 +314,14 @@
             this.radGroupBox1.Controls.Add(this.LabelPermissionLevel);
             this.radGroupBox1.Controls.Add(this.LabelSubject);
             this.radGroupBox1.Controls.Add(this.LabelMainCategory);
-            this.radGroupBox1.Controls.Add(this.LabelSessionDate);
             this.radGroupBox1.Controls.Add(this.LabelPlace);
-            this.radGroupBox1.Controls.Add(this.LabelSessionNumber);
-            this.radGroupBox1.Controls.Add(this.LabelSessionCount);
+            this.radGroupBox1.Controls.Add(this.LabelBookVolumeNumber);
+            this.radGroupBox1.Controls.Add(this.LabelBookVolumeCount);
             this.radGroupBox1.Controls.Add(this.TextBoxPlace);
-            this.radGroupBox1.Controls.Add(this.TextBoxSessionNumber);
-            this.radGroupBox1.Controls.Add(this.TextBoxSessionCount);
+            this.radGroupBox1.Controls.Add(this.TextBoxBookVolumeNumber);
+            this.radGroupBox1.Controls.Add(this.TextBoxBookVolumeCount);
             this.radGroupBox1.Controls.Add(this.LabelSiteCode);
             this.radGroupBox1.Controls.Add(this.TextBoxSiteCode);
-            this.radGroupBox1.Controls.Add(this.PersiandateTimePickerDate);
             this.radGroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.radGroupBox1.GroupBoxStyle = Telerik.WinControls.UI.RadGroupBoxStyle.Office;
             this.radGroupBox1.HeaderMargin = new System.Windows.Forms.Padding(1);
@@ -312,9 +329,89 @@
             this.radGroupBox1.Location = new System.Drawing.Point(0, 159);
             this.radGroupBox1.Name = "radGroupBox1";
             this.radGroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radGroupBox1.Size = new System.Drawing.Size(1226, 298);
+            this.radGroupBox1.Size = new System.Drawing.Size(1226, 312);
             this.radGroupBox1.TabIndex = 0;
             this.radGroupBox1.Text = "مشخصات سند";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label4.Location = new System.Drawing.Point(189, 194);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 20);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "تعداد صفحه:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox4.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.textBox4.Location = new System.Drawing.Point(10, 192);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(166, 26);
+            this.textBox4.TabIndex = 40;
+            // 
+            // LabelFipaCode
+            // 
+            this.LabelFipaCode.AutoSize = true;
+            this.LabelFipaCode.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.LabelFipaCode.Location = new System.Drawing.Point(220, 155);
+            this.LabelFipaCode.Name = "LabelFipaCode";
+            this.LabelFipaCode.Size = new System.Drawing.Size(58, 20);
+            this.LabelFipaCode.TabIndex = 37;
+            this.LabelFipaCode.Text = "کد فیپا:";
+            // 
+            // TextBoxFipaCode
+            // 
+            this.TextBoxFipaCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxFipaCode.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.TextBoxFipaCode.Location = new System.Drawing.Point(10, 153);
+            this.TextBoxFipaCode.Name = "TextBoxFipaCode";
+            this.TextBoxFipaCode.Size = new System.Drawing.Size(166, 26);
+            this.TextBoxFipaCode.TabIndex = 38;
+            // 
+            // LabelPublisher
+            // 
+            this.LabelPublisher.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LabelPublisher.AutoSize = true;
+            this.LabelPublisher.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.LabelPublisher.Location = new System.Drawing.Point(580, 192);
+            this.LabelPublisher.Name = "LabelPublisher";
+            this.LabelPublisher.Size = new System.Drawing.Size(40, 20);
+            this.LabelPublisher.TabIndex = 35;
+            this.LabelPublisher.Text = "ناشر:";
+            // 
+            // TextBoxPublisher
+            // 
+            this.TextBoxPublisher.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TextBoxPublisher.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxPublisher.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.TextBoxPublisher.Location = new System.Drawing.Point(324, 190);
+            this.TextBoxPublisher.Name = "TextBoxPublisher";
+            this.TextBoxPublisher.Size = new System.Drawing.Size(197, 26);
+            this.TextBoxPublisher.TabIndex = 36;
+            // 
+            // LabelPublishYear
+            // 
+            this.LabelPublishYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LabelPublishYear.AutoSize = true;
+            this.LabelPublishYear.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.LabelPublishYear.Location = new System.Drawing.Point(880, 190);
+            this.LabelPublishYear.Name = "LabelPublishYear";
+            this.LabelPublishYear.Size = new System.Drawing.Size(65, 20);
+            this.LabelPublishYear.TabIndex = 33;
+            this.LabelPublishYear.Text = "سال نشر:";
+            // 
+            // TextBoxPublishYear
+            // 
+            this.TextBoxPublishYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TextBoxPublishYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxPublishYear.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.TextBoxPublishYear.Location = new System.Drawing.Point(659, 188);
+            this.TextBoxPublishYear.Name = "TextBoxPublishYear";
+            this.TextBoxPublishYear.Size = new System.Drawing.Size(194, 26);
+            this.TextBoxPublishYear.TabIndex = 34;
             // 
             // ComboBoxSubject
             // 
@@ -347,6 +444,12 @@
             // 
             // panel10
             // 
+            this.panel10.Controls.Add(this.label7);
+            this.panel10.Controls.Add(this.textBox7);
+            this.panel10.Controls.Add(this.label5);
+            this.panel10.Controls.Add(this.textBox5);
+            this.panel10.Controls.Add(this.label6);
+            this.panel10.Controls.Add(this.textBox6);
             this.panel10.Controls.Add(this.ButtonRegisterDocument);
             this.panel10.Controls.Add(this.ButtonSaveTemorary);
             this.panel10.Controls.Add(this.TextBoxDocumentDescription);
@@ -356,16 +459,77 @@
             this.panel10.Controls.Add(this.LabelLink);
             this.panel10.Controls.Add(this.LabelDocumentDescription);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(2, 234);
+            this.panel10.Location = new System.Drawing.Point(2, 224);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1222, 62);
+            this.panel10.Size = new System.Drawing.Size(1222, 86);
             this.panel10.TabIndex = 32;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label7.Location = new System.Drawing.Point(563, 63);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 20);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "گوینده:";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox7.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.textBox7.Location = new System.Drawing.Point(322, 57);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(197, 26);
+            this.textBox7.TabIndex = 40;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label5.Location = new System.Drawing.Point(225, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 20);
+            this.label5.TabIndex = 37;
+            this.label5.Text = "مترجم:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox5.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.textBox5.Location = new System.Drawing.Point(8, 25);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(166, 26);
+            this.textBox5.TabIndex = 38;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label6.Location = new System.Drawing.Point(568, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 20);
+            this.label6.TabIndex = 35;
+            this.label6.Text = "ترجمه:";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox6.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.textBox6.Location = new System.Drawing.Point(322, 27);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(197, 26);
+            this.textBox6.TabIndex = 36;
             // 
             // ButtonRegisterDocument
             // 
             this.ButtonRegisterDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonRegisterDocument.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonRegisterDocument.Location = new System.Drawing.Point(7, 32);
+            this.ButtonRegisterDocument.Location = new System.Drawing.Point(7, 56);
             this.ButtonRegisterDocument.Name = "ButtonRegisterDocument";
             this.ButtonRegisterDocument.Size = new System.Drawing.Size(86, 28);
             this.ButtonRegisterDocument.TabIndex = 4;
@@ -377,7 +541,7 @@
             // 
             this.ButtonSaveTemorary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonSaveTemorary.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.ButtonSaveTemorary.Location = new System.Drawing.Point(99, 33);
+            this.ButtonSaveTemorary.Location = new System.Drawing.Point(99, 57);
             this.ButtonSaveTemorary.Name = "ButtonSaveTemorary";
             this.ButtonSaveTemorary.Size = new System.Drawing.Size(75, 26);
             this.ButtonSaveTemorary.TabIndex = 3;
@@ -389,30 +553,30 @@
             // 
             this.TextBoxDocumentDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxDocumentDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxDocumentDescription.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxDocumentDescription.Location = new System.Drawing.Point(633, 34);
+            this.TextBoxDocumentDescription.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.TextBoxDocumentDescription.Location = new System.Drawing.Point(657, 30);
             this.TextBoxDocumentDescription.Name = "TextBoxDocumentDescription";
-            this.TextBoxDocumentDescription.Size = new System.Drawing.Size(506, 23);
+            this.TextBoxDocumentDescription.Size = new System.Drawing.Size(444, 26);
             this.TextBoxDocumentDescription.TabIndex = 2;
             // 
             // TextBoxComment
             // 
             this.TextBoxComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxComment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxComment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxComment.Location = new System.Drawing.Point(633, 6);
+            this.TextBoxComment.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.TextBoxComment.Location = new System.Drawing.Point(657, 1);
             this.TextBoxComment.Name = "TextBoxComment";
-            this.TextBoxComment.Size = new System.Drawing.Size(506, 23);
+            this.TextBoxComment.Size = new System.Drawing.Size(444, 26);
             this.TextBoxComment.TabIndex = 0;
             // 
             // TextBoxLink
             // 
             this.TextBoxLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxLink.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxLink.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxLink.Location = new System.Drawing.Point(9, 7);
+            this.TextBoxLink.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.TextBoxLink.Location = new System.Drawing.Point(658, 59);
             this.TextBoxLink.Name = "TextBoxLink";
-            this.TextBoxLink.Size = new System.Drawing.Size(498, 23);
+            this.TextBoxLink.Size = new System.Drawing.Size(444, 26);
             this.TextBoxLink.TabIndex = 1;
             // 
             // LabelDescription
@@ -420,18 +584,18 @@
             this.LabelDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelDescription.AutoSize = true;
             this.LabelDescription.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.LabelDescription.Location = new System.Drawing.Point(1146, 9);
+            this.LabelDescription.Location = new System.Drawing.Point(1116, 7);
             this.LabelDescription.Name = "LabelDescription";
-            this.LabelDescription.Size = new System.Drawing.Size(72, 20);
+            this.LabelDescription.Size = new System.Drawing.Size(101, 20);
             this.LabelDescription.TabIndex = 3;
-            this.LabelDescription.Text = "توضیحات:";
+            this.LabelDescription.Text = "توضیحات سند:";
             // 
             // LabelLink
             // 
             this.LabelLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelLink.AutoSize = true;
             this.LabelLink.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.LabelLink.Location = new System.Drawing.Point(509, 8);
+            this.LabelLink.Location = new System.Drawing.Point(1108, 64);
             this.LabelLink.Name = "LabelLink";
             this.LabelLink.Size = new System.Drawing.Size(109, 20);
             this.LabelLink.TabIndex = 3;
@@ -442,7 +606,7 @@
             this.LabelDocumentDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelDocumentDescription.AutoSize = true;
             this.LabelDocumentDescription.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.LabelDocumentDescription.Location = new System.Drawing.Point(1149, 38);
+            this.LabelDocumentDescription.Location = new System.Drawing.Point(1149, 37);
             this.LabelDocumentDescription.Name = "LabelDocumentDescription";
             this.LabelDocumentDescription.Size = new System.Drawing.Size(69, 20);
             this.LabelDocumentDescription.TabIndex = 3;
@@ -608,6 +772,86 @@
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPadidAvar.GetChildAt(0))).RightToLeft = true;
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPadidAvar.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
             // 
+            // ButtonAddCategory2
+            // 
+            this.ButtonAddCategory2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ButtonAddCategory2.AutoSize = true;
+            this.ButtonAddCategory2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddCategory2.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddCategory2.Location = new System.Drawing.Point(301, 110);
+            this.ButtonAddCategory2.Name = "ButtonAddCategory2";
+            this.ButtonAddCategory2.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddCategory2.TabIndex = 17;
+            this.ButtonAddCategory2.TabStop = false;
+            this.ButtonAddCategory2.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddLanguage
+            // 
+            this.ButtonAddLanguage.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ButtonAddLanguage.AutoSize = true;
+            this.ButtonAddLanguage.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddLanguage.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddLanguage.Location = new System.Drawing.Point(301, 73);
+            this.ButtonAddLanguage.Name = "ButtonAddLanguage";
+            this.ButtonAddLanguage.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddLanguage.TabIndex = 17;
+            this.ButtonAddLanguage.TabStop = false;
+            this.ButtonAddLanguage.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddPadidAvar
+            // 
+            this.ButtonAddPadidAvar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ButtonAddPadidAvar.AutoSize = true;
+            this.ButtonAddPadidAvar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddPadidAvar.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddPadidAvar.Location = new System.Drawing.Point(637, 73);
+            this.ButtonAddPadidAvar.Name = "ButtonAddPadidAvar";
+            this.ButtonAddPadidAvar.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddPadidAvar.TabIndex = 17;
+            this.ButtonAddPadidAvar.TabStop = false;
+            this.ButtonAddPadidAvar.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddSubject
+            // 
+            this.ButtonAddSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonAddSubject.AutoSize = true;
+            this.ButtonAddSubject.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddSubject.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddSubject.Location = new System.Drawing.Point(970, 150);
+            this.ButtonAddSubject.Name = "ButtonAddSubject";
+            this.ButtonAddSubject.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddSubject.TabIndex = 17;
+            this.ButtonAddSubject.TabStop = false;
+            this.ButtonAddSubject.UseVisualStyleBackColor = true;
+            this.ButtonAddSubject.Click += new System.EventHandler(this.ButtonAddSubject_Click);
+            // 
+            // ButtonAddCategory1
+            // 
+            this.ButtonAddCategory1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ButtonAddCategory1.AutoSize = true;
+            this.ButtonAddCategory1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddCategory1.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddCategory1.Location = new System.Drawing.Point(637, 110);
+            this.ButtonAddCategory1.Name = "ButtonAddCategory1";
+            this.ButtonAddCategory1.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddCategory1.TabIndex = 17;
+            this.ButtonAddCategory1.TabStop = false;
+            this.ButtonAddCategory1.UseVisualStyleBackColor = true;
+            this.ButtonAddCategory1.Click += new System.EventHandler(this.ButtonAddCategory1_Click);
+            // 
+            // ButtonAddMainCategory
+            // 
+            this.ButtonAddMainCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonAddMainCategory.AutoSize = true;
+            this.ButtonAddMainCategory.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddMainCategory.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddMainCategory.Location = new System.Drawing.Point(970, 112);
+            this.ButtonAddMainCategory.Name = "ButtonAddMainCategory";
+            this.ButtonAddMainCategory.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddMainCategory.TabIndex = 17;
+            this.ButtonAddMainCategory.TabStop = false;
+            this.ButtonAddMainCategory.UseVisualStyleBackColor = true;
+            // 
             // LabelPadidAvar
             // 
             this.LabelPadidAvar.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -737,47 +981,37 @@
             this.LabelMainCategory.TabIndex = 3;
             this.LabelMainCategory.Text = "دسته اصلی:";
             // 
-            // LabelSessionDate
-            // 
-            this.LabelSessionDate.AutoSize = true;
-            this.LabelSessionDate.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.LabelSessionDate.Location = new System.Drawing.Point(187, 153);
-            this.LabelSessionDate.Name = "LabelSessionDate";
-            this.LabelSessionDate.Size = new System.Drawing.Size(91, 20);
-            this.LabelSessionDate.TabIndex = 3;
-            this.LabelSessionDate.Text = "تاریخ برگزاری:";
-            // 
             // LabelPlace
             // 
             this.LabelPlace.AutoSize = true;
             this.LabelPlace.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.LabelPlace.Location = new System.Drawing.Point(192, 113);
+            this.LabelPlace.Location = new System.Drawing.Point(211, 113);
             this.LabelPlace.Name = "LabelPlace";
-            this.LabelPlace.Size = new System.Drawing.Size(86, 20);
+            this.LabelPlace.Size = new System.Drawing.Size(67, 20);
             this.LabelPlace.TabIndex = 3;
-            this.LabelPlace.Text = "محل برگزاری:";
+            this.LabelPlace.Text = "محل نشر:";
             // 
-            // LabelSessionNumber
+            // LabelBookVolumeNumber
             // 
-            this.LabelSessionNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LabelSessionNumber.AutoSize = true;
-            this.LabelSessionNumber.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.LabelSessionNumber.Location = new System.Drawing.Point(858, 153);
-            this.LabelSessionNumber.Name = "LabelSessionNumber";
-            this.LabelSessionNumber.Size = new System.Drawing.Size(87, 20);
-            this.LabelSessionNumber.TabIndex = 3;
-            this.LabelSessionNumber.Text = "شماره جلسه:";
+            this.LabelBookVolumeNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LabelBookVolumeNumber.AutoSize = true;
+            this.LabelBookVolumeNumber.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.LabelBookVolumeNumber.Location = new System.Drawing.Point(868, 153);
+            this.LabelBookVolumeNumber.Name = "LabelBookVolumeNumber";
+            this.LabelBookVolumeNumber.Size = new System.Drawing.Size(77, 20);
+            this.LabelBookVolumeNumber.TabIndex = 3;
+            this.LabelBookVolumeNumber.Text = "شماره جلد:";
             // 
-            // LabelSessionCount
+            // LabelBookVolumeCount
             // 
-            this.LabelSessionCount.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LabelSessionCount.AutoSize = true;
-            this.LabelSessionCount.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.LabelSessionCount.Location = new System.Drawing.Point(523, 153);
-            this.LabelSessionCount.Name = "LabelSessionCount";
-            this.LabelSessionCount.Size = new System.Drawing.Size(97, 20);
-            this.LabelSessionCount.TabIndex = 3;
-            this.LabelSessionCount.Text = "تعداد جلسات:";
+            this.LabelBookVolumeCount.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LabelBookVolumeCount.AutoSize = true;
+            this.LabelBookVolumeCount.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.LabelBookVolumeCount.Location = new System.Drawing.Point(543, 153);
+            this.LabelBookVolumeCount.Name = "LabelBookVolumeCount";
+            this.LabelBookVolumeCount.Size = new System.Drawing.Size(77, 20);
+            this.LabelBookVolumeCount.TabIndex = 3;
+            this.LabelBookVolumeCount.Text = "تعداد جلد:";
             // 
             // TextBoxPlace
             // 
@@ -789,27 +1023,27 @@
             this.TextBoxPlace.TabIndex = 11;
             this.TextBoxPlace.TextChanged += new System.EventHandler(this.TextBoxSiteCode_TextChanged);
             // 
-            // TextBoxSessionNumber
+            // TextBoxBookVolumeNumber
             // 
-            this.TextBoxSessionNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TextBoxSessionNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxSessionNumber.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.TextBoxSessionNumber.Location = new System.Drawing.Point(659, 151);
-            this.TextBoxSessionNumber.Name = "TextBoxSessionNumber";
-            this.TextBoxSessionNumber.Size = new System.Drawing.Size(194, 26);
-            this.TextBoxSessionNumber.TabIndex = 13;
-            this.TextBoxSessionNumber.TextChanged += new System.EventHandler(this.TextBoxSiteCode_TextChanged);
+            this.TextBoxBookVolumeNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TextBoxBookVolumeNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxBookVolumeNumber.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.TextBoxBookVolumeNumber.Location = new System.Drawing.Point(659, 151);
+            this.TextBoxBookVolumeNumber.Name = "TextBoxBookVolumeNumber";
+            this.TextBoxBookVolumeNumber.Size = new System.Drawing.Size(194, 26);
+            this.TextBoxBookVolumeNumber.TabIndex = 13;
+            this.TextBoxBookVolumeNumber.TextChanged += new System.EventHandler(this.TextBoxSiteCode_TextChanged);
             // 
-            // TextBoxSessionCount
+            // TextBoxBookVolumeCount
             // 
-            this.TextBoxSessionCount.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TextBoxSessionCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxSessionCount.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.TextBoxSessionCount.Location = new System.Drawing.Point(324, 151);
-            this.TextBoxSessionCount.Name = "TextBoxSessionCount";
-            this.TextBoxSessionCount.Size = new System.Drawing.Size(197, 26);
-            this.TextBoxSessionCount.TabIndex = 14;
-            this.TextBoxSessionCount.TextChanged += new System.EventHandler(this.TextBoxSiteCode_TextChanged);
+            this.TextBoxBookVolumeCount.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TextBoxBookVolumeCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxBookVolumeCount.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.TextBoxBookVolumeCount.Location = new System.Drawing.Point(324, 151);
+            this.TextBoxBookVolumeCount.Name = "TextBoxBookVolumeCount";
+            this.TextBoxBookVolumeCount.Size = new System.Drawing.Size(197, 26);
+            this.TextBoxBookVolumeCount.TabIndex = 14;
+            this.TextBoxBookVolumeCount.TextChanged += new System.EventHandler(this.TextBoxSiteCode_TextChanged);
             // 
             // LabelSiteCode
             // 
@@ -834,19 +1068,6 @@
             this.TextBoxSiteCode.TextChanged += new System.EventHandler(this.TextBoxSiteCode_TextChanged);
             this.TextBoxSiteCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxSiteCode_KeyDown);
             this.TextBoxSiteCode.Leave += new System.EventHandler(this.TextBoxSiteCode_Leave);
-            // 
-            // PersiandateTimePickerDate
-            // 
-            this.PersiandateTimePickerDate.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.PersiandateTimePickerDate.DateValue = "1387/7/6";
-            this.PersiandateTimePickerDate.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.PersiandateTimePickerDate.Format = ShDateTimePicker.DateTimePicker.ShDateFormat.ShortDate;
-            this.PersiandateTimePickerDate.Location = new System.Drawing.Point(10, 151);
-            this.PersiandateTimePickerDate.Name = "PersiandateTimePickerDate";
-            this.PersiandateTimePickerDate.Size = new System.Drawing.Size(166, 28);
-            this.PersiandateTimePickerDate.TabIndex = 15;
-            this.PersiandateTimePickerDate.Tag = "test";
-            this.PersiandateTimePickerDate.TextColor = System.Drawing.SystemColors.WindowText;
             // 
             // ButtonCancel
             // 
@@ -896,9 +1117,9 @@
             this.PanelContent.Controls.Add(this.GridViewContent);
             this.PanelContent.Controls.Add(this.radNavigationView1);
             this.PanelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelContent.Location = new System.Drawing.Point(0, 457);
+            this.PanelContent.Location = new System.Drawing.Point(0, 471);
             this.PanelContent.Name = "PanelContent";
-            this.PanelContent.Size = new System.Drawing.Size(1226, 458);
+            this.PanelContent.Size = new System.Drawing.Size(1226, 444);
             this.PanelContent.TabIndex = 18;
             // 
             // GridViewContent
@@ -1049,7 +1270,7 @@
             this.GridViewContent.RootElement.BorderHighlightColor = System.Drawing.SystemColors.Control;
             this.GridViewContent.RootElement.CustomFont = "None";
             this.GridViewContent.RootElement.MaxSize = new System.Drawing.Size(0, 0);
-            this.GridViewContent.Size = new System.Drawing.Size(1222, 195);
+            this.GridViewContent.Size = new System.Drawing.Size(1222, 181);
             this.GridViewContent.TabIndex = 20;
             this.GridViewContent.CurrentRowChanged += new Telerik.WinControls.UI.CurrentRowChangedEventHandler(this.GridViewContent_CurrentRowChanged);
             this.GridViewContent.CommandCellClick += new Telerik.WinControls.UI.CommandCellClickEventHandler(this.GridViewContent_CommandCellClick);
@@ -1060,7 +1281,7 @@
             this.radNavigationView1.Controls.Add(this.radPageViewPageAudioBook);
             this.radNavigationView1.Controls.Add(this.radPageViewPageText);
             this.radNavigationView1.Controls.Add(this.radPageViewPageImage);
-            this.radNavigationView1.Controls.Add(this.radPageViewPageVideo);
+            this.radNavigationView1.Controls.Add(this.radPageViewPageGuidanceLicense);
             this.radNavigationView1.DefaultPage = this.radPageViewPageAudioBook;
             this.radNavigationView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.radNavigationView1.ExpandedPaneWidth = 150;
@@ -1075,6 +1296,89 @@
             this.radNavigationView1.Size = new System.Drawing.Size(1222, 259);
             this.radNavigationView1.TabIndex = 0;
             this.radNavigationView1.SelectedPageChanged += new System.EventHandler(this.radNavigationView1_SelectedPageChanged);
+            // 
+            // radPageViewPageAudioBook
+            // 
+            this.radPageViewPageAudioBook.BackColor = System.Drawing.SystemColors.Control;
+            this.radPageViewPageAudioBook.Controls.Add(this.Panel_Sound);
+            this.radPageViewPageAudioBook.Image = global::Archive.Properties.Resources.AudioBook_30;
+            this.radPageViewPageAudioBook.ItemSize = new System.Drawing.SizeF(120F, 49F);
+            this.radPageViewPageAudioBook.Location = new System.Drawing.Point(1, 37);
+            this.radPageViewPageAudioBook.Name = "radPageViewPageAudioBook";
+            this.radPageViewPageAudioBook.Size = new System.Drawing.Size(1070, 221);
+            this.radPageViewPageAudioBook.Tag = "Sound";
+            this.radPageViewPageAudioBook.Text = "کتاب صوتی";
+            // 
+            // Panel_Sound
+            // 
+            this.Panel_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_Sound.Location = new System.Drawing.Point(0, 0);
+            this.Panel_Sound.Name = "Panel_Sound";
+            this.Panel_Sound.Size = new System.Drawing.Size(1070, 221);
+            this.Panel_Sound.TabIndex = 18;
+            // 
+            // radPageViewPageText
+            // 
+            this.radPageViewPageText.BackColor = System.Drawing.SystemColors.Control;
+            this.radPageViewPageText.Controls.Add(this.Panel_Text);
+            this.radPageViewPageText.Image = global::Archive.Properties.Resources.Text_30;
+            this.radPageViewPageText.ItemSize = new System.Drawing.SizeF(120F, 49F);
+            this.radPageViewPageText.Location = new System.Drawing.Point(1, 37);
+            this.radPageViewPageText.Name = "radPageViewPageText";
+            this.radPageViewPageText.Size = new System.Drawing.Size(1070, 221);
+            this.radPageViewPageText.Tag = "Text";
+            this.radPageViewPageText.Text = "متن";
+            // 
+            // Panel_Text
+            // 
+            this.Panel_Text.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_Text.Location = new System.Drawing.Point(0, 0);
+            this.Panel_Text.Name = "Panel_Text";
+            this.Panel_Text.Size = new System.Drawing.Size(1070, 221);
+            this.Panel_Text.TabIndex = 19;
+            // 
+            // radPageViewPageImage
+            // 
+            this.radPageViewPageImage.BackColor = System.Drawing.SystemColors.Control;
+            this.radPageViewPageImage.Controls.Add(this.Panel_Image);
+            this.radPageViewPageImage.Image = global::Archive.Properties.Resources.Image_30;
+            this.radPageViewPageImage.ItemSize = new System.Drawing.SizeF(120F, 49F);
+            this.radPageViewPageImage.Location = new System.Drawing.Point(1, 37);
+            this.radPageViewPageImage.Name = "radPageViewPageImage";
+            this.radPageViewPageImage.Size = new System.Drawing.Size(1070, 221);
+            this.radPageViewPageImage.Tag = "Image";
+            this.radPageViewPageImage.Text = "تصاویر کتاب";
+            // 
+            // Panel_Image
+            // 
+            this.Panel_Image.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_Image.Location = new System.Drawing.Point(0, 0);
+            this.Panel_Image.Name = "Panel_Image";
+            this.Panel_Image.Size = new System.Drawing.Size(1070, 221);
+            this.Panel_Image.TabIndex = 20;
+            // 
+            // radPageViewPageGuidanceLicense
+            // 
+            this.radPageViewPageGuidanceLicense.BackColor = System.Drawing.SystemColors.Control;
+            this.radPageViewPageGuidanceLicense.Controls.Add(this.Panel_Video);
+            this.radPageViewPageGuidanceLicense.Description = null;
+            this.radPageViewPageGuidanceLicense.Image = global::Archive.Properties.Resources.GuidanceLicense_30;
+            this.radPageViewPageGuidanceLicense.ItemSize = new System.Drawing.SizeF(120F, 49F);
+            this.radPageViewPageGuidanceLicense.Location = new System.Drawing.Point(1, 37);
+            this.radPageViewPageGuidanceLicense.Name = "radPageViewPageGuidanceLicense";
+            this.radPageViewPageGuidanceLicense.Size = new System.Drawing.Size(1070, 221);
+            this.radPageViewPageGuidanceLicense.Tag = "Video";
+            this.radPageViewPageGuidanceLicense.Text = "مجوز ارشاد";
+            this.radPageViewPageGuidanceLicense.Title = "l;kj";
+            // 
+            // Panel_Video
+            // 
+            this.Panel_Video.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_Video.Location = new System.Drawing.Point(0, 0);
+            this.Panel_Video.Name = "Panel_Video";
+            this.Panel_Video.Size = new System.Drawing.Size(1070, 221);
+            this.Panel_Video.TabIndex = 21;
+            this.Panel_Video.Tag = "Video";
             // 
             // customShape1
             // 
@@ -1117,180 +1421,7 @@
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(226)))), ((int)(((byte)(246)))));
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             // 
-            // radPageViewPageAudioBook
-            // 
-            this.radPageViewPageAudioBook.BackColor = System.Drawing.SystemColors.Control;
-            this.radPageViewPageAudioBook.Image = global::Archive.Properties.Resources.Sound_30;
-            this.radPageViewPageAudioBook.ItemSize = new System.Drawing.SizeF(76F, 41F);
-            this.radPageViewPageAudioBook.Location = new System.Drawing.Point(1, 37);
-            this.radPageViewPageAudioBook.Name = "radPageViewPageAudioBook";
-            this.radPageViewPageAudioBook.Size = new System.Drawing.Size(1070, 221);
-            this.radPageViewPageAudioBook.Tag = "Sound";
-            this.radPageViewPageAudioBook.Text = "صوت";
-            // 
-            // Panel_Sound
-            // 
-            this.Panel_Sound.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_Sound.Location = new System.Drawing.Point(0, 0);
-            this.Panel_Sound.Name = "Panel_Sound";
-            this.Panel_Sound.Size = new System.Drawing.Size(1070, 221);
-            this.Panel_Sound.TabIndex = 18;
-            // 
-            // radPageViewPageText
-            // 
-            this.radPageViewPageText.BackColor = System.Drawing.SystemColors.Control;
-            this.radPageViewPageText.Controls.Add(this.Panel_Text);
-            this.radPageViewPageText.Image = global::Archive.Properties.Resources.Text_30;
-            this.radPageViewPageText.ItemSize = new System.Drawing.SizeF(76F, 41F);
-            this.radPageViewPageText.Location = new System.Drawing.Point(1, 37);
-            this.radPageViewPageText.Name = "radPageViewPageText";
-            this.radPageViewPageText.Size = new System.Drawing.Size(1070, 221);
-            this.radPageViewPageText.Tag = "Text";
-            this.radPageViewPageText.Text = "متن";
-            // 
-            // Panel_Text
-            // 
-            this.Panel_Text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_Text.Location = new System.Drawing.Point(0, 0);
-            this.Panel_Text.Name = "Panel_Text";
-            this.Panel_Text.Size = new System.Drawing.Size(1070, 221);
-            this.Panel_Text.TabIndex = 19;
-            // 
-            // radPageViewPageImage
-            // 
-            this.radPageViewPageImage.BackColor = System.Drawing.SystemColors.Control;
-            this.radPageViewPageImage.Controls.Add(this.Panel_Image);
-            this.radPageViewPageImage.Image = global::Archive.Properties.Resources.Image_30;
-            this.radPageViewPageImage.ItemSize = new System.Drawing.SizeF(76F, 41F);
-            this.radPageViewPageImage.Location = new System.Drawing.Point(1, 37);
-            this.radPageViewPageImage.Name = "radPageViewPageImage";
-            this.radPageViewPageImage.Size = new System.Drawing.Size(1070, 221);
-            this.radPageViewPageImage.Tag = "Image";
-            this.radPageViewPageImage.Text = "تصویر";
-            // 
-            // Panel_Image
-            // 
-            this.Panel_Image.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_Image.Location = new System.Drawing.Point(0, 0);
-            this.Panel_Image.Name = "Panel_Image";
-            this.Panel_Image.Size = new System.Drawing.Size(1070, 221);
-            this.Panel_Image.TabIndex = 20;
-            // 
-            // radPageViewPageVideo
-            // 
-            this.radPageViewPageVideo.BackColor = System.Drawing.SystemColors.Control;
-            this.radPageViewPageVideo.Controls.Add(this.Panel_Video);
-            this.radPageViewPageVideo.Description = null;
-            this.radPageViewPageVideo.Image = global::Archive.Properties.Resources.Video_30;
-            this.radPageViewPageVideo.ItemSize = new System.Drawing.SizeF(76F, 41F);
-            this.radPageViewPageVideo.Location = new System.Drawing.Point(1, 37);
-            this.radPageViewPageVideo.Name = "radPageViewPageVideo";
-            this.radPageViewPageVideo.Size = new System.Drawing.Size(1070, 216);
-            this.radPageViewPageVideo.Tag = "Video";
-            this.radPageViewPageVideo.Text = "ویدئو";
-            this.radPageViewPageVideo.Title = "l;kj";
-            // 
-            // Panel_Video
-            // 
-            this.Panel_Video.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_Video.Location = new System.Drawing.Point(0, 0);
-            this.Panel_Video.Name = "Panel_Video";
-            this.Panel_Video.Size = new System.Drawing.Size(1070, 216);
-            this.Panel_Video.TabIndex = 21;
-            this.Panel_Video.Tag = "Video";
-            // 
-            // ButtonAddCategory2
-            // 
-            this.ButtonAddCategory2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ButtonAddCategory2.AutoSize = true;
-            this.ButtonAddCategory2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddCategory2.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddCategory2.Location = new System.Drawing.Point(301, 110);
-            this.ButtonAddCategory2.Name = "ButtonAddCategory2";
-            this.ButtonAddCategory2.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddCategory2.TabIndex = 17;
-            this.ButtonAddCategory2.TabStop = false;
-            this.ButtonAddCategory2.UseVisualStyleBackColor = true;
-            // 
-            // ButtonAddLanguage
-            // 
-            this.ButtonAddLanguage.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ButtonAddLanguage.AutoSize = true;
-            this.ButtonAddLanguage.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddLanguage.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddLanguage.Location = new System.Drawing.Point(301, 73);
-            this.ButtonAddLanguage.Name = "ButtonAddLanguage";
-            this.ButtonAddLanguage.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddLanguage.TabIndex = 17;
-            this.ButtonAddLanguage.TabStop = false;
-            this.ButtonAddLanguage.UseVisualStyleBackColor = true;
-            // 
-            // ButtonAddPadidAvar
-            // 
-            this.ButtonAddPadidAvar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ButtonAddPadidAvar.AutoSize = true;
-            this.ButtonAddPadidAvar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddPadidAvar.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddPadidAvar.Location = new System.Drawing.Point(637, 73);
-            this.ButtonAddPadidAvar.Name = "ButtonAddPadidAvar";
-            this.ButtonAddPadidAvar.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddPadidAvar.TabIndex = 17;
-            this.ButtonAddPadidAvar.TabStop = false;
-            this.ButtonAddPadidAvar.UseVisualStyleBackColor = true;
-            // 
-            // ButtonAddSubject
-            // 
-            this.ButtonAddSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAddSubject.AutoSize = true;
-            this.ButtonAddSubject.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddSubject.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddSubject.Location = new System.Drawing.Point(970, 150);
-            this.ButtonAddSubject.Name = "ButtonAddSubject";
-            this.ButtonAddSubject.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddSubject.TabIndex = 17;
-            this.ButtonAddSubject.TabStop = false;
-            this.ButtonAddSubject.UseVisualStyleBackColor = true;
-            this.ButtonAddSubject.Click += new System.EventHandler(this.ButtonAddSubject_Click);
-            // 
-            // ButtonAddCategory1
-            // 
-            this.ButtonAddCategory1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ButtonAddCategory1.AutoSize = true;
-            this.ButtonAddCategory1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddCategory1.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddCategory1.Location = new System.Drawing.Point(637, 110);
-            this.ButtonAddCategory1.Name = "ButtonAddCategory1";
-            this.ButtonAddCategory1.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddCategory1.TabIndex = 17;
-            this.ButtonAddCategory1.TabStop = false;
-            this.ButtonAddCategory1.UseVisualStyleBackColor = true;
-            this.ButtonAddCategory1.Click += new System.EventHandler(this.ButtonAddCategory1_Click);
-            // 
-            // ButtonAddMainCategory
-            // 
-            this.ButtonAddMainCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAddMainCategory.AutoSize = true;
-            this.ButtonAddMainCategory.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddMainCategory.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddMainCategory.Location = new System.Drawing.Point(970, 112);
-            this.ButtonAddMainCategory.Name = "ButtonAddMainCategory";
-            this.ButtonAddMainCategory.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddMainCategory.TabIndex = 17;
-            this.ButtonAddMainCategory.TabStop = false;
-            this.ButtonAddMainCategory.UseVisualStyleBackColor = true;
-            // 
-            // radPageViewPageSound
-            // 
-            this.radPageViewPageSound.BackColor = System.Drawing.SystemColors.Control;
-            this.radPageViewPageSound.Controls.Add(this.Panel_Sound);
-            this.radPageViewPageSound.Image = global::Archive.Properties.Resources.Sound_30;
-            this.radPageViewPageSound.Location = new System.Drawing.Point(1, 37);
-            this.radPageViewPageSound.Name = "radPageViewPageSound";
-            this.radPageViewPageSound.Size = new System.Drawing.Size(1070, 221);
-            this.radPageViewPageSound.Tag = "Sound";
-            this.radPageViewPageSound.Text = "صوت";
-            // 
-            // FormCreateDocument_Speech
+            // FormCreateDocument_Book
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1299,11 +1430,12 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.radGroupBox1);
             this.Controls.Add(this.PanelHeader);
-            this.Name = "FormCreateDocument_Speech";
+            this.Name = "FormCreateDocument_Book";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ایجاد سند سخنرانی";
-            this.Load += new System.EventHandler(this.FormCreateDocumentSpeech_Load);
+            this.Text = "ایجاد سند کتاب";
+            this.Load += new System.EventHandler(this.FormCreateDocumentBook_Load);
             this.PanelHeader.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -1332,11 +1464,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridViewContent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radNavigationView1)).EndInit();
             this.radNavigationView1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
+            this.radPageViewPageAudioBook.ResumeLayout(false);
             this.radPageViewPageText.ResumeLayout(false);
             this.radPageViewPageImage.ResumeLayout(false);
-            this.radPageViewPageVideo.ResumeLayout(false);
-            this.radPageViewPageSound.ResumeLayout(false);
+            this.radPageViewPageGuidanceLicense.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1360,11 +1492,8 @@
         private System.Windows.Forms.Label LabelDescription;
         private System.Windows.Forms.TextBox TextBoxComment;
         private System.Windows.Forms.Label LabelSubject;
-        private System.Windows.Forms.Label LabelSessionDate;
-        private System.Windows.Forms.Label LabelPlace;
-        private System.Windows.Forms.Label LabelSessionCount;
-        private System.Windows.Forms.TextBox TextBoxPlace;
-        private System.Windows.Forms.TextBox TextBoxSessionCount;
+        private System.Windows.Forms.Label LabelBookVolumeCount;
+        private System.Windows.Forms.TextBox TextBoxBookVolumeCount;
         private System.Windows.Forms.Label LabelDocumentDescription;
         private System.Windows.Forms.Label LabelLink;
         private System.Windows.Forms.TextBox TextBoxDocumentDescription;
@@ -1382,13 +1511,13 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel PanelContent;
         private System.Windows.Forms.Button ButtonRegisterDocument;
-        private System.Windows.Forms.Label LabelSessionNumber;
-        private System.Windows.Forms.TextBox TextBoxSessionNumber;
+        private System.Windows.Forms.Label LabelBookVolumeNumber;
+        private System.Windows.Forms.TextBox TextBoxBookVolumeNumber;
         private System.Windows.Forms.Button ButtonSaveContent;
         private Telerik.WinControls.UI.RadNavigationView radNavigationView1;
         private Telerik.WinControls.UI.RadPageViewPage radPageViewPageAudioBook;
         private Telerik.WinControls.UI.RadPageViewPage radPageViewPageImage;
-        private Telerik.WinControls.UI.RadPageViewPage radPageViewPageVideo;
+        private Telerik.WinControls.UI.RadPageViewPage radPageViewPageGuidanceLicense;
         private Telerik.WinControls.UI.RadPageViewPage radPageViewPageText;
         private Telerik.WinControls.UI.RadGridView GridViewContent;
         private System.Windows.Forms.Panel Panel_Sound;
@@ -1404,7 +1533,6 @@
         private Telerik.WinControls.UI.RadDropDownList radDropDownListCategory2;
         private Telerik.WinControls.UI.RadDropDownList radDropDownListOldTitle;
         private Telerik.WinControls.UI.RadDropDownList radDropDownListNewTitle;
-        private ShDateTimePicker.DateTimePicker PersiandateTimePickerDate;
         private Telerik.WinControls.OldShapeEditor.CustomShape customShape1;
         private Telerik.WinControls.UI.Callout.CalloutElementShape calloutElementShape1;
         private Telerik.WinControls.UI.RadDropDownListRootElement object_cabf595c_b710_44fa_8575_23a8c9cc3d01;
@@ -1418,6 +1546,21 @@
         private System.Windows.Forms.DataGridView DataGridViewHeaderFileType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContentTypeTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileTypes;
-        private Telerik.WinControls.UI.RadPageViewPage radPageViewPageSound;
+        private System.Windows.Forms.Label LabelPlace;
+        private System.Windows.Forms.TextBox TextBoxPlace;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label LabelFipaCode;
+        private System.Windows.Forms.TextBox TextBoxFipaCode;
+        private System.Windows.Forms.Label LabelPublisher;
+        private System.Windows.Forms.TextBox TextBoxPublisher;
+        private System.Windows.Forms.Label LabelPublishYear;
+        private System.Windows.Forms.TextBox TextBoxPublishYear;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox7;
     }
 }

@@ -51,22 +51,21 @@ namespace Archive.BusinessLogic
             if (existingFile == null) return false;
 
             existingFile.FileName = file.FileName;
-            existingFile.Content = file.Content;
             existingFile.Text = file.Text;
             existingFile.DeletionDescription = file.DeletionDescription;
-            existingFile.Content = file.Content;
+            //existingFile.Content = file.Content;
             existingFile.ContentId = file.ContentId;
             existingFile.IsUploaded = file.IsUploaded;
             existingFile.CategoryId = file.CategoryId;
             existingFile.EditorId = file.EditorId;
-            existingFile.Editor = file.Editor;
+            //existingFile.Editor = file.Editor;
             existingFile.FileNumber = file.FileNumber;
             existingFile.Comment = file.Comment;
             existingFile.FileCode = file.FileCode;
             existingFile.FileName = file.FileName;
-            existingFile.FileType = file.FileType;
+            //existingFile.FileType = file.FileType;
             existingFile.FileTypeId = file.FileTypeId;
-            existingFile.Resource = file.Resource;
+            //existingFile.Resource = file.Resource;
             existingFile.ResourceId = file.ResourceId;
             _context.SaveChanges();
             return true;

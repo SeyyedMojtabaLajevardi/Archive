@@ -4,7 +4,6 @@ using Archive.BusinessObject;
 using Archive.DataAccess;
 using Archive.DataAccess.Dto;
 using Archive.Presentation.BaseForm;
-using Archive.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,19 +12,12 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web.UI.WebControls.WebParts;
 using System.Windows.Forms;
-using System.Xml.Linq;
 using Telerik.WinControls.UI;
-using Telerik.Windows.Diagrams.Core;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
-using static Telerik.WinControls.UI.DateInput;
-using static Telerik.WinControls.UI.ValueMapper;
-using static Telerik.WinControls.VirtualKeyboard.VirtualKeyboardNativeMethods;
 
 namespace Archive
 {
-    public partial class FormCreateDocument_Speech : Form
+    public partial class FormCreateDocument_Book : Form
     {
         private readonly IDocumentService _documentService;
         private readonly IContentService _contentService;
@@ -36,13 +28,6 @@ namespace Archive
         private readonly ArchiveService _archiveService;
         UserControlFiles _userControlFiles;
         DataEntryType _dataEentryType;
-
-        //private Dictionary<string, List<string>> documentTypes = new Dictionary<string, List<string>> {
-        //    { "صوت", new List<string>{ "mp3", "wav", "ogg" } },
-        //    { "ویدئو", new List<string>{ "mp4", "avi" } },
-        //    { "تصویر", new List<string>{ "jpg", "png", "tif" } },
-        //    { "متن", new List<string>{ "doc", "pdf", "txt" } }
-        //};
 
         private List<PermissionType> _permissionTypes = new List<PermissionType>();
         private List<PermissionState> _permissionStates = new List<PermissionState>();
@@ -79,7 +64,7 @@ namespace Archive
         CultureInfo _persianCulture = new CultureInfo("fa-IR");
         //Enums enums = new Enums();
 
-        public FormCreateDocument_Speech(int mainCategoryId)
+        public FormCreateDocument_Book(int mainCategoryId)
         {
             InitializeComponent();
 
@@ -94,8 +79,7 @@ namespace Archive
             //ToolStripButtonVideo.Width = width;
         }
 
-        //public FormCreateDocument(IDocumentService documentService, IContentService contentService, IFileService fileService, ICategoryService categoryService)
-        public FormCreateDocument_Speech(IArchiveFacadeService archiveFacadeService)
+        public FormCreateDocument_Book(IArchiveFacadeService archiveFacadeService)
         {
             this.SuspendLayout();
             _userControlFiles = new UserControlFiles { Dock = DockStyle.Fill };
@@ -110,7 +94,7 @@ namespace Archive
             GridViewContent.ViewCellFormatting += GridViewContent_ViewCellFormatting;
         }
 
-        private void FormCreateDocumentSpeech_Load(object sender, EventArgs e)
+        private void FormCreateDocumentBook_Load(object sender, EventArgs e)
         {
             _isFirst = true;
             FillDropDownList();
@@ -164,7 +148,7 @@ namespace Archive
             int.TryParse(_userControlFiles.TextBoxPart.Text.Trim(), out part);
             var fileName = newFileCode.ToString().PadLeft(5, '0') + "_" +
                 radDropDownListNewTitle.Text + "_" +
-                TextBoxSessionNumber.Text.Trim().PadLeft(2, '0') + "_P" +
+                TextBoxBookVolumeNumber.Text.Trim().PadLeft(2, '0') + "_P" +
                 _userControlFiles.TextBoxPart.Text.Trim().PadLeft(2, '0') + "_" +
                 _userControlFiles.radDropDownListFileType.Text.Trim() + "_" +
                 _userControlFiles.TextBoxFileNo.Text.Trim() + Path.GetExtension(sourceFilePath);
@@ -289,9 +273,8 @@ namespace Archive
             TextBoxSiteCode.Text = document.SiteCode;
             TextBoxSubTitle.Text = document.SubTitle;
             TextBoxComment.Text = document.Comment;
-            TextBoxSessionCount.Text = document.SessionCount?.ToString();
-            TextBoxSessionNumber.Text = document.SessionNumber?.ToString();
-            TextBoxPlace.Text = document.SessionPlace;
+            TextBoxBookVolumeCount.Text = document.BookVolumeCount?.ToString();
+            TextBoxBookVolumeNumber.Text = document.BookVolumeNumber?.ToString();
             TextBoxLink.Text = document.RelatedLink;
             TextBoxDocumentDescription.Text = document.Description;
             if (document.PermissionState != null)
@@ -324,8 +307,8 @@ namespace Archive
                 radDropDownListNewTitle.SelectedIndex = radDropDownListNewTitle.FindStringExact(document.NewTitle);
                 radDropDownListNewTitle.Text = document.NewTitle;
             }
-            if (document.SessionDate != null)
-                PersiandateTimePickerDate.DateValue = document.SessionDate.Value.ToString("yyyy/MM/dd", _persianCulture);
+            //if (document.SessionDate != null)
+            //    PersiandateTimePickerDate.DateValue = document.SessionDate.Value.ToString("yyyy/MM/dd", _persianCulture);
 
             _isFirst = false;
             if (!string.IsNullOrEmpty(mainCategory.Trim()))
@@ -393,7 +376,7 @@ namespace Archive
             int contentTypeId = -1;
             switch (radNavigationView1.SelectedPage.Name)
             {
-                case "radPageViewPageSound":
+                case "radPageViewPageAudioBook":
                     contentTypeId = (int)ConentTypeEnum.Sound + 1;
                     break;
                 case "radPageViewPageText":
@@ -402,8 +385,8 @@ namespace Archive
                 case "radPageViewPageImage":
                     contentTypeId = (int)ConentTypeEnum.Image + 1;
                     break;
-                case "radPageViewPageVideo":
-                    contentTypeId = (int)ConentTypeEnum.Video + 1;
+                case "radPageViewPageGuidanceLicense":
+                    contentTypeId = (int)ConentTypeEnum.GuidanceLicense + 1;
                     break;
                 default:
                     break;
@@ -494,7 +477,7 @@ namespace Archive
             //if (_isFirst) return;
             _isFirst = true;
             radDropDownListMainCategory.BackColor = Color.White;
-            _mainCategoryId = _archiveService.GetCategoryByEnglishTitle("Speech").CategoryId;
+            _mainCategoryId = _archiveService.GetCategoryByEnglishTitle("Book").CategoryId;
             var categoryTitle = radDropDownListMainCategory.SelectedText;
             _categories1 = _archiveService.GetCategory(_mainCategoryId, 2);
             radDropDownListCategory1.DataSource = _categories1;
@@ -757,7 +740,7 @@ namespace Archive
             //{
             //    case "sound":
             //        _userControlFiles.TextBoxCode.Text = fileInfo.Code;
-            //        radNavigationView1.SelectedPage = radPageViewPageSound;
+            //        radNavigationView1.SelectedPage = radPageViewPageAudioBook;
             //        break;
 
             //    case "text":
@@ -769,7 +752,7 @@ namespace Archive
             //        break;
 
             //    case "video":
-            //        radNavigationView1.SelectedPage = radPageViewPageVideo;
+            //        radNavigationView1.SelectedPage = radPageViewPageGuidanceLicense;
             //        break;
             //    default:
             //        MessageBox.Show(@"اشکال در واکشی نوع محتوا");
@@ -833,7 +816,7 @@ namespace Archive
                     break;
 
                 case "video":
-                    radNavigationView1.SelectedPage = radPageViewPageVideo;
+                    radNavigationView1.SelectedPage = radPageViewPageGuidanceLicense;
                     break;
                 default:
                     MessageBox.Show(@"اشکال در واکشی نوع محتوا");
@@ -868,6 +851,7 @@ namespace Archive
                 MessageBox.Show(@"اطلاعات ضروری، تکمیل نشده است. برای ثبت اطلاعات ناقص از دکمه «ثبت موقت» استفاده کنید", @"عدم تکمیل اطلاعات");
                 return;
             }
+
             if (TextBoxSiteCode.Text.Trim() == "")
             {
                 var result = MessageBox.Show("در صورت عدم مقداردهی فیلد «کد سایت»، سیستم به صورت اتوماتیک بر اساس محدوده‌های تعریف شده کد جدید ایجاد می‌کند. آیا ادامه می‌دهید؟"
@@ -897,12 +881,12 @@ namespace Archive
 
         public bool FormValidations()
         {
-            //if (TextBoxSiteCode.Text.Trim() == "")
-            //{
-            //    TextBoxSiteCode.Focus();
-            //    TextBoxSiteCode.BackColor = Color.IndianRed;
-            //    return false;
-            //}
+            if (TextBoxSiteCode.Text.Trim() == "")
+            {
+                TextBoxSiteCode.Focus();
+                TextBoxSiteCode.BackColor = Color.IndianRed;
+                return false;
+            }
 
             if (radDropDownListNewTitle.SelectedIndex == -1 && radDropDownListNewTitle.Text.Trim() == "")
             {
@@ -918,10 +902,10 @@ namespace Archive
                 return false;
             }
 
-            if (TextBoxSessionNumber.Text.Trim() == "")
+            if (TextBoxBookVolumeNumber.Text.Trim() == "")
             {
-                TextBoxSessionNumber.Focus();
-                TextBoxSessionNumber.BackColor = Color.IndianRed;
+                TextBoxBookVolumeNumber.Focus();
+                TextBoxBookVolumeNumber.BackColor = Color.IndianRed;
                 return false;
             }
 
@@ -974,8 +958,8 @@ namespace Archive
             //DocumentDto documentDto = new DocumentDto();
             if (document == null)
                 document = new Document();
-            int.TryParse(TextBoxSessionCount.Text.Trim(), out int sessionCount);
-            int.TryParse(TextBoxSessionNumber.Text.Trim(), out int sessionNumber);
+            int.TryParse(TextBoxBookVolumeCount.Text.Trim(), out int bookVolumeCount);
+            int.TryParse(TextBoxBookVolumeNumber.Text.Trim(), out int bookVolumeNumber);
             int.TryParse(radDropDownListPermissionState?.SelectedItem?.Value.ToString(), out _permissionStateId);
             int.TryParse(radDropDownListCategory2?.SelectedItem?.Value.ToString(), out _secondCategoryId);
             int.TryParse(radDropDownListCategory1?.SelectedItem?.Value.ToString(), out _firstCategoryId);
@@ -987,11 +971,10 @@ namespace Archive
             //document.UserId = ??
             //document.CreatedDate = ??
             //document.CreatorUserId = ??
-            var date = PersiandateTimePickerDate.DateValue != null ? PersiandateTimePickerDate.DateValue : "";
-            string validDate = Regex.Replace(date, @"(\d{4})/(\d{1,2})/(\d{1,2})",
-            m => $"{m.Groups[1].Value}/{int.Parse(m.Groups[2].Value):00}/{int.Parse(m.Groups[3].Value):00}"
-        );
-            document.SessionDate = DateTime.ParseExact(validDate, "yyyy/MM/dd", _persianCulture, DateTimeStyles.None);
+            //var date = PersiandateTimePickerDate.DateValue != null ? PersiandateTimePickerDate.DateValue : "";
+            //string validDate = Regex.Replace(date, @"(\d{4})/(\d{1,2})/(\d{1,2})",
+            //m => $"{m.Groups[1].Value}/{int.Parse(m.Groups[2].Value):00}/{int.Parse(m.Groups[3].Value):00}");
+            //document.SessionDate = DateTime.ParseExact(validDate, "yyyy/MM/dd", _persianCulture, DateTimeStyles.None);
             document.DocumentCode = document.DocumentCode;
             document.DocumentId = document.DocumentId;
             document.DocumentSubjectRelations = GetNewDocumentSubjectRelation(document);
@@ -1004,9 +987,8 @@ namespace Archive
             document.PadidAvarId = _padidAvarId;
             document.LanguageId = _languageId;
             document.Comment = TextBoxDocumentDescription.Text.Trim();
-            document.SessionNumber = sessionNumber;
-            document.SessionCount = sessionCount;
-            document.SessionPlace = TextBoxPlace.Text.Trim();
+            document.BookVolumeNumber = bookVolumeNumber;
+            document.BookVolumeCount = bookVolumeCount;
             //document.SessionDate = ??
             document.RelatedLink = TextBoxLink.Text.Trim();
             document.Description = TextBoxDocumentDescription.Text.Trim();
@@ -1104,7 +1086,7 @@ namespace Archive
                 DataGridViewHeaderFileType.Rows.Clear();
                 GridViewContent.DataSource = null;
                 GridViewContent.Rows.Clear();
-                PersiandateTimePickerDate.DateValue = "";
+                //PersiandateTimePickerDate.DateValue = "";
                 _isFirst = true;
                 foreach (RadCheckedListDataItem item in ComboBoxSubject.Items)
                     item.Checked = false;
@@ -1161,12 +1143,12 @@ namespace Archive
             radDropDownListMainCategory.DataSource = _mainCategories;
             radDropDownListMainCategory.DisplayMember = "CategoryTitle";
             radDropDownListMainCategory.ValueMember = "CategoryId";
-            radDropDownListMainCategory.Text = _mainCategories.Where(x => x.CategoryEnglishTitle.ToLower() == "speech").Select(x => x.CategoryTitle).FirstOrDefault();
+            radDropDownListMainCategory.Text = _mainCategories.Where(x => x.CategoryEnglishTitle.ToLower() == "book").Select(x => x.CategoryTitle).FirstOrDefault();
 
             if (_mainCategoryId > 0)
             {
                 var category = _mainCategories.Where(x => x.CategoryId == _mainCategoryId).FirstOrDefault();
-                radDropDownListMainCategory.SelectedIndex = category == null ? -1 : category.CategoryId - 1;
+                //radDropDownListMainCategory.SelectedIndex = category == null ? -1 : category.CategoryId - 1;
                 _categories1 = _archiveService.GetCategory(category.CategoryId, 2);
                 radDropDownListCategory1.DataSource = _categories1;
                 radDropDownListCategory1.DisplayMember = "CategoryTitle";

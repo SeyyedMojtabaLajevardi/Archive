@@ -96,7 +96,21 @@ namespace Archive.BusinessLogic
 
         public bool UpdateContent(int contentId, Content content)
         {
-            throw new NotImplementedException();
+            var currentContent = _context.Contents.SingleOrDefault(x => x.ContentId == contentId);
+            if (currentContent == null) return false;
+            try
+            {
+                currentContent.ContentTypeId = content.ContentTypeId;
+                currentContent.DocumentId = content.DocumentId;
+                currentContent.Code = content.Code;
+                currentContent.Description = content.Description;
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public Content GetContentByContentTypeIdAndDocumentId(int contentTypeId, int documentId)
