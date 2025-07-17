@@ -27,6 +27,18 @@ namespace Archive.BusinessLogic
             return padidAvar.GetAll();
         }
 
+        public List<Publisher> GetPublisher()
+        {
+            var publisher = new Repository<Publisher>(_context);
+            return publisher.GetAll();
+        }
+
+        public List<PublicationPlace> GetPublicationPlace()
+        {
+            var publicationPlace = new Repository<PublicationPlace>(_context);
+            return publicationPlace.GetAll();
+        }
+
         public List<PermissionState> GetPermissionState()
         {
             var repository = new Repository<PermissionState>(_context);

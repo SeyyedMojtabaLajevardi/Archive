@@ -36,17 +36,21 @@ namespace Archive.DataAccess
         public virtual DbSet<PermissionState> PermissionStates { get; set; }
         public virtual DbSet<PermissionType> PermissionTypes { get; set; }
         public virtual DbSet<PublishState> PublishStates { get; set; }
-        public virtual DbSet<UserInfo> UserInfoes { get; set; }
         public virtual DbSet<View> Views { get; set; }
         public virtual DbSet<WorkFlowState> WorkFlowStates { get; set; }
-        public virtual DbSet<Document> Documents { get; set; }
-        public virtual DbSet<DocumentResourceRelation> DocumentResourceRelations { get; set; }
         public virtual DbSet<DocumentSubjectRelation> DocumentSubjectRelations { get; set; }
-        public virtual DbSet<Resource> Resources { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<FileType> FileTypes { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<File> Files { get; set; }
+        public virtual DbSet<Narrator> Narrators { get; set; }
+        public virtual DbSet<PublicationPlace> PublicationPlaces { get; set; }
+        public virtual DbSet<Publisher> Publishers { get; set; }
+        public virtual DbSet<Resource> Resources { get; set; }
+        public virtual DbSet<Translator> Translators { get; set; }
+        public virtual DbSet<Document> Documents { get; set; }
+        public virtual DbSet<DocumentNarratorRelation> DocumentNarratorRelations { get; set; }
+        public virtual DbSet<DocumentResourceRelation> DocumentResourceRelations { get; set; }
+        public virtual DbSet<UserInfo> UserInfoes { get; set; }
     }
 }

@@ -17,6 +17,9 @@ namespace Archive.BusinessLogic
         Document GetDocumentBySiteCode(string siteCode);
         Document GetDocumentByOldTitle(string oldTitle);
         Document GetDocumentByNewTitle(string newTitle);
+        Document GetDocumentBySiteCodeAndMainCategory(string siteCode, int mainCategory);
+        Document GetDocumentByOldTitleAndMainCategory(string oldTitle, int mainCategory);
+        Document GetDocumentByNewTitleAndMainCategory(string newTitle, int mainCategory);
         void UpdateDocument(Document document);
         void Save();
     }

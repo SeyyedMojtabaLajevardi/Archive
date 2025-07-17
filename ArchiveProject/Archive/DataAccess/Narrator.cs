@@ -12,21 +12,19 @@ namespace Archive.DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Resource
+    public partial class Narrator
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Resource()
+        public Narrator()
         {
-            this.Files = new HashSet<File>();
-            this.DocumentResourceRelations = new HashSet<DocumentResourceRelation>();
+            this.DocumentNarratorRelations = new HashSet<DocumentNarratorRelation>();
         }
     
-        public int ResourceId { get; set; }
-        public string ResourceTitle { get; set; }
+        public int NarratorId { get; set; }
+        public string NarratorName { get; set; }
+        public string NarratorNameSample { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<File> Files { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DocumentResourceRelation> DocumentResourceRelations { get; set; }
+        public virtual ICollection<DocumentNarratorRelation> DocumentNarratorRelations { get; set; }
     }
 }

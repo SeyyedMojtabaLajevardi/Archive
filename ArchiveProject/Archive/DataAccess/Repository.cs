@@ -39,7 +39,7 @@ namespace Archive.DataAccess
                         FirstName = u.FirstName,
                         LastName = u.LastName,
                         Password = u.PassWord,
-                        UserId = u.UsreId,
+                        UserId = u.UserId,
                         UserName = u.UserName,
                         PermissionTypeTitle = p.PermissionTypeTitle
                     }).ToList();

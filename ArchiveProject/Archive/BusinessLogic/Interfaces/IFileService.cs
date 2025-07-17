@@ -13,7 +13,7 @@ namespace Archive.BusinessLogic
         void AddFile(File file);
         void DeleteFile(int fileId);
         File GetFileById(int fileId);
-        bool UpdateFile(int fileId, File file);
+        void UpdateFile(File file);
         File GetFileByContentIdAndFileTypeIdAndFileNumber(int contentId, int fileTypeId, int fileNumber);
         File GetFileByFileCode(int fileCode);
         File GetMaxFileByCategoryId(int categoryId);

@@ -21,7 +21,8 @@ namespace Archive
         {
             // تنظیمات Dependency Injection با Autofac
             // تنظیمات کانتینر DI با Autofac
-            //RadGridLocalizationProvider.CurrentProvider = new CustomGridLocalizationProvider();
+            // کد زیر برای تنظیمات گریدویو و نمایش متنهای  فارسی داخل آن است
+            RadGridLocalizationProvider.CurrentProvider = new CustomGridLocalizationProvider();
             var container = ConfigureServices();
 
             // ایجاد محدوده عمر و اجرای اپلیکیشن
@@ -34,11 +35,19 @@ namespace Archive
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormCreateDocument(new ArchiveFacadeService()));
+
             using (var scope = container.BeginLifetimeScope())
             {
-                var mainForm = scope.Resolve<FormCreateDocument_Book>();
-                Application.Run(mainForm);
+                var archiveFacadeService = scope.Resolve<IArchiveFacadeService>();
+                Application.Run(new FormMain(archiveFacadeService));
             }
+            //using (var scope = container.BeginLifetimeScope())
+            //{
+            //    var mainForm = scope.Resolve<FormMain>();
+            //    //var mainForm = scope.Resolve<FormCreateDocument_Speech>();
+            //    //var mainForm = scope.Resolve<FormCreateDocument_Book>();
+            //    Application.Run(mainForm);
+            //}
         }
 
 

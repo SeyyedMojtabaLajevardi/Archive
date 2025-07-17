@@ -56,16 +56,42 @@ namespace Archive.BusinessLogic
             using (var context = new ArchiveEntities())
             {
                 var document = context.Documents
-                            .Include("Contents")
-                            .Include("UserInfo")
-                            .Include("PermissionState")
-                            .Include("PadidAvar")
-                            .Include("Language")
-                            .Include("Category")
-                            .Include("PublishState")
+                            .Include(x => x.Contents)
+                            .Include(x => x.UserInfo)
+                            .Include(x => x.PermissionState)
+                            .Include(x => x.PadidAvar)
+                            .Include(x => x.Publisher)
+                            .Include(x => x.PublicationPlace)
+                            .Include(x => x.Language)
+                            .Include(x => x.Category)
+                            .Include(x => x.PublishState)
                             .Include("DocumentResourceRelations.Resource")
                             .Include("DocumentSubjectRelations.Subject")
+                            .Include("DocumentNarratorRelations.Narrator")
                             .FirstOrDefault(d => d.DocumentId == documentId);
+                return document;
+            }
+        }
+
+        public Document GetDocumentBySiteCodeAndMainCategory(string siteCode, int mainCategory)
+        {
+            using (var context = new ArchiveEntities())
+            {
+                var document = context.Documents
+                            .Include(x=>x.Contents)
+                            .Include(x=>x.UserInfo)
+                            .Include(x=>x.PermissionState)
+                            .Include(x=>x.PadidAvar)
+                            .Include(x=>x.Publisher)
+                            .Include(x =>x.PublicationPlace)
+                            .Include(x=>x.Language)
+                            .Include("Category")
+                            .Include(x=>x.PublishState)
+                            .Include("DocumentResourceRelations.Resource")
+                            .Include("DocumentSubjectRelations.Subject")
+                            .Include("DocumentNarratorRelations.Narrator")
+                            //.AsNoTracking()
+                            .FirstOrDefault(d => d.SiteCode == siteCode && d.MainCategoryId == mainCategory);
                 return document;
             }
         }
@@ -75,33 +101,85 @@ namespace Archive.BusinessLogic
             using (var context = new ArchiveEntities())
             {
                 var document = context.Documents
-                            .Include("Contents")
-                            .Include("UserInfo")
-                            .Include("PermissionState")
-                            .Include("PadidAvar")
-                            .Include("Language")
-                            .Include("Category")
-                            .Include("PublishState")
+                            .Include(x => x.Contents)
+                            .Include(x => x.UserInfo)
+                            .Include(x => x.PermissionState)
+                            .Include(x => x.PadidAvar)
+                            .Include(x => x.Publisher)
+                            .Include(x => x.PublicationPlace)
+                            .Include(x => x.Language)
+                            .Include(x => x.Category)
+                            .Include(x => x.PublishState)
                             .Include("DocumentResourceRelations.Resource")
                             .Include("DocumentSubjectRelations.Subject")
+                            .Include("DocumentNarratorRelations.Narrator")
+                            //.AsNoTracking()
                             .FirstOrDefault(d => d.SiteCode == siteCode);
                 return document;
             }
         }
+        Document IDocumentService.GetDocumentByOldTitleAndMainCategory(string oldTitle, int contentTypeId)
+        {
+            using (var context = new ArchiveEntities())
+            {
+                var document = context.Documents
+                            .Include(x => x.Contents)
+                            .Include(x => x.UserInfo)
+                            .Include(x => x.PermissionState)
+                            .Include(x => x.PadidAvar)
+                            .Include(x => x.Publisher)
+                            .Include(x => x.PublicationPlace)
+                            .Include(x => x.Language)
+                            .Include(x => x.Category)
+                            .Include(x => x.PublishState)
+                            .Include("DocumentResourceRelations.Resource")
+                            .Include("DocumentSubjectRelations.Subject")
+                            .Include("DocumentNarratorRelations.Narrator")
+                            .FirstOrDefault(d => d.OldTitle == oldTitle && d.ContentTypeId == contentTypeId);
+                return document;
+                //return context.Documents.FirstOrDefault(x => x.OldTitle == oldTitle);
+            }
+        }
+        Document IDocumentService.GetDocumentByNewTitleAndMainCategory(string newTitle, int contentTypeId)
+        {
+            using (var context = new ArchiveEntities())
+            {
+                var document = context.Documents
+                            .Include(x => x.Contents)
+                            .Include(x => x.UserInfo)
+                            .Include(x => x.PermissionState)
+                            .Include(x => x.PadidAvar)
+                            .Include(x => x.Publisher)
+                            .Include(x => x.PublicationPlace)
+                            .Include(x => x.Language)
+                            .Include(x => x.Category)
+                            .Include(x => x.PublishState)
+                            .Include("DocumentResourceRelations.Resource")
+                            .Include("DocumentSubjectRelations.Subject")
+                            .Include("DocumentNarratorRelations.Narrator")
+                            .FirstOrDefault(d => d.NewTitle == newTitle && d.ContentTypeId == contentTypeId);
+                return document;
+                //return context.Documents.FirstOrDefault(x => x.NewTitle == newTitle);
+            }
+        }
+
         Document IDocumentService.GetDocumentByOldTitle(string oldTitle)
         {
             using (var context = new ArchiveEntities())
             {
                 var document = context.Documents
-                            .Include("Contents")
-                            .Include("UserInfo")
-                            .Include("PermissionState")
-                            .Include("PadidAvar")
-                            .Include("Language")
-                            .Include("Category")
-                            .Include("PublishState")
+                            .Include(x => x.Contents)
+                            .Include(x => x.UserInfo)
+                            .Include(x => x.PermissionState)
+                            .Include(x => x.PadidAvar)
+                            .Include(x => x.Publisher)
+                            .Include(x => x.PublicationPlace)
+                            .Include(x => x.Language)
+                            .Include(x => x.Category)
+                            .Include(x => x.PublishState)
                             .Include("DocumentResourceRelations.Resource")
                             .Include("DocumentSubjectRelations.Subject")
+                            .Include("DocumentNarratorRelations.Narrator")
                             .FirstOrDefault(d => d.OldTitle == oldTitle);
                 return document;
                 //return context.Documents.FirstOrDefault(x => x.OldTitle == oldTitle);
@@ -112,15 +190,18 @@ namespace Archive.BusinessLogic
             using (var context = new ArchiveEntities())
             {
                 var document = context.Documents
-                            .Include("Contents")
-                            .Include("UserInfo")
-                            .Include("PermissionState")
-                            .Include("PadidAvar")
-                            .Include("Language")
-                            .Include("Category")
-                            .Include("PublishState")
+                            .Include(x => x.Contents)
+                            .Include(x => x.UserInfo)
+                            .Include(x => x.PermissionState)
+                            .Include(x => x.PadidAvar)
+                            .Include(x => x.Publisher)
+                            .Include(x => x.PublicationPlace)
+                            .Include(x => x.Language)
+                            .Include(x => x.Category)
+                            .Include(x => x.PublishState)
                             .Include("DocumentResourceRelations.Resource")
                             .Include("DocumentSubjectRelations.Subject")
+                            .Include("DocumentNarratorRelations.Narrator")
                             .FirstOrDefault(d => d.NewTitle == newTitle);
                 return document;
                 //return context.Documents.FirstOrDefault(x => x.NewTitle == newTitle);
@@ -139,9 +220,57 @@ namespace Archive.BusinessLogic
         {
             using (var context = new ArchiveEntities())
             {
-                var existingDocument = context.Documents.FirstOrDefault(x => x.DocumentId == document.DocumentId);
+                var existingDocument = context.Documents
+                    .Include(d => d.DocumentSubjectRelations)
+                    .Include(d => d.DocumentNarratorRelations)
+                    .Include(d => d.DocumentResourceRelations)
+                    .FirstOrDefault(x => x.DocumentId == document.DocumentId);
+
+                if (existingDocument == null)
+                    throw new Exception("سند مورد نظر یافت نشد.");
+
+                // ✅ آپدیت خودکار فیلدهای ساده
+                context.Entry(existingDocument).CurrentValues.SetValues(document);
+
+                // ✅ حذف روابط قبلی
+                context.DocumentSubjectRelations.RemoveRange(existingDocument.DocumentSubjectRelations);
+                context.DocumentNarratorRelations.RemoveRange(existingDocument.DocumentNarratorRelations);
+
+                // ✅ افزودن روابط جدید
+                if (document.DocumentSubjectRelations != null)
+                {
+                    foreach (var rel in document.DocumentSubjectRelations)
+                    {
+                        rel.DocumentId = existingDocument.DocumentId;
+                        context.DocumentSubjectRelations.Add(rel);
+                    }
+                }
+
+                if (document.DocumentNarratorRelations != null)
+                {
+                    foreach (var rel in document.DocumentNarratorRelations)
+                    {
+                        rel.DocumentId = existingDocument.DocumentId;
+                        context.DocumentNarratorRelations.Add(rel);
+                    }
+                }
+
+                context.SaveChanges();
+            }
+        }
+
+        /*public void UpdateDocument(Document document)
+        {
+            using (var context = new ArchiveEntities())
+            {
+                var existingDocument = context.Documents
+                    .Include(d => d.DocumentSubjectRelations)
+                    .Include(d => d.DocumentNarratorRelations)
+                    .FirstOrDefault(d => d.DocumentId == document.DocumentId);
+
                 if (existingDocument != null)
                 {
+                    //Update scalar properties
                     existingDocument.UserId = document.UserId;
                     existingDocument.DocumentCode = document.DocumentCode;
                     existingDocument.CreatedDate = document.CreatedDate;
@@ -164,26 +293,51 @@ namespace Archive.BusinessLogic
                     existingDocument.MainCategoryId = document.MainCategoryId == 0 ? null : document.MainCategoryId;
                     existingDocument.ContentTypeId = document.ContentTypeId == 0 ? null : document.ContentTypeId;
                     existingDocument.PublishYear = document.PublishYear;
-                    existingDocument.PublishPlace = document.PublishPlace;
-                    existingDocument.BookPublisher = document.BookPublisher;
+                    existingDocument.PublicationPlaceId = document.PublicationPlaceId;
+                    existingDocument.PublisherId = document.PublisherId;
                     existingDocument.BookVolumeNumber = document.BookVolumeNumber;
-                    existingDocument.BookPageNumber = document.BookPageNumber;
+                    existingDocument.BookPageCount = document.BookPageCount;
                     existingDocument.BookVolumeCount = document.BookVolumeCount;
                     existingDocument.FipaCode = document.FipaCode;
                     existingDocument.TranslateLanguageId = document.TranslateLanguageId == 0 ? null : document.TranslateLanguageId;
-                    existingDocument.Translator = document.Translator;
-                    existingDocument.Narrator = document.Narrator;
+                    existingDocument.TranslatorId = document.TranslatorId;
                     existingDocument.SecondCategoryId = document.SecondCategoryId == 0 ? null : document.SecondCategoryId;
                     existingDocument.FirstCategoryId = document.FirstCategoryId == 0 ? null : document.FirstCategoryId;
-                    existingDocument.DocumentSubjectRelations.Clear();
-                    var currentDocumentSubjectRelations = context.DocumentSubjectRelations.Where(x => x.DocumentId == document.DocumentId).ToList();
-                    context.DocumentSubjectRelations.RemoveRange(currentDocumentSubjectRelations);
-                    context.DocumentSubjectRelations.AddRange(document.DocumentSubjectRelations);
+
+                    var oldSubjectRelations = context.DocumentSubjectRelations.Where(a => a.DocumentId == document.DocumentId);
+                    context.DocumentSubjectRelations.RemoveRange(oldSubjectRelations);
+
+                    var oldDocumentNarratorRelations = context.DocumentNarratorRelations.Where(a => a.DocumentId == document.DocumentId);
+                    context.DocumentNarratorRelations.RemoveRange(oldDocumentNarratorRelations);
+
+               
+                    // Add new subject relations
+                    if (document.DocumentSubjectRelations != null)
+                    {
+                        foreach (var rel in document.DocumentSubjectRelations)
+                        {
+                            // اطمینان از اینکه موجودیت جدید است
+                            rel.DocumentId = document.DocumentId;
+                            context.DocumentSubjectRelations.Add(rel);
+                        }
+                    }
+
+                    // Add new narrator relations
+                    if (document.DocumentNarratorRelations != null)
+                    {
+                        foreach (var rel in document.DocumentNarratorRelations)
+                        {
+                            rel.DocumentId = document.DocumentId;
+                            context.DocumentNarratorRelations.Add(rel);
+                        }
+                    }
 
                     context.SaveChanges();
                 }
             }
-        }
+        }*/
+
+
 
     }
 }

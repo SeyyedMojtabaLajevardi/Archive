@@ -27,8 +27,8 @@ namespace Archive.DataAccess
         public string Description { get; set; }
     
         public virtual ContentType ContentType { get; set; }
-        public virtual Document Document { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<File> Files { get; set; }
+        public virtual Document Document { get; set; }
     }
 }

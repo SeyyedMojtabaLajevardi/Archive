@@ -17,9 +17,10 @@ namespace Archive.DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Document()
         {
+            this.Contents = new HashSet<Content>();
+            this.DocumentNarratorRelations = new HashSet<DocumentNarratorRelation>();
             this.DocumentResourceRelations = new HashSet<DocumentResourceRelation>();
             this.DocumentSubjectRelations = new HashSet<DocumentSubjectRelation>();
-            this.Contents = new HashSet<Content>();
         }
     
         public int DocumentId { get; set; }
@@ -46,30 +47,34 @@ namespace Archive.DataAccess
         public Nullable<int> MainCategoryId { get; set; }
         public Nullable<int> ContentTypeId { get; set; }
         public Nullable<int> PublishYear { get; set; }
-        public string PublishPlace { get; set; }
-        public string BookPublisher { get; set; }
         public Nullable<int> BookVolumeNumber { get; set; }
-        public Nullable<int> BookPageNumber { get; set; }
+        public Nullable<int> BookPageCount { get; set; }
         public Nullable<int> BookVolumeCount { get; set; }
         public string FipaCode { get; set; }
         public Nullable<int> TranslateLanguageId { get; set; }
-        public string Translator { get; set; }
-        public string Narrator { get; set; }
         public Nullable<int> SecondCategoryId { get; set; }
         public Nullable<int> FirstCategoryId { get; set; }
+        public Nullable<int> PublicationPlaceId { get; set; }
+        public Nullable<int> TranslatorId { get; set; }
+        public Nullable<int> PublisherId { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Collection Collection { get; set; }
         public virtual Language Language { get; set; }
         public virtual PadidAvar PadidAvar { get; set; }
         public virtual PermissionState PermissionState { get; set; }
+        public virtual PublicationPlace PublicationPlace { get; set; }
+        public virtual Publisher Publisher { get; set; }
         public virtual PublishState PublishState { get; set; }
-        public virtual UserInfo UserInfo { get; set; }
+        public virtual Translator Translator { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Content> Contents { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DocumentNarratorRelation> DocumentNarratorRelations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DocumentResourceRelation> DocumentResourceRelations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DocumentSubjectRelation> DocumentSubjectRelations { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Content> Contents { get; set; }
+        public virtual UserInfo UserInfo { get; set; }
     }
 }

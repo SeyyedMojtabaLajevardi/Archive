@@ -65,8 +65,12 @@
             this.ContentTypeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileTypes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.radDropDownListPublicationPlace = new Telerik.WinControls.UI.RadDropDownList();
+            this.button2 = new System.Windows.Forms.Button();
+            this.radDropDownListPublisher = new Telerik.WinControls.UI.RadDropDownList();
+            this.ButtonAddPublisher = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TextBoxBookPageCount = new System.Windows.Forms.TextBox();
             this.LabelFipaCode = new System.Windows.Forms.Label();
             this.TextBoxFipaCode = new System.Windows.Forms.TextBox();
             this.LabelPublisher = new System.Windows.Forms.Label();
@@ -140,11 +144,11 @@
             this.radPageViewPageGuidanceLicense = new Telerik.WinControls.UI.RadPageViewPage();
             this.Panel_Video = new System.Windows.Forms.Panel();
             this.customShape1 = new Telerik.WinControls.OldShapeEditor.CustomShape();
-            this.calloutElementShape1 = new Telerik.WinControls.UI.Callout.CalloutElementShape();
+            //this.calloutElementShape1 = new Telerik.WinControls.UI.Callout.CalloutElementShape();
             this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01 = new Telerik.WinControls.UI.RadDropDownListRootElement();
-            this.starShape1 = new Telerik.WinControls.UI.StarShape();
             this.object_11f9d28c_2b62_4037_bed9_39e037d87daa = new Telerik.WinControls.UI.RadDropDownListRootElement();
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
+            this.button1 = new System.Windows.Forms.Button();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -154,6 +158,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewHeaderFileType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListPublicationPlace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListPublisher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComboBoxSubject)).BeginInit();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radDropDownListNewTitle)).BeginInit();
@@ -277,8 +283,12 @@
             // 
             this.radGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
             this.radGroupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.radGroupBox1.Controls.Add(this.radDropDownListPublicationPlace);
+            this.radGroupBox1.Controls.Add(this.button2);
+            this.radGroupBox1.Controls.Add(this.radDropDownListPublisher);
+            this.radGroupBox1.Controls.Add(this.ButtonAddPublisher);
             this.radGroupBox1.Controls.Add(this.label4);
-            this.radGroupBox1.Controls.Add(this.textBox4);
+            this.radGroupBox1.Controls.Add(this.TextBoxBookPageCount);
             this.radGroupBox1.Controls.Add(this.LabelFipaCode);
             this.radGroupBox1.Controls.Add(this.TextBoxFipaCode);
             this.radGroupBox1.Controls.Add(this.LabelPublisher);
@@ -333,30 +343,84 @@
             this.radGroupBox1.TabIndex = 0;
             this.radGroupBox1.Text = "مشخصات سند";
             // 
+            // radDropDownListPublicationPlace
+            // 
+            this.radDropDownListPublicationPlace.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.radDropDownListPublicationPlace.DropDownAnimationEnabled = true;
+            this.radDropDownListPublicationPlace.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.radDropDownListPublicationPlace.Location = new System.Drawing.Point(31, 187);
+            this.radDropDownListPublicationPlace.Name = "radDropDownListPublicationPlace";
+            this.radDropDownListPublicationPlace.Size = new System.Drawing.Size(145, 28);
+            this.radDropDownListPublicationPlace.TabIndex = 43;
+            this.radDropDownListPublicationPlace.Text = "انتخاب کنید";
+            this.radDropDownListPublicationPlace.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListPublicationPlace_SelectedIndexChanged);
+            ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPublicationPlace.GetChildAt(0))).RightToLeft = true;
+            ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPublicationPlace.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button2.AutoSize = true;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = global::Archive.Properties.Resources.Add2;
+            this.button2.Location = new System.Drawing.Point(7, 190);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(22, 22);
+            this.button2.TabIndex = 44;
+            this.button2.TabStop = false;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // radDropDownListPublisher
+            // 
+            this.radDropDownListPublisher.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.radDropDownListPublisher.DropDownAnimationEnabled = true;
+            this.radDropDownListPublisher.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.radDropDownListPublisher.Location = new System.Drawing.Point(324, 188);
+            this.radDropDownListPublisher.Name = "radDropDownListPublisher";
+            this.radDropDownListPublisher.Size = new System.Drawing.Size(197, 28);
+            this.radDropDownListPublisher.TabIndex = 41;
+            this.radDropDownListPublisher.Text = "انتخاب کنید";
+            this.radDropDownListPublisher.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListPublisher_SelectedIndexChanged);
+            ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPublisher.GetChildAt(0))).RightToLeft = true;
+            ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPublisher.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            // 
+            // ButtonAddPublisher
+            // 
+            this.ButtonAddPublisher.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ButtonAddPublisher.AutoSize = true;
+            this.ButtonAddPublisher.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddPublisher.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddPublisher.Location = new System.Drawing.Point(301, 191);
+            this.ButtonAddPublisher.Name = "ButtonAddPublisher";
+            this.ButtonAddPublisher.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddPublisher.TabIndex = 42;
+            this.ButtonAddPublisher.TabStop = false;
+            this.ButtonAddPublisher.UseVisualStyleBackColor = true;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label4.Location = new System.Drawing.Point(189, 194);
+            this.label4.Location = new System.Drawing.Point(188, 153);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 20);
             this.label4.TabIndex = 39;
             this.label4.Text = "تعداد صفحه:";
             // 
-            // textBox4
+            // TextBoxBookPageCount
             // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.textBox4.Location = new System.Drawing.Point(10, 192);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(166, 26);
-            this.textBox4.TabIndex = 40;
+            this.TextBoxBookPageCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxBookPageCount.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
+            this.TextBoxBookPageCount.Location = new System.Drawing.Point(31, 151);
+            this.TextBoxBookPageCount.Name = "TextBoxBookPageCount";
+            this.TextBoxBookPageCount.Size = new System.Drawing.Size(144, 26);
+            this.TextBoxBookPageCount.TabIndex = 40;
             // 
             // LabelFipaCode
             // 
             this.LabelFipaCode.AutoSize = true;
             this.LabelFipaCode.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.LabelFipaCode.Location = new System.Drawing.Point(220, 155);
+            this.LabelFipaCode.Location = new System.Drawing.Point(220, 113);
             this.LabelFipaCode.Name = "LabelFipaCode";
             this.LabelFipaCode.Size = new System.Drawing.Size(58, 20);
             this.LabelFipaCode.TabIndex = 37;
@@ -366,9 +430,9 @@
             // 
             this.TextBoxFipaCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxFipaCode.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.TextBoxFipaCode.Location = new System.Drawing.Point(10, 153);
+            this.TextBoxFipaCode.Location = new System.Drawing.Point(32, 109);
             this.TextBoxFipaCode.Name = "TextBoxFipaCode";
-            this.TextBoxFipaCode.Size = new System.Drawing.Size(166, 26);
+            this.TextBoxFipaCode.Size = new System.Drawing.Size(144, 26);
             this.TextBoxFipaCode.TabIndex = 38;
             // 
             // LabelPublisher
@@ -387,10 +451,11 @@
             this.TextBoxPublisher.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TextBoxPublisher.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxPublisher.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.TextBoxPublisher.Location = new System.Drawing.Point(324, 190);
+            this.TextBoxPublisher.Location = new System.Drawing.Point(301, 190);
             this.TextBoxPublisher.Name = "TextBoxPublisher";
-            this.TextBoxPublisher.Size = new System.Drawing.Size(197, 26);
+            this.TextBoxPublisher.Size = new System.Drawing.Size(14, 26);
             this.TextBoxPublisher.TabIndex = 36;
+            this.TextBoxPublisher.Visible = false;
             // 
             // LabelPublishYear
             // 
@@ -717,9 +782,9 @@
             // 
             this.radDropDownListPublishState.DropDownAnimationEnabled = true;
             this.radDropDownListPublishState.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.radDropDownListPublishState.Location = new System.Drawing.Point(10, 71);
+            this.radDropDownListPublishState.Location = new System.Drawing.Point(32, 71);
             this.radDropDownListPublishState.Name = "radDropDownListPublishState";
-            this.radDropDownListPublishState.Size = new System.Drawing.Size(166, 28);
+            this.radDropDownListPublishState.Size = new System.Drawing.Size(144, 28);
             this.radDropDownListPublishState.TabIndex = 7;
             this.radDropDownListPublishState.Text = "انتخاب کنید";
             this.radDropDownListPublishState.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownListPublishState_SelectedIndexChanged);
@@ -877,9 +942,9 @@
             // 
             this.TextBoxSubTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxSubTitle.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.TextBoxSubTitle.Location = new System.Drawing.Point(10, 34);
+            this.TextBoxSubTitle.Location = new System.Drawing.Point(32, 34);
             this.TextBoxSubTitle.Name = "TextBoxSubTitle";
-            this.TextBoxSubTitle.Size = new System.Drawing.Size(166, 26);
+            this.TextBoxSubTitle.Size = new System.Drawing.Size(143, 26);
             this.TextBoxSubTitle.TabIndex = 3;
             this.TextBoxSubTitle.TextChanged += new System.EventHandler(this.TextBoxSiteCode_TextChanged);
             // 
@@ -985,7 +1050,7 @@
             // 
             this.LabelPlace.AutoSize = true;
             this.LabelPlace.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.LabelPlace.Location = new System.Drawing.Point(211, 113);
+            this.LabelPlace.Location = new System.Drawing.Point(211, 194);
             this.LabelPlace.Name = "LabelPlace";
             this.LabelPlace.Size = new System.Drawing.Size(67, 20);
             this.LabelPlace.TabIndex = 3;
@@ -1017,10 +1082,11 @@
             // 
             this.TextBoxPlace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxPlace.Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.TextBoxPlace.Location = new System.Drawing.Point(10, 109);
+            this.TextBoxPlace.Location = new System.Drawing.Point(193, 187);
             this.TextBoxPlace.Name = "TextBoxPlace";
-            this.TextBoxPlace.Size = new System.Drawing.Size(166, 26);
+            this.TextBoxPlace.Size = new System.Drawing.Size(12, 26);
             this.TextBoxPlace.TabIndex = 11;
+            this.TextBoxPlace.Visible = false;
             this.TextBoxPlace.TextChanged += new System.EventHandler(this.TextBoxSiteCode_TextChanged);
             // 
             // TextBoxBookVolumeNumber
@@ -1386,20 +1452,15 @@
             // 
             // calloutElementShape1
             // 
-            this.calloutElementShape1.Bounds = ((System.Drawing.RectangleF)(resources.GetObject("calloutElementShape1.Bounds")));
-            this.calloutElementShape1.Owner = null;
-            this.calloutElementShape1.Path = null;
+            //this.calloutElementShape1.Bounds = ((System.Drawing.RectangleF)(resources.GetObject("calloutElementShape1.Bounds")));
+            //this.calloutElementShape1.Owner = null;
+            //this.calloutElementShape1.Path = null;
             // 
             // object_cabf595c_b710_44fa_8575_23a8c9cc3d01
             // 
             this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01.Name = "object_cabf595c_b710_44fa_8575_23a8c9cc3d01";
             this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01.StretchHorizontally = true;
             this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01.StretchVertically = true;
-            // 
-            // starShape1
-            // 
-            this.starShape1.Arms = 5;
-            this.starShape1.InnerRadiusRatio = 0.375F;
             // 
             // object_11f9d28c_2b62_4037_bed9_39e037d87daa
             // 
@@ -1420,6 +1481,19 @@
             ((Telerik.WinControls.UI.RadButtonElement)(this.radButton1.GetChildAt(0))).Font = new System.Drawing.Font("Segoe UI", 9.75F);
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(226)))), ((int)(((byte)(246)))));
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.AutoSize = true;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::Archive.Properties.Resources.Add2;
+            this.button1.Location = new System.Drawing.Point(301, 191);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(22, 22);
+            this.button1.TabIndex = 42;
+            this.button1.TabStop = false;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // FormCreateDocument_Book
             // 
@@ -1446,6 +1520,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListPublicationPlace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radDropDownListPublisher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComboBoxSubject)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
@@ -1534,9 +1610,8 @@
         private Telerik.WinControls.UI.RadDropDownList radDropDownListOldTitle;
         private Telerik.WinControls.UI.RadDropDownList radDropDownListNewTitle;
         private Telerik.WinControls.OldShapeEditor.CustomShape customShape1;
-        private Telerik.WinControls.UI.Callout.CalloutElementShape calloutElementShape1;
+        //private Telerik.WinControls.UI.Callout.CalloutElementShape calloutElementShape1;
         private Telerik.WinControls.UI.RadDropDownListRootElement object_cabf595c_b710_44fa_8575_23a8c9cc3d01;
-        private Telerik.WinControls.UI.StarShape starShape1;
         private Telerik.WinControls.UI.RadDropDownListRootElement object_11f9d28c_2b62_4037_bed9_39e037d87daa;
         private System.Windows.Forms.Panel panel10;
         private Telerik.WinControls.UI.RadButton radButton1;
@@ -1549,7 +1624,7 @@
         private System.Windows.Forms.Label LabelPlace;
         private System.Windows.Forms.TextBox TextBoxPlace;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TextBoxBookPageCount;
         private System.Windows.Forms.Label LabelFipaCode;
         private System.Windows.Forms.TextBox TextBoxFipaCode;
         private System.Windows.Forms.Label LabelPublisher;
@@ -1562,5 +1637,10 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox7;
+        private Telerik.WinControls.UI.RadDropDownList radDropDownListPublicationPlace;
+        private System.Windows.Forms.Button button2;
+        private Telerik.WinControls.UI.RadDropDownList radDropDownListPublisher;
+        private System.Windows.Forms.Button ButtonAddPublisher;
+        private System.Windows.Forms.Button button1;
     }
 }

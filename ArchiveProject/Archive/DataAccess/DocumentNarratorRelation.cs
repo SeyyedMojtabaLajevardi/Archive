@@ -12,12 +12,13 @@ namespace Archive.DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class DocumentNarratorRelation
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int DocumentNarratorRelationId { get; set; }
+        public Nullable<int> DocumentId { get; set; }
+        public Nullable<int> NarratorId { get; set; }
+    
+        public virtual Narrator Narrator { get; set; }
+        public virtual Document Document { get; set; }
     }
 }

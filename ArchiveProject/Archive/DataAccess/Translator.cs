@@ -12,21 +12,19 @@ namespace Archive.DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Resource
+    public partial class Translator
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Resource()
+        public Translator()
         {
-            this.Files = new HashSet<File>();
-            this.DocumentResourceRelations = new HashSet<DocumentResourceRelation>();
+            this.Documents = new HashSet<Document>();
         }
     
-        public int ResourceId { get; set; }
-        public string ResourceTitle { get; set; }
+        public int TranslatorId { get; set; }
+        public string TranslatorTitle { get; set; }
+        public string SampleTranslatorTitle { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<File> Files { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DocumentResourceRelation> DocumentResourceRelations { get; set; }
+        public virtual ICollection<Document> Documents { get; set; }
     }
 }

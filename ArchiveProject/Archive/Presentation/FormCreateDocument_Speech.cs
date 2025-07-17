@@ -171,15 +171,6 @@ namespace Archive
 
             Common common = new Common();
             string destinationDirectoryPath = common.GetDirectory(_document, radDropDownListMainCategory.Text, radDropDownListCategory1.Text);
-            try
-            {
-                var message = Upload.UploadFile(sourceFilePath, fileName, destinationDirectoryPath, file);
-                MessageBox.Show(message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
             if (file == null)
             {
@@ -225,8 +216,17 @@ namespace Archive
                 content.Description = _userControlFiles.TextBoxContentDescription.Text;
                 _contentService.UpdateContent(file.ContentId, content);
 
-                _fileService.UpdateFile(file.FileId, file);
+                _fileService.UpdateFile(file);
                 MessageBox.Show(@"ویرایش فابل با موفقیت انجام شد");
+            }
+            try
+            {
+                var message = Upload.UploadFile(sourceFilePath, fileName, destinationDirectoryPath, file);
+                MessageBox.Show(message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             FillGrid();
         }
@@ -355,7 +355,7 @@ namespace Archive
 
         private void radNavigationView1_SelectedPageChanged(object sender, EventArgs e)
         {
-            _contentType = GetConentType();
+            _contentType = GetContentType();
             _userControlFiles.ContentType = _contentType;
             FillFileType();
             _userControlFiles.LabelTextUpload.Visible = false;
@@ -387,7 +387,7 @@ namespace Archive
             }
         }
 
-        private ContentType GetConentType()
+        private ContentType GetContentType()
         {
             var contentTypeTitle = radNavigationView1.SelectedPage.Tag.ToString();
             int contentTypeId = -1;
@@ -569,9 +569,9 @@ namespace Archive
 
         private void TextBoxSiteCode_Leave(object sender, EventArgs e)
         {
-            _contentType = GetConentType();
+            _contentType = GetContentType();
             var siteCode = TextBoxSiteCode.Text.Trim();
-            _document = _documentService.GetDocumentBySiteCode(siteCode);
+            _document = _documentService.GetDocumentBySiteCodeAndMainCategory(siteCode, _mainCategoryId);
 
             if (_document == null)
             {
@@ -588,9 +588,9 @@ namespace Archive
             if (e.KeyCode != Keys.Enter)
                 return;
 
-            _contentType = GetConentType();
+            _contentType = GetContentType();
             var siteCode = TextBoxSiteCode.Text.Trim();
-            _document = _documentService.GetDocumentBySiteCode(siteCode);
+            _document = _documentService.GetDocumentBySiteCodeAndMainCategory(siteCode, _mainCategoryId);
 
             if (_document == null)
             {
@@ -617,7 +617,7 @@ namespace Archive
                 //MessageBox.Show($"سندی با کد سایت {TextBoxSiteCode.Text.Trim()} یافت نشد.");
                 return;
             }
-            _document = _documentService.GetDocumentByOldTitle(radDropDownListOldTitle.Text.Trim());
+            _document = _documentService.GetDocumentByOldTitleAndMainCategory(radDropDownListOldTitle.Text.Trim(), _mainCategoryId);
             var text = radDropDownListOldTitle.Text.Trim();
             ClearBox();
             if (_document == null)
@@ -643,7 +643,7 @@ namespace Archive
             //  لذا دیگر نباید جستجوی مستند بر اساس عنوان جدید صورت پذیرد
             if (TextBoxSiteCode.Text.Trim() != "")
                 return;
-            _document = _documentService.GetDocumentByNewTitle(radDropDownListNewTitle.Text.Trim());
+            _document = _documentService.GetDocumentByNewTitleAndMainCategory(radDropDownListNewTitle.Text.Trim(), _mainCategoryId);
             var text = radDropDownListNewTitle.Text.Trim();
             ClearBox();
             if (_document == null)
@@ -871,7 +871,7 @@ namespace Archive
             if (TextBoxSiteCode.Text.Trim() == "")
             {
                 var result = MessageBox.Show("در صورت عدم مقداردهی فیلد «کد سایت»، سیستم به صورت اتوماتیک بر اساس محدوده‌های تعریف شده کد جدید ایجاد می‌کند. آیا ادامه می‌دهید؟"
-                    ,"هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    , "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.No)
                 {
                     TextBoxSiteCode.Focus();
@@ -1003,7 +1003,7 @@ namespace Archive
             //documentDCreatorUserId = ??
             document.PadidAvarId = _padidAvarId;
             document.LanguageId = _languageId;
-            document.Comment = TextBoxDocumentDescription.Text.Trim();
+            document.Comment = TextBoxComment.Text.Trim();
             document.SessionNumber = sessionNumber;
             document.SessionCount = sessionCount;
             document.SessionPlace = TextBoxPlace.Text.Trim();

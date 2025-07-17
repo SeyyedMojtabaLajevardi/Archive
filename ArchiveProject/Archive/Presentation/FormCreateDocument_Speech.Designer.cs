@@ -29,34 +29,34 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateDocument_Speech));
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn17 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn18 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn19 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn20 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn21 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn22 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn23 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn24 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn25 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn26 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn2 = new Telerik.WinControls.UI.GridViewImageColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn8 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn9 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn10 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn11 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn12 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn13 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn27 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn28 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn29 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn30 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn31 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn14 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn32 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn1 = new Telerik.WinControls.UI.GridViewImageColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn1 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn2 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn3 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn4 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn5 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn6 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn12 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn13 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn14 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn15 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn7 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn16 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.PanelHeader = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -84,6 +84,12 @@
             this.radDropDownListLanguage = new Telerik.WinControls.UI.RadDropDownList();
             this.radDropDownListPermissionState = new Telerik.WinControls.UI.RadDropDownList();
             this.radDropDownListPadidAvar = new Telerik.WinControls.UI.RadDropDownList();
+            this.ButtonAddCategory2 = new System.Windows.Forms.Button();
+            this.ButtonAddLanguage = new System.Windows.Forms.Button();
+            this.ButtonAddPadidAvar = new System.Windows.Forms.Button();
+            this.ButtonAddSubject = new System.Windows.Forms.Button();
+            this.ButtonAddCategory1 = new System.Windows.Forms.Button();
+            this.ButtonAddMainCategory = new System.Windows.Forms.Button();
             this.LabelPadidAvar = new System.Windows.Forms.Label();
             this.LabelSubTitle = new System.Windows.Forms.Label();
             this.TextBoxSubTitle = new System.Windows.Forms.TextBox();
@@ -113,13 +119,7 @@
             this.PanelContent = new System.Windows.Forms.Panel();
             this.GridViewContent = new Telerik.WinControls.UI.RadGridView();
             this.radNavigationView1 = new Telerik.WinControls.UI.RadNavigationView();
-            this.customShape1 = new Telerik.WinControls.OldShapeEditor.CustomShape();
-            this.calloutElementShape1 = new Telerik.WinControls.UI.Callout.CalloutElementShape();
-            this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01 = new Telerik.WinControls.UI.RadDropDownListRootElement();
-            this.starShape1 = new Telerik.WinControls.UI.StarShape();
-            this.object_11f9d28c_2b62_4037_bed9_39e037d87daa = new Telerik.WinControls.UI.RadDropDownListRootElement();
-            this.radButton1 = new Telerik.WinControls.UI.RadButton();
-            this.radPageViewPageAudioBook = new Telerik.WinControls.UI.RadPageViewPage();
+            this.radPageViewPageSound = new Telerik.WinControls.UI.RadPageViewPage();
             this.Panel_Sound = new System.Windows.Forms.Panel();
             this.radPageViewPageText = new Telerik.WinControls.UI.RadPageViewPage();
             this.Panel_Text = new System.Windows.Forms.Panel();
@@ -127,13 +127,11 @@
             this.Panel_Image = new System.Windows.Forms.Panel();
             this.radPageViewPageVideo = new Telerik.WinControls.UI.RadPageViewPage();
             this.Panel_Video = new System.Windows.Forms.Panel();
-            this.ButtonAddCategory2 = new System.Windows.Forms.Button();
-            this.ButtonAddLanguage = new System.Windows.Forms.Button();
-            this.ButtonAddPadidAvar = new System.Windows.Forms.Button();
-            this.ButtonAddSubject = new System.Windows.Forms.Button();
-            this.ButtonAddCategory1 = new System.Windows.Forms.Button();
-            this.ButtonAddMainCategory = new System.Windows.Forms.Button();
-            this.radPageViewPageSound = new Telerik.WinControls.UI.RadPageViewPage();
+            this.radPageViewPageAudioBook = new Telerik.WinControls.UI.RadPageViewPage();
+            this.customShape1 = new Telerik.WinControls.OldShapeEditor.CustomShape();
+            this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01 = new Telerik.WinControls.UI.RadDropDownListRootElement();
+            this.object_11f9d28c_2b62_4037_bed9_39e037d87daa = new Telerik.WinControls.UI.RadDropDownListRootElement();
+            this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -160,11 +158,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridViewContent.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radNavigationView1)).BeginInit();
             this.radNavigationView1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
+            this.radPageViewPageSound.SuspendLayout();
             this.radPageViewPageText.SuspendLayout();
             this.radPageViewPageImage.SuspendLayout();
             this.radPageViewPageVideo.SuspendLayout();
-            this.radPageViewPageSound.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelHeader
@@ -245,8 +243,8 @@
             // 
             this.ContentTypeTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.ContentTypeTitle.DataPropertyName = "ContentTypeTitle";
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            this.ContentTypeTitle.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            this.ContentTypeTitle.DefaultCellStyle = dataGridViewCellStyle1;
             this.ContentTypeTitle.HeaderText = "نوع محتوا";
             this.ContentTypeTitle.Name = "ContentTypeTitle";
             this.ContentTypeTitle.ReadOnly = true;
@@ -255,8 +253,8 @@
             // 
             this.FileTypes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.FileTypes.DataPropertyName = "FileTypes";
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            this.FileTypes.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            this.FileTypes.DefaultCellStyle = dataGridViewCellStyle2;
             this.FileTypes.HeaderText = "انواع فایل";
             this.FileTypes.Name = "FileTypes";
             this.FileTypes.ReadOnly = true;
@@ -608,6 +606,86 @@
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPadidAvar.GetChildAt(0))).RightToLeft = true;
             ((Telerik.WinControls.UI.RadDropDownListElement)(this.radDropDownListPadidAvar.GetChildAt(0))).Font = new System.Drawing.Font("Dana-FaNum Medium", 9F, System.Drawing.FontStyle.Bold);
             // 
+            // ButtonAddCategory2
+            // 
+            this.ButtonAddCategory2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ButtonAddCategory2.AutoSize = true;
+            this.ButtonAddCategory2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddCategory2.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddCategory2.Location = new System.Drawing.Point(301, 110);
+            this.ButtonAddCategory2.Name = "ButtonAddCategory2";
+            this.ButtonAddCategory2.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddCategory2.TabIndex = 17;
+            this.ButtonAddCategory2.TabStop = false;
+            this.ButtonAddCategory2.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddLanguage
+            // 
+            this.ButtonAddLanguage.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ButtonAddLanguage.AutoSize = true;
+            this.ButtonAddLanguage.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddLanguage.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddLanguage.Location = new System.Drawing.Point(301, 73);
+            this.ButtonAddLanguage.Name = "ButtonAddLanguage";
+            this.ButtonAddLanguage.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddLanguage.TabIndex = 17;
+            this.ButtonAddLanguage.TabStop = false;
+            this.ButtonAddLanguage.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddPadidAvar
+            // 
+            this.ButtonAddPadidAvar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ButtonAddPadidAvar.AutoSize = true;
+            this.ButtonAddPadidAvar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddPadidAvar.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddPadidAvar.Location = new System.Drawing.Point(637, 73);
+            this.ButtonAddPadidAvar.Name = "ButtonAddPadidAvar";
+            this.ButtonAddPadidAvar.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddPadidAvar.TabIndex = 17;
+            this.ButtonAddPadidAvar.TabStop = false;
+            this.ButtonAddPadidAvar.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddSubject
+            // 
+            this.ButtonAddSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonAddSubject.AutoSize = true;
+            this.ButtonAddSubject.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddSubject.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddSubject.Location = new System.Drawing.Point(970, 150);
+            this.ButtonAddSubject.Name = "ButtonAddSubject";
+            this.ButtonAddSubject.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddSubject.TabIndex = 17;
+            this.ButtonAddSubject.TabStop = false;
+            this.ButtonAddSubject.UseVisualStyleBackColor = true;
+            this.ButtonAddSubject.Click += new System.EventHandler(this.ButtonAddSubject_Click);
+            // 
+            // ButtonAddCategory1
+            // 
+            this.ButtonAddCategory1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ButtonAddCategory1.AutoSize = true;
+            this.ButtonAddCategory1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddCategory1.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddCategory1.Location = new System.Drawing.Point(637, 110);
+            this.ButtonAddCategory1.Name = "ButtonAddCategory1";
+            this.ButtonAddCategory1.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddCategory1.TabIndex = 17;
+            this.ButtonAddCategory1.TabStop = false;
+            this.ButtonAddCategory1.UseVisualStyleBackColor = true;
+            this.ButtonAddCategory1.Click += new System.EventHandler(this.ButtonAddCategory1_Click);
+            // 
+            // ButtonAddMainCategory
+            // 
+            this.ButtonAddMainCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonAddMainCategory.AutoSize = true;
+            this.ButtonAddMainCategory.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddMainCategory.Image = global::Archive.Properties.Resources.Add2;
+            this.ButtonAddMainCategory.Location = new System.Drawing.Point(970, 112);
+            this.ButtonAddMainCategory.Name = "ButtonAddMainCategory";
+            this.ButtonAddMainCategory.Size = new System.Drawing.Size(22, 22);
+            this.ButtonAddMainCategory.TabIndex = 17;
+            this.ButtonAddMainCategory.TabStop = false;
+            this.ButtonAddMainCategory.UseVisualStyleBackColor = true;
+            // 
             // LabelPadidAvar
             // 
             this.LabelPadidAvar.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -910,136 +988,136 @@
             // 
             // 
             this.GridViewContent.MasterTemplate.AllowAddNewRow = false;
-            gridViewTextBoxColumn17.FieldName = "DocumentId";
-            gridViewTextBoxColumn17.HeaderText = "DocumentId";
-            gridViewTextBoxColumn17.IsVisible = false;
-            gridViewTextBoxColumn17.Name = "DocumentId";
-            gridViewTextBoxColumn18.FieldName = "ContentId";
-            gridViewTextBoxColumn18.HeaderText = "ContentId";
-            gridViewTextBoxColumn18.IsVisible = false;
-            gridViewTextBoxColumn18.Name = "ContentId";
-            gridViewTextBoxColumn19.FieldName = "ContentTypeTitle";
-            gridViewTextBoxColumn19.HeaderText = "نوع محتوا";
-            gridViewTextBoxColumn19.MaxWidth = 100;
-            gridViewTextBoxColumn19.Name = "ContentTypeTitle";
-            gridViewTextBoxColumn19.Width = 60;
-            gridViewTextBoxColumn20.FieldName = "FileTypeTitle";
-            gridViewTextBoxColumn20.HeaderText = "نوع فایل";
-            gridViewTextBoxColumn20.MaxWidth = 150;
-            gridViewTextBoxColumn20.Name = "FileTypeTitle";
-            gridViewTextBoxColumn20.Width = 100;
-            gridViewTextBoxColumn21.FieldName = "FileTypeId";
-            gridViewTextBoxColumn21.HeaderText = "FileTypeId";
-            gridViewTextBoxColumn21.IsVisible = false;
-            gridViewTextBoxColumn21.Name = "FileTypeId";
-            gridViewTextBoxColumn22.FieldName = "FileNumber";
-            gridViewTextBoxColumn22.HeaderText = "ش-فایل";
-            gridViewTextBoxColumn22.MaxWidth = 70;
-            gridViewTextBoxColumn22.Name = "FileNumber";
-            gridViewTextBoxColumn23.FieldName = "ResourceTitle";
-            gridViewTextBoxColumn23.HeaderText = "منبع";
-            gridViewTextBoxColumn23.MaxWidth = 150;
-            gridViewTextBoxColumn23.Name = "ResourceTitle";
-            gridViewTextBoxColumn23.Width = 125;
-            gridViewTextBoxColumn24.FieldName = "DeletionDescription";
-            gridViewTextBoxColumn24.HeaderText = "توضیح حذفیات";
-            gridViewTextBoxColumn24.MaxWidth = 500;
-            gridViewTextBoxColumn24.Name = "DeletionDescription";
-            gridViewTextBoxColumn24.Width = 350;
-            gridViewTextBoxColumn25.FieldName = "Comment";
-            gridViewTextBoxColumn25.HeaderText = "کامنت";
-            gridViewTextBoxColumn25.IsVisible = false;
-            gridViewTextBoxColumn25.Name = "Comment";
-            gridViewTextBoxColumn26.FieldName = "FileName";
-            gridViewTextBoxColumn26.HeaderText = "نام فایل";
-            gridViewTextBoxColumn26.MaxWidth = 250;
-            gridViewTextBoxColumn26.Name = "FileName";
-            gridViewTextBoxColumn26.Width = 230;
-            gridViewImageColumn2.FieldName = "UploadState";
-            gridViewImageColumn2.HeaderText = "وضعیت";
-            gridViewImageColumn2.Name = "UploadState";
-            gridViewCommandColumn8.FieldName = "Upload";
-            gridViewCommandColumn8.HeaderText = "Upld";
-            gridViewCommandColumn8.Image = global::Archive.Properties.Resources.Add2;
-            gridViewCommandColumn8.IsVisible = false;
-            gridViewCommandColumn8.Name = "Upload";
-            gridViewCommandColumn8.Width = 40;
-            gridViewCommandColumn9.FieldName = "Download";
-            gridViewCommandColumn9.HeaderText = "دانلود";
-            gridViewCommandColumn9.Name = "Download";
-            gridViewCommandColumn9.Width = 40;
-            gridViewCommandColumn10.FieldName = "UploadQ";
-            gridViewCommandColumn10.HeaderText = "UpldQ";
-            gridViewCommandColumn10.IsVisible = false;
-            gridViewCommandColumn10.Name = "UploadQ";
-            gridViewCommandColumn11.FieldName = "DownloadQ";
-            gridViewCommandColumn11.HeaderText = "دانلودHQ";
-            gridViewCommandColumn11.Name = "DownloadQ";
-            gridViewCommandColumn11.Width = 60;
-            gridViewCommandColumn12.FieldName = "Delete";
-            gridViewCommandColumn12.HeaderText = "Del";
-            gridViewCommandColumn12.Image = global::Archive.Properties.Resources.Delete_20;
-            gridViewCommandColumn12.Name = "Delete";
-            gridViewCommandColumn12.Width = 30;
-            gridViewCommandColumn13.FieldName = "Undo";
-            gridViewCommandColumn13.HeaderText = "Undo";
-            gridViewCommandColumn13.Image = global::Archive.Properties.Resources.Undo_20;
-            gridViewCommandColumn13.Name = "Undo";
-            gridViewCommandColumn13.Width = 40;
-            gridViewTextBoxColumn27.FieldName = "Text";
-            gridViewTextBoxColumn27.HeaderText = "Text";
-            gridViewTextBoxColumn27.IsVisible = false;
-            gridViewTextBoxColumn27.Name = "Text";
-            gridViewTextBoxColumn28.FieldName = "CategoryId";
-            gridViewTextBoxColumn28.HeaderText = "CategoryId";
-            gridViewTextBoxColumn28.IsVisible = false;
-            gridViewTextBoxColumn28.Name = "CategoryId";
-            gridViewTextBoxColumn29.FieldName = "FileCode";
-            gridViewTextBoxColumn29.HeaderText = "FileCode";
-            gridViewTextBoxColumn29.IsVisible = false;
-            gridViewTextBoxColumn29.Name = "FileCode";
-            gridViewTextBoxColumn30.FieldName = "Description";
-            gridViewTextBoxColumn30.HeaderText = "Description";
-            gridViewTextBoxColumn30.IsVisible = false;
-            gridViewTextBoxColumn30.Name = "Description";
-            gridViewTextBoxColumn31.FieldName = "Code";
-            gridViewTextBoxColumn31.HeaderText = "Code";
-            gridViewTextBoxColumn31.IsVisible = false;
-            gridViewTextBoxColumn31.Name = "Code";
-            gridViewCommandColumn14.FieldName = "Edit";
-            gridViewCommandColumn14.HeaderText = "Edit";
-            gridViewCommandColumn14.Image = global::Archive.Properties.Resources.Edit_30;
-            gridViewCommandColumn14.Name = "Edit";
-            gridViewTextBoxColumn32.FieldName = "FileId";
-            gridViewTextBoxColumn32.HeaderText = "FileId";
-            gridViewTextBoxColumn32.IsVisible = false;
-            gridViewTextBoxColumn32.Name = "FileId";
+            gridViewTextBoxColumn1.FieldName = "DocumentId";
+            gridViewTextBoxColumn1.HeaderText = "DocumentId";
+            gridViewTextBoxColumn1.IsVisible = false;
+            gridViewTextBoxColumn1.Name = "DocumentId";
+            gridViewTextBoxColumn2.FieldName = "ContentId";
+            gridViewTextBoxColumn2.HeaderText = "ContentId";
+            gridViewTextBoxColumn2.IsVisible = false;
+            gridViewTextBoxColumn2.Name = "ContentId";
+            gridViewTextBoxColumn3.FieldName = "ContentTypeTitle";
+            gridViewTextBoxColumn3.HeaderText = "نوع محتوا";
+            gridViewTextBoxColumn3.MaxWidth = 100;
+            gridViewTextBoxColumn3.Name = "ContentTypeTitle";
+            gridViewTextBoxColumn3.Width = 60;
+            gridViewTextBoxColumn4.FieldName = "FileTypeTitle";
+            gridViewTextBoxColumn4.HeaderText = "نوع فایل";
+            gridViewTextBoxColumn4.MaxWidth = 150;
+            gridViewTextBoxColumn4.Name = "FileTypeTitle";
+            gridViewTextBoxColumn4.Width = 100;
+            gridViewTextBoxColumn5.FieldName = "FileTypeId";
+            gridViewTextBoxColumn5.HeaderText = "FileTypeId";
+            gridViewTextBoxColumn5.IsVisible = false;
+            gridViewTextBoxColumn5.Name = "FileTypeId";
+            gridViewTextBoxColumn6.FieldName = "FileNumber";
+            gridViewTextBoxColumn6.HeaderText = "ش-فایل";
+            gridViewTextBoxColumn6.MaxWidth = 70;
+            gridViewTextBoxColumn6.Name = "FileNumber";
+            gridViewTextBoxColumn7.FieldName = "ResourceTitle";
+            gridViewTextBoxColumn7.HeaderText = "منبع";
+            gridViewTextBoxColumn7.MaxWidth = 150;
+            gridViewTextBoxColumn7.Name = "ResourceTitle";
+            gridViewTextBoxColumn7.Width = 125;
+            gridViewTextBoxColumn8.FieldName = "DeletionDescription";
+            gridViewTextBoxColumn8.HeaderText = "توضیح حذفیات";
+            gridViewTextBoxColumn8.MaxWidth = 500;
+            gridViewTextBoxColumn8.Name = "DeletionDescription";
+            gridViewTextBoxColumn8.Width = 350;
+            gridViewTextBoxColumn9.FieldName = "Comment";
+            gridViewTextBoxColumn9.HeaderText = "کامنت";
+            gridViewTextBoxColumn9.IsVisible = false;
+            gridViewTextBoxColumn9.Name = "Comment";
+            gridViewTextBoxColumn10.FieldName = "FileName";
+            gridViewTextBoxColumn10.HeaderText = "نام فایل";
+            gridViewTextBoxColumn10.MaxWidth = 250;
+            gridViewTextBoxColumn10.Name = "FileName";
+            gridViewTextBoxColumn10.Width = 230;
+            gridViewImageColumn1.FieldName = "UploadState";
+            gridViewImageColumn1.HeaderText = "وضعیت";
+            gridViewImageColumn1.Name = "UploadState";
+            gridViewCommandColumn1.FieldName = "Upload";
+            gridViewCommandColumn1.HeaderText = "Upld";
+            gridViewCommandColumn1.Image = global::Archive.Properties.Resources.Add2;
+            gridViewCommandColumn1.IsVisible = false;
+            gridViewCommandColumn1.Name = "Upload";
+            gridViewCommandColumn1.Width = 40;
+            gridViewCommandColumn2.FieldName = "Download";
+            gridViewCommandColumn2.HeaderText = "دانلود";
+            gridViewCommandColumn2.Name = "Download";
+            gridViewCommandColumn2.Width = 40;
+            gridViewCommandColumn3.FieldName = "UploadQ";
+            gridViewCommandColumn3.HeaderText = "UpldQ";
+            gridViewCommandColumn3.IsVisible = false;
+            gridViewCommandColumn3.Name = "UploadQ";
+            gridViewCommandColumn4.FieldName = "DownloadQ";
+            gridViewCommandColumn4.HeaderText = "دانلودHQ";
+            gridViewCommandColumn4.Name = "DownloadQ";
+            gridViewCommandColumn4.Width = 60;
+            gridViewCommandColumn5.FieldName = "Delete";
+            gridViewCommandColumn5.HeaderText = "Del";
+            gridViewCommandColumn5.Image = global::Archive.Properties.Resources.Delete_20;
+            gridViewCommandColumn5.Name = "Delete";
+            gridViewCommandColumn5.Width = 30;
+            gridViewCommandColumn6.FieldName = "Undo";
+            gridViewCommandColumn6.HeaderText = "Undo";
+            gridViewCommandColumn6.Image = global::Archive.Properties.Resources.Undo_20;
+            gridViewCommandColumn6.Name = "Undo";
+            gridViewCommandColumn6.Width = 40;
+            gridViewTextBoxColumn11.FieldName = "Text";
+            gridViewTextBoxColumn11.HeaderText = "Text";
+            gridViewTextBoxColumn11.IsVisible = false;
+            gridViewTextBoxColumn11.Name = "Text";
+            gridViewTextBoxColumn12.FieldName = "CategoryId";
+            gridViewTextBoxColumn12.HeaderText = "CategoryId";
+            gridViewTextBoxColumn12.IsVisible = false;
+            gridViewTextBoxColumn12.Name = "CategoryId";
+            gridViewTextBoxColumn13.FieldName = "FileCode";
+            gridViewTextBoxColumn13.HeaderText = "FileCode";
+            gridViewTextBoxColumn13.IsVisible = false;
+            gridViewTextBoxColumn13.Name = "FileCode";
+            gridViewTextBoxColumn14.FieldName = "Description";
+            gridViewTextBoxColumn14.HeaderText = "Description";
+            gridViewTextBoxColumn14.IsVisible = false;
+            gridViewTextBoxColumn14.Name = "Description";
+            gridViewTextBoxColumn15.FieldName = "Code";
+            gridViewTextBoxColumn15.HeaderText = "Code";
+            gridViewTextBoxColumn15.IsVisible = false;
+            gridViewTextBoxColumn15.Name = "Code";
+            gridViewCommandColumn7.FieldName = "Edit";
+            gridViewCommandColumn7.HeaderText = "Edit";
+            gridViewCommandColumn7.Image = global::Archive.Properties.Resources.Edit_30;
+            gridViewCommandColumn7.Name = "Edit";
+            gridViewTextBoxColumn16.FieldName = "FileId";
+            gridViewTextBoxColumn16.HeaderText = "FileId";
+            gridViewTextBoxColumn16.IsVisible = false;
+            gridViewTextBoxColumn16.Name = "FileId";
             this.GridViewContent.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn17,
-            gridViewTextBoxColumn18,
-            gridViewTextBoxColumn19,
-            gridViewTextBoxColumn20,
-            gridViewTextBoxColumn21,
-            gridViewTextBoxColumn22,
-            gridViewTextBoxColumn23,
-            gridViewTextBoxColumn24,
-            gridViewTextBoxColumn25,
-            gridViewTextBoxColumn26,
-            gridViewImageColumn2,
-            gridViewCommandColumn8,
-            gridViewCommandColumn9,
-            gridViewCommandColumn10,
-            gridViewCommandColumn11,
-            gridViewCommandColumn12,
-            gridViewCommandColumn13,
-            gridViewTextBoxColumn27,
-            gridViewTextBoxColumn28,
-            gridViewTextBoxColumn29,
-            gridViewTextBoxColumn30,
-            gridViewTextBoxColumn31,
-            gridViewCommandColumn14,
-            gridViewTextBoxColumn32});
-            this.GridViewContent.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3,
+            gridViewTextBoxColumn4,
+            gridViewTextBoxColumn5,
+            gridViewTextBoxColumn6,
+            gridViewTextBoxColumn7,
+            gridViewTextBoxColumn8,
+            gridViewTextBoxColumn9,
+            gridViewTextBoxColumn10,
+            gridViewImageColumn1,
+            gridViewCommandColumn1,
+            gridViewCommandColumn2,
+            gridViewCommandColumn3,
+            gridViewCommandColumn4,
+            gridViewCommandColumn5,
+            gridViewCommandColumn6,
+            gridViewTextBoxColumn11,
+            gridViewTextBoxColumn12,
+            gridViewTextBoxColumn13,
+            gridViewTextBoxColumn14,
+            gridViewTextBoxColumn15,
+            gridViewCommandColumn7,
+            gridViewTextBoxColumn16});
+            this.GridViewContent.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.GridViewContent.Name = "GridViewContent";
             this.GridViewContent.ReadOnly = true;
             this.GridViewContent.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1057,11 +1135,11 @@
             // 
             // radNavigationView1
             // 
-            this.radNavigationView1.Controls.Add(this.radPageViewPageAudioBook);
+            this.radNavigationView1.Controls.Add(this.radPageViewPageSound);
             this.radNavigationView1.Controls.Add(this.radPageViewPageText);
             this.radNavigationView1.Controls.Add(this.radPageViewPageImage);
             this.radNavigationView1.Controls.Add(this.radPageViewPageVideo);
-            this.radNavigationView1.DefaultPage = this.radPageViewPageAudioBook;
+            this.radNavigationView1.DefaultPage = this.radPageViewPageSound;
             this.radNavigationView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.radNavigationView1.ExpandedPaneWidth = 150;
             this.radNavigationView1.Font = new System.Drawing.Font("Dana-FaNum Medium", 9.749999F, System.Drawing.FontStyle.Bold);
@@ -1071,62 +1149,22 @@
             this.radNavigationView1.Location = new System.Drawing.Point(0, 0);
             this.radNavigationView1.Name = "radNavigationView1";
             this.radNavigationView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radNavigationView1.SelectedPage = this.radPageViewPageAudioBook;
+            this.radNavigationView1.SelectedPage = this.radPageViewPageSound;
             this.radNavigationView1.Size = new System.Drawing.Size(1222, 259);
             this.radNavigationView1.TabIndex = 0;
             this.radNavigationView1.SelectedPageChanged += new System.EventHandler(this.radNavigationView1_SelectedPageChanged);
             // 
-            // customShape1
+            // radPageViewPageSound
             // 
-            this.customShape1.Dimension = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // calloutElementShape1
-            // 
-            this.calloutElementShape1.Bounds = ((System.Drawing.RectangleF)(resources.GetObject("calloutElementShape1.Bounds")));
-            this.calloutElementShape1.Owner = null;
-            this.calloutElementShape1.Path = null;
-            // 
-            // object_cabf595c_b710_44fa_8575_23a8c9cc3d01
-            // 
-            this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01.Name = "object_cabf595c_b710_44fa_8575_23a8c9cc3d01";
-            this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01.StretchHorizontally = true;
-            this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01.StretchVertically = true;
-            // 
-            // starShape1
-            // 
-            this.starShape1.Arms = 5;
-            this.starShape1.InnerRadiusRatio = 0.375F;
-            // 
-            // object_11f9d28c_2b62_4037_bed9_39e037d87daa
-            // 
-            this.object_11f9d28c_2b62_4037_bed9_39e037d87daa.Name = "object_11f9d28c_2b62_4037_bed9_39e037d87daa";
-            this.object_11f9d28c_2b62_4037_bed9_39e037d87daa.StretchHorizontally = true;
-            this.object_11f9d28c_2b62_4037_bed9_39e037d87daa.StretchVertically = true;
-            // 
-            // radButton1
-            // 
-            this.radButton1.BackColor = System.Drawing.SystemColors.Control;
-            this.radButton1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.radButton1.Location = new System.Drawing.Point(3, 73);
-            this.radButton1.Name = "radButton1";
-            this.radButton1.Size = new System.Drawing.Size(110, 24);
-            this.radButton1.TabIndex = 21;
-            this.radButton1.Text = "ثبت نهایی";
-            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton1.GetChildAt(0))).Text = "ثبت نهایی";
-            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton1.GetChildAt(0))).Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(226)))), ((int)(((byte)(246)))));
-            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
-            // 
-            // radPageViewPageAudioBook
-            // 
-            this.radPageViewPageAudioBook.BackColor = System.Drawing.SystemColors.Control;
-            this.radPageViewPageAudioBook.Image = global::Archive.Properties.Resources.Sound_30;
-            this.radPageViewPageAudioBook.ItemSize = new System.Drawing.SizeF(76F, 41F);
-            this.radPageViewPageAudioBook.Location = new System.Drawing.Point(1, 37);
-            this.radPageViewPageAudioBook.Name = "radPageViewPageAudioBook";
-            this.radPageViewPageAudioBook.Size = new System.Drawing.Size(1070, 221);
-            this.radPageViewPageAudioBook.Tag = "Sound";
-            this.radPageViewPageAudioBook.Text = "صوت";
+            this.radPageViewPageSound.BackColor = System.Drawing.SystemColors.Control;
+            this.radPageViewPageSound.Controls.Add(this.Panel_Sound);
+            this.radPageViewPageSound.Image = global::Archive.Properties.Resources.Sound_30;
+            this.radPageViewPageSound.ItemSize = new System.Drawing.SizeF(84F, 49F);
+            this.radPageViewPageSound.Location = new System.Drawing.Point(1, 37);
+            this.radPageViewPageSound.Name = "radPageViewPageSound";
+            this.radPageViewPageSound.Size = new System.Drawing.Size(1070, 221);
+            this.radPageViewPageSound.Tag = "Sound";
+            this.radPageViewPageSound.Text = "صوت";
             // 
             // Panel_Sound
             // 
@@ -1141,7 +1179,7 @@
             this.radPageViewPageText.BackColor = System.Drawing.SystemColors.Control;
             this.radPageViewPageText.Controls.Add(this.Panel_Text);
             this.radPageViewPageText.Image = global::Archive.Properties.Resources.Text_30;
-            this.radPageViewPageText.ItemSize = new System.Drawing.SizeF(76F, 41F);
+            this.radPageViewPageText.ItemSize = new System.Drawing.SizeF(84F, 49F);
             this.radPageViewPageText.Location = new System.Drawing.Point(1, 37);
             this.radPageViewPageText.Name = "radPageViewPageText";
             this.radPageViewPageText.Size = new System.Drawing.Size(1070, 221);
@@ -1161,7 +1199,7 @@
             this.radPageViewPageImage.BackColor = System.Drawing.SystemColors.Control;
             this.radPageViewPageImage.Controls.Add(this.Panel_Image);
             this.radPageViewPageImage.Image = global::Archive.Properties.Resources.Image_30;
-            this.radPageViewPageImage.ItemSize = new System.Drawing.SizeF(76F, 41F);
+            this.radPageViewPageImage.ItemSize = new System.Drawing.SizeF(84F, 49F);
             this.radPageViewPageImage.Location = new System.Drawing.Point(1, 37);
             this.radPageViewPageImage.Name = "radPageViewPageImage";
             this.radPageViewPageImage.Size = new System.Drawing.Size(1070, 221);
@@ -1182,7 +1220,7 @@
             this.radPageViewPageVideo.Controls.Add(this.Panel_Video);
             this.radPageViewPageVideo.Description = null;
             this.radPageViewPageVideo.Image = global::Archive.Properties.Resources.Video_30;
-            this.radPageViewPageVideo.ItemSize = new System.Drawing.SizeF(76F, 41F);
+            this.radPageViewPageVideo.ItemSize = new System.Drawing.SizeF(84F, 49F);
             this.radPageViewPageVideo.Location = new System.Drawing.Point(1, 37);
             this.radPageViewPageVideo.Name = "radPageViewPageVideo";
             this.radPageViewPageVideo.Size = new System.Drawing.Size(1070, 216);
@@ -1199,96 +1237,45 @@
             this.Panel_Video.TabIndex = 21;
             this.Panel_Video.Tag = "Video";
             // 
-            // ButtonAddCategory2
+            // radPageViewPageAudioBook
             // 
-            this.ButtonAddCategory2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ButtonAddCategory2.AutoSize = true;
-            this.ButtonAddCategory2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddCategory2.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddCategory2.Location = new System.Drawing.Point(301, 110);
-            this.ButtonAddCategory2.Name = "ButtonAddCategory2";
-            this.ButtonAddCategory2.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddCategory2.TabIndex = 17;
-            this.ButtonAddCategory2.TabStop = false;
-            this.ButtonAddCategory2.UseVisualStyleBackColor = true;
+            this.radPageViewPageAudioBook.BackColor = System.Drawing.SystemColors.Control;
+            this.radPageViewPageAudioBook.Image = global::Archive.Properties.Resources.Sound_30;
+            this.radPageViewPageAudioBook.Location = new System.Drawing.Point(1, 37);
+            this.radPageViewPageAudioBook.Name = "radPageViewPageAudioBook";
+            this.radPageViewPageAudioBook.Size = new System.Drawing.Size(1070, 221);
+            this.radPageViewPageAudioBook.Tag = "Sound";
+            this.radPageViewPageAudioBook.Text = "صوت";
             // 
-            // ButtonAddLanguage
+            // customShape1
             // 
-            this.ButtonAddLanguage.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ButtonAddLanguage.AutoSize = true;
-            this.ButtonAddLanguage.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddLanguage.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddLanguage.Location = new System.Drawing.Point(301, 73);
-            this.ButtonAddLanguage.Name = "ButtonAddLanguage";
-            this.ButtonAddLanguage.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddLanguage.TabIndex = 17;
-            this.ButtonAddLanguage.TabStop = false;
-            this.ButtonAddLanguage.UseVisualStyleBackColor = true;
+            this.customShape1.Dimension = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
-            // ButtonAddPadidAvar
+            // object_cabf595c_b710_44fa_8575_23a8c9cc3d01
             // 
-            this.ButtonAddPadidAvar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ButtonAddPadidAvar.AutoSize = true;
-            this.ButtonAddPadidAvar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddPadidAvar.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddPadidAvar.Location = new System.Drawing.Point(637, 73);
-            this.ButtonAddPadidAvar.Name = "ButtonAddPadidAvar";
-            this.ButtonAddPadidAvar.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddPadidAvar.TabIndex = 17;
-            this.ButtonAddPadidAvar.TabStop = false;
-            this.ButtonAddPadidAvar.UseVisualStyleBackColor = true;
+            this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01.Name = "object_cabf595c_b710_44fa_8575_23a8c9cc3d01";
+            this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01.StretchHorizontally = true;
+            this.object_cabf595c_b710_44fa_8575_23a8c9cc3d01.StretchVertically = true;
             // 
-            // ButtonAddSubject
+            // object_11f9d28c_2b62_4037_bed9_39e037d87daa
             // 
-            this.ButtonAddSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAddSubject.AutoSize = true;
-            this.ButtonAddSubject.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddSubject.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddSubject.Location = new System.Drawing.Point(970, 150);
-            this.ButtonAddSubject.Name = "ButtonAddSubject";
-            this.ButtonAddSubject.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddSubject.TabIndex = 17;
-            this.ButtonAddSubject.TabStop = false;
-            this.ButtonAddSubject.UseVisualStyleBackColor = true;
-            this.ButtonAddSubject.Click += new System.EventHandler(this.ButtonAddSubject_Click);
+            this.object_11f9d28c_2b62_4037_bed9_39e037d87daa.Name = "object_11f9d28c_2b62_4037_bed9_39e037d87daa";
+            this.object_11f9d28c_2b62_4037_bed9_39e037d87daa.StretchHorizontally = true;
+            this.object_11f9d28c_2b62_4037_bed9_39e037d87daa.StretchVertically = true;
             // 
-            // ButtonAddCategory1
+            // radButton1
             // 
-            this.ButtonAddCategory1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ButtonAddCategory1.AutoSize = true;
-            this.ButtonAddCategory1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddCategory1.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddCategory1.Location = new System.Drawing.Point(637, 110);
-            this.ButtonAddCategory1.Name = "ButtonAddCategory1";
-            this.ButtonAddCategory1.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddCategory1.TabIndex = 17;
-            this.ButtonAddCategory1.TabStop = false;
-            this.ButtonAddCategory1.UseVisualStyleBackColor = true;
-            this.ButtonAddCategory1.Click += new System.EventHandler(this.ButtonAddCategory1_Click);
-            // 
-            // ButtonAddMainCategory
-            // 
-            this.ButtonAddMainCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAddMainCategory.AutoSize = true;
-            this.ButtonAddMainCategory.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddMainCategory.Image = global::Archive.Properties.Resources.Add2;
-            this.ButtonAddMainCategory.Location = new System.Drawing.Point(970, 112);
-            this.ButtonAddMainCategory.Name = "ButtonAddMainCategory";
-            this.ButtonAddMainCategory.Size = new System.Drawing.Size(22, 22);
-            this.ButtonAddMainCategory.TabIndex = 17;
-            this.ButtonAddMainCategory.TabStop = false;
-            this.ButtonAddMainCategory.UseVisualStyleBackColor = true;
-            // 
-            // radPageViewPageSound
-            // 
-            this.radPageViewPageSound.BackColor = System.Drawing.SystemColors.Control;
-            this.radPageViewPageSound.Controls.Add(this.Panel_Sound);
-            this.radPageViewPageSound.Image = global::Archive.Properties.Resources.Sound_30;
-            this.radPageViewPageSound.Location = new System.Drawing.Point(1, 37);
-            this.radPageViewPageSound.Name = "radPageViewPageSound";
-            this.radPageViewPageSound.Size = new System.Drawing.Size(1070, 221);
-            this.radPageViewPageSound.Tag = "Sound";
-            this.radPageViewPageSound.Text = "صوت";
+            this.radButton1.BackColor = System.Drawing.SystemColors.Control;
+            this.radButton1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.radButton1.Location = new System.Drawing.Point(3, 73);
+            this.radButton1.Name = "radButton1";
+            this.radButton1.Size = new System.Drawing.Size(110, 24);
+            this.radButton1.TabIndex = 21;
+            this.radButton1.Text = "ثبت نهایی";
+            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton1.GetChildAt(0))).Text = "ثبت نهایی";
+            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton1.GetChildAt(0))).Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(226)))), ((int)(((byte)(246)))));
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(0))).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             // 
             // FormCreateDocument_Speech
             // 
@@ -1332,11 +1319,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridViewContent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radNavigationView1)).EndInit();
             this.radNavigationView1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
+            this.radPageViewPageSound.ResumeLayout(false);
             this.radPageViewPageText.ResumeLayout(false);
             this.radPageViewPageImage.ResumeLayout(false);
             this.radPageViewPageVideo.ResumeLayout(false);
-            this.radPageViewPageSound.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1408,7 +1395,6 @@
         private Telerik.WinControls.OldShapeEditor.CustomShape customShape1;
         private Telerik.WinControls.UI.Callout.CalloutElementShape calloutElementShape1;
         private Telerik.WinControls.UI.RadDropDownListRootElement object_cabf595c_b710_44fa_8575_23a8c9cc3d01;
-        private Telerik.WinControls.UI.StarShape starShape1;
         private Telerik.WinControls.UI.RadDropDownListRootElement object_11f9d28c_2b62_4037_bed9_39e037d87daa;
         private System.Windows.Forms.Panel panel10;
         private Telerik.WinControls.UI.RadButton radButton1;

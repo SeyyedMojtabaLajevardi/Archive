@@ -80,6 +80,14 @@
           <Property Name="BriefLangyageTitle" Type="nvarchar" MaxLength="10" />
           <Property Name="LanguageTitlePersian" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Narrator">
+          <Key>
+            <PropertyRef Name="NarratorId" />
+          </Key>
+          <Property Name="NarratorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NarratorName" Type="nvarchar" MaxLength="250" />
+          <Property Name="NarratorNameSample" Type="nvarchar" MaxLength="250" />
+        </EntityType>
         <EntityType Name="PadidAvar">
           <Key>
             <PropertyRef Name="PadidAvarId" />
@@ -105,12 +113,35 @@
           <Property Name="PermissionTypeTitle" Type="nvarchar" MaxLength="100" />
           <Property Name="SamplePermissionTypeTitle" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="PublicationPlace">
+          <Key>
+            <PropertyRef Name="PublicationPlaceId" />
+          </Key>
+          <Property Name="PublicationPlaceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PublicationPlaceTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="SamplePublicationPlace" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="PublisherId" />
+          </Key>
+          <Property Name="PublisherId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PublisherTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="SamplePublisherTitle" Type="nvarchar" MaxLength="250" />
+        </EntityType>
         <EntityType Name="PublishState">
           <Key>
             <PropertyRef Name="PublishStateId" />
           </Key>
           <Property Name="PublishStateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PublishStateTitle" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Resource">
+          <Key>
+            <PropertyRef Name="ResourceId" />
+          </Key>
+          <Property Name="ResourceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResourceTitle" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
@@ -120,11 +151,19 @@
           <Property Name="SubjectTitle" Type="nvarchar" MaxLength="250" />
           <Property Name="SampleSubjectTitle" Type="nvarchar" MaxLength="250" />
         </EntityType>
+        <EntityType Name="Translator">
+          <Key>
+            <PropertyRef Name="TranslatorId" />
+          </Key>
+          <Property Name="TranslatorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TranslatorTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="SampleTranslatorTitle" Type="nvarchar" MaxLength="250" />
+        </EntityType>
         <EntityType Name="UserInfo">
           <Key>
-            <PropertyRef Name="UsreId" />
+            <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="UsreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
           <Property Name="LastName" Type="nvarchar" MaxLength="100" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -188,17 +227,24 @@
           <Property Name="MainCategoryId" Type="int" />
           <Property Name="ContentTypeId" Type="int" />
           <Property Name="PublishYear" Type="int" />
-          <Property Name="PublishPlace" Type="nvarchar" MaxLength="50" />
-          <Property Name="BookPublisher" Type="nvarchar" MaxLength="250" />
           <Property Name="BookVolumeNumber" Type="int" />
-          <Property Name="BookPageNumber" Type="int" />
+          <Property Name="BookPageCount" Type="int" />
           <Property Name="BookVolumeCount" Type="int" />
           <Property Name="FipaCode" Type="nvarchar(max)" />
           <Property Name="TranslateLanguageId" Type="int" />
-          <Property Name="Translator" Type="nvarchar" MaxLength="150" />
-          <Property Name="Narrator" Type="nvarchar" MaxLength="150" />
           <Property Name="SecondCategoryId" Type="int" />
           <Property Name="FirstCategoryId" Type="int" />
+          <Property Name="PublicationPlaceId" Type="int" />
+          <Property Name="TranslatorId" Type="int" />
+          <Property Name="PublisherId" Type="int" />
+        </EntityType>
+        <EntityType Name="DocumentNarratorRelation">
+          <Key>
+            <PropertyRef Name="DocumentNarratorRelationId" />
+          </Key>
+          <Property Name="DocumentNarratorRelationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentId" Type="int" />
+          <Property Name="NarratorId" Type="int" />
         </EntityType>
         <EntityType Name="DocumentResourceRelation">
           <Key>
@@ -238,23 +284,6 @@
           <Property Name="Volume" Type="nvarchar" MaxLength="50" />
           <Property Name="FilePath" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="Resource">
-          <Key>
-            <PropertyRef Name="ResourceId" />
-          </Key>
-          <Property Name="ResourceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ResourceTitle" Type="nvarchar" MaxLength="250" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <Association Name="FK_CodeRange_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="CodeRange" Type="Self.CodeRange" Multiplicity="*" />
@@ -272,7 +301,7 @@
           <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
+              <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="Comment">
               <PropertyRef Name="SenderUserId" />
@@ -284,7 +313,7 @@
           <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
+              <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="Comment">
               <PropertyRef Name="ReceiverUserId" />
@@ -375,6 +404,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Document_PublicationPlace">
+          <End Role="PublicationPlace" Type="Self.PublicationPlace" Multiplicity="0..1" />
+          <End Role="Document" Type="Self.Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PublicationPlace">
+              <PropertyRef Name="PublicationPlaceId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="PublicationPlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_Publisher">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="0..1" />
+          <End Role="Document" Type="Self.Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="PublisherId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="PublisherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Document_PublishState">
           <End Role="PublishState" Type="Self.PublishState" Multiplicity="0..1" />
           <End Role="Document" Type="Self.Document" Multiplicity="*" />
@@ -387,15 +440,51 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Document_Translator">
+          <End Role="Translator" Type="Self.Translator" Multiplicity="0..1" />
+          <End Role="Document" Type="Self.Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Translator">
+              <PropertyRef Name="TranslatorId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="TranslatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Document_User">
           <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
           <End Role="Document" Type="Self.Document" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
+              <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="Document">
               <PropertyRef Name="CreatorUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentNarratorRelation_Document">
+          <End Role="Document" Type="Self.Document" Multiplicity="0..1" />
+          <End Role="DocumentNarratorRelation" Type="Self.DocumentNarratorRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document">
+              <PropertyRef Name="DocumentId" />
+            </Principal>
+            <Dependent Role="DocumentNarratorRelation">
+              <PropertyRef Name="DocumentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentNarratorRelation_Narrator">
+          <End Role="Narrator" Type="Self.Narrator" Multiplicity="0..1" />
+          <End Role="DocumentNarratorRelation" Type="Self.DocumentNarratorRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Narrator">
+              <PropertyRef Name="NarratorId" />
+            </Principal>
+            <Dependent Role="DocumentNarratorRelation">
+              <PropertyRef Name="NarratorId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -512,7 +601,7 @@
           <End Role="View" Type="Self.View" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
+              <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="View">
               <PropertyRef Name="SenderUserId" />
@@ -524,7 +613,7 @@
           <End Role="View" Type="Self.View" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
+              <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="View">
               <PropertyRef Name="ReceiverUserId" />
@@ -540,21 +629,25 @@
           <EntitySet Name="Editor" EntityType="Self.Editor" Schema="Base" store:Type="Tables" />
           <EntitySet Name="FileType" EntityType="Self.FileType" Schema="Base" store:Type="Tables" />
           <EntitySet Name="Language" EntityType="Self.Language" Schema="Base" store:Type="Tables" />
+          <EntitySet Name="Narrator" EntityType="Self.Narrator" Schema="Base" store:Type="Tables" />
           <EntitySet Name="PadidAvar" EntityType="Self.PadidAvar" Schema="Base" store:Type="Tables" />
           <EntitySet Name="PermissionState" EntityType="Self.PermissionState" Schema="Base" store:Type="Tables" />
           <EntitySet Name="PermissionType" EntityType="Self.PermissionType" Schema="Base" store:Type="Tables" />
+          <EntitySet Name="PublicationPlace" EntityType="Self.PublicationPlace" Schema="Base" store:Type="Tables" />
+          <EntitySet Name="Publisher" EntityType="Self.Publisher" Schema="Base" store:Type="Tables" />
           <EntitySet Name="PublishState" EntityType="Self.PublishState" Schema="Base" store:Type="Tables" />
+          <EntitySet Name="Resource" EntityType="Self.Resource" Schema="Base" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="Base" store:Type="Tables" />
+          <EntitySet Name="Translator" EntityType="Self.Translator" Schema="Base" store:Type="Tables" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="Base" store:Type="Tables" />
           <EntitySet Name="View" EntityType="Self.View" Schema="Base" store:Type="Tables" />
           <EntitySet Name="WorkFlowState" EntityType="Self.WorkFlowState" Schema="Base" store:Type="Tables" />
           <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentNarratorRelation" EntityType="Self.DocumentNarratorRelation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DocumentResourceRelation" EntityType="Self.DocumentResourceRelation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DocumentSubjectRelation" EntityType="Self.DocumentSubjectRelation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="File" EntityType="Self.File" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Resource" EntityType="Self.Resource" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CodeRange_Category" Association="Self.FK_CodeRange_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="CodeRange" EntitySet="CodeRange" />
@@ -595,13 +688,33 @@
             <End Role="PermissionState" EntitySet="PermissionState" />
             <End Role="Document" EntitySet="Document" />
           </AssociationSet>
+          <AssociationSet Name="FK_Document_PublicationPlace" Association="Self.FK_Document_PublicationPlace">
+            <End Role="PublicationPlace" EntitySet="PublicationPlace" />
+            <End Role="Document" EntitySet="Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_Publisher" Association="Self.FK_Document_Publisher">
+            <End Role="Publisher" EntitySet="Publisher" />
+            <End Role="Document" EntitySet="Document" />
+          </AssociationSet>
           <AssociationSet Name="FK_Document_PublishState" Association="Self.FK_Document_PublishState">
             <End Role="PublishState" EntitySet="PublishState" />
+            <End Role="Document" EntitySet="Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_Translator" Association="Self.FK_Document_Translator">
+            <End Role="Translator" EntitySet="Translator" />
             <End Role="Document" EntitySet="Document" />
           </AssociationSet>
           <AssociationSet Name="FK_Document_User" Association="Self.FK_Document_User">
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="Document" EntitySet="Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentNarratorRelation_Document" Association="Self.FK_DocumentNarratorRelation_Document">
+            <End Role="Document" EntitySet="Document" />
+            <End Role="DocumentNarratorRelation" EntitySet="DocumentNarratorRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentNarratorRelation_Narrator" Association="Self.FK_DocumentNarratorRelation_Narrator">
+            <End Role="Narrator" EntitySet="Narrator" />
+            <End Role="DocumentNarratorRelation" EntitySet="DocumentNarratorRelation" />
           </AssociationSet>
           <AssociationSet Name="FK_DocumentResourceRelation_Document" Association="Self.FK_DocumentResourceRelation_Document">
             <End Role="Document" EntitySet="Document" />
@@ -664,85 +777,16 @@
           <EntitySet Name="PermissionStates" EntityType="ArchiveModel.PermissionState" />
           <EntitySet Name="PermissionTypes" EntityType="ArchiveModel.PermissionType" />
           <EntitySet Name="PublishStates" EntityType="ArchiveModel.PublishState" />
-          <EntitySet Name="UserInfoes" EntityType="ArchiveModel.UserInfo" />
           <EntitySet Name="Views" EntityType="ArchiveModel.View" />
           <EntitySet Name="WorkFlowStates" EntityType="ArchiveModel.WorkFlowState" />
-          <EntitySet Name="Documents" EntityType="ArchiveModel.Document" />
-          <EntitySet Name="DocumentResourceRelations" EntityType="ArchiveModel.DocumentResourceRelation" />
           <EntitySet Name="DocumentSubjectRelations" EntityType="ArchiveModel.DocumentSubjectRelation" />
-          <EntitySet Name="Resources" EntityType="ArchiveModel.Resource" />
-          <EntitySet Name="sysdiagrams" EntityType="ArchiveModel.sysdiagram" />
           <AssociationSet Name="FK_CodeRange_Category" Association="ArchiveModel.FK_CodeRange_Category">
             <End Role="Category" EntitySet="Categories" />
             <End Role="CodeRange" EntitySet="CodeRanges" />
           </AssociationSet>
-          <AssociationSet Name="FK_Document_Category" Association="ArchiveModel.FK_Document_Category">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Document_Collection" Association="ArchiveModel.FK_Document_Collection">
-            <End Role="Collection" EntitySet="Collections" />
-            <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Comment_User" Association="ArchiveModel.FK_Comment_User">
-            <End Role="UserInfo" EntitySet="UserInfoes" />
-            <End Role="Comment" EntitySet="Comments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Comment_User1" Association="ArchiveModel.FK_Comment_User1">
-            <End Role="UserInfo" EntitySet="UserInfoes" />
-            <End Role="Comment" EntitySet="Comments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Document_Language" Association="ArchiveModel.FK_Document_Language">
-            <End Role="Language" EntitySet="Languages" />
-            <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Document_PadidAvar" Association="ArchiveModel.FK_Document_PadidAvar">
-            <End Role="PadidAvar" EntitySet="PadidAvars" />
-            <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Document_PermissionLevel" Association="ArchiveModel.FK_Document_PermissionLevel">
-            <End Role="PermissionState" EntitySet="PermissionStates" />
-            <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_PermissionType" Association="ArchiveModel.FK_User_PermissionType">
-            <End Role="PermissionType" EntitySet="PermissionTypes" />
-            <End Role="UserInfo" EntitySet="UserInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Document_PublishState" Association="ArchiveModel.FK_Document_PublishState">
-            <End Role="PublishState" EntitySet="PublishStates" />
-            <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Document_User" Association="ArchiveModel.FK_Document_User">
-            <End Role="UserInfo" EntitySet="UserInfoes" />
-            <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_View_User" Association="ArchiveModel.FK_View_User">
-            <End Role="UserInfo" EntitySet="UserInfoes" />
-            <End Role="View" EntitySet="Views" />
-          </AssociationSet>
-          <AssociationSet Name="FK_View_User1" Association="ArchiveModel.FK_View_User1">
-            <End Role="UserInfo" EntitySet="UserInfoes" />
-            <End Role="View" EntitySet="Views" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DocumentResourceRelation_Document" Association="ArchiveModel.FK_DocumentResourceRelation_Document">
-            <End Role="Document" EntitySet="Documents" />
-            <End Role="DocumentResourceRelation" EntitySet="DocumentResourceRelations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DocumentSubjectRelation_Document" Association="ArchiveModel.FK_DocumentSubjectRelation_Document">
-            <End Role="Document" EntitySet="Documents" />
-            <End Role="DocumentSubjectRelation" EntitySet="DocumentSubjectRelations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DocumentResourceRelation_Resource" Association="ArchiveModel.FK_DocumentResourceRelation_Resource">
-            <End Role="Resource" EntitySet="Resources" />
-            <End Role="DocumentResourceRelation" EntitySet="DocumentResourceRelations" />
-          </AssociationSet>
           <EntitySet Name="Contents" EntityType="ArchiveModel.Content" />
           <AssociationSet Name="FK_Content_ContentType" Association="ArchiveModel.FK_Content_ContentType">
             <End Role="ContentType" EntitySet="ContentTypes" />
-            <End Role="Content" EntitySet="Contents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Content_Document" Association="ArchiveModel.FK_Content_Document">
-            <End Role="Document" EntitySet="Documents" />
             <End Role="Content" EntitySet="Contents" />
           </AssociationSet>
           <EntitySet Name="FileTypes" EntityType="ArchiveModel.FileType" />
@@ -764,9 +808,102 @@
             <End Role="Content" EntitySet="Contents" />
             <End Role="File" EntitySet="Files" />
           </AssociationSet>
+          <EntitySet Name="Narrators" EntityType="ArchiveModel.Narrator" />
+          <EntitySet Name="PublicationPlaces" EntityType="ArchiveModel.PublicationPlace" />
+          <EntitySet Name="Publishers" EntityType="ArchiveModel.Publisher" />
+          <EntitySet Name="Resources" EntityType="ArchiveModel.Resource" />
+          <EntitySet Name="Translators" EntityType="ArchiveModel.Translator" />
           <AssociationSet Name="FK_File_Resource" Association="ArchiveModel.FK_File_Resource">
             <End Role="Resource" EntitySet="Resources" />
             <End Role="File" EntitySet="Files" />
+          </AssociationSet>
+          <EntitySet Name="Documents" EntityType="ArchiveModel.Document" />
+          <EntitySet Name="DocumentNarratorRelations" EntityType="ArchiveModel.DocumentNarratorRelation" />
+          <EntitySet Name="DocumentResourceRelations" EntityType="ArchiveModel.DocumentResourceRelation" />
+          <AssociationSet Name="FK_Document_Category" Association="ArchiveModel.FK_Document_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_Collection" Association="ArchiveModel.FK_Document_Collection">
+            <End Role="Collection" EntitySet="Collections" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_Language" Association="ArchiveModel.FK_Document_Language">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentNarratorRelation_Narrator" Association="ArchiveModel.FK_DocumentNarratorRelation_Narrator">
+            <End Role="Narrator" EntitySet="Narrators" />
+            <End Role="DocumentNarratorRelation" EntitySet="DocumentNarratorRelations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_PadidAvar" Association="ArchiveModel.FK_Document_PadidAvar">
+            <End Role="PadidAvar" EntitySet="PadidAvars" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_PermissionLevel" Association="ArchiveModel.FK_Document_PermissionLevel">
+            <End Role="PermissionState" EntitySet="PermissionStates" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_PublicationPlace" Association="ArchiveModel.FK_Document_PublicationPlace">
+            <End Role="PublicationPlace" EntitySet="PublicationPlaces" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_Publisher" Association="ArchiveModel.FK_Document_Publisher">
+            <End Role="Publisher" EntitySet="Publishers" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_PublishState" Association="ArchiveModel.FK_Document_PublishState">
+            <End Role="PublishState" EntitySet="PublishStates" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentResourceRelation_Resource" Association="ArchiveModel.FK_DocumentResourceRelation_Resource">
+            <End Role="Resource" EntitySet="Resources" />
+            <End Role="DocumentResourceRelation" EntitySet="DocumentResourceRelations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_Translator" Association="ArchiveModel.FK_Document_Translator">
+            <End Role="Translator" EntitySet="Translators" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_Document" Association="ArchiveModel.FK_Content_Document">
+            <End Role="Document" EntitySet="Documents" />
+            <End Role="Content" EntitySet="Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentNarratorRelation_Document" Association="ArchiveModel.FK_DocumentNarratorRelation_Document">
+            <End Role="Document" EntitySet="Documents" />
+            <End Role="DocumentNarratorRelation" EntitySet="DocumentNarratorRelations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentResourceRelation_Document" Association="ArchiveModel.FK_DocumentResourceRelation_Document">
+            <End Role="Document" EntitySet="Documents" />
+            <End Role="DocumentResourceRelation" EntitySet="DocumentResourceRelations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentSubjectRelation_Document" Association="ArchiveModel.FK_DocumentSubjectRelation_Document">
+            <End Role="Document" EntitySet="Documents" />
+            <End Role="DocumentSubjectRelation" EntitySet="DocumentSubjectRelations" />
+          </AssociationSet>
+          <EntitySet Name="UserInfoes" EntityType="ArchiveModel.UserInfo" />
+          <AssociationSet Name="FK_Comment_User" Association="ArchiveModel.FK_Comment_User">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_User1" Association="ArchiveModel.FK_Comment_User1">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_PermissionType" Association="ArchiveModel.FK_User_PermissionType">
+            <End Role="PermissionType" EntitySet="PermissionTypes" />
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_User" Association="ArchiveModel.FK_Document_User">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_View_User" Association="ArchiveModel.FK_View_User">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="View" EntitySet="Views" />
+          </AssociationSet>
+          <AssociationSet Name="FK_View_User1" Association="ArchiveModel.FK_View_User1">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="View" EntitySet="Views" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Category">
@@ -814,7 +951,7 @@
           <Property Name="ReceiveDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="UserInfo" Relationship="ArchiveModel.FK_Comment_User" FromRole="Comment" ToRole="UserInfo" />
           <NavigationProperty Name="UserInfo1" Relationship="ArchiveModel.FK_Comment_User1" FromRole="Comment" ToRole="UserInfo" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="ContentType">
           <Key>
             <PropertyRef Name="ContentTypeId" />
@@ -879,23 +1016,6 @@
           <Property Name="PublishStateTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Documents" Relationship="ArchiveModel.FK_Document_PublishState" FromRole="PublishState" ToRole="Document" />
         </EntityType>
-        <EntityType Name="UserInfo">
-          <Key>
-            <PropertyRef Name="UsreId" />
-          </Key>
-          <Property Name="UsreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PermissionTypeId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Comments" Relationship="ArchiveModel.FK_Comment_User" FromRole="UserInfo" ToRole="Comment" />
-          <NavigationProperty Name="Comments1" Relationship="ArchiveModel.FK_Comment_User1" FromRole="UserInfo" ToRole="Comment" />
-          <NavigationProperty Name="PermissionType" Relationship="ArchiveModel.FK_User_PermissionType" FromRole="UserInfo" ToRole="PermissionType" />
-          <NavigationProperty Name="Documents" Relationship="ArchiveModel.FK_Document_User" FromRole="UserInfo" ToRole="Document" />
-          <NavigationProperty Name="Views" Relationship="ArchiveModel.FK_View_User" FromRole="UserInfo" ToRole="View" />
-          <NavigationProperty Name="Views1" Relationship="ArchiveModel.FK_View_User1" FromRole="UserInfo" ToRole="View" />
-        </EntityType>
         <EntityType Name="View">
           <Key>
             <PropertyRef Name="ViewId" />
@@ -917,66 +1037,6 @@
           <Property Name="WorkFlowStateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="WorkFlowTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Document">
-          <Key>
-            <PropertyRef Name="DocumentId" />
-          </Key>
-          <Property Name="DocumentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" />
-          <Property Name="DocumentCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="SiteCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OldTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NewTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SubTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="PublishStateId" Type="Int32" />
-          <Property Name="PermissionStateId" Type="Int32" />
-          <Property Name="CreatorUserId" Type="Int32" />
-          <Property Name="PadidAvarId" Type="Int32" />
-          <Property Name="LanguageId" Type="Int32" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CollectionId" Type="Int32" />
-          <Property Name="SessionNumber" Type="Int32" />
-          <Property Name="SessionCount" Type="Int32" />
-          <Property Name="SessionPlace" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SessionDate" Type="DateTime" Precision="3" />
-          <Property Name="RelatedLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MainCategoryId" Type="Int32" />
-          <Property Name="ContentTypeId" Type="Int32" />
-          <Property Name="PublishYear" Type="Int32" />
-          <Property Name="PublishPlace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BookPublisher" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="BookVolumeNumber" Type="Int32" />
-          <Property Name="BookPageNumber" Type="Int32" />
-          <Property Name="BookVolumeCount" Type="Int32" />
-          <Property Name="FipaCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TranslateLanguageId" Type="Int32" />
-          <Property Name="Translator" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Narrator" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="SecondCategoryId" Type="Int32" />
-          <Property Name="FirstCategoryId" Type="Int32" />
-          <NavigationProperty Name="Category" Relationship="ArchiveModel.FK_Document_Category" FromRole="Document" ToRole="Category" />
-          <NavigationProperty Name="Collection" Relationship="ArchiveModel.FK_Document_Collection" FromRole="Document" ToRole="Collection" />
-          <NavigationProperty Name="Language" Relationship="ArchiveModel.FK_Document_Language" FromRole="Document" ToRole="Language" />
-          <NavigationProperty Name="PadidAvar" Relationship="ArchiveModel.FK_Document_PadidAvar" FromRole="Document" ToRole="PadidAvar" />
-          <NavigationProperty Name="PermissionState" Relationship="ArchiveModel.FK_Document_PermissionLevel" FromRole="Document" ToRole="PermissionState" />
-          <NavigationProperty Name="PublishState" Relationship="ArchiveModel.FK_Document_PublishState" FromRole="Document" ToRole="PublishState" />
-          <NavigationProperty Name="UserInfo" Relationship="ArchiveModel.FK_Document_User" FromRole="Document" ToRole="UserInfo" />
-          <NavigationProperty Name="DocumentResourceRelations" Relationship="ArchiveModel.FK_DocumentResourceRelation_Document" FromRole="Document" ToRole="DocumentResourceRelation" />
-          <NavigationProperty Name="DocumentSubjectRelations" Relationship="ArchiveModel.FK_DocumentSubjectRelation_Document" FromRole="Document" ToRole="DocumentSubjectRelation" />
-          <NavigationProperty Name="Contents" Relationship="ArchiveModel.FK_Content_Document" FromRole="Document" ToRole="Content" />
-        </EntityType>
-        <EntityType Name="DocumentResourceRelation">
-          <Key>
-            <PropertyRef Name="DocumentResourceRelationId" />
-          </Key>
-          <Property Name="DocumentResourceRelationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DocumentId" Type="Int32" />
-          <Property Name="ResourceId" Type="Int32" />
-          <NavigationProperty Name="Document" Relationship="ArchiveModel.FK_DocumentResourceRelation_Document" FromRole="DocumentResourceRelation" ToRole="Document" />
-          <NavigationProperty Name="Resource" Relationship="ArchiveModel.FK_DocumentResourceRelation_Resource" FromRole="DocumentResourceRelation" ToRole="Resource" />
-        </EntityType>
         <EntityType Name="DocumentSubjectRelation">
           <Key>
             <PropertyRef Name="DocumentSubjectRelationId" />
@@ -984,27 +1044,8 @@
           <Property Name="DocumentSubjectRelationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DocumentId" Type="Int32" />
           <Property Name="SubjectId" Type="Int32" />
-          <NavigationProperty Name="Document" Relationship="ArchiveModel.FK_DocumentSubjectRelation_Document" FromRole="DocumentSubjectRelation" ToRole="Document" />
           <NavigationProperty Name="Subject" Relationship="ArchiveModel.FK_DocumentSubjectRelation_Subject" FromRole="DocumentSubjectRelation" ToRole="Subject" />
-        </EntityType>
-        <EntityType Name="Resource">
-          <Key>
-            <PropertyRef Name="ResourceId" />
-          </Key>
-          <Property Name="ResourceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ResourceTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DocumentResourceRelations" Relationship="ArchiveModel.FK_DocumentResourceRelation_Resource" FromRole="Resource" ToRole="DocumentResourceRelation" />
-          <NavigationProperty Name="Files" Relationship="ArchiveModel.FK_File_Resource" FromRole="Resource" ToRole="File" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Document" Relationship="ArchiveModel.FK_DocumentSubjectRelation_Document" FromRole="DocumentSubjectRelation" ToRole="Document" />
         </EntityType>
         <Association Name="FK_CodeRange_Category">
           <End Type="ArchiveModel.Category" Role="Category" Multiplicity="0..1" />
@@ -1018,186 +1059,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Document_Category">
-          <End Type="ArchiveModel.Category" Role="Category" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="Document">
-              <PropertyRef Name="MainCategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Document_Collection">
-          <End Type="ArchiveModel.Collection" Role="Collection" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Collection">
-              <PropertyRef Name="CollectionId" />
-            </Principal>
-            <Dependent Role="Document">
-              <PropertyRef Name="CollectionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Comment_User">
-          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
-          <End Type="ArchiveModel.Comment" Role="Comment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
-            </Principal>
-            <Dependent Role="Comment">
-              <PropertyRef Name="SenderUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Comment_User1">
-          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
-          <End Type="ArchiveModel.Comment" Role="Comment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
-            </Principal>
-            <Dependent Role="Comment">
-              <PropertyRef Name="ReceiverUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Document_Language">
-          <End Type="ArchiveModel.Language" Role="Language" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Language">
-              <PropertyRef Name="LanguageId" />
-            </Principal>
-            <Dependent Role="Document">
-              <PropertyRef Name="LanguageId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Document_PadidAvar">
-          <End Type="ArchiveModel.PadidAvar" Role="PadidAvar" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PadidAvar">
-              <PropertyRef Name="PadidAvarId" />
-            </Principal>
-            <Dependent Role="Document">
-              <PropertyRef Name="PadidAvarId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Document_PermissionLevel">
-          <End Type="ArchiveModel.PermissionState" Role="PermissionState" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PermissionState">
-              <PropertyRef Name="PermissionStateId" />
-            </Principal>
-            <Dependent Role="Document">
-              <PropertyRef Name="PermissionStateId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_User_PermissionType">
-          <End Type="ArchiveModel.PermissionType" Role="PermissionType" Multiplicity="1" />
-          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PermissionType">
-              <PropertyRef Name="PermissionTypeId" />
-            </Principal>
-            <Dependent Role="UserInfo">
-              <PropertyRef Name="PermissionTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Document_PublishState">
-          <End Type="ArchiveModel.PublishState" Role="PublishState" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PublishState">
-              <PropertyRef Name="PublishStateId" />
-            </Principal>
-            <Dependent Role="Document">
-              <PropertyRef Name="PublishStateId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Document_User">
-          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
-            </Principal>
-            <Dependent Role="Document">
-              <PropertyRef Name="CreatorUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_View_User">
-          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
-          <End Type="ArchiveModel.View" Role="View" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
-            </Principal>
-            <Dependent Role="View">
-              <PropertyRef Name="SenderUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_View_User1">
-          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
-          <End Type="ArchiveModel.View" Role="View" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserInfo">
-              <PropertyRef Name="UsreId" />
-            </Principal>
-            <Dependent Role="View">
-              <PropertyRef Name="ReceiverUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DocumentResourceRelation_Document">
-          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="0..1" />
-          <End Type="ArchiveModel.DocumentResourceRelation" Role="DocumentResourceRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Document">
-              <PropertyRef Name="DocumentId" />
-            </Principal>
-            <Dependent Role="DocumentResourceRelation">
-              <PropertyRef Name="DocumentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DocumentSubjectRelation_Document">
-          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="0..1" />
-          <End Type="ArchiveModel.DocumentSubjectRelation" Role="DocumentSubjectRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Document">
-              <PropertyRef Name="DocumentId" />
-            </Principal>
-            <Dependent Role="DocumentSubjectRelation">
-              <PropertyRef Name="DocumentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DocumentResourceRelation_Resource">
-          <End Type="ArchiveModel.Resource" Role="Resource" Multiplicity="0..1" />
-          <End Type="ArchiveModel.DocumentResourceRelation" Role="DocumentResourceRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Resource">
-              <PropertyRef Name="ResourceId" />
-            </Principal>
-            <Dependent Role="DocumentResourceRelation">
-              <PropertyRef Name="ResourceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Content">
           <Key>
             <PropertyRef Name="ContentId" />
@@ -1208,8 +1069,8 @@
           <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ContentType" Relationship="ArchiveModel.FK_Content_ContentType" FromRole="Content" ToRole="ContentType" />
-          <NavigationProperty Name="Document" Relationship="ArchiveModel.FK_Content_Document" FromRole="Content" ToRole="Document" />
           <NavigationProperty Name="Files" Relationship="ArchiveModel.FK_File_Content" FromRole="Content" ToRole="File" />
+          <NavigationProperty Name="Document" Relationship="ArchiveModel.FK_Content_Document" FromRole="Content" ToRole="Document" />
         </EntityType>
         <Association Name="FK_Content_ContentType">
           <End Type="ArchiveModel.ContentType" Role="ContentType" Multiplicity="0..1" />
@@ -1220,18 +1081,6 @@
             </Principal>
             <Dependent Role="Content">
               <PropertyRef Name="ContentTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Content_Document">
-          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="0..1" />
-          <End Type="ArchiveModel.Content" Role="Content" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Document">
-              <PropertyRef Name="DocumentId" />
-            </Principal>
-            <Dependent Role="Content">
-              <PropertyRef Name="DocumentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1329,6 +1178,51 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Narrator">
+          <Key>
+            <PropertyRef Name="NarratorId" />
+          </Key>
+          <Property Name="NarratorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NarratorName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NarratorNameSample" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DocumentNarratorRelations" Relationship="ArchiveModel.FK_DocumentNarratorRelation_Narrator" FromRole="Narrator" ToRole="DocumentNarratorRelation" />
+        </EntityType>
+        <EntityType Name="PublicationPlace">
+          <Key>
+            <PropertyRef Name="PublicationPlaceId" />
+          </Key>
+          <Property Name="PublicationPlaceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PublicationPlaceTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SamplePublicationPlace" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Documents" Relationship="ArchiveModel.FK_Document_PublicationPlace" FromRole="PublicationPlace" ToRole="Document" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="PublisherId" />
+          </Key>
+          <Property Name="PublisherId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PublisherTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SamplePublisherTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Documents" Relationship="ArchiveModel.FK_Document_Publisher" FromRole="Publisher" ToRole="Document" />
+        </EntityType>
+        <EntityType Name="Resource">
+          <Key>
+            <PropertyRef Name="ResourceId" />
+          </Key>
+          <Property Name="ResourceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResourceTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Files" Relationship="ArchiveModel.FK_File_Resource" FromRole="Resource" ToRole="File" />
+          <NavigationProperty Name="DocumentResourceRelations" Relationship="ArchiveModel.FK_DocumentResourceRelation_Resource" FromRole="Resource" ToRole="DocumentResourceRelation" />
+        </EntityType>
+        <EntityType Name="Translator">
+          <Key>
+            <PropertyRef Name="TranslatorId" />
+          </Key>
+          <Property Name="TranslatorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TranslatorTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SampleTranslatorTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Documents" Relationship="ArchiveModel.FK_Document_Translator" FromRole="Translator" ToRole="Document" />
+        </EntityType>
         <Association Name="FK_File_Resource">
           <End Type="ArchiveModel.Resource" Role="Resource" Multiplicity="0..1" />
           <End Type="ArchiveModel.File" Role="File" Multiplicity="*" />
@@ -1338,6 +1232,348 @@
             </Principal>
             <Dependent Role="File">
               <PropertyRef Name="ResourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="DocumentId" />
+          </Key>
+          <Property Name="DocumentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="DocumentCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="SiteCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OldTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NewTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SubTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PublishStateId" Type="Int32" />
+          <Property Name="PermissionStateId" Type="Int32" />
+          <Property Name="CreatorUserId" Type="Int32" />
+          <Property Name="PadidAvarId" Type="Int32" />
+          <Property Name="LanguageId" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CollectionId" Type="Int32" />
+          <Property Name="SessionNumber" Type="Int32" />
+          <Property Name="SessionCount" Type="Int32" />
+          <Property Name="SessionPlace" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SessionDate" Type="DateTime" Precision="3" />
+          <Property Name="RelatedLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MainCategoryId" Type="Int32" />
+          <Property Name="ContentTypeId" Type="Int32" />
+          <Property Name="PublishYear" Type="Int32" />
+          <Property Name="BookVolumeNumber" Type="Int32" />
+          <Property Name="BookPageCount" Type="Int32" />
+          <Property Name="BookVolumeCount" Type="Int32" />
+          <Property Name="FipaCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TranslateLanguageId" Type="Int32" />
+          <Property Name="SecondCategoryId" Type="Int32" />
+          <Property Name="FirstCategoryId" Type="Int32" />
+          <Property Name="PublicationPlaceId" Type="Int32" />
+          <Property Name="TranslatorId" Type="Int32" />
+          <Property Name="PublisherId" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="ArchiveModel.FK_Document_Category" FromRole="Document" ToRole="Category" />
+          <NavigationProperty Name="Collection" Relationship="ArchiveModel.FK_Document_Collection" FromRole="Document" ToRole="Collection" />
+          <NavigationProperty Name="Language" Relationship="ArchiveModel.FK_Document_Language" FromRole="Document" ToRole="Language" />
+          <NavigationProperty Name="PadidAvar" Relationship="ArchiveModel.FK_Document_PadidAvar" FromRole="Document" ToRole="PadidAvar" />
+          <NavigationProperty Name="PermissionState" Relationship="ArchiveModel.FK_Document_PermissionLevel" FromRole="Document" ToRole="PermissionState" />
+          <NavigationProperty Name="PublicationPlace" Relationship="ArchiveModel.FK_Document_PublicationPlace" FromRole="Document" ToRole="PublicationPlace" />
+          <NavigationProperty Name="Publisher" Relationship="ArchiveModel.FK_Document_Publisher" FromRole="Document" ToRole="Publisher" />
+          <NavigationProperty Name="PublishState" Relationship="ArchiveModel.FK_Document_PublishState" FromRole="Document" ToRole="PublishState" />
+          <NavigationProperty Name="Translator" Relationship="ArchiveModel.FK_Document_Translator" FromRole="Document" ToRole="Translator" />
+          <NavigationProperty Name="Contents" Relationship="ArchiveModel.FK_Content_Document" FromRole="Document" ToRole="Content" />
+          <NavigationProperty Name="DocumentNarratorRelations" Relationship="ArchiveModel.FK_DocumentNarratorRelation_Document" FromRole="Document" ToRole="DocumentNarratorRelation" />
+          <NavigationProperty Name="DocumentResourceRelations" Relationship="ArchiveModel.FK_DocumentResourceRelation_Document" FromRole="Document" ToRole="DocumentResourceRelation" />
+          <NavigationProperty Name="DocumentSubjectRelations" Relationship="ArchiveModel.FK_DocumentSubjectRelation_Document" FromRole="Document" ToRole="DocumentSubjectRelation" />
+          <NavigationProperty Name="UserInfo" Relationship="ArchiveModel.FK_Document_User" FromRole="Document" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="DocumentNarratorRelation">
+          <Key>
+            <PropertyRef Name="DocumentNarratorRelationId" />
+          </Key>
+          <Property Name="DocumentNarratorRelationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentId" Type="Int32" />
+          <Property Name="NarratorId" Type="Int32" />
+          <NavigationProperty Name="Narrator" Relationship="ArchiveModel.FK_DocumentNarratorRelation_Narrator" FromRole="DocumentNarratorRelation" ToRole="Narrator" />
+          <NavigationProperty Name="Document" Relationship="ArchiveModel.FK_DocumentNarratorRelation_Document" FromRole="DocumentNarratorRelation" ToRole="Document" />
+        </EntityType>
+        <EntityType Name="DocumentResourceRelation">
+          <Key>
+            <PropertyRef Name="DocumentResourceRelationId" />
+          </Key>
+          <Property Name="DocumentResourceRelationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentId" Type="Int32" />
+          <Property Name="ResourceId" Type="Int32" />
+          <NavigationProperty Name="Resource" Relationship="ArchiveModel.FK_DocumentResourceRelation_Resource" FromRole="DocumentResourceRelation" ToRole="Resource" />
+          <NavigationProperty Name="Document" Relationship="ArchiveModel.FK_DocumentResourceRelation_Document" FromRole="DocumentResourceRelation" ToRole="Document" />
+        </EntityType>
+        <Association Name="FK_Document_Category">
+          <End Type="ArchiveModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="MainCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_Collection">
+          <End Type="ArchiveModel.Collection" Role="Collection" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Collection">
+              <PropertyRef Name="CollectionId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="CollectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_Language">
+          <End Type="ArchiveModel.Language" Role="Language" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentNarratorRelation_Narrator">
+          <End Type="ArchiveModel.Narrator" Role="Narrator" Multiplicity="0..1" />
+          <End Type="ArchiveModel.DocumentNarratorRelation" Role="DocumentNarratorRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Narrator">
+              <PropertyRef Name="NarratorId" />
+            </Principal>
+            <Dependent Role="DocumentNarratorRelation">
+              <PropertyRef Name="NarratorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_PadidAvar">
+          <End Type="ArchiveModel.PadidAvar" Role="PadidAvar" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PadidAvar">
+              <PropertyRef Name="PadidAvarId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="PadidAvarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_PermissionLevel">
+          <End Type="ArchiveModel.PermissionState" Role="PermissionState" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PermissionState">
+              <PropertyRef Name="PermissionStateId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="PermissionStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_PublicationPlace">
+          <End Type="ArchiveModel.PublicationPlace" Role="PublicationPlace" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PublicationPlace">
+              <PropertyRef Name="PublicationPlaceId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="PublicationPlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_Publisher">
+          <End Type="ArchiveModel.Publisher" Role="Publisher" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="PublisherId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="PublisherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_PublishState">
+          <End Type="ArchiveModel.PublishState" Role="PublishState" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PublishState">
+              <PropertyRef Name="PublishStateId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="PublishStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentResourceRelation_Resource">
+          <End Type="ArchiveModel.Resource" Role="Resource" Multiplicity="0..1" />
+          <End Type="ArchiveModel.DocumentResourceRelation" Role="DocumentResourceRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resource">
+              <PropertyRef Name="ResourceId" />
+            </Principal>
+            <Dependent Role="DocumentResourceRelation">
+              <PropertyRef Name="ResourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_Translator">
+          <End Type="ArchiveModel.Translator" Role="Translator" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Translator">
+              <PropertyRef Name="TranslatorId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="TranslatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Content_Document">
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Content" Role="Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document">
+              <PropertyRef Name="DocumentId" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="DocumentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentNarratorRelation_Document">
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="0..1" />
+          <End Type="ArchiveModel.DocumentNarratorRelation" Role="DocumentNarratorRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document">
+              <PropertyRef Name="DocumentId" />
+            </Principal>
+            <Dependent Role="DocumentNarratorRelation">
+              <PropertyRef Name="DocumentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentResourceRelation_Document">
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="0..1" />
+          <End Type="ArchiveModel.DocumentResourceRelation" Role="DocumentResourceRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document">
+              <PropertyRef Name="DocumentId" />
+            </Principal>
+            <Dependent Role="DocumentResourceRelation">
+              <PropertyRef Name="DocumentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentSubjectRelation_Document">
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="0..1" />
+          <End Type="ArchiveModel.DocumentSubjectRelation" Role="DocumentSubjectRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document">
+              <PropertyRef Name="DocumentId" />
+            </Principal>
+            <Dependent Role="DocumentSubjectRelation">
+              <PropertyRef Name="DocumentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PermissionTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Comments" Relationship="ArchiveModel.FK_Comment_User" FromRole="UserInfo" ToRole="Comment" />
+          <NavigationProperty Name="Comments1" Relationship="ArchiveModel.FK_Comment_User1" FromRole="UserInfo" ToRole="Comment" />
+          <NavigationProperty Name="PermissionType" Relationship="ArchiveModel.FK_User_PermissionType" FromRole="UserInfo" ToRole="PermissionType" />
+          <NavigationProperty Name="Documents" Relationship="ArchiveModel.FK_Document_User" FromRole="UserInfo" ToRole="Document" />
+          <NavigationProperty Name="Views" Relationship="ArchiveModel.FK_View_User" FromRole="UserInfo" ToRole="View" />
+          <NavigationProperty Name="Views1" Relationship="ArchiveModel.FK_View_User1" FromRole="UserInfo" ToRole="View" />
+        </EntityType>
+        <Association Name="FK_Comment_User">
+          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="ArchiveModel.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="SenderUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_User1">
+          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="ArchiveModel.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="ReceiverUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_PermissionType">
+          <End Type="ArchiveModel.PermissionType" Role="PermissionType" Multiplicity="1" />
+          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PermissionType">
+              <PropertyRef Name="PermissionTypeId" />
+            </Principal>
+            <Dependent Role="UserInfo">
+              <PropertyRef Name="PermissionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_User">
+          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="0..1" />
+          <End Type="ArchiveModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="CreatorUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_View_User">
+          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="ArchiveModel.View" Role="View" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="View">
+              <PropertyRef Name="SenderUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_View_User1">
+          <End Type="ArchiveModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="ArchiveModel.View" Role="View" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="View">
+              <PropertyRef Name="ReceiverUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1455,18 +1691,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserInfoes">
-            <EntityTypeMapping TypeName="ArchiveModel.UserInfo">
-              <MappingFragment StoreEntitySet="UserInfo">
-                <ScalarProperty Name="PermissionTypeId" ColumnName="PermissionTypeId" />
-                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="UsreId" ColumnName="UsreId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Views">
             <EntityTypeMapping TypeName="ArchiveModel.View">
               <MappingFragment StoreEntitySet="View">
@@ -1488,81 +1712,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Documents">
-            <EntityTypeMapping TypeName="ArchiveModel.Document">
-              <MappingFragment StoreEntitySet="Document">
-                <ScalarProperty Name="FirstCategoryId" ColumnName="FirstCategoryId" />
-                <ScalarProperty Name="SecondCategoryId" ColumnName="SecondCategoryId" />
-                <ScalarProperty Name="Narrator" ColumnName="Narrator" />
-                <ScalarProperty Name="Translator" ColumnName="Translator" />
-                <ScalarProperty Name="TranslateLanguageId" ColumnName="TranslateLanguageId" />
-                <ScalarProperty Name="FipaCode" ColumnName="FipaCode" />
-                <ScalarProperty Name="BookVolumeCount" ColumnName="BookVolumeCount" />
-                <ScalarProperty Name="BookPageNumber" ColumnName="BookPageNumber" />
-                <ScalarProperty Name="BookVolumeNumber" ColumnName="BookVolumeNumber" />
-                <ScalarProperty Name="BookPublisher" ColumnName="BookPublisher" />
-                <ScalarProperty Name="PublishPlace" ColumnName="PublishPlace" />
-                <ScalarProperty Name="PublishYear" ColumnName="PublishYear" />
-                <ScalarProperty Name="ContentTypeId" ColumnName="ContentTypeId" />
-                <ScalarProperty Name="MainCategoryId" ColumnName="MainCategoryId" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="RelatedLink" ColumnName="RelatedLink" />
-                <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
-                <ScalarProperty Name="SessionPlace" ColumnName="SessionPlace" />
-                <ScalarProperty Name="SessionCount" ColumnName="SessionCount" />
-                <ScalarProperty Name="SessionNumber" ColumnName="SessionNumber" />
-                <ScalarProperty Name="CollectionId" ColumnName="CollectionId" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
-                <ScalarProperty Name="PadidAvarId" ColumnName="PadidAvarId" />
-                <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
-                <ScalarProperty Name="PermissionStateId" ColumnName="PermissionStateId" />
-                <ScalarProperty Name="PublishStateId" ColumnName="PublishStateId" />
-                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
-                <ScalarProperty Name="NewTitle" ColumnName="NewTitle" />
-                <ScalarProperty Name="OldTitle" ColumnName="OldTitle" />
-                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="DocumentCode" ColumnName="DocumentCode" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DocumentResourceRelations">
-            <EntityTypeMapping TypeName="ArchiveModel.DocumentResourceRelation">
-              <MappingFragment StoreEntitySet="DocumentResourceRelation">
-                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
-                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
-                <ScalarProperty Name="DocumentResourceRelationId" ColumnName="DocumentResourceRelationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="DocumentSubjectRelations">
             <EntityTypeMapping TypeName="ArchiveModel.DocumentSubjectRelation">
               <MappingFragment StoreEntitySet="DocumentSubjectRelation">
                 <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
                 <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
                 <ScalarProperty Name="DocumentSubjectRelationId" ColumnName="DocumentSubjectRelationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Resources">
-            <EntityTypeMapping TypeName="ArchiveModel.Resource">
-              <MappingFragment StoreEntitySet="Resource">
-                <ScalarProperty Name="ResourceTitle" ColumnName="ResourceTitle" />
-                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ArchiveModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1617,6 +1772,120 @@
                 <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
                 <ScalarProperty Name="ContentId" ColumnName="ContentId" />
                 <ScalarProperty Name="FileId" ColumnName="FileId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Narrators">
+            <EntityTypeMapping TypeName="ArchiveModel.Narrator">
+              <MappingFragment StoreEntitySet="Narrator">
+                <ScalarProperty Name="NarratorNameSample" ColumnName="NarratorNameSample" />
+                <ScalarProperty Name="NarratorName" ColumnName="NarratorName" />
+                <ScalarProperty Name="NarratorId" ColumnName="NarratorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PublicationPlaces">
+            <EntityTypeMapping TypeName="ArchiveModel.PublicationPlace">
+              <MappingFragment StoreEntitySet="PublicationPlace">
+                <ScalarProperty Name="SamplePublicationPlace" ColumnName="SamplePublicationPlace" />
+                <ScalarProperty Name="PublicationPlaceTitle" ColumnName="PublicationPlaceTitle" />
+                <ScalarProperty Name="PublicationPlaceId" ColumnName="PublicationPlaceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publishers">
+            <EntityTypeMapping TypeName="ArchiveModel.Publisher">
+              <MappingFragment StoreEntitySet="Publisher">
+                <ScalarProperty Name="SamplePublisherTitle" ColumnName="SamplePublisherTitle" />
+                <ScalarProperty Name="PublisherTitle" ColumnName="PublisherTitle" />
+                <ScalarProperty Name="PublisherId" ColumnName="PublisherId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resources">
+            <EntityTypeMapping TypeName="ArchiveModel.Resource">
+              <MappingFragment StoreEntitySet="Resource">
+                <ScalarProperty Name="ResourceTitle" ColumnName="ResourceTitle" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Translators">
+            <EntityTypeMapping TypeName="ArchiveModel.Translator">
+              <MappingFragment StoreEntitySet="Translator">
+                <ScalarProperty Name="SampleTranslatorTitle" ColumnName="SampleTranslatorTitle" />
+                <ScalarProperty Name="TranslatorTitle" ColumnName="TranslatorTitle" />
+                <ScalarProperty Name="TranslatorId" ColumnName="TranslatorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="ArchiveModel.Document">
+              <MappingFragment StoreEntitySet="Document">
+                <ScalarProperty Name="PublisherId" ColumnName="PublisherId" />
+                <ScalarProperty Name="TranslatorId" ColumnName="TranslatorId" />
+                <ScalarProperty Name="PublicationPlaceId" ColumnName="PublicationPlaceId" />
+                <ScalarProperty Name="FirstCategoryId" ColumnName="FirstCategoryId" />
+                <ScalarProperty Name="SecondCategoryId" ColumnName="SecondCategoryId" />
+                <ScalarProperty Name="TranslateLanguageId" ColumnName="TranslateLanguageId" />
+                <ScalarProperty Name="FipaCode" ColumnName="FipaCode" />
+                <ScalarProperty Name="BookVolumeCount" ColumnName="BookVolumeCount" />
+                <ScalarProperty Name="BookPageCount" ColumnName="BookPageCount" />
+                <ScalarProperty Name="BookVolumeNumber" ColumnName="BookVolumeNumber" />
+                <ScalarProperty Name="PublishYear" ColumnName="PublishYear" />
+                <ScalarProperty Name="ContentTypeId" ColumnName="ContentTypeId" />
+                <ScalarProperty Name="MainCategoryId" ColumnName="MainCategoryId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RelatedLink" ColumnName="RelatedLink" />
+                <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
+                <ScalarProperty Name="SessionPlace" ColumnName="SessionPlace" />
+                <ScalarProperty Name="SessionCount" ColumnName="SessionCount" />
+                <ScalarProperty Name="SessionNumber" ColumnName="SessionNumber" />
+                <ScalarProperty Name="CollectionId" ColumnName="CollectionId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="PadidAvarId" ColumnName="PadidAvarId" />
+                <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+                <ScalarProperty Name="PermissionStateId" ColumnName="PermissionStateId" />
+                <ScalarProperty Name="PublishStateId" ColumnName="PublishStateId" />
+                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="NewTitle" ColumnName="NewTitle" />
+                <ScalarProperty Name="OldTitle" ColumnName="OldTitle" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="DocumentCode" ColumnName="DocumentCode" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentNarratorRelations">
+            <EntityTypeMapping TypeName="ArchiveModel.DocumentNarratorRelation">
+              <MappingFragment StoreEntitySet="DocumentNarratorRelation">
+                <ScalarProperty Name="NarratorId" ColumnName="NarratorId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="DocumentNarratorRelationId" ColumnName="DocumentNarratorRelationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentResourceRelations">
+            <EntityTypeMapping TypeName="ArchiveModel.DocumentResourceRelation">
+              <MappingFragment StoreEntitySet="DocumentResourceRelation">
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="DocumentResourceRelationId" ColumnName="DocumentResourceRelationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfoes">
+            <EntityTypeMapping TypeName="ArchiveModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="PermissionTypeId" ColumnName="PermissionTypeId" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

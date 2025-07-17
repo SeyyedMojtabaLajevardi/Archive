@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace Archive.BusinessLogic
 {
@@ -42,33 +43,42 @@ namespace Archive.BusinessLogic
 
         public File GetMaxFileByCategoryId(int categoryId)
         {
-            return _context.Files.Where(x => x.CategoryId == categoryId).OrderByDescending(x=>x.FileCode).FirstOrDefault();
+            return _context.Files.Where(x => x.CategoryId == categoryId).OrderByDescending(x => x.FileCode).FirstOrDefault();
         }
 
-        public bool UpdateFile(int fileId, File file)
+        public void UpdateFile(File file)
         {
-            var existingFile = _context.Files.Find(fileId);
-            if (existingFile == null) return false;
+            try
+            {
+                var existingFile = _context.Files.FirstOrDefault(x => x.FileId == file.FileId);
+                if (existingFile == null)
+                    throw new Exception("فایل مورد نظر یافت نشد.");
 
-            existingFile.FileName = file.FileName;
-            existingFile.Text = file.Text;
-            existingFile.DeletionDescription = file.DeletionDescription;
-            //existingFile.Content = file.Content;
-            existingFile.ContentId = file.ContentId;
-            existingFile.IsUploaded = file.IsUploaded;
-            existingFile.CategoryId = file.CategoryId;
-            existingFile.EditorId = file.EditorId;
-            //existingFile.Editor = file.Editor;
-            existingFile.FileNumber = file.FileNumber;
-            existingFile.Comment = file.Comment;
-            existingFile.FileCode = file.FileCode;
-            existingFile.FileName = file.FileName;
-            //existingFile.FileType = file.FileType;
-            existingFile.FileTypeId = file.FileTypeId;
-            //existingFile.Resource = file.Resource;
-            existingFile.ResourceId = file.ResourceId;
+                _context.Entry(existingFile).CurrentValues.SetValues(file);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            //existingFile.FileName = file.FileName;
+            //existingFile.Text = file.Text;
+            //existingFile.DeletionDescription = file.DeletionDescription;
+            ////existingFile.Content = file.Content;
+            //existingFile.ContentId = file.ContentId;
+            //existingFile.IsUploaded = file.IsUploaded;
+            //existingFile.CategoryId = file.CategoryId;
+            //existingFile.EditorId = file.EditorId;
+            ////existingFile.Editor = file.Editor;
+            //existingFile.FileNumber = file.FileNumber;
+            //existingFile.Comment = file.Comment;
+            //existingFile.FileCode = file.FileCode;
+            //existingFile.FileName = file.FileName;
+            ////existingFile.FileType = file.FileType;
+            //existingFile.FileTypeId = file.FileTypeId;
+            ////existingFile.Resource = file.Resource;
+            //existingFile.ResourceId = file.ResourceId;
             _context.SaveChanges();
-            return true;
         }
 
         File IFileService.GetFileByFileCode(int fileCode)
